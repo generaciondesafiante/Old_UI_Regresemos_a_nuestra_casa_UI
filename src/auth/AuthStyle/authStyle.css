@@ -1,0 +1,155 @@
+.form-container {
+  background-image: linear-gradient(
+      0deg,
+      rgba(41, 56, 75, 0.9),
+      rgba(41, 56, 75, 0.9)
+    ),
+    url('https://i.imgur.com/giBenIE.png');
+  background-size: cover;
+  font-family: var(--primaryFont);
+}
+
+.form-action {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-title {
+  margin-bottom: 2rem;
+  margin-top: 3rem;
+}
+
+.form-title span {
+  display: flex;
+  justify-content: center;
+  color: var(--lightGrey);
+  font-size: 1.7rem;
+  margin: 1rem 0rem;
+}
+
+.form-container_inLa {
+  position: relative;
+  padding: 0.6rem;
+  margin-top: 0.8rem;
+}
+
+.form-input {
+  padding: 0.7rem;
+  border-radius: 0.5rem;
+  width: 16rem;
+  border: none;
+  outline: 0.05rem solid rgba(97, 211, 195, 1);
+  background-color: transparent;
+  color: var(--white);
+}
+
+.form-label {
+  position: absolute;
+  left: 0.8rem;
+  color: var(--white);
+  font-size: 1rem;
+  transition: 0.5s;
+  padding: 0.6rem;
+}
+
+.form-input:focus + .form-label {
+  transform: translateY(-2.1rem);
+  color: var(--greenDesafianteLetters);
+  padding-left: 0rem;
+  font-size: 1rem;
+}
+
+.form-input:not(:placeholder-shown) + .form-label {
+  transform: translateY(-2.8rem);
+  transition: 0.5s;
+}
+
+.form-forgot_login {
+  text-decoration: none;
+  color: var(--lightGrey);
+  margin-top: 1rem;
+}
+
+.form-forgot_login:hover {
+  text-decoration: underline;
+  color: var(--greenDesafianteLetters);
+}
+
+.form-btn {
+  width: 7rem;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 0.6rem;
+  background-color: #61d3c3;
+  color: var(--white);
+  font-size: 1rem;
+  margin-top: 1.5rem;
+  transition: 400ms;
+  cursor: pointer;
+}
+
+.form-btn:hover {
+  background-color: #fcfcfc;
+  color: #61d3c3;
+  transform: scale(1.05);
+  font-weight: bold;
+}
+
+@media (min-width: 700px) {
+  .form-title span {
+    font-size: 2.5rem;
+  }
+
+  .form-container_inLa {
+    position: relative;
+    padding: 0.6rem;
+    margin-top: 0.8rem;
+  }
+
+  .login_input {
+    width: 25rem;
+  }
+
+  .form-input:focus + .form-label {
+    font-size: 1.2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .form-title {
+    margin-top: 4rem;
+  }
+
+  .form-title span {
+    font-size: 3rem;
+  }
+
+  .form-input {
+    padding: 0.9rem;
+    width: 30rem;
+  }
+
+  .form-label {
+    font-size: 1.2rem;
+    transition: 0.5s;
+  }
+
+  .form-input:focus + .form-label {
+    transform: translateY(-2.2rem);
+    font-size: 1.2rem;
+  }
+
+  .form-forgot_login {
+    font-size: 1.2rem;
+  }
+
+  .form-btn {
+    width: 9rem;
+    padding: 0.7rem;
+    font-size: 1.2rem;
+    margin-top: 1.7rem;
+  }
+}

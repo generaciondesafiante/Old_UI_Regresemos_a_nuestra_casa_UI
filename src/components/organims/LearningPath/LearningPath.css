@@ -1,0 +1,17 @@
+.learningPath {
+  padding-bottom: 4rem;
+}
+
+@media (min-width: 768px) {
+  .learningPath {
+    padding-bottom: 0rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .learningPath {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+}

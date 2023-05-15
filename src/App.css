@@ -1,0 +1,21 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+:root {
+  --primaryFont: 'Montserrat', sans-serif;
+  --white: #fcfcfc;
+  --black: black;
+  --darkBlue: #2b394a;
+  --lightGrey: #ffffffb0;
+  --darkGray: #707070;
+  --greenDesafiante: #168991;
+  --yellow: #fad047;
+  --blueTitle: #1a2284;
+  --blueContent: #234e67;
+  --greenDesafianteLetters: rgba(97, 211, 195, 0.9);
+  --greenContentLetter: #0f5765;
+}

@@ -1,0 +1,56 @@
+.classRoomRoute-subcontent {
+  background-color: var(--greenDesafianteLetters);
+}
+
+.classRoomRoute-title {
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--white);
+}
+
+.classRoomRoute-iconCircle {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .classRoomRoute-title {
+    font-size: 1.2rem;
+    padding-left: 7rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .classRoomRoute-subcontent {
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .classRoomRoute-title {
+    display: none;
+  }
+
+  .classRoomRoute-iconCircle {
+    display: block;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    background-color: var(--white);
+    font-size: 0.9rem;
+    text-align: center;
+    padding-top: 0.2rem;
+    color: var(--darkBlue);
+  }
+
+  .classRoomRoute-line {
+    width: 0.15rem;
+    height: 1.8rem;
+    background-color: var(--white);
+  }
+
+  .classRoomRoute-line.hide {
+    display: none;
+  }
+}

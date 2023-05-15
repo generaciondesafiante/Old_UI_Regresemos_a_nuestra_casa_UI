@@ -1,0 +1,129 @@
+.container-profile {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.profile-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+.profile-container_information {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+.profile-title_information {
+  margin-bottom: 3.125rem;
+}
+
+.img-profile {
+  width: 9.375rem;
+  height: 9.375rem;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+.profile-information {
+  margin-top: 2.5rem;
+  align-self: center;
+}
+.information-user {
+  color: var(--darkGray);
+  margin-bottom: 0.625rem;
+}
+.change-information_buttom {
+  padding: 0.625rem;
+  border-radius: 0.375rem;
+  margin-top: 0.625rem;
+  background-color: var(--greenDesafianteLetters);
+
+  font-weight: bold;
+  color: var(--white);
+  border: none;
+}
+.change-information_buttom:hover {
+  cursor: pointer;
+}
+@media (min-width: 768px) {
+  .container-profile {
+    width: calc(100% - 5.625rem);
+    margin-left: 5.625rem;
+  }
+  .profile-container_information {
+    display: grid;
+    grid-template-columns: 35% 40%;
+    justify-content: center;
+    margin-bottom: 3.125rem;
+  }
+  .profile-title_information {
+    font-size: 3.125rem;
+  }
+
+  .profile-content-image {
+    margin: 0 auto;
+  }
+
+  .profile-information {
+    margin-top: 0px;
+    align-self: center;
+  }
+
+  .prifile-title {
+    font-size: 1.375rem;
+  }
+  .information-user {
+    font-size: 1.125rem;
+  }
+  .profile-change_information {
+    margin: 0 auto;
+  }
+}
+@media (min-width: 1024px) {
+  .profile-container_information {
+    display: grid;
+    grid-template-columns: 35% 90%;
+    gap: 1.875rem;
+    justify-content: center;
+    margin-bottom: 3.125rem;
+  }
+  .profile-title_information {
+    font-size: 2.5;
+  }
+  .img-profile {
+    width: 12.5rem;
+    height: 12.5rem;
+  }
+  .profile-container_information {
+    display: grid;
+    grid-template-columns: 20% 40%;
+    justify-content: center;
+    margin-bottom: 3.125rem;
+  }
+  .profile-content-image {
+    margin: 0 auto;
+  }
+
+  .profile-information {
+    margin-top: 0px;
+    align-self: center;
+  }
+  .prifile-title {
+    font-size: 1.75rem;
+  }
+  .information-user {
+    font-size: 1.375rem;
+  }
+  .profile_change-information {
+    margin: 0 auto;
+  }
+  .change-information_buttom {
+    width: 9.375rem;
+    height: 2.5rem;
+  }
+}

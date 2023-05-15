@@ -1,0 +1,67 @@
+.content-learningPath {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+.containerPath {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.3rem;
+}
+.learningPath-classroom {
+  width: 3.75rem;
+  height: 3.75rem;
+  padding: 0.9rem;
+  border-radius: 50%;
+  background-color: #eaeaea;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.icon-lock {
+  color: var(--darkGray);
+  padding: 0.063rem;
+  border-radius: 50%;
+}
+
+@media (min-width: 550px) {
+  .containerPath {
+    row-gap: 3.125rem;
+    column-gap: 5rem;
+  }
+  .learningPath-classroom {
+    width: 5rem;
+    height: 5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .content-learningPath {
+    width: calc(100% - 6.25rem);
+    height: 100vh;
+    margin-left: 5.625rem;
+  }
+  .containerPath {
+    row-gap: 3.75rem;
+    column-gap: 5.625rem;
+  }
+  .learningPath-classroom {
+    width: 5.625rem;
+    height: 5.625rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .containerPath {
+    row-gap: 3.125rem;
+    column-gap: 7.5rem;
+  }
+  .learningPath-classroom {
+    width: 6.25rem;
+    height: 6.25rem;
+  }
+}

@@ -1,0 +1,154 @@
+.dashboard-container_welcome {
+  padding: 2rem 1rem;
+  background-color: var(--white);
+}
+
+.dashboard-content_welcome {
+  width: 18rem;
+  padding: 0.8rem;
+  border: 0.06rem solid rgb(255, 255, 255);
+  border-radius: 1rem;
+  box-shadow: 0.2rem 0.06rem 0.2rem 0.3rem rgba(123, 123, 123, 0.2);
+}
+
+.dashboard-welcome_title {
+  font-size: 1.5rem;
+  color: var(--blueTitle);
+}
+
+.dashboard-welcome_paragraph {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  color: var(--darkGray);
+  text-align: center;
+}
+
+.dashboard-welcome_img {
+  display: none;
+}
+
+.dashboard-continue_course {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.continue-course_subtitle {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  color: var(--blueTitle);
+}
+
+.continue-course_video {
+  width: 9rem;
+  border-radius: 0.5rem;
+}
+
+.dashboard-subcontent_studyMaterial {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.dashboard-studyMaterial {
+  width: 6rem;
+  border-radius: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .dashboard-container_welcome {
+    width: 35rem;
+    padding-left: 7rem;
+  }
+}
+
+@media (min-width: 1090px) {
+  .dashboard-container_welcome {
+    width: 60rem;
+    padding-left: 7rem;
+    padding-top: 4rem;
+    height: 100vh;
+    overflow: auto;
+    padding-bottom: 0rem;
+  }
+
+  .dashboard-content_welcome {
+    position: relative;
+    width: 25rem;
+    padding: 1rem;
+    display: flex;
+  }
+
+  .dashboard-welcome_title {
+    font-size: 1.6rem;
+  }
+
+  .dashboard-welcome_paragraph {
+    width: 15rem;
+    font-size: 1.1rem;
+    text-align: left;
+  }
+
+  .dashboard-welcome_img {
+    display: block;
+    width: 19rem;
+    position: absolute;
+    top: -3rem;
+    right: -11rem;
+  }
+
+  .continue-course_subtitle {
+    margin-top: 2rem;
+    font-size: 1.5rem;
+  }
+
+  .continue-course_video {
+    width: 15rem;
+  }
+
+  .dashboard-studyMaterial {
+    width: 9rem;
+  }
+}
+
+@media (min-width: 1680px) {
+  .dashboard-container_welcome {
+    width: 90rem;
+  }
+
+  .dashboard-content_welcome {
+    width: 35rem;
+    padding: 2rem;
+  }
+
+  .dashboard-welcome_title {
+    font-size: 2rem;
+  }
+
+  .dashboard-welcome_paragraph {
+    font-size: 1.2rem;
+  }
+
+  .dashboard-welcome_img {
+    width: 25rem;
+    top: -4rem;
+    right: -18rem;
+  }
+
+  .dashboard-continue_course {
+    margin-top: 2rem;
+  }
+
+  .continue-course_subtitle {
+    font-size: 1.5rem;
+  }
+
+  .continue-course_video {
+    width: 20rem;
+  }
+
+  .dashboard-studyMaterial {
+    width: 12rem;
+  }
+}

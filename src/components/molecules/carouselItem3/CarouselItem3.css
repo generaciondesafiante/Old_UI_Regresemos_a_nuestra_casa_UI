@@ -1,0 +1,40 @@
+.introduction-video_container {
+  width: 18rem;
+  height: 10rem;
+  position: absolute;
+  top: calc(50vh - 5rem);
+  left: calc(50vw - 9rem);
+}
+
+.introduction-video {
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+}
+
+@media (min-width: 570px) {
+  .introduction-video_container {
+    width: 30rem;
+    height: 17rem;
+    left: calc(50vw - 15rem);
+    top: calc(50vh - 8.5rem);
+  }
+}
+
+@media (min-width: 1024px) {
+  .introduction-video_container {
+    width: 50rem;
+    height: 30rem;
+    left: calc(50vw - 25rem);
+    top: calc(50vh - 15rem);
+  }
+}
+
+@media (min-width: 1680px) {
+  .introduction-video_container {
+    width: 80rem;
+    height: 45rem;
+    left: calc(50vw - 40rem);
+    top: calc(50vh - 22.5rem);
+  }
+}

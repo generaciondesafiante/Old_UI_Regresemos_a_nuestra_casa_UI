@@ -1,0 +1,28 @@
+.header-access_btn {
+  width: 6rem;
+  padding: 0.5rem;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 1rem;
+  font-size: 0.6rem;
+  font-family: var(--primaryFont);
+}
+
+.btn-login {
+  border: solid 0.02rem var(--greenDesafiante);
+  background-color: var(--white);
+  color: var(--greenDesafiante);
+}
+
+.btn-register {
+  background-color: var(--greenDesafiante);
+  color: var(--white);
+}
+
+@media (min-width: 768px) {
+  .header-access_btn {
+    width: 8rem;
+    font-size: 0.7rem;
+  }
+}

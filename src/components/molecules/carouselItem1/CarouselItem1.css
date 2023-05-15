@@ -1,0 +1,243 @@
+.carouselOne-section_content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+.carouselOne-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+.carouselOne-img_one {
+  min-width: 300px;
+  width: 320px;
+  height: 280px;
+  margin-top: 90px;
+  margin-bottom: 0;
+}
+
+.carouselOne-img_two {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 150px;
+}
+.carouselOne-content_text {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  right: 0;
+  top: 400px;
+  width: 230px;
+}
+.title-carousel-one {
+  margin-left: 30px;
+  font-size: 30px;
+}
+.color-text-title-green {
+  color: var(--greenDesafiante);
+  font-size: 25px;
+}
+.color-text-title-yellow {
+  color: var(--yellow);
+  font-size: 25px;
+}
+.text-paragraf-carousel1 {
+  color: var(--blueTitle);
+  text-align: center;
+  padding: 10px;
+}
+
+@media (min-width: 375px) {
+  .carouselOne-img_two {
+    width: 150px;
+    margin-top: 10px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+
+  .carouselOne-img_one {
+    width: 380px;
+    height: 280px;
+    margin-top: 90px;
+    margin-bottom: 0;
+  }
+
+  .carouselOne-content_text {
+    position: absolute;
+    top: 400px;
+    right: 30px;
+  }
+}
+
+@media (min-width: 425px) {
+  .carouselOne-img_two {
+    width: 150px;
+    margin-top: -70px;
+  }
+  .carouselOne-content_text {
+    position: absolute;
+    top: 420px;
+    right: 40px;
+  }
+}
+
+@media (min-width: 480px) {
+  .carouselOne-img_one {
+    width: 380px;
+    height: 280px;
+  }
+  .carouselOne-content_text {
+    right: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+  }
+  .title-content {
+    width: 340px;
+    right: 80px;
+    align-items: center;
+    padding: 8px;
+  }
+  .size-title-carousel1 {
+    font-size: 36px;
+  }
+}
+
+@media (min-width: 560px) {
+  .carouselOne-img_one {
+    width: 400px;
+    height: 280px;
+  }
+
+  .carouselOne-content_text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 420px;
+    right: 40px;
+    width: 400px;
+  }
+
+  .size-title-carousel1 {
+    font-size: 38px;
+    width: 400px;
+  }
+  .text-paragraf-carousel1 {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 700px) {
+  .carouselOne-img_one {
+    position: relative;
+    width: 480px;
+    height: 340px;
+    margin-top: 20px;
+  }
+
+  .carouselOne-img_two {
+    width: 200px;
+  }
+  .carouselOne-content_text {
+    right: 100px;
+  }
+}
+
+@media (min-width: 768px) {
+  .carouselOne-img_one {
+    width: 520px;
+    height: 400px;
+    right: 0px;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 200px;
+  }
+
+  .carouselOne-img_two {
+    position: absolute;
+    bottom: 0px;
+    width: 260px;
+    height: 680px;
+    left: 0px;
+  }
+
+  .carouselOne-content_text {
+    position: absolute;
+    top: 308px;
+    left: 35px;
+    width: 400px;
+  }
+
+  .size-title-carousel1 {
+    font-size: 36px;
+  }
+
+  .text-paragraf-carousel1 {
+    font-size: 26px;
+    width: 300px;
+  }
+}
+
+@media (min-width: 850px) {
+  .carouselOne-content_text {
+    left: 80px;
+  }
+}
+
+@media (min-width: 900px) {
+  .carouselOne-content_text {
+    position: absolute;
+    top: 340px;
+    left: 100px;
+    width: 400px;
+  }
+}
+@media (min-width: 960px) {
+  .carouselOne-content_text {
+    left: 140px;
+  }
+}
+@media (min-width: 1060px) {
+  .carouselOne-img_one {
+    width: 600px;
+    height: 430px;
+  }
+  .carouselOne-content_text {
+    left: 180px;
+  }
+}
+@media (min-width: 1100px) {
+  .carouselOne-content_text {
+    top: 240px;
+    left: 200px;
+  }
+  .carouselOne-img_one {
+    width: 640px;
+    height: 480px;
+    right: 0px;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 160px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .carouselOne-img_one {
+    margin-top: 0px;
+    min-width: 880px;
+    max-width: 900px;
+    min-height: 550px;
+    max-height: 650px;
+  }
+  .title-carousel-one {
+    width: 500px;
+    margin-top: 60px;
+  }
+  .size-title-carousel1 {
+    font-size: 60px;
+  }
+}

@@ -1,0 +1,106 @@
+.classRoomInfo-container {
+  padding: 1.5rem 1rem;
+}
+
+.classRoomInfo-topic {
+  font-size: 0.8rem;
+  color: var(--darkBlue);
+}
+
+.classRoomInfo-line {
+  width: 4rem;
+  height: 0.2rem;
+  background-color: var(--yellow);
+  border-radius: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.classRoomInfo-title {
+  font-size: 1rem;
+  color: var(--darkBlue);
+}
+
+.classRoomInfo-subcontent {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .classRoomInfo-container {
+    padding-left: 7rem;
+  }
+
+  .classRoomInfo-topic {
+    font-size: 0.9rem;
+  }
+
+  .classRoomInfo-title {
+    font-size: 1.2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .classRoomInfo-container {
+    padding-top: 10rem;
+    padding-left: 2rem;
+  }
+
+  .classRoomInfo-topic {
+    font-size: 1.5rem;
+    color: var(--darkBlue);
+    font-weight: bold;
+  }
+
+  .classRoomInfo-line {
+    width: 7rem;
+    height: 0.3rem;
+  }
+
+  .classRoomInfo-title {
+    width: 18rem;
+    margin-top: 2rem;
+    font-size: 3rem;
+  }
+
+  .classRoomInfo-subcontent {
+    width: 18rem;
+    display: block;
+    color: #0f5765;
+    font-weight: bold;
+    font-size: 1.1rem;
+  }
+
+  .classRoomInfo-questions,
+  .classRoomInfo-invitation,
+  .classRoomInfo-section {
+    margin-top: 1rem;
+  }
+}
+
+@media (min-width: 1070px) {
+  .classRoomInfo-container {
+    padding-left: 0rem;
+  }
+}
+
+@media (min-width: 1680px) {
+  .classRoomInfo-container {
+    padding-left: 0rem;
+  }
+
+  .classRoomInfo-topic {
+    font-size: 1.8rem;
+  }
+
+  .classRoomInfo-line {
+    width: 9rem;
+  }
+
+  .classRoomInfo-title {
+    width: 23rem;
+    font-size: 4rem;
+  }
+
+  .classRoomInfo-subcontent {
+    font-size: 1.2rem;
+  }
+}

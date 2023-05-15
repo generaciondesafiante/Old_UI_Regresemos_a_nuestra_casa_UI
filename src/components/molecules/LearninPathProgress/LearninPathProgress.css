@@ -1,0 +1,22 @@
+.classRoomRoute-container {
+  gap: 0.2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 1024px) {
+  .classRoomRoute-container {
+    background-color: var(--greenDesafianteLetters);
+    justify-content: center;
+    height: 100vh;
+    width: 9rem;
+    padding-left: 6rem;
+    padding-bottom: 1rem;
+    overflow-y: scroll;
+    gap: 0rem;
+  }
+
+  .classRoomRoute-container::-webkit-scrollbar {
+    display: none;
+  }
+}
