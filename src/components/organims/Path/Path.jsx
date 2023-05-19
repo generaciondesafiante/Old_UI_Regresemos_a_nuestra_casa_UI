@@ -9,66 +9,36 @@ export const Path = () => {
     <>
       <div className="path-container">
         <div className="path-content">
-          <Link
-            to={PrivateRoutes.LEARNINGPATH}
-            className="path-learningPath"
-          >
+          <Link to={PrivateRoutes.LEARNINGPATH} className="path-learningPath">
             <LockIcon className="icon-lock" />
           </Link>
-          <Link
-            to={PrivateRoutes.LEARNINGPATH}
-            className="path-learningPath"
-          >
+          <Link to={PrivateRoutes.LEARNINGPATH} className="path-learningPath">
             <LockIcon className="icon-lock" />
           </Link>
-          <Link
-            to={PrivateRoutes.LEARNINGPATH}
-            className="path-learningPath"
-          >
+          <Link to={PrivateRoutes.LEARNINGPATH} className="path-learningPath">
             <LockIcon className="icon-lock" />
           </Link>
 
-          <Link
-            to={PrivateRoutes.LEARNINGPATH}
-            className="path-learningPath"
-          >
+          <Link to={PrivateRoutes.LEARNINGPATH} className="path-learningPath">
             <LockIcon className="icon-lock" />
           </Link>
-          <Link
-            to={PrivateRoutes.LEARNINGPATH}
-            className="path-learningPath"
-          >
+          <Link to={PrivateRoutes.LEARNINGPATH} className="path-learningPath">
             <LockIcon className="icon-lock" />
           </Link>
-          <Link
-            to={PrivateRoutes.LEARNINGPATH}
-            className="path-learningPath"
-          >
+          <Link to={PrivateRoutes.LEARNINGPATH} className="path-learningPath">
             <LockIcon className="icon-lock" />
           </Link>
-          <Link
-            to={PrivateRoutes.LEARNINGPATH}
-            className="path-learningPath"
-          >
+          <Link to={PrivateRoutes.LEARNINGPATH} className="path-learningPath">
             <LockIcon className="icon-lock" />
           </Link>
 
-          <Link
-            to={PrivateRoutes.LEARNINGPATH}
-            className="path-learningPath"
-          >
+          <Link to={PrivateRoutes.LEARNINGPATH} className="path-learningPath">
             <LockIcon className="icon-lock" />
           </Link>
-          <Link
-            to={PrivateRoutes.LEARNINGPATH}
-            className="path-learningPath"
-          >
+          <Link to={PrivateRoutes.LEARNINGPATH} className="path-learningPath">
             <LockIcon className="icon-lock" />
           </Link>
-          <Link
-            to={PrivateRoutes.LEARNINGPATH}
-            className="path-learningPath"
-          >
+          <Link to={PrivateRoutes.LEARNINGPATH} className="path-learningPath">
             <LockIcon className="icon-lock" />
           </Link>
         </div>

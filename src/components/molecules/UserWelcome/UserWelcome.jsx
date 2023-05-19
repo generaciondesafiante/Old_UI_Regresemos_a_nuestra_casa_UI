@@ -14,9 +14,7 @@ export const UserWelcome = () => {
       <div className="userWelcome-container">
         <div className="userWelcome-content">
           <div className="userWelcome-subcontent_text">
-            <h2 className="userWelcome-title">
-              Bienvenido/a, {capitalized()}
-            </h2>
+            <h2 className="userWelcome-title">Bienvenido/a, {capitalized()}</h2>
             <p className="userWelcome-paragraph">
               ¡Esperamos que tengas un bendecido día!
             </p>

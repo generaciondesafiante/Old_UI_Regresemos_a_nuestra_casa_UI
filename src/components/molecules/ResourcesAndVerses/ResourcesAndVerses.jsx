@@ -17,11 +17,15 @@ export const ResourcesAndVerses = () => {
             Las enseñanzas del Señor son perfectas,{' '}
             <span>reavivan el alma</span>. Los decretos del Señor son
             confiables; hacen sabio al sencillo
-            <p className="resourcesAndVerses-bibleQuote_number-two">SALMO 19:7</p>
+            <p className="resourcesAndVerses-bibleQuote_number-two">
+              SALMO 19:7
+            </p>
           </p>
         </div>
         <div className="resourcesAndVerses-content_memorize">
-          <p className="resourcesAndVerses-memorize_title">Memoriza su palabra</p>
+          <p className="resourcesAndVerses-memorize_title">
+            Memoriza su palabra
+          </p>
           <p>@desafianterecords</p>
           <p>
             <PlayCircleOutlineIcon sx={{ fontSize: 40 }} />
