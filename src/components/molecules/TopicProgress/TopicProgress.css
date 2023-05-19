@@ -1,38 +1,38 @@
-.classRoomRoute-subcontent {
+.topicProgress-container {
   background-color: var(--greenDesafianteLetters);
 }
 
-.classRoomRoute-title {
+.topicProgress-title {
   padding: 1rem;
   font-size: 1rem;
   font-weight: bold;
   color: var(--white);
 }
 
-.classRoomRoute-iconCircle {
+.topicProgress-iconCircle {
   display: none;
 }
 
 @media (min-width: 768px) {
-  .classRoomRoute-title {
+  .topicProgress-title {
     font-size: 1.2rem;
     padding-left: 7rem;
   }
 }
 
 @media (min-width: 1024px) {
-  .classRoomRoute-subcontent {
+  .topicProgress-container {
     background-color: transparent;
     display: flex;
     flex-direction: column;
     align-items: center;
   }
 
-  .classRoomRoute-title {
+  .topicProgress-title {
     display: none;
   }
 
-  .classRoomRoute-iconCircle {
+  .topicProgress-iconCircle {
     display: block;
     width: 1.5rem;
     height: 1.5rem;
@@ -44,13 +44,13 @@
     color: var(--darkBlue);
   }
 
-  .classRoomRoute-line {
+  .topicProgress-line {
     width: 0.15rem;
     height: 1.8rem;
     background-color: var(--white);
   }
 
-  .classRoomRoute-line.hide {
+  .topicProgress-line.hide {
     display: none;
   }
 }

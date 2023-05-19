@@ -1,5 +1,5 @@
-import Slideshow from '../../components/organims/carousel/Carousel';
-import { Header } from '../../components/organims/header/Header';
+import Slideshow from '../../components/organims/Carousel/Carousel';
+import { Header } from '../../components/organims/Header/Header';
 
 import './Home.css';
 

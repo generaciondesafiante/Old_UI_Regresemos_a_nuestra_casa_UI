@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
-import CarouselItem1 from '../../molecules/carouselItem1/CarouselItem1';
-import CarouselItem2 from '../../molecules/carouselItem2/CarouselItem2';
-import CarouselItem3 from '../../molecules/carouselItem3/CarouselItem3';
+import { CarouselItemOne } from '../../molecules/CarouselItemOne/CarouselItemOne';
+import { CarouselItemTwo } from '../../molecules/CarouselItemTwo/CarouselItemTwo';
+import { CarouselItemThree } from '../../molecules/CarouselItemThree/CarouselItemThree';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
@@ -67,22 +67,22 @@ const Carousel = () => {
   }, []);
 
   return (
-    <div className="carouselContainer">
-      <div className="slidesCointainer" ref={slideshow}>
-        <div className="slide">
-          <CarouselItem1 />
+    <div className="carousel-container">
+      <div className="carousel-content_view" ref={slideshow}>
+        <div className="carousel-view">
+          <CarouselItemOne />
         </div>
-        <div className="slide">
-          <CarouselItem2 />
+        <div className="carousel-view">
+          <CarouselItemTwo />
         </div>
-        <div className="slide">
-          <CarouselItem3 />
+        <div className="carousel-view">
+          <CarouselItemThree />
         </div>
       </div>
-      <button className="carouselBtn rightArrow" onClick={former}>
+      <button className="carousel-btn carousel-btn_right" onClick={former}>
         <ArrowBackIosIcon fontSize="large" />
       </button>
-      <button className="carouselBtn leftArrow" onClick={following}>
+      <button className="carousel-btn carousel-btn_left" onClick={following}>
         <ArrowForwardIosIcon fontSize="large" />
       </button>
     </div>

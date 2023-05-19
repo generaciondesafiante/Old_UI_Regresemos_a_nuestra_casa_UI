@@ -1,9 +1,9 @@
-.dashboard-container_welcome {
+.userWelcome-container {
   padding: 2rem 1rem;
   background-color: var(--white);
 }
 
-.dashboard-content_welcome {
+.userWelcome-content {
   width: 18rem;
   padding: 0.8rem;
   border: 0.06rem solid rgb(255, 255, 255);
@@ -11,19 +11,19 @@
   box-shadow: 0.2rem 0.06rem 0.2rem 0.3rem rgba(123, 123, 123, 0.2);
 }
 
-.dashboard-welcome_title {
+.userWelcome-title {
   font-size: 1.5rem;
   color: var(--blueTitle);
 }
 
-.dashboard-welcome_paragraph {
+.userWelcome-paragraph {
   margin-top: 0.5rem;
   font-size: 1rem;
   color: var(--darkGray);
   text-align: center;
 }
 
-.dashboard-welcome_img {
+.userWelcome-decorationImg {
   display: none;
 }
 
@@ -57,14 +57,14 @@
 }
 
 @media (min-width: 768px) {
-  .dashboard-container_welcome {
+  .userWelcome-container {
     width: 35rem;
     padding-left: 7rem;
   }
 }
 
 @media (min-width: 1090px) {
-  .dashboard-container_welcome {
+  .userWelcome-container {
     width: 60rem;
     padding-left: 7rem;
     padding-top: 4rem;
@@ -73,24 +73,24 @@
     padding-bottom: 0rem;
   }
 
-  .dashboard-content_welcome {
+  .userWelcome-content {
     position: relative;
     width: 25rem;
     padding: 1rem;
     display: flex;
   }
 
-  .dashboard-welcome_title {
+  .userWelcome-title {
     font-size: 1.6rem;
   }
 
-  .dashboard-welcome_paragraph {
+  .userWelcome-paragraph {
     width: 15rem;
     font-size: 1.1rem;
     text-align: left;
   }
 
-  .dashboard-welcome_img {
+  .userWelcome-decorationImg {
     display: block;
     width: 19rem;
     position: absolute;
@@ -113,24 +113,24 @@
 }
 
 @media (min-width: 1680px) {
-  .dashboard-container_welcome {
+  .userWelcome-container {
     width: 90rem;
   }
 
-  .dashboard-content_welcome {
+  .userWelcome-content {
     width: 35rem;
     padding: 2rem;
   }
 
-  .dashboard-welcome_title {
+  .userWelcome-title {
     font-size: 2rem;
   }
 
-  .dashboard-welcome_paragraph {
+  .userWelcome-paragraph {
     font-size: 1.2rem;
   }
 
-  .dashboard-welcome_img {
+  .userWelcome-decorationImg {
     width: 25rem;
     top: -4rem;
     right: -18rem;

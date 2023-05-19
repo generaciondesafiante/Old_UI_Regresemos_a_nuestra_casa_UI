@@ -7,67 +7,67 @@ import './Path.css';
 export const Path = () => {
   return (
     <>
-      <div className="content-learningPath">
-        <div className="containerPath">
+      <div className="path-container">
+        <div className="path-content">
           <Link
             to={PrivateRoutes.LEARNINGPATH}
-            className="learningPath-classroom"
+            className="path-learningPath"
           >
             <LockIcon className="icon-lock" />
           </Link>
           <Link
             to={PrivateRoutes.LEARNINGPATH}
-            className="learningPath-classroom"
+            className="path-learningPath"
           >
             <LockIcon className="icon-lock" />
           </Link>
           <Link
             to={PrivateRoutes.LEARNINGPATH}
-            className="learningPath-classroom"
-          >
-            <LockIcon className="icon-lock" />
-          </Link>
-
-          <Link
-            to={PrivateRoutes.LEARNINGPATH}
-            className="learningPath-classroom"
-          >
-            <LockIcon className="icon-lock" />
-          </Link>
-          <Link
-            to={PrivateRoutes.LEARNINGPATH}
-            className="learningPath-classroom"
-          >
-            <LockIcon className="icon-lock" />
-          </Link>
-          <Link
-            to={PrivateRoutes.LEARNINGPATH}
-            className="learningPath-classroom"
-          >
-            <LockIcon className="icon-lock" />
-          </Link>
-          <Link
-            to={PrivateRoutes.LEARNINGPATH}
-            className="learningPath-classroom"
+            className="path-learningPath"
           >
             <LockIcon className="icon-lock" />
           </Link>
 
           <Link
             to={PrivateRoutes.LEARNINGPATH}
-            className="learningPath-classroom"
+            className="path-learningPath"
           >
             <LockIcon className="icon-lock" />
           </Link>
           <Link
             to={PrivateRoutes.LEARNINGPATH}
-            className="learningPath-classroom"
+            className="path-learningPath"
           >
             <LockIcon className="icon-lock" />
           </Link>
           <Link
             to={PrivateRoutes.LEARNINGPATH}
-            className="learningPath-classroom"
+            className="path-learningPath"
+          >
+            <LockIcon className="icon-lock" />
+          </Link>
+          <Link
+            to={PrivateRoutes.LEARNINGPATH}
+            className="path-learningPath"
+          >
+            <LockIcon className="icon-lock" />
+          </Link>
+
+          <Link
+            to={PrivateRoutes.LEARNINGPATH}
+            className="path-learningPath"
+          >
+            <LockIcon className="icon-lock" />
+          </Link>
+          <Link
+            to={PrivateRoutes.LEARNINGPATH}
+            className="path-learningPath"
+          >
+            <LockIcon className="icon-lock" />
+          </Link>
+          <Link
+            to={PrivateRoutes.LEARNINGPATH}
+            className="path-learningPath"
           >
             <LockIcon className="icon-lock" />
           </Link>

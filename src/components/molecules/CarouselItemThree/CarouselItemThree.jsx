@@ -1,13 +1,12 @@
-import './CarouselItem3.css';
+import './CarouselItemThree.css';
 
-export default function CarouselItem3() {
+export const CarouselItemThree = () => {
   return (
-    <div className="introduction-video_container">
+    <div className="carouselThree-container">
       <iframe
-        className="introduction-video"
+        className="carouselThree-video"
         src="https://www.youtube.com/embed/D4SSeYfTwWo"
         title="¿QUÉ ES GENERACIÓN DESAFIANTE?"
-        frameBorder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen
       ></iframe>
