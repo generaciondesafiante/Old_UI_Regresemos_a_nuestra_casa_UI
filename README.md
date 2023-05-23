@@ -11,6 +11,7 @@ _Regresemos a nuestra casa_, it is an international project led by **Generación
 - [Donations](#donations)
 - [Contact](#contact)
 - [Installation](#installation)
+- [Architecture](##Architecture)
 
 ## Target
 
@@ -71,3 +72,44 @@ Every time **BEFORE** push changes, remember to run:
 [Back to top](#content)
 
 @GeneraciónDesafiante || 2022
+
+## Architecture
+
+The front-end framework used in the project is structured as follows:
+
+1. [Design Patterns](#design-patterns)
+   - Atomic Design
+2. [Technologies](#technologies)
+   - Next JS
+   - React JS
+   - Vercel
+3. [Development Tools](#development-tools)
+   - Visual Studio Code
+   - Git and Github
+
+## Design Patterns
+
+- The project has adopted the Atomic Design pattern in React due to its component management approach, which allows for the proper use of good practices such as SOLID principles.
+
+- The diagram below illustrates the folder structure in the Atomic Design model, which includes subfolders named after the components that fit into each division.
+
+![Atomic Design Diagram](https://user-images.githubusercontent.com/71296984/215635820-aa74f315-b68a-4cca-9dc5-1e7235d162c8.png)
+
+## Technologies
+
+The project uses primarily JavaScript-based technologies and complementary tools.
+
+- React JS: This library will be used to create all our visual components.
+
+- Next JS: It provides integration of React JS with other routing tools, element loading management, and more. For more information, refer to the [Next JS documentation](https://nextjs.org/learn/basics/create-nextjs-app).
+
+- Vercel: It will be the preferred cloud deployment platform for the project.
+
+## Development Tools
+
+- Git and Github: Version control will be managed using Git locally and Github remotely. The following protocol should be followed:
+
+  For this project, **all tasks should be worked on in separate branches cloned from the Develop branch, Once the task is completed, a pull request should be made to merge the feature branch into Develop**.
+  Finally, after thorough testing and validation in each demo, the changes can be merged into the main branch (or any other designated production branch).
+
+Please let me know if you have any further questions or if there's anything else I can assist you with!
