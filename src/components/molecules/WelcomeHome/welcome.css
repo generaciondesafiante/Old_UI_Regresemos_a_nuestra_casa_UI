@@ -4,7 +4,7 @@
 }
 
 .dashboard-content_welcome {
-  width: 18rem;
+  width: 100%;
   padding: 0.8rem;
   border: 0.06rem solid rgb(255, 255, 255);
   border-radius: 1rem;
@@ -61,11 +61,15 @@
     width: 35rem;
     padding-left: 7rem;
   }
+
+  .dashboard-content_welcome {
+    width: 85%;
+  }
 }
 
 @media (min-width: 1090px) {
   .dashboard-container_welcome {
-    width: 60rem;
+    width: 100%;
     padding-left: 7rem;
     padding-top: 4rem;
     height: 100vh;
@@ -75,7 +79,7 @@
 
   .dashboard-content_welcome {
     position: relative;
-    width: 25rem;
+    width: 40rem;
     padding: 1rem;
     display: flex;
   }
@@ -94,8 +98,8 @@
     display: block;
     width: 19rem;
     position: absolute;
-    top: -3rem;
-    right: -11rem;
+    top: -3.5rem;
+    right: -3rem;
   }
 
   .continue-course_subtitle {
@@ -106,9 +110,15 @@
   .continue-course_video {
     width: 15rem;
   }
+}
 
-  .dashboard-studyMaterial {
-    width: 9rem;
+@media (max-width: 1200px) {
+  .dashboard-welcome_img {
+    display: none;
+  }
+
+  .dashboard-content_welcome {
+    width: 85%;
   }
 }
 
@@ -118,8 +128,9 @@
   }
 
   .dashboard-content_welcome {
-    width: 35rem;
+    width: 85%;
     padding: 2rem;
+    min-width: 53rem;
   }
 
   .dashboard-welcome_title {
@@ -133,7 +144,7 @@
   .dashboard-welcome_img {
     width: 25rem;
     top: -4rem;
-    right: -18rem;
+    right: -3rem;
   }
 
   .dashboard-continue_course {

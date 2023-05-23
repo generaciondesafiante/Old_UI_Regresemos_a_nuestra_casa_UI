@@ -6,13 +6,14 @@ export const Welcome = () => {
   const userName = user.name;
 
   const getFirstName = () => {
-    const names = userName.split(' '); // Dividir el nombre completo en partes
-    return names[0]; // Obtener el primer nombre
+    const names = userName.split(' ');
+    return names[0];
   };
 
   const capitalized = () => {
     const firstName = getFirstName();
-    return firstName.charAt(0).toUpperCase() + firstName.slice(1);
+    const truncatedName = firstName.slice(0, 14);
+    return truncatedName.charAt(0).toUpperCase() + truncatedName.slice(1);
   };
 
   return (
