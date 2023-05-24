@@ -10,8 +10,8 @@ _Regresemos a nuestra casa_, it is an international project led by **Generación
 - [Be part of us](#be-part-of-us)
 - [Donations](#donations)
 - [Contact](#contact)
-- [Installation](#installation)
 - [Architecture](##Architecture)
+- [Installation](#installation)
 
 ## Target
 
@@ -42,36 +42,6 @@ If you want to support our work, [visit our page](https://www.generaciondesafian
 If you want to contact us, [leave us a message](https://chat.whatsapp.com/El0odapVs7L29LkXVzm6lB)
 
 [Back to top](#content)
-
-## Installation
-
-_This section is just intended for developers' purposes._
-
-Next, you can find the instructions to clone this repository locally on your machine:
-
-1.  Go to the **main** branch and get the **clone URL**.
-
-2.  Create a folder in your local machine.
-
-3.  Open the directory on the terminal and enter:
-
-        git clone <repository clone link>
-
-4.  Finally
-
-        npm install
-
-Once you have installed the repository locally, open the terminal on your IDE and run:
-
-        npm run
-
-Every time **BEFORE** push changes, remember to run:
-
-        npm run pre-push
-
-[Back to top](#content)
-
-@GeneraciónDesafiante || 2022
 
 ## Architecture
 
@@ -113,3 +83,33 @@ The project uses primarily JavaScript-based technologies and complementary tools
   Finally, after thorough testing and validation in each demo, the changes can be merged into the main branch (or any other designated production branch).
 
 Please let me know if you have any further questions or if there's anything else I can assist you with!
+
+## Installation
+
+_This section is just intended for developers' purposes._
+
+Next, you can find the instructions to clone this repository locally on your machine:
+
+1.  Go to the **main** branch and get the **clone URL**.
+
+2.  Create a folder in your local machine.
+
+3.  Open the directory on the terminal and enter:
+
+        git clone <repository clone link>
+
+4.  Finally
+
+        npm install
+
+Once you have installed the repository locally, open the terminal on your IDE and run:
+
+        npm run
+
+Every time **BEFORE** push changes, remember to run:
+
+        npm run pre-push
+
+[Back to top](#content)
+
+@GeneraciónDesafiante || 2022
