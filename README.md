@@ -84,6 +84,8 @@ The project uses primarily JavaScript-based technologies and complementary tools
 
 Please let me know if you have any further questions or if there's anything else I can assist you with!
 
+[Back to top](#content)
+
 ## Installation
 
 _This section is just intended for developers' purposes._
