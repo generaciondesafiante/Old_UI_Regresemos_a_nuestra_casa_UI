@@ -5,10 +5,8 @@ import './LearningPathVideoClass.css';
 export const LearningPathVideoClass = () => {
   return (
     <div className="classRoomVideo-container">
-      <iframe
-        src="https://www.youtube.com/embed/D4SSeYfTwWo"
-        className="classRoomVideo-video"
-      ></iframe>
+      <iframe className="classRoomVideo-video"></iframe>
+
       <div className="classRoomVideo-content_videoInteraction">
         <div className="classRoomVideo-subcontent_videoInteraction">
           <p className="classRoomVideo-videoInteraction_title">1 H 40 MIN</p>

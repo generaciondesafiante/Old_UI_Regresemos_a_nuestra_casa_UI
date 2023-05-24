@@ -95,6 +95,23 @@ export const useAuthStore = () => {
     localStorage.clear();
     dispatch(onLogout);
   };
+  const videosLearningPath = async ({ id, tema, title, url }) => {
+    await generacionApi.post(
+      '/auth/videos',
+      {
+        id,
+        tema,
+        title,
+        url,
+      },
+      {
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+          'Access-Control-Allow-Origin': '*',
+        },
+      }
+    );
+  };
 
   return {
     //*Properties
@@ -107,5 +124,6 @@ export const useAuthStore = () => {
     startRegister,
     checkAuthToken,
     startLogout,
+    videosLearningPath,
   };
 };

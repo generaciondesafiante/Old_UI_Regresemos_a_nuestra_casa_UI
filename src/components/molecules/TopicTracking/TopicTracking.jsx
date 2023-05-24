@@ -1,10 +1,14 @@
 import './TopicTracking.css';
 
-const TopicTracking = ({ topic, lastTopic, lessonNumber }) => {
+const TopicTracking = ({ topic, lastTopic, lessonNumber, onClick }) => {
   return (
     <div className="classRoomRoute-subcontent">
-      <p className="classRoomRoute-title">{topic}</p>
-      <div className="classRoomRoute-iconCircle">{lessonNumber}</div>
+      <button className="classRoomRoute-title" onClick={onClick}>
+        {topic}
+      </button>
+      <div className="classRoomRoute-iconCircle" onClick={onClick}>
+        {lessonNumber}
+      </div>
       <div className={`classRoomRoute-line ${lastTopic ? 'hide' : ''}`}></div>
     </div>
   );
