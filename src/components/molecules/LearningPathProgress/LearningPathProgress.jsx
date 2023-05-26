@@ -1,5 +1,5 @@
-import { TopicTracking } from '../TopicTracking/TopicTracking';
-import './LearninPathProgress.css';
+import { TopicProgress } from '../TopicProgress/TopicProgress';
+import './LearningPathProgress.css';
 
 export const LearningPahtProgress = () => {
   const sections = [
@@ -16,9 +16,9 @@ export const LearningPahtProgress = () => {
   ];
   console.log(sections.length);
   return (
-    <nav className="classRoomRoute-container">
+    <nav className="learningPahtProgress-container">
       {sections.map((topicContent, index) => (
-        <TopicTracking
+        <TopicProgress
           key={index + 1}
           topic={topicContent}
           lessonNumber={index + 1}

@@ -4,10 +4,10 @@ import AccesButton from '../../atoms/AccesButton/AccesButton';
 
 export const Header = () => {
   return (
-    <header className="header-home">
+    <header className="header">
       <LogoHeader />
-      <div className="sesionButtonHeader">
-        <AccesButton className="btn-header_sesion" />
+      <div className="header-container_btn">
+        <AccesButton />
       </div>
     </header>
   );

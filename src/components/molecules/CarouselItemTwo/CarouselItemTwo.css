@@ -1,4 +1,4 @@
-.section-carousel-two {
+.carouselTwo-section {
   background-color: var(--yellow);
   width: 100vw;
   height: 100vh;
@@ -8,47 +8,47 @@
   text-align: center;
   align-content: center;
 }
-.content-carousel-two {
+.carouselTwo-container {
   margin-top: 40px;
   color: var(--white);
   font-family: var(--fontTitles);
   padding: 20px;
 }
 
-.carousel-two-title {
+.carouselTwo-title {
   font-weight: bold;
 }
-.conteiner-img-component-two .img-carousel-two {
+.carouselTwo-container_img .carouselTwo-img {
   width: 300px;
   margin-bottom: 10px;
 }
 
 @media (min-width: 700px) {
-  .carousel-two-title {
+  .carouselTwo-title {
     font-size: 32px;
   }
-  .carousel-two-paragraph {
+  .carouselTwo-paragraph {
     font-size: 20px;
   }
 }
 
 @media (min-width: 769px) {
-  .content-carousel-two {
+  .carouselTwo-container {
     display: flex;
     justify-content: space-around;
     align-items: center;
   }
-  .carousel-two-title {
+  .carouselTwo-title {
     font-size: 28px;
   }
-  .carousel-two-paragraph {
+  .carouselTwo-paragraph {
     font-size: 16px;
   }
-  .container-text-carousel-two {
+  .carouselTwo-content_text {
     width: 200px;
   }
 
-  .conteiner-img-component-two .img-carousel-two {
+  .carouselTwo-container_img .carouselTwo-img {
     width: 340px;
 
     margin-left: 10px;
@@ -56,27 +56,27 @@
 }
 
 @media (min-width: 1000px) {
-  .container-text-carousel-two {
+  .carouselTwo-content_text {
     width: 700px;
   }
-  .container-text-carousel-two-right {
+  .carouselTwo-content_text-right {
     position: relative;
     left: 50px;
   }
-  .container-text-carousel-two-left {
+  .carouselTwo-content_text-left {
     position: relative;
     right: 50px;
   }
-  .conteiner-img-component-two .img-carousel-two {
+  .carouselTwo-container_img .carouselTwo-img {
     width: 540px;
   }
 }
 
 @media (min-width: 1200px) {
-  .carousel-two-paragraph {
+  .carouselTwo-paragraph {
     font-size: 18px;
   }
-  .conteiner-img-component-two .img-carousel-two {
+  .carouselTwo-container_img .carouselTwo-img {
     width: 700px;
 
     margin-left: 20px;

@@ -4,24 +4,30 @@ import './LearningPathVideoClass.css';
 
 export const LearningPathVideoClass = () => {
   return (
-    <div className="classRoomVideo-container">
+    <div className="learningPathVideoClass-container">
       <iframe
         src="https://www.youtube.com/embed/D4SSeYfTwWo"
-        className="classRoomVideo-video"
+        className="learningPathVideoClass-video"
       ></iframe>
-      <div className="classRoomVideo-content_videoInteraction">
-        <div className="classRoomVideo-subcontent_videoInteraction">
-          <p className="classRoomVideo-videoInteraction_title">1 H 40 MIN</p>
-          <StarIcon className="classRoomVideo-videoInteraction_icon" />
-          <StarIcon className="classRoomVideo-videoInteraction_icon" />
-          <StarIcon className="classRoomVideo-videoInteraction_icon" />
+      <div className="learningPathVideoClass-content_videoInteraction">
+        <div className="learningPathVideoClass-subcontent_videoInteraction">
+          <p className="learningPathVideoClass-videoInteraction_title">
+            1 H 40 MIN
+          </p>
+          <StarIcon className="learningPathVideoClass-videoInteraction_icon" />
+          <StarIcon className="learningPathVideoClass-videoInteraction_icon" />
+          <StarIcon className="learningPathVideoClass-videoInteraction_icon" />
         </div>
-        <div className="classRoomVideo-subcontent_btn">
-          <div className="classRoomVideo-btn_activity">
-            <Link className="classRoomVideo-btn_textActivity">ACTIVIDAD</Link>
+        <div className="learningPathVideoClass-subcontent_btn">
+          <div className="learningPathVideoClass-btn_activity">
+            <Link className="learningPathVideoClass-btn_textActivity">
+              ACTIVIDAD
+            </Link>
           </div>
-          <div className="classRoomVideo-btn_next">
-            <Link className="classRoomVideo-btn_textNext">SIGUIENTE</Link>
+          <div className="learningPathVideoClass-btn_next">
+            <Link className="learningPathVideoClass-btn_textNext">
+              SIGUIENTE
+            </Link>
           </div>
         </div>
       </div>

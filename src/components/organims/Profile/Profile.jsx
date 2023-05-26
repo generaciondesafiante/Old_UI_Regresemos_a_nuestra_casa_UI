@@ -1,5 +1,5 @@
 import { useAuthStore } from '../../../hooks';
-import './profile.css';
+import './Profile.css';
 
 export const Profile = () => {
   const { user } = useAuthStore();
@@ -10,32 +10,28 @@ export const Profile = () => {
   };
   return (
     <>
-      <main className="container-profile">
-        <h2 className="profile-title_information">Información personal</h2>
+      <div className="profile-container">
+        <h2 className="profile-title">Información personal</h2>
         <div className="profile-content">
-          <div className="profile-container_information">
-            <section className="profile-content-image">
-              <img
-                src="https://i.ibb.co/Qnyx1kP/IMG-20230131-WA0037.jpg"
-                alt="IMG-20230131-WA0037"
-                border="0"
-                className="img-profile"
-              />
-            </section>
-            <section className="profile-information">
-              <h3 className="prifile-title"> Nombre </h3>
-              <p className="information-user"> {capitalized()}</p>
-              <h3 className="prifile-title"> correo electrónico </h3>
-              <p className="information-user">{user.email}</p>
-              <section className="profile-change_information">
-                <button className="change-information_buttom">
-                  Configuración
-                </button>
-              </section>
-            </section>
+          <div className="profile-container_img">
+            <img
+              src="https://i.ibb.co/Qnyx1kP/IMG-20230131-WA0037.jpg"
+              alt="IMG-20230131-WA0037"
+              border="0"
+              className="profile-user_img"
+            />
+          </div>
+          <div className="profile-container_info">
+            <h3 className="profile-info_title"> Nombre </h3>
+            <p className="profile-user_personalInfo"> {capitalized()}</p>
+            <h3 className="profile-info_title"> correo electrónico </h3>
+            <p className="profile-user_personalInfo">{user.email}</p>
+            <button className="profile-user_changeInfo_btn">
+              Editar perfil
+            </button>
           </div>
         </div>
-      </main>
+      </div>
     </>
   );
 };
