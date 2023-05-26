@@ -5,8 +5,15 @@ export const Welcome = () => {
   const { user } = useAuthStore();
   const userName = user.name;
 
+  const getFirstName = () => {
+    const names = userName.split(' ');
+    return names[0];
+  };
+
   const capitalized = () => {
-    return userName.charAt(0).toUpperCase() + userName.slice(1);
+    const firstName = getFirstName();
+    const truncatedName = firstName.slice(0, 14);
+    return truncatedName.charAt(0).toUpperCase() + truncatedName.slice(1);
   };
 
   return (
