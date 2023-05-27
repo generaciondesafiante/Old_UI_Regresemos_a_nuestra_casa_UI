@@ -5,7 +5,7 @@ import { Home } from '../pages/home/Home';
 import { PrivateRoutes, PublicRoutes } from '../models/routes';
 import { AuthGuards } from '../guards/AuthGuards';
 import { HomeViewFavorit } from '../components/organims/homeViewFavorit/HomeViewFavorit';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Sidebar } from '../components/molecules/Sidebar/Sidebar';
 import { Profile } from '../components/organims/Profile/Profile';
 import { ResourcesPage } from '../components/organims/ResourcesPage/ResourcesPage';
@@ -15,10 +15,25 @@ import { Dashboard } from '../components/organims/Dashboard/Dashboard';
 
 export const AppRoutes = () => {
   const [isLogged, setIsLogged] = useState(false);
+  const [videosData, setVideosData] = useState([]);
 
   const handleIsLogged = (response) => {
     setIsLogged(response);
   };
+  useEffect(() => {
+    fetch('http://localhost:8080/api/auth/videos')
+      .then((response) => response.json())
+      .then((data) => setVideosData(data))
+      .catch((error) => console.error(error));
+  }, []);
+
+  videosData.map((video, index) => ({
+    key: video.id,
+    topic: video.id,
+    url: video.url,
+    lessonNumber: index + 1,
+    lastTopic: index === videosData.length - 1,
+  }));
 
   return (
     <>
@@ -39,10 +54,22 @@ export const AppRoutes = () => {
           <Route paht="*" element={<Navigate to={PrivateRoutes.DASHBOARD} />} />
           <Route path={PrivateRoutes.PROFILE} element={<Profile />} />
           <Route path={PrivateRoutes.DASHBOARD} element={<Dashboard />} />
-          <Route path={PrivateRoutes.PATH} element={<Path />} />
+          <Route
+            path={PrivateRoutes.PATH}
+            element={<Path videosData={videosData} />}
+          />
+          {/* <Route
+            path={`${PrivateRoutes.LEARNINGPATH}/:id`}
+            element={<LearningPaht videosData={videosData} />}
+          /> */}
+
+          <Route
+            path={`${PrivateRoutes.LEARNINGPATH}/:id`}
+            element={<LearningPaht videosData={videosData} />}
+          />
+
           <Route path={PrivateRoutes.RESOURCE} element={<ResourcesPage />} />
           <Route path={PrivateRoutes.FAVORITE} element={<HomeViewFavorit />} />
-          <Route path={PrivateRoutes.LEARNINGPATH} element={<LearningPaht />} />
         </Route>
       </Routes>
       {isLogged ? <Sidebar /> : ''}

@@ -1,35 +1,34 @@
-import { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import { TopicTracking } from '../TopicTracking/TopicTracking';
 import './LearninPathProgress.css';
+import { PrivateRoutes } from '../../../models/routes';
+// import { useState } from 'react';
 
-export const LearningPahtProgress = () => {
-  const [videos, setVideos] = useState([]);
-  const [selectedVideoId, setSelectedVideoId] = useState(null); // Nuevo estado para el ID del video seleccionado
+export const LearningPahtProgress = ({ videosData }) => {
+  const navigate = useNavigate();
+  const params = useParams();
+  // const [currentId, setCurrentId] = useState(1);
 
-  useEffect(() => {
-    fetch('http://localhost:8080/api/auth/videos')
-      .then((response) => response.json())
-      .then((data) => setVideos(data))
-      .catch((error) => console.error(error));
-  }, []);
-
-  const handleVideoClick = (videoUrl) => {
-    setSelectedVideoId(videoUrl); // Actualiza el estado del ID del video seleccionado
+  const handleTopicClick = (topicId) => {
+    // setCurrentId(topicId);
+    navigate(`${PrivateRoutes.LEARNINGPATH}/${topicId}`);
   };
 
   return (
     <>
       <nav className="classRoomRoute-container">
-        {videos.map((video, index) => (
+        {videosData.map((video, index) => (
           <TopicTracking
             key={video.id}
-            topic={video.tema}
+            topic={video.id}
             lessonNumber={index + 1}
-            lastTopic={index === videos.length - 1}
-            onClick={() => handleVideoClick(video.url)} // Pasa el ID del video al manejar el clic
+            lastTopic={index === videosData.length - 1}
+            id={params.id}
+            onClick={() => handleTopicClick(video.id)}
           />
         ))}
       </nav>
+      /
     </>
   );
 };

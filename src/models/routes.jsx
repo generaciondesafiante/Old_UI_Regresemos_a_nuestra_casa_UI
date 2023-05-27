@@ -13,4 +13,5 @@ export const PrivateRoutes = {
   RESOURCE: '/resource',
   FAVORITE: '/favorite',
   LEARNINGPATH: '/learningPaht',
+  LEARNINGPATHPROGRESS: '/learningPaht',
 };
