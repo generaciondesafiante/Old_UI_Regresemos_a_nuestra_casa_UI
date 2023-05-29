@@ -54,7 +54,7 @@ export const LoginPageNavbar = () => {
               className="form-input"
             />
             <label htmlFor="email" className="form-label">
-              Usuario
+              Correo Electrónico
             </label>
           </div>
 
