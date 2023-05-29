@@ -1,11 +1,11 @@
 import { ResourcesAndVerses } from '../../molecules/ResourcesAndVerses/ResourcesAndVerses';
-import { Welcome } from '../../molecules/WelcomeHome/Welcome';
+import { UserWelcome } from '../../molecules/UserWelcome/UserWelcome';
 
 import './Dashboard.css';
 export const Dashboard = () => {
   return (
-    <div className="contentView">
-      <Welcome />
+    <div className="dashboard-container">
+      <UserWelcome />
       <ResourcesAndVerses />
     </div>
   );

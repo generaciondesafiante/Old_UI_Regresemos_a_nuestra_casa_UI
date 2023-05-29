@@ -1,5 +1,5 @@
 @media (min-width: 768px) {
-  .contentView {
+  .dashboard-container {
     display: flex;
     justify-content: space-between;
   }

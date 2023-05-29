@@ -1,9 +1,9 @@
 import { ResourcesAndVerses } from '../../molecules/ResourcesAndVerses/ResourcesAndVerses';
 import { ResourcesComponent } from '../../molecules/ResourcesContent/Resources';
-import './ResourcePage.css';
+import './ResourcesPage.css';
 export const ResourcesPage = () => {
   return (
-    <div className="content-view_resources">
+    <div className="resourcesPage-container">
       <ResourcesComponent />
       <ResourcesAndVerses />
     </div>
