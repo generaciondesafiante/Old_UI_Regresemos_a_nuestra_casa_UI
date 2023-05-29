@@ -1,10 +1,10 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { RegisterPageNavbar } from '../auth/registerPageNavbar/ResgisterPageNavbar';
 import { LoginPageNavbar } from '../auth/sesionPageNabvar/SesionPageNavbar';
-import { Home } from '../pages/home/Home';
+import { Home } from '../pages/Home/Home';
 import { PrivateRoutes, PublicRoutes } from '../models/routes';
 import { AuthGuards } from '../guards/AuthGuards';
-import { HomeViewFavorit } from '../components/organims/homeViewFavorit/HomeViewFavorit';
+import { Favorite } from '@mui/icons-material';
 import { useState } from 'react';
 import { Sidebar } from '../components/molecules/Sidebar/Sidebar';
 import { Profile } from '../components/organims/Profile/Profile';
@@ -41,7 +41,7 @@ export const AppRoutes = () => {
           <Route path={PrivateRoutes.DASHBOARD} element={<Dashboard />} />
           <Route path={PrivateRoutes.PATH} element={<Path />} />
           <Route path={PrivateRoutes.RESOURCE} element={<ResourcesPage />} />
-          <Route path={PrivateRoutes.FAVORITE} element={<HomeViewFavorit />} />
+          <Route path={PrivateRoutes.FAVORITE} element={<Favorite />} />
           <Route path={PrivateRoutes.LEARNINGPATH} element={<LearningPaht />} />
         </Route>
       </Routes>

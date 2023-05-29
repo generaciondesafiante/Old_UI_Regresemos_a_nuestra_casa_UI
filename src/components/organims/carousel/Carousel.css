@@ -1,21 +1,21 @@
-.carouselContainer {
+.carousel-container {
   position: relative;
 }
 
-.slidesCointainer {
+.carousel-content_view {
   display: flex;
   flex-wrap: nowrap;
   overflow: hidden;
   position: relative;
 }
 
-.slide {
+.carousel-view {
   position: relative;
   min-width: 100%;
   z-index: 10;
 }
 
-.carouselBtn {
+.carousel-btn {
   pointer-events: all;
   color: var(--greenDesafiante);
   background: none;
@@ -31,14 +31,14 @@
   top: calc(50vh - 2.5rem);
   z-index: 100;
 }
-.carouselBtn:hover {
+.carousel-btn:hover {
   background: rgba(0, 0, 0, 0.2);
   color: #fff;
   border-radius: 50%;
 }
-.rightArrow {
+.carousel-btn_right {
   left: 0;
 }
-.leftArrow {
+.carousel-btn_left {
   right: 0;
 }
