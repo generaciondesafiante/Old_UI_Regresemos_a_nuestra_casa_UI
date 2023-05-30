@@ -3,7 +3,7 @@
   background-color: var(--white);
 }
 
-.dashboard-content_welcome {
+.userWelcome-content {
   width: 100%;
   padding: 0.8rem;
   border: 0.06rem solid rgb(255, 255, 255);
@@ -62,7 +62,7 @@
     padding-left: 7rem;
   }
 
-  .dashboard-content_welcome {
+  .userWelcome-container {
     width: 85%;
   }
 }
@@ -117,7 +117,7 @@
     display: none;
   }
 
-  .dashboard-content_welcome {
+  .userWelcome-container {
     width: 85%;
   }
 }
@@ -127,7 +127,7 @@
     width: 90rem;
   }
 
-  .dashboard-content_welcome {
+  .userWelcome-container {
     width: 85%;
     padding: 2rem;
     min-width: 53rem;

@@ -6,7 +6,6 @@ import { useAuthStore } from '../../hooks';
 import { useForm } from '../../hooks/useForm';
 import '../AuthStyle/authStyle.css';
 import { Header } from '../../components/organims/Header/Header';
-
 const registerFormFields = {
   registerName: '',
   registerEmail: '',
