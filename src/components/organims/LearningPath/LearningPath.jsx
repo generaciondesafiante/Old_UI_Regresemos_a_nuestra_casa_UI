@@ -5,16 +5,23 @@ import { LearningPathTitleClass } from '../../molecules/LearningPahtTitleClass/L
 import { LearningPathVideoClass } from '../../molecules/LearningPathVideoClass/LearningPathVideoClass';
 import './LearningPath.css';
 // import { Link } from 'react-router-dom';
-export const LearningPaht = ({ videosData }) => {
+export const LearningPaht = ({ videosData, setIdVideo }) => {
   return (
     <div className="learningPath">
       <LearningPathVideoClass videosData={videosData} />
       <LearningPathTitleClass videosData={videosData} />
-      {/* <Link to={`${PrivateRoutes.LEARNINGPATH}/${topic}`}> */}
-
-      <LearningPahtProgress videosData={videosData} />
-
-      {/* <LearningPahtProgress videosData={videosData} /> */}
+      <nav className="classRoomRoute-container">
+        {videosData.map((video, index) => (
+          <LearningPahtProgress
+            key={video.id}
+            setIdVideo={setIdVideo}
+            videoData={{
+              ...video,
+              isLastVideo: videosData.length - 1 === index,
+            }}
+          />
+        ))}
+      </nav>
     </div>
   );
 };

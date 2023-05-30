@@ -16,7 +16,8 @@ import { Dashboard } from '../components/organims/Dashboard/Dashboard';
 export const AppRoutes = () => {
   const [isLogged, setIsLogged] = useState(false);
   const [videosData, setVideosData] = useState([]);
-
+  const [idVideo, setIdVideo] = useState(null);
+  console.log(idVideo);
   const handleIsLogged = (response) => {
     setIsLogged(response);
   };
@@ -26,14 +27,6 @@ export const AppRoutes = () => {
       .then((data) => setVideosData(data))
       .catch((error) => console.error(error));
   }, []);
-
-  videosData.map((video, index) => ({
-    key: video.id,
-    topic: video.id,
-    url: video.url,
-    lessonNumber: index + 1,
-    lastTopic: index === videosData.length - 1,
-  }));
 
   return (
     <>
@@ -58,14 +51,12 @@ export const AppRoutes = () => {
             path={PrivateRoutes.PATH}
             element={<Path videosData={videosData} />}
           />
-          {/* <Route
-            path={`${PrivateRoutes.LEARNINGPATH}/:id`}
-            element={<LearningPaht videosData={videosData} />}
-          /> */}
 
           <Route
-            path={`${PrivateRoutes.LEARNINGPATH}/:id`}
-            element={<LearningPaht videosData={videosData} />}
+            path={`${PrivateRoutes.LEARNINGPATH}/:${idVideo ?? 1}`}
+            element={
+              <LearningPaht videosData={videosData} setIdVideo={setIdVideo} />
+            }
           />
 
           <Route path={PrivateRoutes.RESOURCE} element={<ResourcesPage />} />

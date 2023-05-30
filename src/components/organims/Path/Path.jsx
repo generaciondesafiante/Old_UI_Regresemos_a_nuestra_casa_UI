@@ -5,12 +5,13 @@ import { PrivateRoutes } from '../../../models/routes';
 import './Path.css';
 
 export const Path = () => {
+  const id = 1;
   return (
     <>
       <div className="content-learningPath">
         <div className="containerPath">
           <Link
-            to={PrivateRoutes.LEARNINGPATH}
+            to={`${PrivateRoutes.LEARNINGPATH}/${id}`}
             className="learningPath-classroom"
           >
             <LockIcon className="icon-lock" />
