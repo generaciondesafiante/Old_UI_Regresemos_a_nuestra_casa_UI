@@ -12,7 +12,11 @@ import { PrivateRoutes, PublicRoutes } from '../../../models/routes';
 import { useAuthStore } from '../../../hooks/useAuthStore';
 
 export const Sidebar = () => {
-  const { startLogout } = useAuthStore();
+  const { startLogout, status } = useAuthStore();
+
+  if (status !== 'authenticated') {
+    return null;
+  }
 
   return (
     <div className="sidebar-container">
