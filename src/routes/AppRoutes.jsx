@@ -1,7 +1,7 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { RegisterPageNavbar } from '../auth/registerPageNavbar/ResgisterPageNavbar';
 import { LoginPageNavbar } from '../auth/sesionPageNabvar/SesionPageNavbar';
-import { Home } from '../pages/home/Home';
+import { Home } from '../pages/Home/Home';
 import { PrivateRoutes, PublicRoutes } from '../models/routes';
 import { AuthGuards } from '../guards/AuthGuards';
 import { HomeViewFavorit } from '../components/organims/homeViewFavorit/HomeViewFavorit';
@@ -16,17 +16,20 @@ import { Dashboard } from '../components/organims/Dashboard/Dashboard';
 export const AppRoutes = () => {
   const [isLogged, setIsLogged] = useState(false);
   const [videosData, setVideosData] = useState([]);
-  const [idVideo, setIdVideo] = useState(null);
-  console.log(idVideo);
+  const [idVideo, setIdVideo] = useState(1);
+
   const handleIsLogged = (response) => {
     setIsLogged(response);
   };
+
   useEffect(() => {
     fetch('http://localhost:8080/api/auth/videos')
       .then((response) => response.json())
       .then((data) => setVideosData(data))
       .catch((error) => console.error(error));
   }, []);
+  console.log(videosData);
+  // const selectVideo = videosData.find((e) => e.id === idVideo);
 
   return (
     <>
@@ -53,9 +56,13 @@ export const AppRoutes = () => {
           />
 
           <Route
-            path={`${PrivateRoutes.LEARNINGPATH}/:${idVideo ?? 1}`}
+            path={`${PrivateRoutes.LEARNINGPATH}/:${idVideo}`}
             element={
-              <LearningPaht videosData={videosData} setIdVideo={setIdVideo} />
+              <LearningPaht
+                videosData={videosData}
+                setIdVideo={setIdVideo}
+                idVideo={idVideo}
+              />
             }
           />
 

@@ -2,10 +2,15 @@ import StarIcon from '@mui/icons-material/Star';
 import { Link } from 'react-router-dom';
 import './LearningPathVideoClass.css';
 
-export const LearningPathVideoClass = () => {
+export const LearningPathVideoClass = ({ selectVideo }) => {
   return (
     <div className="classRoomVideo-container">
-      <iframe className="classRoomVideo-video"></iframe>
+      <iframe
+        className="classRoomVideo-video"
+        src={selectVideo.url}
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+      ></iframe>
 
       <div className="classRoomVideo-content_videoInteraction">
         <div className="classRoomVideo-subcontent_videoInteraction">

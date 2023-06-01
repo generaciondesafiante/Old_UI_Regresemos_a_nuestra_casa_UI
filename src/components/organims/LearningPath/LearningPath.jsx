@@ -1,24 +1,31 @@
-// import { Link } from 'react-router-dom';
-// import { PrivateRoutes } from '../../../models/routes';
 import { LearningPahtProgress } from '../../molecules/LearninPathProgress/LearningPathProgress';
 import { LearningPathTitleClass } from '../../molecules/LearningPahtTitleClass/LearningPathTitleClass';
 import { LearningPathVideoClass } from '../../molecules/LearningPathVideoClass/LearningPathVideoClass';
 import './LearningPath.css';
-// import { Link } from 'react-router-dom';
-export const LearningPaht = ({ videosData, setIdVideo }) => {
+
+export const LearningPaht = ({ videosData, setIdVideo, idVideo }) => {
+  const selectVideo = videosData.find((e) => e.id === idVideo);
+  console.log(selectVideo);
   return (
     <div className="learningPath">
-      <LearningPathVideoClass videosData={videosData} />
-      <LearningPathTitleClass videosData={videosData} />
+      {selectVideo && (
+        <LearningPathVideoClass
+          setIdVideo={setIdVideo}
+          selectVideo={selectVideo}
+        />
+      )}
+      <LearningPathTitleClass />
       <nav className="classRoomRoute-container">
         {videosData.map((video, index) => (
           <LearningPahtProgress
             key={video.id}
             setIdVideo={setIdVideo}
+            endpoint={video.tema}
             videoData={{
               ...video,
               isLastVideo: videosData.length - 1 === index,
             }}
+            selectVideo={selectVideo}
           />
         ))}
       </nav>
