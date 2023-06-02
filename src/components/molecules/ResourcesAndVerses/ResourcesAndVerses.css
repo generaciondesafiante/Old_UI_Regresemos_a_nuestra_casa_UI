@@ -31,7 +31,7 @@
   margin-top: 3rem;
   background-color: var(--white);
   border-radius: 1.5rem;
-  box-shadow: 0px 3px 20px #00000029;
+  box-shadow: 0rem 0.188rem 1.25rem #00000029;
 }
 
 .resourcesAndVerses-bibleQuoteTwo {
@@ -57,7 +57,7 @@
   height: 4rem;
   margin-top: 2rem;
   background-color: var(--darkBlue);
-  box-shadow: 0px 3px 20px #00000029;
+  box-shadow: 0rem 0.188rem 1.25rem #00000029;
   border-radius: 1.5rem;
   color: var(--white);
   font-size: 0.7rem;
@@ -67,7 +67,7 @@
   width: 4rem;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 48rem) {
   .resourcesAndVerses-container {
     width: 30rem;
     padding: 2rem;
@@ -89,7 +89,7 @@
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 64rem) {
   .resourcesAndVerses-container {
     width: 35rem;
     padding: 3rem 4.5rem;
@@ -137,7 +137,7 @@
   }
 }
 
-@media (min-width: 1680px) {
+@media (min-width: 105rem) {
   .resourcesAndVerses-container {
     width: 45rem;
     padding: 4rem 7rem;
@@ -187,7 +187,7 @@
   height: 4rem;
   margin-top: 2rem;
   background-color: var(--darkBlue);
-  box-shadow: 0px 3px 20px #00000029;
+  box-shadow: 0rem 0.188rem 1.25rem #00000029;
   border-radius: 1.5rem;
   color: var(--white);
   font-size: 0.7rem;
@@ -197,7 +197,7 @@
   width: 4rem;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 48rem) {
   .resourcesAndVerses-container {
     width: 30rem;
     padding: 2rem;
@@ -219,7 +219,7 @@
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 64rem) {
   .resourcesAndVerses-container {
     width: 35rem;
     padding: 2rem 4rem;
@@ -267,7 +267,7 @@
   }
 }
 
-@media (min-width: 1680px) {
+@media (min-width: 105rem) {
   .resourcesAndVerses-container {
     width: 45rem;
     padding: 4rem 7rem;

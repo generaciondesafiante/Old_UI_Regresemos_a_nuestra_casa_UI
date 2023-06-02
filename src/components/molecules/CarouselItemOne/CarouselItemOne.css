@@ -12,10 +12,10 @@
 }
 
 .carouselOne-img_one {
-  min-width: 300px;
-  width: 320px;
-  height: 280px;
-  margin-top: 90px;
+  min-width: 18.75rem;
+  width: 20rem;
+  height: 17.5rem;
+  margin-top: 5rem;
   margin-bottom: 0;
 }
 
@@ -23,7 +23,7 @@
   position: absolute;
   left: 0;
   bottom: 0;
-  width: 150px;
+  width: 9.375rem;
 }
 
 .carouselOne-content_text {
@@ -31,75 +31,75 @@
   display: flex;
   flex-direction: column;
   right: 0;
-  top: 400px;
-  width: 230px;
+  top: 22.222rem;
+  width: 13.888rem;
 }
 
 .carouselOne-title {
-  margin-left: 30px;
-  font-size: 30px;
+  margin-left: 1.666rem;
+  font-size: 1.666rem;
 }
 
 .carouselOne-title_lettersGreen {
   color: var(--greenDesafiante);
-  font-size: 25px;
+  font-size: 1.388rem;
 }
 
 .carouselOne-title_lettersYellow {
   color: var(--yellow);
-  font-size: 25px;
+  font-size: 1.388rem;
 }
 
 .carouselOne-paragraph {
   color: var(--greenContentLetter);
   text-align: center;
-  padding: 10px;
+  padding: 0.555rem;
 }
 
-@media (min-width: 375px) {
+@media (min-width: 23.438rem) {
   .carouselOne-img_two {
-    width: 150px;
-    margin-top: 10px;
+    width: 9.375rem;
+    margin-top: 0.555rem;
     position: absolute;
     bottom: 0;
     left: 0;
   }
 
   .carouselOne-img_one {
-    width: 380px;
-    height: 280px;
-    margin-top: 90px;
+    width: 23.75rem;
+    height: 17.5rem;
+    margin-top: 5rem;
     margin-bottom: 0;
   }
 
   .carouselOne-content_text {
     position: absolute;
-    top: 400px;
-    right: 30px;
+    top: 22.222rem;
+    right: 1.666rem;
   }
 }
 
-@media (min-width: 425px) {
+@media (min-width: 26.563rem) {
   .carouselOne-img_two {
-    width: 150px;
-    margin-top: -70px;
+    width: 9.375rem;
+    margin-top: -3.888rem;
   }
 
   .carouselOne-content_text {
     position: absolute;
-    top: 420px;
-    right: 40px;
+    top: 23.333rem;
+    right: 2.222rem;
   }
 }
 
-@media (min-width: 480px) {
+@media (min-width: 30rem) {
   .carouselOne-img_one {
-    width: 380px;
-    height: 280px;
+    width: 23.75rem;
+    height: 17.5rem;
   }
 
   .carouselOne-content_text {
-    right: 80px;
+    right: 4.444rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -107,161 +107,161 @@
   }
 
   .title-content {
-    width: 340px;
-    right: 80px;
+    width: 19.444rem;
+    right: 4.444rem;
     align-items: center;
-    padding: 8px;
+    padding: 0.444rem;
   }
 
   .carouselOne-title_size {
-    font-size: 36px;
+    font-size: 2.222rem;
   }
 }
 
-@media (min-width: 560px) {
+@media (min-width: 35rem) {
   .carouselOne-img_one {
-    width: 400px;
-    height: 280px;
+    width: 25rem;
+    height: 17.5rem;
   }
 
   .carouselOne-content_text {
     display: flex;
     justify-content: center;
     align-items: center;
-    top: 420px;
-    right: 40px;
-    width: 400px;
+    top: 23.333rem;
+    right: 2.222rem;
+    width: 25rem;
   }
 
   .carouselOne-title_size {
-    font-size: 38px;
-    width: 400px;
+    font-size: 2.375rem;
+    width: 25rem;
   }
 
   .carouselOne-paragraph {
-    font-size: 20px;
+    font-size: 1.111rem;
   }
 }
 
-@media (min-width: 700px) {
+@media (min-width: 43.75rem) {
   .carouselOne-img_one {
     position: relative;
-    width: 480px;
-    height: 340px;
-    margin-top: 20px;
+    width: 30rem;
+    height: 21.25rem;
+    margin-top: 1.111rem;
   }
 
   .carouselOne-img_two {
-    width: 200px;
+    width: 11.111rem;
   }
 
   .carouselOne-content_text {
-    right: 100px;
+    right: 5.555rem;
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 48rem) {
   .carouselOne-img_one {
-    width: 520px;
-    height: 400px;
-    right: 0px;
+    width: 32.5rem;
+    height: 25rem;
+    right: 0;
     background-repeat: no-repeat;
     position: absolute;
-    top: 200px;
+    top: 11.111rem;
   }
 
   .carouselOne-img_two {
     position: absolute;
-    bottom: 0px;
-    width: 260px;
-    height: 680px;
-    left: 0px;
+    bottom: 0;
+    width: 16.25rem;
+    height: 45rem;
+    left: 0;
   }
 
   .carouselOne-content_text {
     position: absolute;
-    top: 308px;
-    left: 35px;
-    width: 400px;
+    top: 19.222rem;
+    left: 2.222rem;
+    width: 25rem;
   }
 
   .carouselOne-title_size {
-    font-size: 36px;
+    font-size: 2.222rem;
   }
 
   .carouselOne-paragraph {
-    font-size: 26px;
-    width: 300px;
+    font-size: 1.444rem;
+    width: 18.75rem;
   }
 }
 
-@media (min-width: 850px) {
+@media (min-width: 53.125rem) {
   .carouselOne-content_text {
-    left: 80px;
+    left: 4.444rem;
   }
 }
 
-@media (min-width: 900px) {
+@media (min-width: 56.25rem) {
   .carouselOne-content_text {
     position: absolute;
-    top: 340px;
-    left: 100px;
-    width: 400px;
+    top: 22.222rem;
+    left: 5.555rem;
+    width: 25rem;
   }
 }
 
-@media (min-width: 960px) {
+@media (min-width: 60rem) {
   .carouselOne-content_text {
-    left: 140px;
+    left: 7.777rem;
   }
 }
 
-@media (min-width: 1060px) {
+@media (min-width: 66.25rem) {
   .carouselOne-img_one {
-    width: 600px;
-    height: 430px;
+    width: 37.5rem;
+    height: 26.875rem;
   }
 
   .carouselOne-content_text {
-    left: 180px;
+    left: 10rem;
   }
 
   .carouselOne-paragraph {
-    width: 450px;
+    width: 28.125rem;
   }
 }
 
-@media (min-width: 1100px) {
+@media (min-width: 68.75rem) {
   .carouselOne-content_text {
-    top: 240px;
-    left: 200px;
+    top: 13.333rem;
+    left: 11.111rem;
   }
 
   .carouselOne-img_one {
-    width: 640px;
-    height: 480px;
-    right: 0px;
+    width: 40rem;
+    height: 30rem;
+    right: 0;
     background-repeat: no-repeat;
     position: absolute;
-    top: 160px;
+    top: 8.889rem;
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 75rem) {
   .carouselOne-img_one {
-    margin-top: 0px;
-    min-width: 880px;
-    max-width: 900px;
-    min-height: 550px;
-    max-height: 650px;
+    margin-top: 0;
+    min-width: 55rem;
+    max-width: 56.25rem;
+    min-height: 34.375rem;
+    max-height: 40.625rem;
   }
 
   .carouselOne-title {
-    width: 500px;
-    margin-top: 60px;
+    width: 31.25rem;
+    margin-top: 4.444rem;
   }
 
   .carouselOne-title_size {
-    font-size: 60px;
+    font-size: 4.444rem;
   }
 }

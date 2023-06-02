@@ -28,7 +28,7 @@
   border-radius: 50%;
 }
 
-@media (min-width: 550px) {
+@media (min-width: 34.375rem) {
   .path-content {
     row-gap: 3.125rem;
     column-gap: 5rem;
@@ -39,7 +39,7 @@
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 48rem) {
   .path-container {
     width: calc(100% - 6.25rem);
     height: 100vh;
@@ -55,7 +55,7 @@
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 64rem) {
   .path-content {
     row-gap: 3.125rem;
     column-gap: 7.5rem;
