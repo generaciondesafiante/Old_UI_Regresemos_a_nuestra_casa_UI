@@ -3,13 +3,16 @@ import './LearninPathProgress.css';
 import { PrivateRoutes } from '../../../models/routes';
 
 export const LearningPahtProgress = ({ videoData, setIdVideo }) => {
-  // no paso nada
   const navigate = useNavigate();
 
   const handleTopicClick = () => {
     setIdVideo(videoData.id);
 
-    navigate(`${PrivateRoutes.LEARNINGPATH}/${videoData.id}`);
+    navigate(
+      `${PrivateRoutes.LEARNINGPATH}/${videoData.curso.replace(/\s/g, '')}/${
+        videoData.id
+      }`
+    );
   };
 
   return (

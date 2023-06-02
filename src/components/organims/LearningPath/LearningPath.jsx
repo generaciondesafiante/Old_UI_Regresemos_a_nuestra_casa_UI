@@ -5,7 +5,7 @@ import './LearningPath.css';
 
 export const LearningPaht = ({ videosData, setIdVideo, idVideo }) => {
   const selectVideo = videosData.find((e) => e.id === idVideo);
-  console.log(selectVideo);
+
   return (
     <div className="learningPath">
       {selectVideo && (
@@ -20,12 +20,12 @@ export const LearningPaht = ({ videosData, setIdVideo, idVideo }) => {
           <LearningPahtProgress
             key={video.id}
             setIdVideo={setIdVideo}
+            // setCurso={setCurso}
             endpoint={video.tema}
             videoData={{
               ...video,
               isLastVideo: videosData.length - 1 === index,
             }}
-            selectVideo={selectVideo}
           />
         ))}
       </nav>

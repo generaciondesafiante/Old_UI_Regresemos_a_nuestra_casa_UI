@@ -11,7 +11,7 @@ export const Path = () => {
       <div className="content-learningPath">
         <div className="containerPath">
           <Link
-            to={`${PrivateRoutes.LEARNINGPATH}/${id}`}
+            to={`${PrivateRoutes.LEARNINGPATH}/curso/${id}`}
             className="learningPath-classroom"
           >
             <LockIcon className="icon-lock" />

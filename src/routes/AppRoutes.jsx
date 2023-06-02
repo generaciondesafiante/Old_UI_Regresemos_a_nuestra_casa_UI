@@ -28,8 +28,6 @@ export const AppRoutes = () => {
       .then((data) => setVideosData(data))
       .catch((error) => console.error(error));
   }, []);
-  console.log(videosData);
-  // const selectVideo = videosData.find((e) => e.id === idVideo);
 
   return (
     <>
@@ -56,7 +54,7 @@ export const AppRoutes = () => {
           />
 
           <Route
-            path={`${PrivateRoutes.LEARNINGPATH}/:${idVideo}`}
+            path={`${PrivateRoutes.LEARNINGPATH}/:curso/:${idVideo}`}
             element={
               <LearningPaht
                 videosData={videosData}
