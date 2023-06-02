@@ -4,7 +4,7 @@
   flex-direction: column;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 64rem) {
   .learningPahtProgress-container {
     background-color: var(--greenDesafianteLetters);
     justify-content: center;

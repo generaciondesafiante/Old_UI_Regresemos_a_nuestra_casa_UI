@@ -24,7 +24,7 @@
   display: none;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 48rem) {
   .learningPathTitleClass-container {
     padding-left: 7rem;
   }
@@ -38,7 +38,7 @@
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 64rem) {
   .learningPathTitleClass-container {
     padding-top: 10rem;
     padding-left: 2rem;
@@ -76,13 +76,13 @@
   }
 }
 
-@media (min-width: 1070px) {
+@media (min-width: 66.875rem) {
   .learningPathTitleClass-container {
     padding-left: 0rem;
   }
 }
 
-@media (min-width: 1680px) {
+@media (min-width: 105rem) {
   .learningPathTitleClass-container {
     padding-left: 0rem;
   }

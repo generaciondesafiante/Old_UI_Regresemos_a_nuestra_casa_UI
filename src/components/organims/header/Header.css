@@ -1,6 +1,6 @@
 .header {
   width: 100%;
-  min-width: 320px;
+  min-width: 20rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -16,7 +16,7 @@
   gap: 0.8rem;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 48rem) {
   .header {
     padding: 0.5rem 1rem;
   }

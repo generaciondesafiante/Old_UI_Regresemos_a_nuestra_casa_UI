@@ -13,14 +13,14 @@
   display: none;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 48rem) {
   .topicProgress-title {
     font-size: 1.2rem;
     padding-left: 7rem;
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 64rem) {
   .topicProgress-container {
     background-color: transparent;
     display: flex;

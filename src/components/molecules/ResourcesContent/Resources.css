@@ -32,7 +32,7 @@
   border-radius: 0.5rem;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 48rem) {
   .resources-container {
     padding-top: 3rem;
     padding-left: 7rem;
@@ -58,7 +58,7 @@
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 64rem) {
   .resources-container {
     padding-top: 5rem;
   }
@@ -86,7 +86,7 @@
   }
 }
 
-@media (min-width: 1680px) {
+@media (min-width: 105rem) {
   .resources-title {
     font-size: 3rem;
     margin-bottom: 2rem;
