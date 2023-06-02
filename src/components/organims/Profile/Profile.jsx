@@ -3,10 +3,12 @@ import './Profile.css';
 
 export const Profile = () => {
   const { user } = useAuthStore();
-  const userName = user.name;
 
   const capitalized = () => {
-    return userName.charAt(0).toUpperCase() + userName.slice(1);
+    if (user && user.name) {
+      return user.name.charAt(0).toUpperCase() + user.name.slice(1);
+    }
+    return '';
   };
   return (
     <>
