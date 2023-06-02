@@ -3,11 +3,13 @@ import './UserWelcome.css';
 
 export const UserWelcome = () => {
   const { user } = useAuthStore();
-  const userName = user.name;
 
   const getFirstName = () => {
-    const names = userName.split(' ');
-    return names[0];
+    if (user && user.name) {
+      const names = user.name.split(' ');
+      return names[0];
+    }
+    return '';
   };
   const capitalized = () => {
     const firstName = getFirstName();
