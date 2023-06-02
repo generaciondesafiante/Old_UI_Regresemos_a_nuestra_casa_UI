@@ -1,13 +1,14 @@
 import { useEffect, useRef } from 'react';
-import { CarouselItemOne } from '../../molecules/CarouselItemOne/CarouselItemOne';
-import { CarouselItemTwo } from '../../molecules/CarouselItemTwo/CarouselItemTwo';
-import { CarouselItemThree } from '../../molecules/CarouselItemThree/CarouselItemThree';
+
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
+import { CarouselItemOne } from '../../molecules/CarouselItemOne/CarouselItemOne';
+import { CarouselItemThree } from '../../molecules/CarouselItemThree/CarouselItemThree';
+import { CarouselItemTwo } from '../../molecules/CarouselItemTwo/CarouselItemTwo';
 import './Carousel.css';
 
-const Carousel = () => {
+export const Carousel = () => {
   const slideshow = useRef(null);
   const slideshowInterval = useRef(null);
 
@@ -88,4 +89,3 @@ const Carousel = () => {
     </div>
   );
 };
-export default Carousel;

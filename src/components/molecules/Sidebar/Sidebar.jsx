@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import {
   Bookmark,
   Face,
@@ -6,10 +8,10 @@ import {
   Home,
   Logout,
 } from '@mui/icons-material';
-import { Link } from 'react-router-dom';
-import './Sidebar.css';
+
 import { PrivateRoutes, PublicRoutes } from '../../../models/routes';
 import { useAuthStore } from '../../../hooks/useAuthStore';
+import './Sidebar.css';
 
 export const Sidebar = () => {
   const { startLogout, status } = useAuthStore();

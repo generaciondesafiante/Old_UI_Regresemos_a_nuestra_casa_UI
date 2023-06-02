@@ -9,29 +9,25 @@ export const Profile = () => {
     return userName.charAt(0).toUpperCase() + userName.slice(1);
   };
   return (
-    <>
-      <div className="profile-container">
-        <h2 className="profile-title">Información personal</h2>
-        <div className="profile-content">
-          <div className="profile-container_img">
-            <img
-              src="https://i.ibb.co/Qnyx1kP/IMG-20230131-WA0037.jpg"
-              alt="IMG-20230131-WA0037"
-              border="0"
-              className="profile-user_img"
-            />
-          </div>
-          <div className="profile-container_info">
-            <h3 className="profile-info_title"> Nombre </h3>
-            <p className="profile-user_personalInfo"> {capitalized()}</p>
-            <h3 className="profile-info_title"> correo electrónico </h3>
-            <p className="profile-user_personalInfo">{user.email}</p>
-            <button className="profile-user_changeInfo_btn">
-              Editar perfil
-            </button>
-          </div>
+    <div className="profile-container">
+      <h2 className="profile-title">Información personal</h2>
+      <div className="profile-content">
+        <div className="profile-container_img">
+          <img
+            src="https://i.ibb.co/Qnyx1kP/IMG-20230131-WA0037.jpg"
+            alt="IMG-20230131-WA0037"
+            border="0"
+            className="profile-user_img"
+          />
+        </div>
+        <div className="profile-container_info">
+          <h3 className="profile-info_title"> Nombre </h3>
+          <p className="profile-user_personalInfo"> {capitalized()}</p>
+          <h3 className="profile-info_title"> correo electrónico </h3>
+          <p className="profile-user_personalInfo">{user.email}</p>
+          <button className="profile-user_changeInfo_btn">Editar perfil</button>
         </div>
       </div>
-    </>
+    </div>
   );
 };

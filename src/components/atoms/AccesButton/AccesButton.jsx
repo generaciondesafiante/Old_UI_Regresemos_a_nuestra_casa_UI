@@ -1,7 +1,7 @@
 import { Link, Link as RouterLink } from 'react-router-dom';
 import './AccesButton.css';
 
-const AccesButton = () => {
+export const AccesButton = () => {
   return (
     <>
       <Link
@@ -13,8 +13,7 @@ const AccesButton = () => {
       </Link>
       <Link className="header-access_btn btn-register" to="/auth/register">
         CREAR CUENTA
-      </Link>{' '}
+      </Link>
     </>
   );
 };
-export default AccesButton;

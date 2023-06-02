@@ -1,17 +1,20 @@
-import { Navigate, Route, Routes } from 'react-router-dom';
-import { RegisterPageNavbar } from '../auth/registerPageNavbar/ResgisterPageNavbar';
-import { LoginPageNavbar } from '../auth/sesionPageNabvar/SesionPageNavbar';
-import { Home } from '../pages/Home/Home';
-import { PrivateRoutes, PublicRoutes } from '../models/routes';
-import { AuthGuards } from '../guards/AuthGuards';
-import { Favorite } from '@mui/icons-material';
 import { useState } from 'react';
-import { Sidebar } from '../components/molecules/Sidebar/Sidebar';
-import { Profile } from '../components/organims/Profile/Profile';
-import { ResourcesPage } from '../components/organims/ResourcesPage/ResourcesPage';
-import { Path } from '../components/organims/Path/Path';
-import { LearningPaht } from '../components/organims/LearningPath/LearningPath';
+
+import { Navigate, Route, Routes } from 'react-router-dom';
+import { Favorite } from '@mui/icons-material';
+
+import { AuthGuards } from '../guards/AuthGuards';
+import { PrivateRoutes, PublicRoutes } from '../models/routes';
+
 import { Dashboard } from '../components/organims/Dashboard/Dashboard';
+import { Home } from '../pages/Home/Home';
+import { LearningPaht } from '../components/organims/LearningPath/LearningPath';
+import { LoginPageNavbar } from '../auth/sesionPageNabvar/SesionPageNavbar';
+import { Path } from '../components/organims/Path/Path';
+import { Profile } from '../components/organims/Profile/Profile';
+import { RegisterPageNavbar } from '../auth/registerPageNavbar/ResgisterPageNavbar';
+import { ResourcesPage } from '../components/organims/ResourcesPage/ResourcesPage';
+import { Sidebar } from '../components/molecules/Sidebar/Sidebar';
 
 export const AppRoutes = () => {
   const [isLogged, setIsLogged] = useState(false);

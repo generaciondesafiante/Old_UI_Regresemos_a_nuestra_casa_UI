@@ -1,5 +1,5 @@
-import StarIcon from '@mui/icons-material/Star';
 import { Link } from 'react-router-dom';
+import StarIcon from '@mui/icons-material/Star';
 import './LearningPathVideoClass.css';
 
 export const LearningPathVideoClass = () => {
