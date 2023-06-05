@@ -16,7 +16,7 @@ export const CarouselItemTwo = () => {
           <img
             className="carouselTwo-img"
             src="https://i.ibb.co/Kz0Yfzb/Image-8.png"
-            alt="Imagen book carrousel item two"
+            alt="Image book carrousel item two"
           />
         </div>
         <div className="carouselTwo-content_text">
