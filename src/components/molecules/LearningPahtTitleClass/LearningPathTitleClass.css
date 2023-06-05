@@ -41,7 +41,7 @@
 @media (min-width: 1024px) {
   .classRoomInfo-container {
     padding-top: 10rem;
-    padding-left: 2rem;
+    padding-left: 4rem;
   }
 
   .classRoomInfo-topic {
@@ -78,7 +78,12 @@
 
 @media (min-width: 1070px) {
   .classRoomInfo-container {
-    padding-left: 0rem;
+    padding-right: 7rem;
+  }
+  .classRoomInfo-title {
+    width: 23rem;
+    font-size: 2.4rem;
+    margin-bottom: 0.625rem;
   }
 }
 
@@ -97,7 +102,7 @@
 
   .classRoomInfo-title {
     width: 23rem;
-    font-size: 4rem;
+    font-size: 3rem;
   }
 
   .classRoomInfo-subcontent {
