@@ -15,18 +15,21 @@ import { Dashboard } from '../components/organims/Dashboard/Dashboard';
 
 export const AppRoutes = () => {
   const [isLogged, setIsLogged] = useState(false);
-  const [videosData, setVideosData] = useState([]);
-  const [idVideo, setIdVideo] = useState(1);
+  const [courseData, setCourseData] = useState({});
+  const [idVideo, setIdVideo] = useState(null);
+  const [currentUrl, setCurrentUrl] = useState('');
 
   const handleIsLogged = (response) => {
     setIsLogged(response);
   };
 
   useEffect(() => {
-    fetch('http://localhost:8080/api/auth/videos')
-      .then((response) => response.json())
-      .then((data) => setVideosData(data))
-      .catch((error) => console.error(error));
+    if (!courseData.content) {
+      fetch('http://localhost:8080/api/auth/course')
+        .then((response) => response.json())
+        .then((data) => setCourseData(data))
+        .catch((error) => console.error(error));
+    }
   }, []);
 
   return (
@@ -48,17 +51,28 @@ export const AppRoutes = () => {
           <Route paht="*" element={<Navigate to={PrivateRoutes.DASHBOARD} />} />
           <Route path={PrivateRoutes.PROFILE} element={<Profile />} />
           <Route path={PrivateRoutes.DASHBOARD} element={<Dashboard />} />
+
           <Route
             path={PrivateRoutes.PATH}
-            element={<Path videosData={videosData} />}
+            element={
+              <Path
+                courseData={{
+                  name: courseData.name,
+                  endpoint: courseData.endpoint,
+                }}
+                idVideo={idVideo}
+                setCurrentUrl={setCurrentUrl}
+              />
+            }
           />
 
           <Route
-            path={`${PrivateRoutes.LEARNINGPATH}/:curso/:${idVideo}`}
+            path={`${PrivateRoutes.LEARNINGPATH}${currentUrl}`}
             element={
               <LearningPaht
-                videosData={videosData}
+                courseData={courseData}
                 setIdVideo={setIdVideo}
+                setCurrentUrl={setCurrentUrl}
                 idVideo={idVideo}
               />
             }

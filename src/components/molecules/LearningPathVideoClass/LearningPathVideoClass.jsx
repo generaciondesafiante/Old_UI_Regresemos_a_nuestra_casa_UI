@@ -1,8 +1,23 @@
 import StarIcon from '@mui/icons-material/Star';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './LearningPathVideoClass.css';
+import { PrivateRoutes } from '../../../models/routes';
 
-export const LearningPathVideoClass = ({ selectVideo }) => {
+export const LearningPathVideoClass = ({
+  selectVideo,
+  setCurrentUrl,
+  courseEndpoint,
+  setIdVideo,
+}) => {
+  const navigate = useNavigate();
+
+  const handleUrlId = () => {
+    const idNextVideo = selectVideo.id + 1;
+    const endpoint = `${courseEndpoint}/${idNextVideo}`;
+    setCurrentUrl(endpoint);
+    setIdVideo(idNextVideo);
+    navigate(`${PrivateRoutes.LEARNINGPATH}${endpoint}`);
+  };
   return (
     <div className="classRoomVideo-container">
       <iframe
@@ -23,9 +38,12 @@ export const LearningPathVideoClass = ({ selectVideo }) => {
           <div className="classRoomVideo-btn_activity">
             <Link className="classRoomVideo-btn_textActivity">ACTIVIDAD</Link>
           </div>
-          <div className="classRoomVideo-btn_next">
-            <Link className="classRoomVideo-btn_textNext">SIGUIENTE</Link>
-          </div>
+          <button
+            className="classRoomVideo-btn_textNext classRoomVideo-btn_next"
+            onClick={handleUrlId}
+          >
+            SIGUIENTE
+          </button>
         </div>
       </div>
     </div>

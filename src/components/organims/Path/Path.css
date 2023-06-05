@@ -16,11 +16,13 @@
   width: 3.75rem;
   height: 3.75rem;
   padding: 0.9rem;
+  border: none;
   border-radius: 50%;
   background-color: #eaeaea;
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 .icon-lock {
   color: var(--darkGray);

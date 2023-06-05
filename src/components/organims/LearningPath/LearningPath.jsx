@@ -3,28 +3,40 @@ import { LearningPathTitleClass } from '../../molecules/LearningPahtTitleClass/L
 import { LearningPathVideoClass } from '../../molecules/LearningPathVideoClass/LearningPathVideoClass';
 import './LearningPath.css';
 
-export const LearningPaht = ({ videosData, setIdVideo, idVideo }) => {
-  const selectVideo = videosData.find((e) => e.id === idVideo);
+export const LearningPaht = ({
+  courseData,
+  setIdVideo,
+  idVideo,
+  setCurrentUrl,
+}) => {
+  const selectVideo = courseData.content.find((e) => e.id === (idVideo ?? 1));
 
   return (
     <div className="learningPath">
-      {selectVideo && (
-        <LearningPathVideoClass
-          setIdVideo={setIdVideo}
-          selectVideo={selectVideo}
-        />
-      )}
-      <LearningPathTitleClass />
+      <LearningPathVideoClass
+        setIdVideo={setIdVideo}
+        selectVideo={selectVideo}
+        setCurrentUrl={setCurrentUrl}
+        courseEndpoint={courseData.endpoint}
+      />
+      <LearningPathTitleClass
+        descriptionData={{
+          courseName: courseData.name,
+          lessonName: selectVideo.title,
+          lessonDescription: selectVideo.description,
+        }}
+      />
+
       <nav className="classRoomRoute-container">
-        {videosData.map((video, index) => (
+        {courseData.content.map((video, index) => (
           <LearningPahtProgress
             key={video.id}
             setIdVideo={setIdVideo}
-            // setCurso={setCurso}
-            endpoint={video.tema}
+            courseEndpoint={courseData.endpoint}
+            setCurrentUrl={setCurrentUrl}
             videoData={{
               ...video,
-              isLastVideo: videosData.length - 1 === index,
+              isLastVideo: courseData.content.length - 1 === index,
             }}
           />
         ))}

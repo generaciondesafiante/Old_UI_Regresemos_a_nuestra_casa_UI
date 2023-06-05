@@ -23,8 +23,11 @@ a {
 }
 .logout {
   border: 0;
+  background: var(--white);
 }
-
+.sidebar-icon {
+  background: var(--white);
+}
 @media (min-width: 768px) {
   .sidebar-content-home {
     left: 0;

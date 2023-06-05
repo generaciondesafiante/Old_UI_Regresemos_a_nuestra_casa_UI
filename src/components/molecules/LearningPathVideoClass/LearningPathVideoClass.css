@@ -42,6 +42,7 @@
   border-radius: 0.8rem;
   font-size: 0.7rem;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .classRoomVideo-btn_activity {
@@ -50,6 +51,7 @@
 
 .classRoomVideo-btn_next {
   background-color: var(--white);
+  cursor: pointer;
 }
 
 .classRoomVideo-btn_textActivity {
@@ -57,7 +59,13 @@
 }
 
 .classRoomVideo-btn_textNext {
-  color: var(--blueContent);
+  color: var(--greenDesafiante);
+  background: var(--white);
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+  border: none;
+  cursor: pointer;
 }
 
 @media (min-width: 600px) {

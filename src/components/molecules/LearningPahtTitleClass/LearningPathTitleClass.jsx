@@ -1,18 +1,13 @@
 import './LearningPathTitleClass.css';
-export const LearningPathTitleClass = () => {
+export const LearningPathTitleClass = ({ descriptionData }) => {
   return (
     <>
       <div className="classRoomInfo-container">
-        <p className="classRoomInfo-topic">Tema 1</p>
+        <p className="classRoomInfo-topic">{descriptionData.courseName}</p>
         <div className="classRoomInfo-line"></div>
-        <h1 className="classRoomInfo-title">Historia de una familia</h1>
+        <h1 className="classRoomInfo-title">{descriptionData.lessonName}</h1>
         <div className="classRoomInfo-subcontent">
-          <p className="classRoomInfo-questions">Identidad ¿quiénes somos?</p>
-          <p className="classRoomInfo-questionsTwo">¿De quiénes venimos?</p>
-          <p className="classRoomInfo-invitation">
-            ¡Conoce la historia de esta familia de la cuál tú eres parte!
-          </p>
-          <p className="classRoomInfo-section">¡Sección 1! Hasta Israel.</p>
+          <p>{descriptionData.lessonDescription}</p>
         </div>
       </div>
     </>
