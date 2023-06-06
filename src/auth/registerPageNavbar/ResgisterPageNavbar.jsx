@@ -1,11 +1,13 @@
 import { useEffect } from 'react';
+
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
+import { Header } from '../../components/organims/Header/Header';
 import { useAuthStore } from '../../hooks';
 import { useForm } from '../../hooks/useForm';
 import '../AuthStyle/authStyle.css';
-import { Header } from '../../components/organims/Header/Header';
+
 const registerFormFields = {
   registerName: '',
   registerEmail: '',
@@ -45,10 +47,11 @@ export const RegisterPageNavbar = () => {
   return (
     <>
       <Header />
-      <div className="form-container">
+      <section className="form-container">
         <form action="" className="form-action" onSubmit={registerSubmit}>
           <h2 className="form-title">
-            <span>¡Bienvenido/a </span> <span>Crea tu cuenta!</span>{' '}
+            <span>¡Bienvenido/a </span>
+            <span>Crea tu cuenta!</span>{' '}
           </h2>
 
           <div className="form-container_inLa">
@@ -122,7 +125,7 @@ export const RegisterPageNavbar = () => {
             Crear cuenta
           </button>
         </form>
-      </div>
+      </section>
     </>
   );
 };

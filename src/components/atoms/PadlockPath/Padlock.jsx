@@ -3,8 +3,10 @@ import LockIcon from '@mui/icons-material/Lock';
 
 export const Padlock = () => {
   return (
-    <Link>
-      <LockIcon />
-    </Link>
+    <>
+      <Link>
+        <LockIcon />
+      </Link>
+    </>
   );
 };

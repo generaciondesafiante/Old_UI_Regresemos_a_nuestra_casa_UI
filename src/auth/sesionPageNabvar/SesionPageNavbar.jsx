@@ -1,11 +1,12 @@
 import { useEffect } from 'react';
+
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
+import { Header } from '../../components/organims/Header/Header';
 import { useAuthStore } from '../../hooks';
 import { useForm } from '../../hooks/useForm';
 import '../AuthStyle/authStyle.css';
-import { Header } from '../../components/organims/Header/Header';
 
 const loginFormFields = {
   loginEmail: '',
@@ -36,7 +37,7 @@ export const LoginPageNavbar = () => {
   return (
     <>
       <Header />
-      <div className="form-container">
+      <section className="form-container">
         <form action="" className="form-action" onSubmit={loginSubmit}>
           <h2 className="form-title">
             <span>¡Bienvenido/a al</span> <span>Recorrido de la fé!</span>{' '}
@@ -80,7 +81,7 @@ export const LoginPageNavbar = () => {
             Ingresar
           </button>
         </form>
-      </div>
+      </section>
     </>
   );
 };

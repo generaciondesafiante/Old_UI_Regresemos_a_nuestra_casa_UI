@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 import './LogoHeader.css';
-const LogoHeader = () => {
+export const LogoHeader = () => {
   return (
-    <div>
+    <>
       <Link to="/home">
         <img
           className="header-logo"
@@ -10,7 +10,6 @@ const LogoHeader = () => {
           alt="logo generacion desafiante"
         />
       </Link>
-    </div>
+    </>
   );
 };
-export default LogoHeader;
