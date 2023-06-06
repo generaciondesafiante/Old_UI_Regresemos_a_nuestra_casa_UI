@@ -93,7 +93,7 @@ export const useAuthStore = () => {
 
   const startLogout = () => {
     localStorage.clear();
-    dispatch(onLogout);
+    dispatch(onLogout());
   };
   const videosLearningPath = async ({ id, tema, title, url }) => {
     await generacionApi.post(

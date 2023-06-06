@@ -4,7 +4,6 @@ import { LoginPageNavbar } from '../auth/sesionPageNabvar/SesionPageNavbar';
 import { Home } from '../pages/Home/Home';
 import { PrivateRoutes, PublicRoutes } from '../models/routes';
 import { AuthGuards } from '../guards/AuthGuards';
-import { HomeViewFavorit } from '../components/organims/homeViewFavorit/HomeViewFavorit';
 import { useEffect, useState } from 'react';
 import { Sidebar } from '../components/molecules/Sidebar/Sidebar';
 import { Profile } from '../components/organims/Profile/Profile';
@@ -12,6 +11,7 @@ import { ResourcesPage } from '../components/organims/ResourcesPage/ResourcesPag
 import { Path } from '../components/organims/Path/Path';
 import { LearningPaht } from '../components/organims/LearningPath/LearningPath';
 import { Dashboard } from '../components/organims/Dashboard/Dashboard';
+import { Favorite } from '../components/organims/Favorite/Favorite';
 
 export const AppRoutes = () => {
   const [isLogged, setIsLogged] = useState(false);
@@ -79,7 +79,7 @@ export const AppRoutes = () => {
           />
 
           <Route path={PrivateRoutes.RESOURCE} element={<ResourcesPage />} />
-          <Route path={PrivateRoutes.FAVORITE} element={<HomeViewFavorit />} />
+          <Route path={PrivateRoutes.FAVORITE} element={<Favorite />} />
         </Route>
       </Routes>
       {isLogged ? <Sidebar /> : ''}

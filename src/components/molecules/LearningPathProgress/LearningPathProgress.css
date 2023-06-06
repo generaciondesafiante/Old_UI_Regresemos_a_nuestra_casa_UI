@@ -1,4 +1,4 @@
-.classRoomRoute-container {
+.learningPahtProgress-container {
   gap: 0.2rem;
   display: flex;
   flex-direction: column;
@@ -26,8 +26,8 @@
   }
 }
 
-@media (min-width: 1024px) {
-  .classRoomRoute-container {
+@media (min-width: 64rem) {
+  .learningPahtProgress-container {
     background-color: var(--greenDesafianteLetters);
     justify-content: center;
     height: 100vh;
@@ -38,7 +38,7 @@
     gap: 0rem;
   }
 
-  .classRoomRoute-container::-webkit-scrollbar {
+  .learningPahtProgress-container::-webkit-scrollbar {
     display: none;
   }
   .classRoomRoute-subcontent {

@@ -19,27 +19,31 @@ export const LearningPathVideoClass = ({
     navigate(`${PrivateRoutes.LEARNINGPATH}${endpoint}`);
   };
   return (
-    <div className="classRoomVideo-container">
+    <div className="learningPathVideoClass-container">
       <iframe
-        className="classRoomVideo-video"
+        className="learningPathVideoClass-video"
         src={selectVideo.url}
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowfullscreen
       ></iframe>
 
-      <div className="classRoomVideo-content_videoInteraction">
-        <div className="classRoomVideo-subcontent_videoInteraction">
-          <p className="classRoomVideo-videoInteraction_title">1 H 40 MIN</p>
-          <StarIcon className="classRoomVideo-videoInteraction_icon" />
-          <StarIcon className="classRoomVideo-videoInteraction_icon" />
-          <StarIcon className="classRoomVideo-videoInteraction_icon" />
+      <div className="learningPathVideoClass-content_videoInteraction">
+        <div className="learningPathVideoClass-subcontent_videoInteraction">
+          <p className="learningPathVideoClass-videoInteraction_title">
+            1 H 40 MIN
+          </p>
+          <StarIcon className="learningPathVideoClass-videoInteraction_icon" />
+          <StarIcon className="learningPathVideoClass-videoInteraction_icon" />
+          <StarIcon className="learningPathVideoClass-videoInteraction_icon" />
         </div>
-        <div className="classRoomVideo-subcontent_btn">
-          <div className="classRoomVideo-btn_activity">
-            <Link className="classRoomVideo-btn_textActivity">ACTIVIDAD</Link>
+        <div className="learningPathVideoClass-subcontent_btn">
+          <div className="learningPathVideoClass-btn_activity">
+            <Link className="learningPathVideoClass-btn_textActivity">
+              ACTIVIDAD
+            </Link>
           </div>
           <button
-            className="classRoomVideo-btn_textNext classRoomVideo-btn_next"
+            className="learningPathVideoClass-btn_next learningPathVideoClass-btn_textNext"
             onClick={handleUrlId}
           >
             SIGUIENTE

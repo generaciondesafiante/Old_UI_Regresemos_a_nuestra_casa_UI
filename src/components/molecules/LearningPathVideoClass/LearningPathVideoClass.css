@@ -1,9 +1,9 @@
-.classRoomVideo-container {
+.learningPathVideoClass-container {
   padding: 1.5rem 1rem;
   background-color: var(--darkBlue);
 }
 
-.classRoomVideo-video {
+.learningPathVideoClass-video {
   display: block;
   margin: 0 auto;
   width: 17.7rem;
@@ -12,31 +12,31 @@
   border-radius: 1.2rem;
 }
 
-.classRoomVideo-subcontent_videoInteraction {
+.learningPathVideoClass-subcontent_videoInteraction {
   margin: 0 auto;
   width: 17rem;
   padding-left: 0.8rem;
 }
 
-.classRoomVideo-videoInteraction_title {
+.learningPathVideoClass-videoInteraction_title {
   font-size: 0.6rem;
   font-weight: bold;
   color: var(--white);
   margin-top: 0.5rem;
 }
 
-.classRoomVideo-videoInteraction_icon {
+.learningPathVideoClass-videoInteraction_icon {
   color: yellow;
 }
 
-.classRoomVideo-subcontent_btn {
+.learningPathVideoClass-subcontent_btn {
   display: flex;
   justify-content: center;
   gap: 6rem;
 }
 
-.classRoomVideo-btn_activity,
-.classRoomVideo-btn_next {
+.learningPathVideoClass-btn_activity,
+.learningPathVideoClass-btn_next {
   margin-top: 0.5rem;
   padding: 0.3rem 0.7rem;
   border-radius: 0.8rem;
@@ -45,145 +45,139 @@
   cursor: pointer;
 }
 
-.classRoomVideo-btn_activity {
+.learningPathVideoClass-btn_activity {
   background-color: var(--greenDesafianteLetters);
 }
 
-.classRoomVideo-btn_next {
+.learningPathVideoClass-btn_next {
   background-color: var(--white);
   cursor: pointer;
 }
 
-.classRoomVideo-btn_textActivity {
+.learningPathVideoClass-btn_textActivity {
   color: var(--white);
 }
 
-.classRoomVideo-btn_textNext {
-  color: var(--greenDesafiante);
-  background: var(--white);
-  font-weight: bold;
-  margin: 0;
-  padding: 0;
-  border: none;
-  cursor: pointer;
+.learningPathVideoClass-btn_textNext {
+  color: var(--blueContent);
 }
 
-@media (min-width: 600px) {
-  .classRoomVideo-video {
+@media (min-width: 37.5rem) {
+  .learningPathVideoClass-video {
     width: 26.5rem;
     height: 14.9rem;
   }
 
-  .classRoomVideo-subcontent_videoInteraction {
+  .learningPathVideoClass-subcontent_videoInteraction {
     width: 27rem;
   }
 
-  .classRoomVideo-videoInteraction_title {
+  .learningPathVideoClass-videoInteraction_title {
     font-size: 0.8rem;
     margin-top: 0.6rem;
   }
 
-  .classRoomVideo-subcontent_btn {
+  .learningPathVideoClass-subcontent_btn {
     margin-top: 1rem;
     gap: 7rem;
   }
 
-  .classRoomVideo-btn_activity,
-  .classRoomVideo-btn_next {
+  .learningPathVideoClass-btn_activity,
+  .learningPathVideoClass-btn_next {
     padding: 0.6rem 1rem;
     font-size: 0.8rem;
   }
 }
 
-@media (min-width: 768px) {
-  .classRoomVideo-content_videoInteraction {
+@media (min-width: 48rem) {
+  .learningPathVideoClass-content_videoInteraction {
     display: flex;
     margin: 0 auto;
     width: 26rem;
     margin-top: 0.4rem;
   }
 
-  .classRoomVideo-subcontent_videoInteraction {
+  .learningPathVideoClass-subcontent_videoInteraction {
     width: 26rem;
   }
 
-  .classRoomVideo-subcontent_btn {
+  .learningPathVideoClass-subcontent_btn {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
   }
 
-  .classRoomVideo-btn_activity,
-  .classRoomVideo-btn_next {
+  .learningPathVideoClass-btn_activity,
+  .learningPathVideoClass-btn_next {
     margin: 0 auto;
     width: 12rem;
     text-align: center;
   }
 }
 
-@media (min-width: 1024px) {
-  .classRoomVideo-container {
+@media (min-width: 64rem) {
+  .learningPathVideoClass-container {
     padding: 10rem 1rem;
     width: 55vw;
     height: 100vh;
   }
 
-  .classRoomVideo-video {
+  .learningPathVideoClass-video {
     width: 30rem;
     height: 16.9rem;
   }
 
-  .classRoomVideo-content_videoInteraction {
+  .learningPathVideoClass-content_videoInteraction {
     width: 29rem;
     margin-top: 1.5rem;
   }
 
-  .classRoomVideo-subcontent_videoInteraction {
+  .learningPathVideoClass-subcontent_videoInteraction {
     width: 29rem;
   }
 
-  .classRoomVideo-videoInteraction_title {
+  .learningPathVideoClass-videoInteraction_title {
     font-size: 0.9rem;
   }
 
-  .classRoomVideo-subcontent_btn {
+  .learningPathVideoClass-subcontent_btn {
     gap: 1rem;
   }
 
-  .classRoomVideo-btn_activity,
-  .classRoomVideo-btn_next {
+  .learningPathVideoClass-btn_activity,
+  .learningPathVideoClass-btn_next {
     width: 13rem;
     font-size: 1rem;
   }
 }
 
-@media (min-width: 1070px) {
-  .classRoomVideo-video {
+@media (min-width: 66.875rem) {
+  .learningPathVideoClass-video {
     width: 35rem;
     height: 19.7rem;
   }
 
-  .classRoomVideo-content_videoInteraction {
+  .learningPathVideoClass-content_videoInteraction {
     width: 35rem;
   }
 }
 
-@media (min-width: 1680px) {
-  .classRoomVideo-video {
+@media (min-width: 105rem) {
+  .learningPathVideoClass-video {
     width: 55.1rem;
     height: 31rem;
   }
 
-  .classRoomVideo-content_videoInteraction {
+  .learningPathVideoClass-content_videoInteraction {
     width: 55rem;
   }
 
-  .classRoomVideo-subcontent_videoInteraction {
+  .learningPathVideoClass-subcontent_videoInteraction {
     width: 55rem;
   }
 
-  .classRoomVideo-btn_activity,
-  .classRoomVideo-btn_next {
+  .learningPathVideoClass-btn_activity,
+  .learningPathVideoClass-btn_next {
     margin: 0 auto;
     width: 16rem;
   }

@@ -1,5 +1,5 @@
-@media (min-width: 768px) {
-  .content-view_resources {
+@media (min-width: 48rem) {
+  .resourcesPage-container {
     display: flex;
     justify-content: space-between;
   }

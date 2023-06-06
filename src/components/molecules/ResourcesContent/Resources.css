@@ -1,4 +1,4 @@
-.resources-content {
+.resources-container {
   padding-top: 1rem;
   padding-left: 2rem;
   margin-bottom: 3rem;
@@ -11,7 +11,7 @@
   margin-bottom: 1rem;
 }
 
-.resources-subcontent {
+.resources-content {
   margin-bottom: 1rem;
 }
 
@@ -20,7 +20,7 @@
   font-size: 1.2rem;
 }
 
-.resources-subcontent_studyMaterial {
+.resources-content_studyMaterial {
   display: flex;
   flex-wrap: wrap;
   margin-top: 0.8rem;
@@ -32,8 +32,8 @@
   border-radius: 0.5rem;
 }
 
-@media (min-width: 768px) {
-  .resources-content {
+@media (min-width: 48rem) {
+  .resources-container {
     padding-top: 3rem;
     padding-left: 7rem;
     margin-bottom: 0rem;
@@ -45,11 +45,11 @@
     margin-bottom: 2rem;
   }
 
-  .resources-subcontent {
+  .resources-content {
     margin-bottom: 2rem;
   }
 
-  .resources-subcontent_studyMaterial {
+  .resources-content_studyMaterial {
     margin-top: 1rem;
   }
 
@@ -58,8 +58,8 @@
   }
 }
 
-@media (min-width: 1024px) {
-  .resources-content {
+@media (min-width: 64rem) {
+  .resources-container {
     padding-top: 5rem;
   }
 
@@ -68,7 +68,7 @@
     margin-bottom: 2rem;
   }
 
-  .resources-subcontent {
+  .resources-content {
     margin-bottom: 3rem;
   }
 
@@ -76,7 +76,7 @@
     font-size: 1.5rem;
   }
 
-  .resources-subcontent_studyMaterial {
+  .resources-content_studyMaterial {
     margin-top: 1rem;
     gap: 1.5rem;
   }
@@ -86,17 +86,17 @@
   }
 }
 
-@media (min-width: 1680px) {
+@media (min-width: 105rem) {
   .resources-title {
     font-size: 3rem;
     margin-bottom: 2rem;
   }
 
-  .resources-subcontent {
+  .resources-content {
     margin-bottom: 4rem;
   }
 
-  .resources-subcontent_studyMaterial {
+  .resources-content_studyMaterial {
     gap: 2rem;
   }
 

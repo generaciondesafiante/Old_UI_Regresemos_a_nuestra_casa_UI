@@ -12,14 +12,18 @@ import { PrivateRoutes, PublicRoutes } from '../../../models/routes';
 import { useAuthStore } from '../../../hooks/useAuthStore';
 
 export const Sidebar = () => {
-  const { startLogout } = useAuthStore();
+  const { startLogout, status } = useAuthStore();
+
+  if (status !== 'authenticated') {
+    return null;
+  }
 
   return (
-    <div className="sidebar-content-home">
+    <div className="sidebar-container">
       <Link to={PrivateRoutes.PROFILE}>
-        <Face className="faceIcon sidebar-icon" />
+        <Face className="sidebar-icon" />
       </Link>
-      <div className="sidebar-content-central">
+      <div className="sidebar-content_center">
         <Link to={PrivateRoutes.DASHBOARD}>
           <Home className="sidebar-icon" />
         </Link>
@@ -33,7 +37,7 @@ export const Sidebar = () => {
           <Favorite className="sidebar-icon" />
         </Link>
       </div>
-      <button onClick={startLogout} className="sidebar-icon logout">
+      <button onClick={startLogout} className="sidebar-icon sidebar-logout">
         <Link to={PublicRoutes.HOME} className="sidebar-icon">
           <Logout className="sidebar-icon icon-exit" />
         </Link>

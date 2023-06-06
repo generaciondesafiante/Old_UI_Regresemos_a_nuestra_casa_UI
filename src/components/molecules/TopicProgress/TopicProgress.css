@@ -1,0 +1,56 @@
+.topicProgress-container {
+  background-color: var(--greenDesafianteLetters);
+}
+
+.topicProgress-title {
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--white);
+}
+
+.topicProgress-iconCircle {
+  display: none;
+}
+
+@media (min-width: 48rem) {
+  .topicProgress-title {
+    font-size: 1.2rem;
+    padding-left: 7rem;
+  }
+}
+
+@media (min-width: 64rem) {
+  .topicProgress-container {
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .topicProgress-title {
+    display: none;
+  }
+
+  .topicProgress-iconCircle {
+    display: block;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    background-color: var(--white);
+    font-size: 0.9rem;
+    text-align: center;
+    padding-top: 0.2rem;
+    color: var(--darkBlue);
+  }
+
+  .topicProgress-line {
+    width: 0.15rem;
+    height: 1.8rem;
+    background-color: var(--white);
+  }
+
+  .topicProgress-line.hide {
+    display: none;
+  }
+}

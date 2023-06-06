@@ -1,4 +1,4 @@
-.introduction-video_container {
+.carouselThree-container {
   width: 18rem;
   height: 10rem;
   position: absolute;
@@ -6,14 +6,14 @@
   left: calc(50vw - 9rem);
 }
 
-.introduction-video {
+.carouselThree-video {
   width: 100%;
   height: 100%;
-  border-radius: 15px;
+  border-radius: 0.9rem;
 }
 
-@media (min-width: 570px) {
-  .introduction-video_container {
+@media (min-width: 35.625rem) {
+  .carouselThree-container {
     width: 30rem;
     height: 17rem;
     left: calc(50vw - 15rem);
@@ -21,8 +21,8 @@
   }
 }
 
-@media (min-width: 1024px) {
-  .introduction-video_container {
+@media (min-width: 64rem) {
+  .carouselThree-container {
     width: 50rem;
     height: 30rem;
     left: calc(50vw - 25rem);
@@ -30,8 +30,8 @@
   }
 }
 
-@media (min-width: 1680px) {
-  .introduction-video_container {
+@media (min-width: 105rem) {
+  .carouselThree-container {
     width: 80rem;
     height: 45rem;
     left: calc(50vw - 40rem);

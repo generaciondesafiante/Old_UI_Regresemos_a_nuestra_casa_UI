@@ -1,6 +1,6 @@
-.header-home {
+.header {
   width: 100%;
-  min-width: 320px;
+  min-width: 20rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -10,18 +10,18 @@
   background-color: var(--lightGrey);
 }
 
-.sesionButtonHeader {
+.header-container_btn {
   display: flex;
   justify-content: space-around;
   gap: 0.8rem;
 }
 
-@media (min-width: 768px) {
-  .header-home {
+@media (min-width: 48rem) {
+  .header {
     padding: 0.5rem 1rem;
   }
 
-  .sesionButtonHeader {
+  .header-container_btn {
     gap: 1.5rem;
   }
 }
