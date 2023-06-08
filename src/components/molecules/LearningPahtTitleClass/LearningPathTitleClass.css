@@ -41,7 +41,7 @@
 @media (min-width: 64rem) {
   .learningPathTitleClass-container {
     padding-top: 10rem;
-    padding-left: 2rem;
+    padding-left: 4rem;
   }
 
   .learningPathTitleClass-topic {
@@ -97,7 +97,7 @@
 
   .learningPathTitleClass-title {
     width: 23rem;
-    font-size: 4rem;
+    font-size: 3rem;
   }
 
   .learningPathTitleClass-subcontent {

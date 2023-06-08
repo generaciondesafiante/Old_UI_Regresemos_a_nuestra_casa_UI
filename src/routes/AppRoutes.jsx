@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { Favorite } from '@mui/icons-material';
@@ -18,10 +18,22 @@ import { Sidebar } from '../components/molecules/Sidebar/Sidebar';
 
 export const AppRoutes = () => {
   const [isLogged, setIsLogged] = useState(false);
+  const [courseData, setCourseData] = useState({});
+  const [idVideo, setIdVideo] = useState(null);
+  const [currentUrl, setCurrentUrl] = useState('');
 
   const handleIsLogged = (response) => {
     setIsLogged(response);
   };
+
+  useEffect(() => {
+    if (!courseData.content) {
+      fetch('https://regresemos-cms.herokuapp.com/api/auth/course')
+        .then((response) => response.json())
+        .then((data) => setCourseData(data))
+        .catch((error) => console.error(error));
+    }
+  }, []);
 
   return (
     <>
@@ -42,10 +54,35 @@ export const AppRoutes = () => {
           <Route paht="*" element={<Navigate to={PrivateRoutes.DASHBOARD} />} />
           <Route path={PrivateRoutes.PROFILE} element={<Profile />} />
           <Route path={PrivateRoutes.DASHBOARD} element={<Dashboard />} />
-          <Route path={PrivateRoutes.PATH} element={<Path />} />
+
+          <Route
+            path={PrivateRoutes.PATH}
+            element={
+              <Path
+                courseData={{
+                  name: courseData.name,
+                  endpoint: courseData.endpoint,
+                }}
+                idVideo={idVideo}
+                setCurrentUrl={setCurrentUrl}
+              />
+            }
+          />
+
+          <Route
+            path={`${PrivateRoutes.LEARNINGPATH}${currentUrl}`}
+            element={
+              <LearningPaht
+                courseData={courseData}
+                setIdVideo={setIdVideo}
+                setCurrentUrl={setCurrentUrl}
+                idVideo={idVideo}
+              />
+            }
+          />
+
           <Route path={PrivateRoutes.RESOURCE} element={<ResourcesPage />} />
           <Route path={PrivateRoutes.FAVORITE} element={<Favorite />} />
-          <Route path={PrivateRoutes.LEARNINGPATH} element={<LearningPaht />} />
         </Route>
       </Routes>
       {isLogged ? <Sidebar /> : ''}

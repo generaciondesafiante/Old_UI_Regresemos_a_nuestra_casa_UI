@@ -1,15 +1,22 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import LockIcon from '@mui/icons-material/Lock';
 import { PrivateRoutes } from '../../../models/routes';
 import './Path.css';
 
-export const Path = () => {
+export const Path = ({ idVideo, setCurrentUrl, courseData }) => {
+  const navigate = useNavigate();
+  const handleUrlId = () => {
+    const endpoint = `${courseData.endpoint}/${idVideo ? idVideo : 1}`;
+    setCurrentUrl(endpoint);
+    navigate(`${PrivateRoutes.LEARNINGPATH}${endpoint}`);
+  };
+
   return (
     <div className="path-container">
       <div className="path-content">
-        <Link to={PrivateRoutes.LEARNINGPATH} className="path-learningPath">
+        <button onClick={handleUrlId} className="path-learningPath">
           <LockIcon className="icon-lock" />
-        </Link>
+        </button>
         <Link to={PrivateRoutes.LEARNINGPATH} className="path-learningPath">
           <LockIcon className="icon-lock" />
         </Link>

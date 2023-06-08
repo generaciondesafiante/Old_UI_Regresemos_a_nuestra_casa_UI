@@ -20,7 +20,7 @@
   color: var(--white);
 }
 
-@media (min-width: 768px) {
+@media (min-width: 48rem) {
   .header-access_btn {
     width: 8rem;
     font-size: 0.7rem;

@@ -1,14 +1,32 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import StarIcon from '@mui/icons-material/Star';
+import { PrivateRoutes } from '../../../models/routes';
 import './LearningPathVideoClass.css';
 
-export const LearningPathVideoClass = () => {
+export const LearningPathVideoClass = ({
+  selectVideo,
+  setCurrentUrl,
+  courseEndpoint,
+  setIdVideo,
+}) => {
+  const navigate = useNavigate();
+
+  const handleUrlId = () => {
+    const idNextVideo = selectVideo.id + 1;
+    const endpoint = `${courseEndpoint}/${idNextVideo}`;
+    setCurrentUrl(endpoint);
+    setIdVideo(idNextVideo);
+    navigate(`${PrivateRoutes.LEARNINGPATH}${endpoint}`);
+  };
   return (
     <div className="learningPathVideoClass-container">
       <iframe
-        src="https://www.youtube.com/embed/D4SSeYfTwWo"
         className="learningPathVideoClass-video"
+        src={selectVideo.url}
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
       ></iframe>
+
       <div className="learningPathVideoClass-content_videoInteraction">
         <div className="learningPathVideoClass-subcontent_videoInteraction">
           <p className="learningPathVideoClass-videoInteraction_title">
@@ -24,11 +42,12 @@ export const LearningPathVideoClass = () => {
               ACTIVIDAD
             </Link>
           </div>
-          <div className="learningPathVideoClass-btn_next">
-            <Link className="learningPathVideoClass-btn_textNext">
-              SIGUIENTE
-            </Link>
-          </div>
+          <button
+            className="learningPathVideoClass-btn_next learningPathVideoClass-btn_textNext"
+            onClick={handleUrlId}
+          >
+            SIGUIENTE
+          </button>
         </div>
       </div>
     </div>

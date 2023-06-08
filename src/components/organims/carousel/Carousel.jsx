@@ -24,7 +24,7 @@ export const Carousel = () => {
       const sizeSlide = slideshow.current.children[0].offsetWidth;
 
       //* we move the slideshow
-      slideshow.current.style.transform = `translateX(-${sizeSlide}px)`;
+      slideshow.current.style.transform = `translateX(-${sizeSlide}rem)`;
 
       const transicion = () => {
         //* we reset the position of the slideshow
@@ -51,7 +51,7 @@ export const Carousel = () => {
       slideshow.current.style.transition = 'none';
 
       const sizeSlide = slideshow.current.children[0].offsetWidth;
-      slideshow.current.style.transform = `translateX(-${sizeSlide}px)`;
+      slideshow.current.style.transform = `translateX(-${sizeSlide}rem)`;
 
       setTimeout(() => {
         slideshow.current.style.transition = '500ms ease-out all';
