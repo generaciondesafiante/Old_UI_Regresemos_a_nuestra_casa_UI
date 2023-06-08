@@ -1,7 +1,9 @@
-import { useAuthStore } from '../hooks';
-import { Navigate, Outlet } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+
+import { Navigate, Outlet } from 'react-router-dom';
+
 import { PublicRoutes } from '../models/routes';
+import { useAuthStore } from '../hooks';
 
 export const AuthGuards = ({ handleIsLogged }) => {
   const { checkAuthToken } = useAuthStore();

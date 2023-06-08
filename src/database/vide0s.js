@@ -7,7 +7,6 @@ const videos = async () => {
     videos.title;
     videos.url;
   });
-  console.log(videosrender);
 };
 
 videos();

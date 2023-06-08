@@ -1,5 +1,5 @@
-import { LearningPathTitleClass } from '../../molecules/LearningPahtTitleClass/LearningPathTitleClass';
 import { LearningPahtProgress } from '../../molecules/LearningPathProgress/LearningPathProgress';
+import { LearningPathTitleClass } from '../../molecules/LearningPahtTitleClass/LearningPathTitleClass';
 import { LearningPathVideoClass } from '../../molecules/LearningPathVideoClass/LearningPathVideoClass';
 import './LearningPath.css';
 
@@ -12,7 +12,7 @@ export const LearningPaht = ({
   const selectVideo = courseData.content.find((e) => e.id === (idVideo ?? 1));
 
   return (
-    <div className="earningPath-container">
+    <div className="learningPath-container">
       <LearningPathVideoClass
         setIdVideo={setIdVideo}
         selectVideo={selectVideo}

@@ -1,4 +1,5 @@
 import './LearningPathTitleClass.css';
+
 export const LearningPathTitleClass = ({ descriptionData }) => {
   return (
     <div className="learningPathTitleClass-container">

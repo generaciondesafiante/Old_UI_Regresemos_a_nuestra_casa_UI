@@ -23,7 +23,7 @@ export const CarouselItemOne = () => {
             casa
           </h1>
           <p className="carouselOne-paragraph">
-            un curso que cambiará tu vida y tú relación con el Creador
+            un curso que cambiará tu vida y tu relación con el Creador
           </p>
         </div>
       </div>

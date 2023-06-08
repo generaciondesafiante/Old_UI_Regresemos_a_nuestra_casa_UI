@@ -1,7 +1,7 @@
-import StarIcon from '@mui/icons-material/Star';
 import { Link, useNavigate } from 'react-router-dom';
-import './LearningPathVideoClass.css';
+import StarIcon from '@mui/icons-material/Star';
 import { PrivateRoutes } from '../../../models/routes';
+import './LearningPathVideoClass.css';
 
 export const LearningPathVideoClass = ({
   selectVideo,

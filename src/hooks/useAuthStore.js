@@ -1,12 +1,12 @@
+import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { generacionApi } from '../api';
 import {
   clearErrorMessage,
   onChecking,
   onLogin,
   onLogout,
 } from '../store/auth/authSlice';
-import { useNavigate } from 'react-router-dom';
+import { generacionApi } from '../api';
 import { PrivateRoutes } from '../models/routes';
 
 export const useAuthStore = () => {

@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
-import './LearninPathProgress.css';
 import { PrivateRoutes } from '../../../models/routes';
+import './LearningPathProgress.css';
 
 export const LearningPahtProgress = ({
   videoData,
