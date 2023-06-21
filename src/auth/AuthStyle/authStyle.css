@@ -57,7 +57,7 @@
 
 .form-input:focus + .form-label {
   transform: translateY(-2.1rem);
-  color: var(--greenDesafianteLetters);
+  color: var(--turquoise);
   padding-left: 0rem;
   font-size: 1rem;
 }
@@ -75,7 +75,7 @@
 
 .form-forgot_login:hover {
   text-decoration: underline;
-  color: var(--greenDesafianteLetters);
+  color: var(--turquoise);
 }
 
 .form-btn {

@@ -9,13 +9,13 @@
   --primaryFont: 'Montserrat', sans-serif;
   --white: #fcfcfc;
   --black: black;
-  --darkBlue: #2b394a;
+  --yellow: #fad047;
+  --blue: #1a2284;
   --lightGrey: #ffffffb0;
   --darkGray: #707070;
-  --greenDesafiante: #168991;
-  --yellow: #fad047;
-  --blueTitle: #1a2284;
+  --darkBlue: #2b394a;
   --blueContent: #234e67;
-  --greenDesafianteLetters: rgba(97, 211, 195, 0.9);
-  --greenContentLetter: #0f5765;
+  --greenDesafiante: #168991;
+  --turquoise: rgba(97, 211, 195, 0.9);
+  --drakGreen: #0f5765;
 }

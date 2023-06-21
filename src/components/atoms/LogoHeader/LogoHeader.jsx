@@ -7,7 +7,7 @@ export const LogoHeader = () => {
         <img
           className="header-logo"
           src="https://i.ibb.co/0sXKWB8/Logo11.png"
-          alt="logo generacion desafiante"
+          alt="Logo generación desafiante"
         />
       </Link>
     </>
