@@ -37,51 +37,49 @@ export const LoginPageNavbar = () => {
   return (
     <>
       <Header />
-      <section className="form-container">
-        <form action="" className="form-action" onSubmit={loginSubmit}>
-          <h2 className="form-title">
-            <span>¡Bienvenido/a al</span> <span>Recorrido de la fé!</span>{' '}
-          </h2>
+      <form action="" className="form" onSubmit={loginSubmit}>
+        <h2 className="form-title">
+          ¡Bienvenido/a al Recorrido de la fé!
+        </h2>
 
-          <div className="form-container_inLa">
-            <input
-              id="email"
-              name="loginEmail"
-              value={loginEmail}
-              onChange={onLoginInputChange}
-              type="text"
-              required
-              placeholder=" "
-              className="form-input"
-            />
-            <label htmlFor="email" className="form-label">
-              Correo Electrónico
-            </label>
-          </div>
+        <div className="form-container_inLa">
+          <input
+            id="email"
+            name="loginEmail"
+            value={loginEmail}
+            onChange={onLoginInputChange}
+            type="text"
+            required
+            placeholder=" "
+            className="form-input"
+          />
+          <label htmlFor="email" className="form-label">
+            Correo Electrónico
+          </label>
+        </div>
 
-          <div className="form-container_inLa">
-            <input
-              id="password"
-              name="loginPassword"
-              value={loginPassword}
-              onChange={onLoginInputChange}
-              type="password"
-              required
-              placeholder=" "
-              className="form-input"
-            />
+        <div className="form-container_inLa">
+          <input
+            id="password"
+            name="loginPassword"
+            value={loginPassword}
+            onChange={onLoginInputChange}
+            type="password"
+            required
+            placeholder=" "
+            className="form-input"
+          />
 
-            <label htmlFor="password" className="form-label">
-              Contraseña
-            </label>
-          </div>
-          <Link className="form-forgot_login">Olvidé mi contraseña</Link>
+          <label htmlFor="password" className="form-label">
+            Contraseña
+          </label>
+        </div>
+        <Link className="form-forgot_login">Olvidé mi contraseña</Link>
 
-          <button className="form-btn" type="submit">
-            Ingresar
-          </button>
-        </form>
-      </section>
+        <button className="form-btn" type="submit">
+          Ingresar
+        </button>
+      </form>
     </>
   );
 };

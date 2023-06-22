@@ -15,7 +15,7 @@
   color: var(--greenDesafiante);
 }
 
-.btn-login:hover{
+.btn-login:hover {
   background-color: var(--greenDesafiante);
   color: var(--white);
   transform: scale(1.05);
@@ -26,7 +26,7 @@
   color: var(--white);
 }
 
-.btn-register:hover{
+.btn-register:hover {
   border: solid 0.02rem var(--greenDesafiante);
   background-color: var(--white);
   color: var(--greenDesafiante);
