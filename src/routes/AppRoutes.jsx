@@ -18,19 +18,25 @@ import { Sidebar } from '../components/molecules/Sidebar/Sidebar';
 
 export const AppRoutes = () => {
   const [isLogged, setIsLogged] = useState(false);
-  const [courseData, setCourseData] = useState({});
-  const [idVideo, setIdVideo] = useState(null);
-  const [currentUrl, setCurrentUrl] = useState('');
-
+  const [coursesData, setCoursesData] = useState([{ 
+  name: "",
+  endpoint: "",
+  currentVideo: null,
+  content:[]
+}]);
+  const [currentCourseURL, setCurrentCourseURL] = useState("");
+  
   const handleIsLogged = (response) => {
     setIsLogged(response);
   };
 
   useEffect(() => {
-    if (!courseData.content) {
-      fetch('https://regresemos-cms.herokuapp.com/api/auth/course')
+    if (coursesData[0].content.length === 0) {
+      fetch('http://localhost:8080/api/auth/course')
         .then((response) => response.json())
-        .then((data) => setCourseData(data))
+        .then((data) => {
+          setCoursesData(data);
+        })
         .catch((error) => console.error(error));
     }
   }, []);
@@ -50,8 +56,8 @@ export const AppRoutes = () => {
 
         {/* //TODO routes Private */}
         <Route element={<AuthGuards handleIsLogged={handleIsLogged} />}>
-          <Route paht="/" element={<Navigate to={PrivateRoutes.DASHBOARD} />} />
-          <Route paht="*" element={<Navigate to={PrivateRoutes.DASHBOARD} />} />
+          <Route path="/" element={<Navigate to={PrivateRoutes.DASHBOARD} />} />
+          <Route path="*" element={<Navigate to={PrivateRoutes.DASHBOARD} />} />
           <Route path={PrivateRoutes.PROFILE} element={<Profile />} />
           <Route path={PrivateRoutes.DASHBOARD} element={<Dashboard />} />
 
@@ -59,24 +65,21 @@ export const AppRoutes = () => {
             path={PrivateRoutes.PATH}
             element={
               <Path
-                courseData={{
-                  name: courseData.name,
-                  endpoint: courseData.endpoint,
-                }}
-                idVideo={idVideo}
-                setCurrentUrl={setCurrentUrl}
+                coursesData={coursesData}
+                setCoursesData={setCoursesData}
+                setCurrentCourseURL={setCurrentCourseURL}
               />
             }
           />
 
           <Route
-            path={`${PrivateRoutes.LEARNINGPATH}${currentUrl}`}
+            path={`${PrivateRoutes.LEARNINGPATH}${currentCourseURL}`}
             element={
               <LearningPaht
-                courseData={courseData}
-                setIdVideo={setIdVideo}
-                setCurrentUrl={setCurrentUrl}
-                idVideo={idVideo}
+                coursesData={coursesData}
+                setCoursesData={setCoursesData}
+                currentCourseURL={currentCourseURL}
+                setCurrentCourseURL={setCurrentCourseURL}
               />
             }
           />

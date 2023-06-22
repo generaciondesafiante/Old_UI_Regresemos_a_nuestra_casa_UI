@@ -3,33 +3,42 @@ import { PrivateRoutes } from '../../../models/routes';
 import './LearningPathProgress.css';
 
 export const LearningPahtProgress = ({
-  videoData,
-  setIdVideo,
-  setCurrentUrl,
-  courseEndpoint,
+  coursesData,
+  setCoursesData,
+  courseSelected,
+  setCurrentCourseURL,
+  lessonData,
 }) => {
   const navigate = useNavigate();
-
-  const handleTopicClick = () => {
-    const endpoint = `${courseEndpoint}/${videoData.id}`;
-    setIdVideo(videoData.id);
-    setCurrentUrl(endpoint);
+  const handleUrlId = () => {
+    const idVideo = lessonData.id;
+    const endpoint = `${courseSelected.endpoint}/${idVideo}`;
+    setCurrentCourseURL(endpoint);
+    const courseUpdated = coursesData.map ((courseData) => {
+      if (courseData === courseSelected){
+        return {...courseData, currentVideo:idVideo}
+      }else {
+        return courseData
+      }
+    })
+    setCoursesData(courseUpdated);
     navigate(`${PrivateRoutes.LEARNINGPATH}${endpoint}`);
   };
+
   return (
     <>
       <div className="classRoomRoute-subcontent">
-        <div className="classRoomRoute-title" onClick={handleTopicClick}>
-          {videoData.id}
+        <div className="classRoomRoute-title" onClick={handleUrlId}>
+          {lessonData.id}
         </div>
 
-        <div className="classRoomRoute-iconCircle" onClick={handleTopicClick}>
-          {videoData.id}
+        <div className="classRoomRoute-iconCircle" onClick={handleUrlId}>
+          {lessonData.id}
         </div>
 
         <div
           className={`classRoomRoute-line ${
-            videoData.isLastVideo ? 'hide' : ''
+            lessonData.isLastVideo ? 'hide' : ''
           }`}
         ></div>
       </div>
