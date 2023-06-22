@@ -16,17 +16,16 @@ export const LearningPathVideoClass = ({
     const idVideo = lessonSelected.id + 1;
     const endpoint = `${courseSelected.currentEndpoint}/${idVideo}`;
     setCurrentCourseURL(endpoint);
-    const courseUpdated = coursesData.map ((courseData) => {
-      if (courseData === courseSelected){
-        return {...courseData, currentVideo:idVideo}
-      }else {
-        return courseData
+    const courseUpdated = coursesData.map((courseData) => {
+      if (courseData === courseSelected) {
+        return { ...courseData, currentVideo: idVideo };
+      } else {
+        return courseData;
       }
-    })
+    });
     setCoursesData(courseUpdated);
     navigate(`${PrivateRoutes.LEARNINGPATH}${endpoint}`);
   };
-
 
   return (
     <div className="learningPathVideoClass-container">

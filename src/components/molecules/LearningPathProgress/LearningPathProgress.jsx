@@ -14,13 +14,13 @@ export const LearningPahtProgress = ({
     const idVideo = lessonData.id;
     const endpoint = `${courseSelected.endpoint}/${idVideo}`;
     setCurrentCourseURL(endpoint);
-    const courseUpdated = coursesData.map ((courseData) => {
-      if (courseData === courseSelected){
-        return {...courseData, currentVideo:idVideo}
-      }else {
-        return courseData
+    const courseUpdated = coursesData.map((courseData) => {
+      if (courseData === courseSelected) {
+        return { ...courseData, currentVideo: idVideo };
+      } else {
+        return courseData;
       }
-    })
+    });
     setCoursesData(courseUpdated);
     navigate(`${PrivateRoutes.LEARNINGPATH}${endpoint}`);
   };

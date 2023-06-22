@@ -9,9 +9,13 @@ export const LearningPaht = ({
   currentCourseURL,
   setCurrentCourseURL,
 }) => {
-  const currentCourseEndPoint = currentCourseURL.split("/")
-  const courseSelected = coursesData.find((e) => e.endpoint.includes(currentCourseEndPoint[1]));
-  const lessonSelected = courseSelected.content.find((e) => e.id == currentCourseEndPoint[2]);
+  const currentCourseEndPoint = currentCourseURL.split('/');
+  const courseSelected = coursesData.find((e) =>
+    e.endpoint.includes(currentCourseEndPoint[1])
+  );
+  const lessonSelected = courseSelected.content.find(
+    (e) => e.id == currentCourseEndPoint[2]
+  );
 
   return (
     <div className="learningPath-container">

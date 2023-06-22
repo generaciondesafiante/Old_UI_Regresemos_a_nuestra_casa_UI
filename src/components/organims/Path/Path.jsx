@@ -9,13 +9,13 @@ export const Path = ({ coursesData, setCoursesData, setCurrentCourseURL }) => {
     const idVideo = course.currentVideo ? course.currentVideo : 1;
     const endpoint = `${course.endpoint}/${idVideo}`;
     setCurrentCourseURL(endpoint);
-    const courseUpdated = coursesData.map ((courseData) => {
-      if (courseData === course){
-        return {...courseData, currentVideo:idVideo}
-      }else {
-        return courseData
+    const courseUpdated = coursesData.map((courseData) => {
+      if (courseData === course) {
+        return { ...courseData, currentVideo: idVideo };
+      } else {
+        return courseData;
       }
-    })
+    });
     setCoursesData(courseUpdated);
     navigate(`${PrivateRoutes.LEARNINGPATH}${endpoint}`);
   };
@@ -25,12 +25,15 @@ export const Path = ({ coursesData, setCoursesData, setCurrentCourseURL }) => {
       <div className="path-content">
         {coursesData.map((course) => {
           return (
-            <button key={course.name} onClick={()=> handleUrlId(course)} className="path-learningPath">
+            <button
+              key={course.name}
+              onClick={() => handleUrlId(course)}
+              className="path-learningPath"
+            >
               <LockIcon className="icon-lock" />
             </button>
-          )
-        }
-      )}
+          );
+        })}
       </div>
     </div>
   );

@@ -18,21 +18,23 @@ import { Sidebar } from '../components/molecules/Sidebar/Sidebar';
 
 export const AppRoutes = () => {
   const [isLogged, setIsLogged] = useState(false);
-  const [coursesData, setCoursesData] = useState([{ 
-  name: "",
-  endpoint: "",
-  currentVideo: null,
-  content:[]
-}]);
-  const [currentCourseURL, setCurrentCourseURL] = useState("");
-  
+  const [coursesData, setCoursesData] = useState([
+    {
+      name: '',
+      endpoint: '',
+      currentVideo: null,
+      content: [],
+    },
+  ]);
+  const [currentCourseURL, setCurrentCourseURL] = useState('');
+
   const handleIsLogged = (response) => {
     setIsLogged(response);
   };
 
   useEffect(() => {
     if (coursesData[0].content.length === 0) {
-      fetch('http://localhost:8080/api/auth/course')
+      fetch('https://regresemos-cms.herokuapp.com/api/auth/course')
         .then((response) => response.json())
         .then((data) => {
           setCoursesData(data);
