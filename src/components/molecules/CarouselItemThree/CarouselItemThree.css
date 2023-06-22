@@ -1,9 +1,9 @@
 .carouselThree-container {
-  width: 18rem;
-  height: 10rem;
   position: absolute;
-  top: calc(50vh - 5rem);
-  left: calc(50vw - 9rem);
+  width: 16rem;
+  height: 9rem;
+  top: calc(50vh - 4.5rem);
+  left: calc(50vw - 8rem);
 }
 
 .carouselThree-video {
@@ -12,29 +12,29 @@
   border-radius: 0.9rem;
 }
 
-@media (min-width: 35.625rem) {
+@media (min-width: 36rem) {
   .carouselThree-container {
-    width: 30rem;
-    height: 17rem;
-    left: calc(50vw - 15rem);
-    top: calc(50vh - 8.5rem);
+    width: 32rem;
+    height: 18rem;
+    left: calc(50vw - 16rem);
+    top: calc(50vh - 9rem);
   }
 }
 
 @media (min-width: 64rem) {
   .carouselThree-container {
-    width: 50rem;
-    height: 30rem;
-    left: calc(50vw - 25rem);
-    top: calc(50vh - 15rem);
+    width: 48rem;
+    height: 27rem;
+    left: calc(50vw - 24rem);
+    top: calc(50vh - 13.5rem);
   }
 }
 
-@media (min-width: 105rem) {
+@media (min-width: 75rem) {
   .carouselThree-container {
-    width: 80rem;
-    height: 45rem;
-    left: calc(50vw - 40rem);
-    top: calc(50vh - 22.5rem);
+    width: 64rem;
+    height: 36rem;
+    left: calc(50vw - 32rem);
+    top: calc(50vh - 18rem);
   }
 }
