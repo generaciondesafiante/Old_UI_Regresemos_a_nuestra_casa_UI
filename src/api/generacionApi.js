@@ -7,7 +7,7 @@ const generacionApi = axios.create({
   baseURL: REACT_APP_API_URL,
 });
 
-// ----- TODO: CONFIGURE INTERCEPTORS
+// -- TODO: CONFIGURE INTERCEPTORS
 generacionApi.interceptors.request.use((config) => {
   config.headers = {
     ...config.headers,
