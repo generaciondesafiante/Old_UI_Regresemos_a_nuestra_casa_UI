@@ -1,5 +1,4 @@
 import { useEffect, useRef } from 'react';
-
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
@@ -24,7 +23,7 @@ export const Carousel = () => {
       const sizeSlide = slideshow.current.children[0].offsetWidth;
 
       //* we move the slideshow
-      slideshow.current.style.transform = `translateX(-${sizeSlide/16}rem)`;
+      slideshow.current.style.transform = `translateX(-${sizeSlide / 16}rem)`;
 
       const transition = () => {
         //* we reset the position of the slideshow

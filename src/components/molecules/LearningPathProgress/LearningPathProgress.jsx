@@ -38,7 +38,7 @@ export const LearningPahtProgress = ({
 
         <div
           className={`classRoomRoute-line ${
-            lessonData.isLastVideo ? 'hide' : ''
+            lessonData.isLastLesson ? 'hide' : ''
           }`}
         ></div>
       </div>

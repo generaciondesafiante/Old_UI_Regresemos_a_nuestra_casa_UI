@@ -14,7 +14,7 @@ export const LearningPathVideoClass = ({
 
   const handleUrlId = () => {
     const idVideo = lessonSelected.id + 1;
-    const endpoint = `${courseSelected.currentEndpoint}/${idVideo}`;
+    const endpoint = `${courseSelected.endpoint}/${idVideo}`;
     setCurrentCourseURL(endpoint);
     const courseUpdated = coursesData.map((courseData) => {
       if (courseData === courseSelected) {

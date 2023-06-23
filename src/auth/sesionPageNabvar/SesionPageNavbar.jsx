@@ -38,9 +38,7 @@ export const LoginPageNavbar = () => {
     <>
       <Header />
       <form action="" className="form" onSubmit={loginSubmit}>
-        <h2 className="form-title">
-          ¡Bienvenido/a al Recorrido de la fé!
-        </h2>
+        <h2 className="form-title">¡Bienvenido/a al Recorrido de la fé!</h2>
 
         <div className="form-container_inLa">
           <input
