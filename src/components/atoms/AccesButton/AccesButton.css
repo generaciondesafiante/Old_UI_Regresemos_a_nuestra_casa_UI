@@ -31,7 +31,13 @@
   background-color: var(--white);
   color: var(--greenDesafiante);
   transform: scale(1.05);
+}
 
+@media (min-width: 48rem) {
+  .header-access_btn {
+    width: 9rem;
+    font-size: 0.8rem;
+  }
 }
 
 @media (min-width: 48rem) {
