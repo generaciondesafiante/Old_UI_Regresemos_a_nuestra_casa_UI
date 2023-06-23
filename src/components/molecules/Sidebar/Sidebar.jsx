@@ -39,7 +39,7 @@ export const Sidebar = () => {
           <Favorite className="sidebar-icon" />
         </Link>
       </div>
-      <button onClick={startLogout} className="sidebar-icon sidebar-logout">
+      <button onClick={startLogout} className="sidebar-icon">
         <Link to={PublicRoutes.HOME} className="sidebar-icon">
           <Logout className="sidebar-icon icon-exit" />
         </Link>
