@@ -25,6 +25,7 @@
   border-radius: 50%;
   color: var(--greenDesafiante);
   background: none;
+  cursor: pointer;
   transition: 0.1s ease all;
 }
 

@@ -64,7 +64,7 @@ export const Carousel = () => {
   useEffect(() => {
     slideshowInterval.current = setInterval(() => {
       following();
-    }, 8000000);
+    }, 8000);
   }, []);
 
   return (
