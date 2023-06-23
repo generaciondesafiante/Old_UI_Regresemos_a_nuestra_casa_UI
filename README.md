@@ -98,7 +98,9 @@ Next, you can find the instructions to clone this repository locally on your mac
 
 3.  Open the directory on the terminal and enter:
 
-        git clone <repository clone link>
+        git init
+        git remote add origin <URL>
+        git pull origin main
 
 4.  Finally
 

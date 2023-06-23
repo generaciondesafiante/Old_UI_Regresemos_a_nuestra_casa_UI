@@ -1,30 +1,47 @@
-import { TopicProgress } from '../TopicProgress/TopicProgress';
+import { useNavigate } from 'react-router-dom';
+import { PrivateRoutes } from '../../../models/routes';
 import './LearningPathProgress.css';
 
-export const LearningPahtProgress = () => {
-  const sections = [
-    'Sección 1',
-    'Sección 2',
-    'Sección 3',
-    'Sección 4',
-    'Sección 5',
-    'Sección 6',
-    'Sección 7',
-    'Sección 8',
-    'Sección 9',
-    'Sección 10',
-  ];
-  console.log(sections.length);
+export const LearningPahtProgress = ({
+  coursesData,
+  setCoursesData,
+  courseSelected,
+  setCurrentCourseURL,
+  lessonData,
+}) => {
+  const navigate = useNavigate();
+  const handleUrlId = () => {
+    const idVideo = lessonData.id;
+    const endpoint = `${courseSelected.endpoint}/${idVideo}`;
+    setCurrentCourseURL(endpoint);
+    const courseUpdated = coursesData.map((courseData) => {
+      if (courseData === courseSelected) {
+        return { ...courseData, currentVideo: idVideo };
+      } else {
+        return courseData;
+      }
+    });
+    setCoursesData(courseUpdated);
+    navigate(`${PrivateRoutes.LEARNINGPATH}${endpoint}`);
+  };
+
   return (
-    <nav className="learningPahtProgress-container">
-      {sections.map((topicContent, index) => (
-        <TopicProgress
-          key={index + 1}
-          topic={topicContent}
-          lessonNumber={index + 1}
-          lastTopic={index === sections.length - 1}
-        />
-      ))}
-    </nav>
+    <>
+      <div className="classRoomRoute-subcontent">
+        <div className="classRoomRoute-title" onClick={handleUrlId}>
+          {lessonData.id}
+        </div>
+
+        <div className="classRoomRoute-iconCircle" onClick={handleUrlId}>
+          {lessonData.id}
+        </div>
+
+        <div
+          className={`classRoomRoute-line ${
+            lessonData.isLastLesson ? 'hide' : ''
+          }`}
+        ></div>
+      </div>
+    </>
   );
 };

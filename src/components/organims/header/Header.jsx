@@ -1,6 +1,6 @@
+import { AccesButton } from '../../atoms/AccesButton/AccesButton';
+import { LogoHeader } from '../../atoms/LogoHeader/LogoHeader';
 import './Header.css';
-import LogoHeader from '../../atoms/LogoHeader/LogoHeader';
-import AccesButton from '../../atoms/AccesButton/AccesButton';
 
 export const Header = () => {
   return (

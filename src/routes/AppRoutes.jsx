@@ -1,24 +1,47 @@
+import { useEffect, useState } from 'react';
+
 import { Navigate, Route, Routes } from 'react-router-dom';
-import { RegisterPageNavbar } from '../auth/registerPageNavbar/ResgisterPageNavbar';
-import { LoginPageNavbar } from '../auth/sesionPageNabvar/SesionPageNavbar';
-import { Home } from '../pages/Home/Home';
-import { PrivateRoutes, PublicRoutes } from '../models/routes';
-import { AuthGuards } from '../guards/AuthGuards';
 import { Favorite } from '@mui/icons-material';
-import { useState } from 'react';
-import { Sidebar } from '../components/molecules/Sidebar/Sidebar';
-import { Profile } from '../components/organims/Profile/Profile';
-import { ResourcesPage } from '../components/organims/ResourcesPage/ResourcesPage';
-import { Path } from '../components/organims/Path/Path';
-import { LearningPaht } from '../components/organims/LearningPath/LearningPath';
+
+import { AuthGuards } from '../guards/AuthGuards';
+import { PrivateRoutes, PublicRoutes } from '../models/routes';
+
 import { Dashboard } from '../components/organims/Dashboard/Dashboard';
+import { Home } from '../pages/Home/Home';
+import { LearningPaht } from '../components/organims/LearningPath/LearningPath';
+import { LoginPageNavbar } from '../auth/sesionPageNabvar/SesionPageNavbar';
+import { Path } from '../components/organims/Path/Path';
+import { Profile } from '../components/organims/Profile/Profile';
+import { RegisterPageNavbar } from '../auth/registerPageNavbar/ResgisterPageNavbar';
+import { ResourcesPage } from '../components/organims/ResourcesPage/ResourcesPage';
+import { Sidebar } from '../components/molecules/Sidebar/Sidebar';
 
 export const AppRoutes = () => {
   const [isLogged, setIsLogged] = useState(false);
+  const [coursesData, setCoursesData] = useState([
+    {
+      name: '',
+      endpoint: '',
+      currentVideo: null,
+      content: [],
+    },
+  ]);
+  const [currentCourseURL, setCurrentCourseURL] = useState('');
 
   const handleIsLogged = (response) => {
     setIsLogged(response);
   };
+
+  useEffect(() => {
+    if (coursesData[0].content.length === 0) {
+      fetch('https://regresemos-cms.herokuapp.com/api/auth/course')
+        .then((response) => response.json())
+        .then((data) => {
+          setCoursesData(data);
+        })
+        .catch((error) => console.error(error));
+    }
+  }, []);
 
   return (
     <>
@@ -35,14 +58,36 @@ export const AppRoutes = () => {
 
         {/* //TODO routes Private */}
         <Route element={<AuthGuards handleIsLogged={handleIsLogged} />}>
-          <Route paht="/" element={<Navigate to={PrivateRoutes.DASHBOARD} />} />
-          <Route paht="*" element={<Navigate to={PrivateRoutes.DASHBOARD} />} />
+          <Route path="/" element={<Navigate to={PrivateRoutes.DASHBOARD} />} />
+          <Route path="*" element={<Navigate to={PrivateRoutes.DASHBOARD} />} />
           <Route path={PrivateRoutes.PROFILE} element={<Profile />} />
           <Route path={PrivateRoutes.DASHBOARD} element={<Dashboard />} />
-          <Route path={PrivateRoutes.PATH} element={<Path />} />
+
+          <Route
+            path={PrivateRoutes.PATH}
+            element={
+              <Path
+                coursesData={coursesData}
+                setCoursesData={setCoursesData}
+                setCurrentCourseURL={setCurrentCourseURL}
+              />
+            }
+          />
+
+          <Route
+            path={`${PrivateRoutes.LEARNINGPATH}${currentCourseURL}`}
+            element={
+              <LearningPaht
+                coursesData={coursesData}
+                setCoursesData={setCoursesData}
+                currentCourseURL={currentCourseURL}
+                setCurrentCourseURL={setCurrentCourseURL}
+              />
+            }
+          />
+
           <Route path={PrivateRoutes.RESOURCE} element={<ResourcesPage />} />
           <Route path={PrivateRoutes.FAVORITE} element={<Favorite />} />
-          <Route path={PrivateRoutes.LEARNINGPATH} element={<LearningPaht />} />
         </Route>
       </Routes>
       {isLogged ? <Sidebar /> : ''}

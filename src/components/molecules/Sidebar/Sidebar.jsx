@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import {
   Bookmark,
   Face,
@@ -6,13 +8,17 @@ import {
   Home,
   Logout,
 } from '@mui/icons-material';
-import { Link } from 'react-router-dom';
-import './Sidebar.css';
+
 import { PrivateRoutes, PublicRoutes } from '../../../models/routes';
 import { useAuthStore } from '../../../hooks/useAuthStore';
+import './Sidebar.css';
 
 export const Sidebar = () => {
-  const { startLogout } = useAuthStore();
+  const { startLogout, status } = useAuthStore();
+
+  if (status !== 'authenticated') {
+    return null;
+  }
 
   return (
     <div className="sidebar-container">
@@ -33,7 +39,7 @@ export const Sidebar = () => {
           <Favorite className="sidebar-icon" />
         </Link>
       </div>
-      <button onClick={startLogout} className="sidebar-icon sidebar-logout">
+      <button onClick={startLogout} className="sidebar-icon">
         <Link to={PublicRoutes.HOME} className="sidebar-icon">
           <Logout className="sidebar-icon icon-exit" />
         </Link>

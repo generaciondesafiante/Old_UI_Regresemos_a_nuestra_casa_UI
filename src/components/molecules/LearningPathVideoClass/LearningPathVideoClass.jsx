@@ -1,14 +1,41 @@
+import { Link, useNavigate } from 'react-router-dom';
 import StarIcon from '@mui/icons-material/Star';
-import { Link } from 'react-router-dom';
+import { PrivateRoutes } from '../../../models/routes';
 import './LearningPathVideoClass.css';
 
-export const LearningPathVideoClass = () => {
+export const LearningPathVideoClass = ({
+  coursesData,
+  setCoursesData,
+  setCurrentCourseURL,
+  courseSelected,
+  lessonSelected,
+}) => {
+  const navigate = useNavigate();
+
+  const handleUrlId = () => {
+    const idVideo = lessonSelected.id + 1;
+    const endpoint = `${courseSelected.endpoint}/${idVideo}`;
+    setCurrentCourseURL(endpoint);
+    const courseUpdated = coursesData.map((courseData) => {
+      if (courseData === courseSelected) {
+        return { ...courseData, currentVideo: idVideo };
+      } else {
+        return courseData;
+      }
+    });
+    setCoursesData(courseUpdated);
+    navigate(`${PrivateRoutes.LEARNINGPATH}${endpoint}`);
+  };
+
   return (
     <div className="learningPathVideoClass-container">
       <iframe
-        src="https://www.youtube.com/embed/D4SSeYfTwWo"
         className="learningPathVideoClass-video"
+        src={lessonSelected.url}
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
       ></iframe>
+
       <div className="learningPathVideoClass-content_videoInteraction">
         <div className="learningPathVideoClass-subcontent_videoInteraction">
           <p className="learningPathVideoClass-videoInteraction_title">
@@ -24,11 +51,12 @@ export const LearningPathVideoClass = () => {
               ACTIVIDAD
             </Link>
           </div>
-          <div className="learningPathVideoClass-btn_next">
-            <Link className="learningPathVideoClass-btn_textNext">
-              SIGUIENTE
-            </Link>
-          </div>
+          <button
+            className="learningPathVideoClass-btn_next learningPathVideoClass-btn_textNext"
+            onClick={handleUrlId}
+          >
+            SIGUIENTE
+          </button>
         </div>
       </div>
     </div>

@@ -1,12 +1,12 @@
+import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { generacionApi } from '../api';
 import {
   clearErrorMessage,
   onChecking,
   onLogin,
   onLogout,
 } from '../store/auth/authSlice';
-import { useNavigate } from 'react-router-dom';
+import { generacionApi } from '../api';
 import { PrivateRoutes } from '../models/routes';
 
 export const useAuthStore = () => {
@@ -93,7 +93,24 @@ export const useAuthStore = () => {
 
   const startLogout = () => {
     localStorage.clear();
-    dispatch(onLogout);
+    dispatch(onLogout());
+  };
+  const videosLearningPath = async ({ id, tema, title, url }) => {
+    await generacionApi.post(
+      '/auth/videos',
+      {
+        id,
+        tema,
+        title,
+        url,
+      },
+      {
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+          'Access-Control-Allow-Origin': '*',
+        },
+      }
+    );
   };
 
   return {
@@ -107,5 +124,6 @@ export const useAuthStore = () => {
     startRegister,
     checkAuthToken,
     startLogout,
+    videosLearningPath,
   };
 };

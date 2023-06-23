@@ -1,12 +1,12 @@
 .header-access_btn {
-  width: 6rem;
+  width: 7rem;
   padding: 0.5rem;
   font-weight: bold;
   text-align: center;
   text-decoration: none;
-  border-radius: 1rem;
+  border-radius: 0.8rem;
   font-size: 0.6rem;
-  font-family: var(--primaryFont);
+  transition: 400ms;
 }
 
 .btn-login {
@@ -15,14 +15,28 @@
   color: var(--greenDesafiante);
 }
 
+.btn-login:hover {
+  background-color: var(--greenDesafiante);
+  color: var(--white);
+  transform: scale(1.05);
+}
+
 .btn-register {
   background-color: var(--greenDesafiante);
   color: var(--white);
 }
 
-@media (min-width: 768px) {
+.btn-register:hover {
+  border: solid 0.02rem var(--greenDesafiante);
+  background-color: var(--white);
+  color: var(--greenDesafiante);
+  transform: scale(1.05);
+
+}
+
+@media (min-width: 48rem) {
   .header-access_btn {
-    width: 8rem;
-    font-size: 0.7rem;
+    width: 9rem;
+    font-size: 0.8rem;
   }
 }

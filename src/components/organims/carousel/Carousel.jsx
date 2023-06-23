@@ -1,13 +1,13 @@
 import { useEffect, useRef } from 'react';
-import { CarouselItemOne } from '../../molecules/CarouselItemOne/CarouselItemOne';
-import { CarouselItemTwo } from '../../molecules/CarouselItemTwo/CarouselItemTwo';
-import { CarouselItemThree } from '../../molecules/CarouselItemThree/CarouselItemThree';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
+import { CarouselItemOne } from '../../molecules/CarouselItemOne/CarouselItemOne';
+import { CarouselItemThree } from '../../molecules/CarouselItemThree/CarouselItemThree';
+import { CarouselItemTwo } from '../../molecules/CarouselItemTwo/CarouselItemTwo';
 import './Carousel.css';
 
-const Carousel = () => {
+export const Carousel = () => {
   const slideshow = useRef(null);
   const slideshowInterval = useRef(null);
 
@@ -23,19 +23,19 @@ const Carousel = () => {
       const sizeSlide = slideshow.current.children[0].offsetWidth;
 
       //* we move the slideshow
-      slideshow.current.style.transform = `translateX(-${sizeSlide}px)`;
+      slideshow.current.style.transform = `translateX(-${sizeSlide / 16}rem)`;
 
-      const transicion = () => {
+      const transition = () => {
         //* we reset the position of the slideshow
         slideshow.current.style.transition = 'none';
         slideshow.current.style.transform = `translateX(0)`;
         //*We take the first element and send it to the end
         slideshow.current.appendChild(firstElement);
         //* so that when the code is executed it stops listening to the event
-        slideshow.current.removeEventListener('transitionend', transicion);
+        slideshow.current.removeEventListener('transitionEnd', transition);
       };
       //* evenlistener for when the animation ends
-      slideshow.current.addEventListener('transitionend', transicion);
+      slideshow.current.addEventListener('transitionEnd', transition);
     }
   };
 
@@ -50,7 +50,7 @@ const Carousel = () => {
       slideshow.current.style.transition = 'none';
 
       const sizeSlide = slideshow.current.children[0].offsetWidth;
-      slideshow.current.style.transform = `translateX(-${sizeSlide}px)`;
+      slideshow.current.style.transform = `translateX(-${sizeSlide}rem)`;
 
       setTimeout(() => {
         slideshow.current.style.transition = '500ms ease-out all';
@@ -88,4 +88,3 @@ const Carousel = () => {
     </div>
   );
 };
-export default Carousel;
