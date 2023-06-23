@@ -1,10 +1,9 @@
 .header-logo {
   width: 2.5rem;
   transition: 400ms;
-
 }
 
-.header-logo:hover{
+.header-logo:hover {
   transform: scale(1.1);
 }
 
