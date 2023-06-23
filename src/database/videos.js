@@ -1,12 +1,18 @@
 import { useAuthStore } from '../hooks/useAuthStore';
 
-const videos = async () => {
+export const videos = async () => {
   const { videosLearningPath } = useAuthStore;
-  const videosrender = videosLearningPath.map((videos) => {
-    key = videos.video;
-    videos.title;
-    videos.url;
-  });
-};
+  const videosRender = videosLearningPath.map((videos) => {
+    const key = videos.video;
+    const title = videos.title;
+    const url = videos.url;
 
-videos();
+    return {
+      key: key,
+      title: title,
+      url: url,
+    };
+  });
+
+  return videosRender;
+};

@@ -4,25 +4,34 @@ import { PrivateRoutes } from '../../../models/routes';
 import './LearningPathVideoClass.css';
 
 export const LearningPathVideoClass = ({
-  selectVideo,
-  setCurrentUrl,
-  courseEndpoint,
-  setIdVideo,
+  coursesData,
+  setCoursesData,
+  setCurrentCourseURL,
+  courseSelected,
+  lessonSelected,
 }) => {
   const navigate = useNavigate();
 
   const handleUrlId = () => {
-    const idNextVideo = selectVideo.id + 1;
-    const endpoint = `${courseEndpoint}/${idNextVideo}`;
-    setCurrentUrl(endpoint);
-    setIdVideo(idNextVideo);
+    const idVideo = lessonSelected.id + 1;
+    const endpoint = `${courseSelected.currentEndpoint}/${idVideo}`;
+    setCurrentCourseURL(endpoint);
+    const courseUpdated = coursesData.map((courseData) => {
+      if (courseData === courseSelected) {
+        return { ...courseData, currentVideo: idVideo };
+      } else {
+        return courseData;
+      }
+    });
+    setCoursesData(courseUpdated);
     navigate(`${PrivateRoutes.LEARNINGPATH}${endpoint}`);
   };
+
   return (
     <div className="learningPathVideoClass-container">
       <iframe
         className="learningPathVideoClass-video"
-        src={selectVideo.url}
+        src={lessonSelected.url}
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowfullscreen
       ></iframe>
