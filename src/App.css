@@ -8,10 +8,10 @@
 :root {
   --primaryFont: 'Montserrat', sans-serif;
   --white: #fcfcfc;
+  --whiteGradient: #ffffffb0;
   --black: black;
   --yellow: #fad047;
   --blue: #1a2284;
-  --lightGrey: #ffffffb0;
   --darkGray: #707070;
   --darkBlue: #2b394a;
   --blueContent: #234e67;
