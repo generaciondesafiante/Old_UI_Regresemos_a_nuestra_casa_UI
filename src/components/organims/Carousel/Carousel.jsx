@@ -32,10 +32,10 @@ export const Carousel = () => {
         //*We take the first element and send it to the end
         slideshow.current.appendChild(firstElement);
         //* so that when the code is executed it stops listening to the event
-        slideshow.current.removeEventListener('transitionEnd', transition);
+        slideshow.current.removeEventListener('transitionend', transition);
       };
       //* evenlistener for when the animation ends
-      slideshow.current.addEventListener('transitionEnd', transition);
+      slideshow.current.addEventListener('transitionend', transition);
     }
   };
 
