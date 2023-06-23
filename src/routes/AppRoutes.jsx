@@ -46,7 +46,7 @@ export const AppRoutes = () => {
   return (
     <>
       <Routes>
-        {/* //TODO routes Public */}
+        {/* // ----- TODO routes Public */}
 
         <Route path="*" element={<Navigate to={PrivateRoutes.DASHBOARD} />} />
 
@@ -56,7 +56,7 @@ export const AppRoutes = () => {
         <Route path={PublicRoutes.REGISTER} element={<RegisterPageNavbar />} />
         <Route path={PublicRoutes.HOME} element={<Home />} index />
 
-        {/* //TODO routes Private */}
+        {/* // ----- TODO routes Private */}
         <Route element={<AuthGuards handleIsLogged={handleIsLogged} />}>
           <Route path="/" element={<Navigate to={PrivateRoutes.DASHBOARD} />} />
           <Route path="*" element={<Navigate to={PrivateRoutes.DASHBOARD} />} />

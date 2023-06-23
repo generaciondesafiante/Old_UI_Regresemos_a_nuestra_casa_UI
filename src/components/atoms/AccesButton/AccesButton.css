@@ -31,7 +31,6 @@
   background-color: var(--white);
   color: var(--greenDesafiante);
   transform: scale(1.05);
-
 }
 
 @media (min-width: 48rem) {
