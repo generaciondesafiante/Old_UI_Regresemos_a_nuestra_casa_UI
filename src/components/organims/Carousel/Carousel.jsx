@@ -2,9 +2,9 @@ import { useEffect, useRef } from 'react';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
-import { CarouselItemOne } from './src/components/molecules/CarouselItemOne/CarouselItemOne';
-import { CarouselItemThree } from './src/components/molecules/CarouselItemThree/CarouselItemThree';
-import { CarouselItemTwo } from './src/components/molecules/CarouselItemTwo/CarouselItemTwo';
+import { CarouselItemOne } from '../../molecules/CarouselItemOne/CarouselItemOne';
+import { CarouselItemThree } from '../../molecules/CarouselItemThree/CarouselItemThree';
+import { CarouselItemTwo } from '../../molecules/CarouselItemTwo/CarouselItemTwo';
 import './Carousel.css';
 
 export const Carousel = () => {
