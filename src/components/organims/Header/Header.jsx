@@ -1,5 +1,5 @@
-import { AccesButton } from './components/atoms/AccesButton/AccesButton';
-import { LogoHeader } from './components/atoms/LogoHeader/LogoHeader';
+import { AccesButton } from '../../atoms/AccesButton/AccesButton';
+import { LogoHeader } from '../../atoms/LogoHeader/LogoHeader';
 import './Header.css';
 
 export const Header = () => {

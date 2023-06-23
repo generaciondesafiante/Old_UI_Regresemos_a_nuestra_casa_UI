@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
-import { Header } from '../../Header';
+import { Header } from '../../components/organims/Header/Header';
 import { useAuthStore } from '../../hooks';
 import { useForm } from '../../hooks/useForm';
 import '../AuthStyle/authStyle.css';
