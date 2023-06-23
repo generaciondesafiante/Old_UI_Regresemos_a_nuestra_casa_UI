@@ -1,4 +1,4 @@
-import { Header } from '../../components/organims/Header/Header';
+import { Header } from '../../Header';
 import { Carousel } from '../../components/organims/Carousel/Carousel';
 import './Home.css';
 
