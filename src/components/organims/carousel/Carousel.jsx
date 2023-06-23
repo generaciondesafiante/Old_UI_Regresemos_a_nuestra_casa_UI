@@ -24,19 +24,19 @@ export const Carousel = () => {
       const sizeSlide = slideshow.current.children[0].offsetWidth;
 
       //* we move the slideshow
-      slideshow.current.style.transform = `translateX(-${sizeSlide}rem)`;
+      slideshow.current.style.transform = `translateX(-${sizeSlide/16}rem)`;
 
-      const transicion = () => {
+      const transition = () => {
         //* we reset the position of the slideshow
         slideshow.current.style.transition = 'none';
         slideshow.current.style.transform = `translateX(0)`;
         //*We take the first element and send it to the end
         slideshow.current.appendChild(firstElement);
         //* so that when the code is executed it stops listening to the event
-        slideshow.current.removeEventListener('transitionend', transicion);
+        slideshow.current.removeEventListener('transitionEnd', transition);
       };
       //* evenlistener for when the animation ends
-      slideshow.current.addEventListener('transitionend', transicion);
+      slideshow.current.addEventListener('transitionEnd', transition);
     }
   };
 

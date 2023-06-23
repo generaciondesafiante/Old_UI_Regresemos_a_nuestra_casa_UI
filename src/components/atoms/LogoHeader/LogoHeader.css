@@ -1,8 +1,15 @@
 .header-logo {
-  width: 2rem;
+  width: 2.5rem;
+  transition: 400ms;
+
 }
+
+.header-logo:hover{
+  transform: scale(1.1);
+}
+
 @media (min-width: 48rem) {
   .header-logo {
-    width: 2.5rem;
+    width: 3rem;
   }
 }

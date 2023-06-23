@@ -16,29 +16,29 @@
 }
 
 .carousel-btn {
-  pointer-events: all;
+  position: absolute;
+  z-index: 100;
+  top: calc(50vh - 2.5rem);
+  width: 4rem;
+  height: 4rem;
+  border: none;
+  border-radius: 50%;
   color: var(--greenDesafiante);
   background: none;
-  border: none;
   cursor: pointer;
-  outline: none;
-  width: 5rem;
-  height: 5rem;
-  text-align: center;
-  position: absolute;
   transition: 0.1s ease all;
-  border-radius: 50%;
-  top: calc(50vh - 2.5rem);
-  z-index: 100;
 }
+
 .carousel-btn:hover {
-  background: rgba(0, 0, 0, 0.2);
-  color: #fff;
+  background: var(--greenDGradient);
+  color: var(--white);
   border-radius: 50%;
 }
+
 .carousel-btn_right {
-  left: 0;
+  left: 0.2rem;
 }
+
 .carousel-btn_left {
-  right: 0;
+  right: 0.2rem;
 }
