@@ -48,7 +48,9 @@ export const RegisterPageNavbar = () => {
     <>
       <Header />
       <form action="" className="form" onSubmit={registerSubmit}>
-        <h2 className="form-title form-title_register">¡Bienvenido/a Crea tu cuenta</h2>
+        <h2 className="form-title form-title_register">
+          ¡Bienvenido/a Crea tu cuenta
+        </h2>
 
         <div className="form-container_inLa">
           <input

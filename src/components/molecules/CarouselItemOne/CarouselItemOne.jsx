@@ -15,8 +15,7 @@ export const CarouselItemOne = () => {
       />
       <div className="carouselOne-content_text">
         <h1 className="carouselOne-title">
-          Regresemos a
-          <span> nuestra </span>
+          Regresemos a<span> nuestra </span>
           casa
         </h1>
         <p className="carouselOne-paragraph">

@@ -1,7 +1,9 @@
 .form {
-  background-image: linear-gradient(0deg,
+  background-image: linear-gradient(
+      0deg,
       rgba(41, 56, 75, 0.9),
-      rgba(41, 56, 75, 0.9)),
+      rgba(41, 56, 75, 0.9)
+    ),
     url('https://i.imgur.com/giBenIE.png');
   background-size: cover;
   height: 100vh;
@@ -49,14 +51,14 @@
   font-size: 0.8rem;
 }
 
-.form-input:focus+.form-label {
+.form-input:focus + .form-label {
   transform: translateY(-2.1rem);
   color: var(--turquoise);
   padding-left: 0rem;
   font-size: 0.9rem;
 }
 
-.form-input:not(:placeholder-shown)+.form-label {
+.form-input:not(:placeholder-shown) + .form-label {
   transform: translateY(-1.9rem);
   transition: 0.5s;
 }
@@ -108,7 +110,7 @@
     font-size: 0.9rem;
   }
 
-  .form-input:focus+.form-label {
+  .form-input:focus + .form-label {
     font-size: 1rem;
   }
 
@@ -140,11 +142,11 @@
     font-size: 1.1rem;
   }
 
-  .form-input:focus+.form-label {
+  .form-input:focus + .form-label {
     font-size: 1.2rem;
   }
 
-  .form-input:not(:placeholder-shown)+.form-label {
+  .form-input:not(:placeholder-shown) + .form-label {
     transform: translateY(-2.1rem);
   }
 
