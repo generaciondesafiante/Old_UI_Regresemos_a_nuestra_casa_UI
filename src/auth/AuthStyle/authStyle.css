@@ -92,6 +92,7 @@
   color: var(--turquoise);
   transform: scale(1.05);
   font-weight: bold;
+  cursor: pointer;
 }
 
 @media (min-width: 38rem) {

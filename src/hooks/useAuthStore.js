@@ -23,6 +23,7 @@ export const useAuthStore = () => {
         {
           email,
           password,
+          // data,
         },
         {
           headers: {
@@ -32,9 +33,19 @@ export const useAuthStore = () => {
         }
       );
 
+      console.log(data);
       localStorage.setItem('token', data.token);
       localStorage.setItem('token-init-date', new Date().getTime());
-      dispatch(onLogin({ name: data.name, uid: data.uid, email: data.email }));
+      dispatch(
+        onLogin({
+          name: user.name,
+          uid: user.uid,
+          email: user.email,
+          country: user.country,
+          city: user.city,
+          lastname: user.lastname,
+        })
+      );
       navigate(PrivateRoutes.DASHBOARD, { replace: true });
     } catch (error) {
       dispatch(onLogout('Error en autenticación'));
@@ -44,7 +55,15 @@ export const useAuthStore = () => {
     }
   };
 
-  const startRegister = async ({ email, password, name }) => {
+  const startRegister = async ({
+    email,
+    password,
+    name,
+    lastname,
+    country,
+    city,
+    phone,
+  }) => {
     dispatch(onChecking());
 
     try {
@@ -54,6 +73,10 @@ export const useAuthStore = () => {
           email,
           password,
           name,
+          country,
+          city,
+          lastname,
+          phone,
         },
         {
           headers: {
@@ -64,8 +87,15 @@ export const useAuthStore = () => {
       );
 
       window.localStorage.setItem('token', data.token);
+
       window.localStorage.setItem('token-init-date', new Date().getTime());
-      dispatch(onLogin({ name: data.name, uid: data.uid, email: data.email }));
+      dispatch(
+        onLogin({
+          name: data.name,
+          uid: data.uid,
+        })
+      );
+      // console.log(data);
       navigate(PrivateRoutes.DASHBOARD, { replace: true });
     } catch (error) {
       dispatch(onLogout(error.response.data?.msg || '--'));

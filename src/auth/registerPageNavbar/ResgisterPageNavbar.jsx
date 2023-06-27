@@ -10,6 +10,10 @@ import '../AuthStyle/authStyle.css';
 
 const registerFormFields = {
   registerName: '',
+  registerLastName: '',
+  registerCountry: '',
+  registerPhone: '',
+  registerCity: '',
   registerEmail: '',
   registerPassword: '',
   registerPassword2: '',
@@ -23,6 +27,10 @@ export const RegisterPageNavbar = () => {
     registerEmail,
     registerPassword,
     registerPassword2,
+    registerLastName,
+    registerCountry,
+    registerPhone,
+    registerCity,
     onInputChange: onRegisterInputChange,
   } = useForm(registerFormFields);
 
@@ -36,6 +44,10 @@ export const RegisterPageNavbar = () => {
       name: registerName,
       email: registerEmail,
       password: registerPassword,
+      lastname: registerLastName,
+      phone: registerPhone,
+      country: registerCountry,
+      city: registerCity,
     });
   };
 
@@ -47,9 +59,11 @@ export const RegisterPageNavbar = () => {
   return (
     <>
       <Header />
+
       <form action="" className="form" onSubmit={registerSubmit}>
         <h2 className="form-title form-title_register">
-          ¡Bienvenido/a Crea tu cuenta
+          <span>¡Bienvenido/a </span>
+          <span>Crea tu cuenta!</span>{' '}
         </h2>
 
         <div className="form-container_inLa">
@@ -64,10 +78,68 @@ export const RegisterPageNavbar = () => {
             className="form-input"
           />
           <label htmlFor="name" className="form-label">
-            Nombre completo
+            Nombres
           </label>
         </div>
-
+        <div className="form-container_inLa">
+          <input
+            id="lastname"
+            name="registerLastName"
+            value={registerLastName}
+            onChange={onRegisterInputChange}
+            type="text"
+            required
+            placeholder=" "
+            className="form-input"
+          />
+          <label htmlFor="lastname" className="form-label">
+            Apellidos
+          </label>
+        </div>
+        <div className="form-container_inLa">
+          <input
+            id="country"
+            name="registerCountry"
+            value={registerCountry}
+            onChange={onRegisterInputChange}
+            type="text"
+            required
+            placeholder=" "
+            className="form-input"
+          />
+          <label htmlFor="country" className="form-label">
+            País
+          </label>
+        </div>
+        <div className="form-container_inLa">
+          <input
+            id="city"
+            name="registerCity"
+            value={registerCity}
+            onChange={onRegisterInputChange}
+            type="text"
+            required
+            placeholder=" "
+            className="form-input"
+          />
+          <label htmlFor="city" className="form-label">
+            Cuidad
+          </label>
+        </div>
+        <div className="form-container_inLa">
+          <input
+            id="phone"
+            name="registerPhone"
+            value={registerPhone}
+            onChange={onRegisterInputChange}
+            type="text"
+            placeholder=" "
+            className="form-input"
+          />
+          <label htmlFor="phone" className="form-label">
+            Teléfono (opcional)
+          </label>
+        </div>
         <div className="form-container_inLa">
           <input
             id="email"
