@@ -25,7 +25,7 @@ export const Path = ({ coursesData, setCoursesData, setCurrentCourseURL }) => {
       <div className="path-content">
         {coursesData.map((course, index) => {
           return (
-            <div key={index} className='path-border'>
+            <div key={index} className="path-border">
               <button
                 onClick={() => handleUrlId(course)}
                 className="path-learningPath"
