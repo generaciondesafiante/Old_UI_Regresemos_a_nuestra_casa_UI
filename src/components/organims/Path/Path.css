@@ -6,6 +6,7 @@
   justify-content: center;
   align-items: center;
 }
+
 .path-content {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -15,7 +16,7 @@
 .path-learningPath {
   width: 3.7rem;
   height: 3.7rem;
-  border: solid 0.3rem rgb(219, 218, 218);
+  border: solid 0.3rem var(--white);
   border-radius: 50%;
   background-color: #eaeaea;
   display: flex;
@@ -25,8 +26,15 @@
   transition: 400ms;
 }
 
-.path-learningPath:hover {
-  transform: scale(1.1);
+.path-border {
+  margin: 0 auto;
+  border-radius: 50%;
+  border: solid 0.1rem #eaeaea;
+  transition: 400ms;
+}
+
+.path-border:hover {
+  transform: scale(1.2);
 }
 
 .icon-lock {
@@ -50,7 +58,7 @@
   .path-learningPath {
     width: 5.625rem;
     height: 5.625rem;
-    border: solid 0.5rem rgb(219, 218, 218);
+    border: solid 0.5rem var(--white);
   }
 }
 
