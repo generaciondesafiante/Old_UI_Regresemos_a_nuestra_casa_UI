@@ -31,7 +31,7 @@
     "lint:fix": "eslint \"./src/**/*.js\" --fix",
     "pretty": "prettier --check src",
     "pretty:fix": "prettier --write src",
-    "pre-push": "npm run pretty:fix && npm run lint:fix"
+    "fix-format": "npm run pretty:fix && npm run lint:fix"
   },
   "eslintConfig": {
     "extends": [
