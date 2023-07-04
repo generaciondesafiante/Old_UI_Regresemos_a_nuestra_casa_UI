@@ -1,15 +1,15 @@
-import { useAuthStore } from '../../../hooks';
+// import { useAuthStore } from '../../../hooks';
 import './Profile.css';
 
 export const Profile = () => {
-  const { user } = useAuthStore();
+  // const { user } = useAuthStore();
 
-  const capitalized = () => {
-    if (user && user.name) {
-      return user.name.charAt(0).toUpperCase() + user.name.slice(1);
-    }
-    return '';
-  };
+  // const capitalized = () => {
+  //   if (user && user.name) {
+  //     return user.name.charAt(0).toUpperCase() + user.name.slice(1);
+  //   }
+  //   return '';
+  // };
   return (
     <div className="profile-container">
       <h2 className="profile-title">Información personal</h2>
@@ -24,9 +24,9 @@ export const Profile = () => {
         </div>
         <div className="profile-container_info">
           <h3 className="profile-info_title"> Nombre </h3>
-          <p className="profile-user_personalInfo"> {capitalized()}</p>
+          <p className="profile-user_personalInfo"> </p>
           <h3 className="profile-info_title"> correo electrónico </h3>
-          <p className="profile-user_personalInfo">{user.email}</p>
+          <p className="profile-user_personalInfo"></p>
           <button className="profile-user_changeInfo_btn">Editar perfil</button>
         </div>
       </div>

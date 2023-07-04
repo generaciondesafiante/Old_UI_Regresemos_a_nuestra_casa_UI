@@ -10,7 +10,7 @@ import { generacionApi } from '../api';
 import { PrivateRoutes } from '../models/routes';
 
 export const useAuthStore = () => {
-  const { status, user, errorMessage } = useSelector((state) => state.auth);
+  const { status, errorMessage } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -36,16 +36,16 @@ export const useAuthStore = () => {
       console.log(data);
       localStorage.setItem('token', data.token);
       localStorage.setItem('token-init-date', new Date().getTime());
-      dispatch(
-        onLogin({
-          name: user.name,
-          uid: user.uid,
-          email: user.email,
-          country: user.country,
-          city: user.city,
-          lastname: user.lastname,
-        })
-      );
+      const payload = {
+        name: data.name,
+        uid: data.uid,
+        email: data.email,
+        country: data.country,
+        city: data.city,
+        lastname: data.lastname,
+      };
+      console.log(payload);
+      dispatch(onLogin(payload));
       navigate(PrivateRoutes.DASHBOARD, { replace: true });
     } catch (error) {
       dispatch(onLogout('Error en autenticación'));
@@ -125,6 +125,7 @@ export const useAuthStore = () => {
     localStorage.clear();
     dispatch(onLogout());
   };
+
   const videosLearningPath = async ({ id, tema, title, url }) => {
     await generacionApi.post(
       '/auth/videos',
@@ -146,7 +147,6 @@ export const useAuthStore = () => {
   return {
     //*Properties
     status,
-    user,
     errorMessage,
 
     //*methods
