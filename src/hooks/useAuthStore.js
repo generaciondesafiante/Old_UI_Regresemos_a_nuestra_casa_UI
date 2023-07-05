@@ -23,7 +23,6 @@ export const useAuthStore = () => {
         {
           email,
           password,
-          // data,
         },
         {
           headers: {
@@ -33,7 +32,6 @@ export const useAuthStore = () => {
         }
       );
 
-      console.log(data);
       localStorage.setItem('token', data.token);
       localStorage.setItem('token-init-date', new Date().getTime());
       const payload = {
@@ -44,7 +42,7 @@ export const useAuthStore = () => {
         city: data.city,
         lastname: data.lastname,
       };
-      console.log(payload);
+
       dispatch(onLogin(payload));
       navigate(PrivateRoutes.DASHBOARD, { replace: true });
     } catch (error) {
@@ -95,7 +93,7 @@ export const useAuthStore = () => {
           uid: data.uid,
         })
       );
-      // console.log(data);
+
       navigate(PrivateRoutes.DASHBOARD, { replace: true });
     } catch (error) {
       dispatch(onLogout(error.response.data?.msg || '--'));
