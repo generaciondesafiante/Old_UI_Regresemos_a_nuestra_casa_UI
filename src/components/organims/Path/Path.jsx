@@ -23,15 +23,16 @@ export const Path = ({ coursesData, setCoursesData, setCurrentCourseURL }) => {
   return (
     <div className="path-container">
       <div className="path-content">
-        {coursesData.map((course) => {
+        {coursesData.map((course, index) => {
           return (
-            <button
-              key={course.name}
-              onClick={() => handleUrlId(course)}
-              className="path-learningPath"
-            >
-              <LockIcon className="icon-lock" />
-            </button>
+            <div key={index} className="path-border">
+              <button
+                onClick={() => handleUrlId(course)}
+                className="path-learningPath"
+              >
+                <LockIcon className="icon-lock" />
+              </button>
+            </div>
           );
         })}
       </div>
