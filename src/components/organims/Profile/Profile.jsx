@@ -24,9 +24,9 @@ export const Profile = () => {
         </div>
         <div className="profile-container_info">
           <h3 className="profile-info_title"> Nombre </h3>
-          <p className="profile-user_personalInfo"> {capitalized()}</p>
-          <h3 className="profile-info_title"> correo electrónico </h3>
-          <p className="profile-user_personalInfo">{user.email}</p>
+          <p className="profile-user_personalInfo"> {capitalized}</p>
+          <h3 className="profile-info_title"> Correo electrónico </h3>
+          <p className="profile-user_personalInfo"></p>
           <button className="profile-user_changeInfo_btn">Editar perfil</button>
         </div>
       </div>

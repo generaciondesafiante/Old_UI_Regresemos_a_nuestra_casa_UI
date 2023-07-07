@@ -10,7 +10,7 @@ import { generacionApi } from '../api';
 import { PrivateRoutes } from '../models/routes';
 
 export const useAuthStore = () => {
-  const { status, user, errorMessage } = useSelector((state) => state.auth);
+  const { status, errorMessage } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -34,7 +34,16 @@ export const useAuthStore = () => {
 
       localStorage.setItem('token', data.token);
       localStorage.setItem('token-init-date', new Date().getTime());
-      dispatch(onLogin({ name: data.name, uid: data.uid, email: data.email }));
+      const payload = {
+        name: data.name,
+        uid: data.uid,
+        email: data.email,
+        country: data.country,
+        city: data.city,
+        lastname: data.lastname,
+      };
+
+      dispatch(onLogin(payload));
       navigate(PrivateRoutes.DASHBOARD, { replace: true });
     } catch (error) {
       dispatch(onLogout('Error en autenticación'));
@@ -44,7 +53,15 @@ export const useAuthStore = () => {
     }
   };
 
-  const startRegister = async ({ email, password, name }) => {
+  const startRegister = async ({
+    email,
+    password,
+    name,
+    lastname,
+    country,
+    city,
+    phone,
+  }) => {
     dispatch(onChecking());
 
     try {
@@ -54,6 +71,10 @@ export const useAuthStore = () => {
           email,
           password,
           name,
+          country,
+          city,
+          lastname,
+          phone,
         },
         {
           headers: {
@@ -64,8 +85,15 @@ export const useAuthStore = () => {
       );
 
       window.localStorage.setItem('token', data.token);
+
       window.localStorage.setItem('token-init-date', new Date().getTime());
-      dispatch(onLogin({ name: data.name, uid: data.uid, email: data.email }));
+      dispatch(
+        onLogin({
+          name: data.name,
+          uid: data.uid,
+        })
+      );
+
       navigate(PrivateRoutes.DASHBOARD, { replace: true });
     } catch (error) {
       dispatch(onLogout(error.response.data?.msg || '--'));
@@ -95,6 +123,7 @@ export const useAuthStore = () => {
     localStorage.clear();
     dispatch(onLogout());
   };
+
   const videosLearningPath = async ({ id, tema, title, url }) => {
     await generacionApi.post(
       '/auth/videos',
@@ -116,7 +145,6 @@ export const useAuthStore = () => {
   return {
     //*Properties
     status,
-    user,
     errorMessage,
 
     //*methods
