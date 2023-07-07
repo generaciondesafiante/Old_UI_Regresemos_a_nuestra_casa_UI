@@ -26,6 +26,8 @@ export const Path = ({ coursesData, setCoursesData, setCurrentCourseURL }) => {
         {coursesData.map((course, index) => {
           return (
             <div key={index} className="path-border">
+              {index === 0 ? <img className="path-img_flag flag-start" src="https://i.imgur.com/pIOGRDs.png" alt="Bandera del inicio" /> : ''}
+              {index === coursesData.length - 1 ? <img className="path-img_flag flag-end" src="https://i.imgur.com/8cfdvwv.png" alt="Bandera de la meta" /> : ''}
               <button
                 onClick={() => handleUrlId(course)}
                 className="path-learningPath"
