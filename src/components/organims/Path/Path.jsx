@@ -23,15 +23,34 @@ export const Path = ({ coursesData, setCoursesData, setCurrentCourseURL }) => {
   return (
     <div className="path-container">
       <div className="path-content">
-        {coursesData.map((course) => {
+        {coursesData.map((course, index) => {
           return (
-            <button
-              key={course.name}
-              onClick={() => handleUrlId(course)}
-              className="path-learningPath"
-            >
-              <LockIcon className="icon-lock" />
-            </button>
+            <div key={index} className="path-border">
+              {index === 0 ? (
+                <img
+                  className="path-img_flag flag-start"
+                  src="https://i.imgur.com/pIOGRDs.png"
+                  alt="Bandera del inicio"
+                />
+              ) : (
+                ''
+              )}
+              {index === coursesData.length - 1 ? (
+                <img
+                  className="path-img_flag flag-end"
+                  src="https://i.imgur.com/8cfdvwv.png"
+                  alt="Bandera de la meta"
+                />
+              ) : (
+                ''
+              )}
+              <button
+                onClick={() => handleUrlId(course)}
+                className="path-learningPath"
+              >
+                <LockIcon className="icon-lock" />
+              </button>
+            </div>
           );
         })}
       </div>

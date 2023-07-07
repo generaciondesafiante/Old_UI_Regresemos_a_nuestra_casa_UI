@@ -1,4 +1,4 @@
-.form {
+.form-login {
   background-image: linear-gradient(
       0deg,
       rgba(41, 56, 75, 0.9),
@@ -13,7 +13,8 @@
   align-items: center;
 }
 
-.form-title {
+.form-login-title {
+  margin-top: 8rem;
   width: 16rem;
   text-align: center;
   margin-bottom: 2rem;
@@ -21,17 +22,17 @@
   font-size: 1.6rem;
 }
 
-.form-title_register {
+.form-login-title_register {
   width: 15rem;
 }
 
-.form-container_inLa {
+.form-login-container_inLa {
   position: relative;
   padding: 0.6rem;
   margin-top: 0.8rem;
 }
 
-.form-label {
+.form-login-label {
   position: absolute;
   padding: 0.6rem;
   left: 0.5rem;
@@ -40,7 +41,7 @@
   transition: 0.5s;
 }
 
-.form-input {
+.form-login-input {
   padding: 0.6rem;
   border-radius: 0.8rem;
   width: 15rem;
@@ -51,31 +52,31 @@
   font-size: 0.8rem;
 }
 
-.form-input:focus + .form-label {
+.form-login-input:focus + .form-login-label {
   transform: translateY(-2.1rem);
   color: var(--turquoise);
   padding-left: 0rem;
   font-size: 0.9rem;
 }
 
-.form-input:not(:placeholder-shown) + .form-label {
+.form-login-input:not(:placeholder-shown) + .form-login-label {
   transform: translateY(-1.9rem);
   transition: 0.5s;
 }
 
-.form-forgot_login {
+.form-login-forgot_login {
   text-decoration: none;
   color: var(--whiteGradient);
   margin-top: 0.5rem;
   font-size: 0.8rem;
 }
 
-.form-forgot_login:hover {
+.form-login-forgot_login:hover {
   text-decoration: underline;
   color: var(--turquoise);
 }
 
-.form-btn {
+.form-login-btn {
   width: 8rem;
   padding: 0.5rem 1rem;
   border: none;
@@ -83,78 +84,80 @@
   background-color: var(--turquoise);
   color: var(--white);
   margin-top: 1.5rem;
+  margin-bottom: 3rem;
   font-size: 0.8rem;
   transition: 400ms;
 }
 
-.form-btn:hover {
+.form-login-btn:hover {
   background-color: var(--white);
   color: var(--turquoise);
   transform: scale(1.05);
   font-weight: bold;
+  cursor: pointer;
 }
 
 @media (min-width: 38rem) {
-  .form-title {
+  .form-login-title {
     width: 17rem;
     font-size: 1.8rem;
   }
 
-  .form-label {
+  .form-login-label {
     font-size: 0.9rem;
   }
 
-  .form-input {
+  .form-login-input {
     padding: 0.7rem;
     width: 20rem;
     font-size: 0.9rem;
   }
 
-  .form-input:focus + .form-label {
+  .form-login-input:focus + .form-login-label {
     font-size: 1rem;
   }
 
-  .form-forgot_login {
+  .form-login-forgot_login {
     font-size: 0.9rem;
   }
 
-  .form-btn {
+  .form-login-btn {
     font-size: 0.9rem;
   }
 }
 
 @media (min-width: 64rem) {
-  .form-title {
+  .form-login-title {
     width: 28rem;
     font-size: 3rem;
   }
 
-  .form-title_register {
+  .form-login-title_register {
     margin-top: 4rem;
   }
 
-  .form-label {
+  .form-login-label {
     font-size: 1.1rem;
   }
 
-  .form-input {
+  .form-login-input {
     width: 30rem;
     font-size: 1.1rem;
   }
 
-  .form-input:focus + .form-label {
+  .form-login-input:focus + .form-login-label {
     font-size: 1.2rem;
   }
 
-  .form-input:not(:placeholder-shown) + .form-label {
+  .form-login-input:not(:placeholder-shown) + .form-login-label {
     transform: translateY(-2.1rem);
   }
 
-  .form-forgot_login {
+  .form-login-forgot_login {
     font-size: 1rem;
   }
 
-  .form-btn {
+  .form-login-btn {
     width: 10rem;
     padding: 0.6rem 1rem;
     font-size: 1.1rem;
