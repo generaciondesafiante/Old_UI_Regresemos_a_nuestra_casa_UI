@@ -1,15 +1,11 @@
-// import { useAuthStore } from '../../../hooks';
+// import { useSelector } from 'react-redux';
 import './Profile.css';
+import { useAuthStore } from '../../../hooks';
 
 export const Profile = () => {
-  // const { user } = useAuthStore();
+  const { user } = useAuthStore();
 
-  // const capitalized = () => {
-  //   if (user && user.name) {
-  //     return user.name.charAt(0).toUpperCase() + user.name.slice(1);
-  //   }
-  //   return '';
-  // };
+  console.log(user);
   return (
     <div className="profile-container">
       <h2 className="profile-title">Información personal</h2>
@@ -23,10 +19,18 @@ export const Profile = () => {
           />
         </div>
         <div className="profile-container_info">
-          <h3 className="profile-info_title"> Nombre </h3>
-          <p className="profile-user_personalInfo"> </p>
-          <h3 className="profile-info_title"> correo electrónico </h3>
-          <p className="profile-user_personalInfo"></p>
+          <h3 className="profile-info_title">Nombres</h3>
+          <p className="profile-user_personalInfo">{user.name}</p>
+          <h3 className="profile-info_title">Correo electrónico</h3>
+          <p className="profile-user_personalInfo">{user.email}</p>{' '}
+          <h3 className="profile-info_title">Apellidos</h3>
+          <p className="profile-user_personalInfo">{user.lastname}</p>
+          <h3 className="profile-info_title">Pais</h3>
+          <p className="profile-user_personalInfo">{user.country}</p>
+          <h3 className="profile-info_title">Ciudad</h3>
+          <p className="profile-user_personalInfo">{user.city}</p>
+          <h3 className="profile-info_title">Telefono</h3>
+          <p className="profile-user_personalInfo">{user.phone}</p>
           <button className="profile-user_changeInfo_btn">Editar perfil</button>
         </div>
       </div>
