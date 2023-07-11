@@ -8,24 +8,15 @@ import {
 } from '../store/auth/authSlice';
 import { generacionApi } from '../api';
 import { PrivateRoutes } from '../models/routes';
-// import { useEffect } from 'react';
-// import { useEffect } from 'react';
-// import { useEffect } from 'react';
 
 export const useAuthStore = () => {
   const { status, user, errorMessage } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  console.log(user);
-  if (!user) {
-    console.log('El objeto de usuario está vacío');
-  }
 
   const startLogin = async ({ email, password }) => {
     dispatch(onChecking());
-    // const token = localStorage.getItem('token');
-    // console.log(token, 'login');
-    // if (!token) return dispatch(onLogout());
+
     try {
       const { data } = await generacionApi.post(
         '/auth',
@@ -41,13 +32,17 @@ export const useAuthStore = () => {
         }
       );
 
+      localStorage.setItem('name', data.name);
+      localStorage.setItem('lastname', data.lastname);
+      localStorage.setItem('email', data.email);
+      localStorage.setItem('country', data.country);
+      localStorage.setItem('city', data.city);
+      localStorage.setItem('phone', data.phone);
       localStorage.setItem('token', data.token);
       localStorage.setItem('token-init-date', new Date().getTime());
-      localStorage.setItem('name', data.name);
 
       dispatch(onLogin(data, data.token));
 
-      console.log(data, data.token, user.name);
       navigate(PrivateRoutes.DASHBOARD, { replace: true });
     } catch (error) {
       dispatch(onLogout('Error en autenticación'));
@@ -77,6 +72,7 @@ export const useAuthStore = () => {
       );
 
       window.localStorage.setItem('token', data.token);
+      window.localStorage.setItem('data', data);
       window.localStorage.setItem('token-init-date', new Date().getTime());
       dispatch(onLogin({ name: data.name, uid: data.uid, email: data.email }));
       navigate(PrivateRoutes.DASHBOARD, { replace: true });
@@ -94,7 +90,7 @@ export const useAuthStore = () => {
 
     try {
       const { data } = await generacionApi.get('/auth/renew');
-      console.log(data);
+
       localStorage.setItem('token', data.token);
       localStorage.setItem('token-init-date', new Date().getTime());
       dispatch(onLogin(data));
