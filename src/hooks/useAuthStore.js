@@ -10,7 +10,7 @@ import { generacionApi } from '../api';
 import { PrivateRoutes } from '../models/routes';
 
 export const useAuthStore = () => {
-  const { status, user, errorMessage } = useSelector((state) => state.auth);
+  const { status, errorMessage } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -52,7 +52,15 @@ export const useAuthStore = () => {
     }
   };
 
-  const startRegister = async ({ email, password, name }) => {
+  const startRegister = async ({
+    email,
+    password,
+    name,
+    lastname,
+    country,
+    city,
+    phone,
+  }) => {
     dispatch(onChecking());
 
     try {
@@ -62,6 +70,10 @@ export const useAuthStore = () => {
           email,
           password,
           name,
+          country,
+          city,
+          lastname,
+          phone,
         },
         {
           headers: {
@@ -70,11 +82,21 @@ export const useAuthStore = () => {
           },
         }
       );
-
+      localStorage.setItem('name', data.name);
+      localStorage.setItem('lastname', data.lastname);
+      localStorage.setItem('email', data.email);
+      localStorage.setItem('country', data.country);
+      localStorage.setItem('city', data.city);
+      localStorage.setItem('phone', data.phone);
       window.localStorage.setItem('token', data.token);
-      window.localStorage.setItem('data', data);
       window.localStorage.setItem('token-init-date', new Date().getTime());
-      dispatch(onLogin({ name: data.name, uid: data.uid, email: data.email }));
+      dispatch(
+        onLogin({
+          name: data.name,
+          uid: data.uid,
+        })
+      );
+
       navigate(PrivateRoutes.DASHBOARD, { replace: true });
     } catch (error) {
       dispatch(onLogout(error.response.data?.msg || '--'));
@@ -104,6 +126,7 @@ export const useAuthStore = () => {
     localStorage.clear();
     dispatch(onLogout());
   };
+
   const videosLearningPath = async ({ id, tema, title, url }) => {
     await generacionApi.post(
       '/auth/videos',
@@ -125,7 +148,6 @@ export const useAuthStore = () => {
   return {
     //*Properties
     status,
-    user,
     errorMessage,
 
     //*methods

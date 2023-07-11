@@ -6,8 +6,8 @@ import Swal from 'sweetalert2';
 import { Header } from '../../components/organims/Header/Header';
 import { useAuthStore } from '../../hooks';
 import { useForm } from '../../hooks/useForm';
-import '../AuthStyle/authStyle.css';
 import { PrivateRoutes } from '../../models/routes';
+import '../AuthStyle/authStyleLogin.css';
 
 const loginFormFields = {
   loginEmail: '',
@@ -38,10 +38,12 @@ export const LoginPageNavbar = () => {
   return (
     <>
       <Header />
-      <form action="" className="form" onSubmit={loginSubmit}>
-        <h2 className="form-title">¡Bienvenido/a al Recorrido de la fé!</h2>
+      <form action="" className="form-login" onSubmit={loginSubmit}>
+        <h2 className="form-login-title">
+          ¡Bienvenido/a al Recorrido de la fé!
+        </h2>
 
-        <div className="form-container_inLa">
+        <div className="form-login-container_inLa">
           <input
             id="email"
             name="loginEmail"
@@ -50,14 +52,14 @@ export const LoginPageNavbar = () => {
             type="text"
             required
             placeholder=" "
-            className="form-input"
+            className="form-login-input"
           />
-          <label htmlFor="email" className="form-label">
+          <label htmlFor="email" className="form-login-label">
             Correo Electrónico
           </label>
         </div>
 
-        <div className="form-container_inLa">
+        <div className="form-login-container_inLa">
           <input
             id="password"
             name="loginPassword"
@@ -66,16 +68,16 @@ export const LoginPageNavbar = () => {
             type="password"
             required
             placeholder=" "
-            className="form-input"
+            className="form-login-input"
           />
 
-          <label htmlFor="password" className="form-label">
+          <label htmlFor="password" className="form-login-label">
             Contraseña
           </label>
         </div>
-        <Link className="form-forgot_login">Olvidé mi contraseña</Link>
+        <Link className="form-login-forgot_login">Olvidé mi contraseña</Link>
 
-        <button className="form-btn" type="submit">
+        <button className="form-login-btn" type="submit">
           Ingresar
         </button>
       </form>

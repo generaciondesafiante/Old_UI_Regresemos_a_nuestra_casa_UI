@@ -43,13 +43,15 @@ export const Profile = () => {
           <p className="profile-user_personalInfo">{userData.lastname}</p>
           <h3 className="profile-info_title">Correo electrónico</h3>
           <p className="profile-user_personalInfo">{userData.email}</p>
-          <h3 className="profile-info_title">Pais</h3>
+          <h3 className="profile-info_title">País</h3>
           <p className="profile-user_personalInfo">{userData.country}</p>
           <h3 className="profile-info_title">Ciudad</h3>
           <p className="profile-user_personalInfo">{userData.city}</p>
-          <h3 className="profile-info_title">Telefono</h3>
+          <h3 className="profile-info_title">Teléfono</h3>
           <p className="profile-user_personalInfo">
-            {userData.phone || 'No cuenta con número de teléfono'}
+            {!userData.phone
+              ? userData.phone
+              : 'No cuenta con número de teléfono'}
           </p>
           <button className="profile-user_changeInfo_btn">Editar perfil</button>
         </div>
