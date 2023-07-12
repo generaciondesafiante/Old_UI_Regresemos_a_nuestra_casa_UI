@@ -8,6 +8,7 @@ export const authSlice = createSlice({
 
     errorMessage: undefined,
   },
+
   reducers: {
     onChecking: (state) => {
       state.status = 'checking';

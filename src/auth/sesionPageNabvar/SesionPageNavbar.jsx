@@ -1,11 +1,12 @@
 import { useEffect } from 'react';
 
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 import { Header } from '../../components/organims/Header/Header';
 import { useAuthStore } from '../../hooks';
 import { useForm } from '../../hooks/useForm';
+import { PrivateRoutes } from '../../models/routes';
 import '../AuthStyle/authStyleLogin.css';
 
 const loginFormFields = {
@@ -26,7 +27,7 @@ export const LoginPageNavbar = () => {
   const loginSubmit = (event) => {
     event.preventDefault();
     startLogin({ email: loginEmail, password: loginPassword });
-    // navigate(`/${PrivateRoutes.PRIVATE}`, {replace: true})
+    Navigate(`/${PrivateRoutes.PRIVATE}`, { replace: true });
   };
 
   useEffect(() => {
