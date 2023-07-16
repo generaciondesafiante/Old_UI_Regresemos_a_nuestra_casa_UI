@@ -60,6 +60,13 @@
   padding: 0.1rem;
 }
 
+.path-CourseTitle {
+  text-align: center;
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--darkGray);
+}
+
 @media (min-width: 48rem) {
   .path-container {
     padding-left: 5.625rem;
@@ -118,5 +125,13 @@
   .flag-end {
     left: 2rem;
     top: -4.3rem;
+  }
+
+  .path-CourseTitle {
+    position: absolute;
+    width: 10rem;
+    top: 6.25rem;
+    left: -1.9rem;
+    font-size: 1.5rem;
   }
 }
