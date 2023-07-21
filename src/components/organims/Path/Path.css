@@ -73,7 +73,6 @@
 
 @media (min-width: 48rem) {
   .path-container {
-    background-image: url(https://i.imgur.com/gEFeCdJ.png);
     padding-left: 5.625rem;
   }
 
@@ -130,13 +129,5 @@
   .flag-end {
     left: 2rem;
     top: -4.3rem;
-  }
-
-  .path-CourseTitle {
-    position: absolute;
-    width: 10rem;
-    top: 6.25rem;
-    left: -1.9rem;
-    font-size: 1.5rem;
   }
 }

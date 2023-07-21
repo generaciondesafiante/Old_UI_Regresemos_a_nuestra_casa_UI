@@ -89,6 +89,7 @@ export const useAuthStore = () => {
       localStorage.setItem('city', data.city);
       localStorage.setItem('phone', data.phone);
       window.localStorage.setItem('token', data.token);
+
       window.localStorage.setItem('token-init-date', new Date().getTime());
       dispatch(
         onLogin({
