@@ -127,6 +127,32 @@ export const useAuthStore = () => {
     dispatch(onLogout());
   };
 
+  const forgotPassword = async ({ email }) => {
+    try {
+      const { data } = await generacionApi.post(
+        '/auth/forgot-password',
+        {
+          email,
+        },
+        {
+          headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+            'Access-Control-Allow-Origin': '*',
+          },
+        }
+      );
+      localStorage.setItem('token', data.token);
+      localStorage.setItem('token-init-date', new Date().getTime());
+      console.log(data.email);
+      navigate(PublicRoutes.MSGFORTGET);
+    } catch (error) {
+      dispatch(onLogout('Error en autenticación'));
+      setTimeout(() => {
+        dispatch(clearErrorMessage());
+      }, 10);
+    }
+  };
+
   const videosLearningPath = async ({ id, tema, title, url }) => {
     await generacionApi.post(
       '/auth/videos',
@@ -155,6 +181,7 @@ export const useAuthStore = () => {
     startRegister,
     checkAuthToken,
     startLogout,
+    forgotPassword,
     videosLearningPath,
   };
 };
