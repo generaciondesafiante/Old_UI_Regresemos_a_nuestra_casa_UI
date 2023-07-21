@@ -50,6 +50,7 @@ export const Path = ({ coursesData, setCoursesData, setCurrentCourseURL }) => {
               >
                 <LockIcon className="icon-lock" />
               </button>
+              <p className="path-CourseTitle">{course.name}</p>
             </div>
           );
         })}

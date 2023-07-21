@@ -32,18 +32,17 @@ export const useAuthStore = () => {
         }
       );
 
+      localStorage.setItem('name', data.name);
+      localStorage.setItem('lastname', data.lastname);
+      localStorage.setItem('email', data.email);
+      localStorage.setItem('country', data.country);
+      localStorage.setItem('city', data.city);
+      localStorage.setItem('phone', data.phone);
       localStorage.setItem('token', data.token);
       localStorage.setItem('token-init-date', new Date().getTime());
-      const payload = {
-        name: data.name,
-        uid: data.uid,
-        email: data.email,
-        country: data.country,
-        city: data.city,
-        lastname: data.lastname,
-      };
 
-      dispatch(onLogin(payload));
+      dispatch(onLogin(data, data.token));
+
       navigate(PrivateRoutes.DASHBOARD, { replace: true });
     } catch (error) {
       dispatch(onLogout('Error en autenticación'));
@@ -83,7 +82,12 @@ export const useAuthStore = () => {
           },
         }
       );
-
+      localStorage.setItem('name', data.name);
+      localStorage.setItem('lastname', data.lastname);
+      localStorage.setItem('email', data.email);
+      localStorage.setItem('country', data.country);
+      localStorage.setItem('city', data.city);
+      localStorage.setItem('phone', data.phone);
       window.localStorage.setItem('token', data.token);
 
       window.localStorage.setItem('token-init-date', new Date().getTime());
@@ -112,7 +116,7 @@ export const useAuthStore = () => {
 
       localStorage.setItem('token', data.token);
       localStorage.setItem('token-init-date', new Date().getTime());
-      dispatch(onLogin({ name: data.name, uid: data.uid, email: data.email }));
+      dispatch(onLogin(data));
     } catch (error) {
       localStorage.clear();
       dispatch(onLogout());

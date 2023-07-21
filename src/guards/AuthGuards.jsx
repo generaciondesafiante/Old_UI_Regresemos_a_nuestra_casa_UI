@@ -11,9 +11,12 @@ export const AuthGuards = ({ handleIsLogged }) => {
   const isToken = localStorage.getItem('token');
 
   useEffect(() => {
-    checkAuthToken();
-    setIsLoading(false);
-    handleIsLogged(true);
+    if (checkAuthToken()) {
+      setIsLoading(false);
+      handleIsLogged(true);
+    } else {
+      return '';
+    }
   }, []);
 
   return (
