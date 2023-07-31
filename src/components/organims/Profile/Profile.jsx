@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import './Profile.css';
 
 export const Profile = () => {
-  const [isEditing, setIsEditing] = useState(false);
   const capitalizeFirstLetter = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
   };
