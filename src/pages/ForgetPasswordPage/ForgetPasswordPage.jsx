@@ -1,38 +1,48 @@
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
 
-// import { Navigate } from 'react-router-dom';
-import Swal from 'sweetalert2';
+// import { useNavigate } from 'react-router-dom';
+// import Swal from 'sweetalert2';
 
 import { Header } from '../../components/organims/Header/Header';
 import { useAuthStore, useForm } from '../../hooks';
 // import { PublicRoutes } from '../../models/routes';
 import './ForgetPasswordPage.css';
 
+// import { useEffect } from 'react';
+// import { onResetPassword } from '../../store/auth/authSlice';
+
 const emailResetPassword = {
   forgetPasswordEmail: '',
 };
+
 export const ForgetPasswordPage = () => {
-  const { forgotPassword, errorMessage } = useAuthStore();
+  const { forgotPassword, user } = useAuthStore();
+
+  // const navigate = useNavigate();
+  console.log(user);
 
   const { forgetPasswordEmail, onInputChange: onResetPasswordChange } =
     useForm(emailResetPassword);
-
   const resetPasswordSubmit = (event) => {
     event.preventDefault();
-    if (!forgetPasswordEmail) {
-      Swal.fire('Error en correo', 'El usuario no esta registrado', 'error');
-      return;
-    }
     forgotPassword({
       email: forgetPasswordEmail,
     });
-
-    // Navigate(`/${PublicRoutes.MSGFORTGET}`, { replace: true });
   };
-  useEffect(() => {
-    if (errorMessage !== undefined)
-      Swal.fire('El usuario no esta registrado', errorMessage, 'warning');
-  }, [errorMessage]);
+  if (!user) {
+    console.log('pailas mani');
+  } else {
+    console.log('arre rico');
+  }
+
+  // useEffect(() => {
+  //   if (user) {
+  //     console.log('olleee');
+  //   } else {
+  //     Swal.fire('El usuario no esta registrado', errorMessage, 'warning');
+  //     console.log('eroror');
+  //   }
+  // }, [user]);
   return (
     <>
       <Header />
@@ -45,12 +55,12 @@ export const ForgetPasswordPage = () => {
           He olvidado mi contraseña
         </h2>
         <p className="form-forget_paragraph center-content">
-          Escribe el correo electrónico con el cual te registraste{' '}
+          Escribe el correo electrónico con el cual te registraste
         </p>
 
         <input
           className="form-forget_input"
-          type="text"
+          type="email"
           required
           name="forgetPasswordEmail"
           value={forgetPasswordEmail}

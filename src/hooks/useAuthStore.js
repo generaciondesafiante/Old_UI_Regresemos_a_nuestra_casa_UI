@@ -4,13 +4,14 @@ import {
   clearErrorMessage,
   onChecking,
   onLogin,
+  onResetPassword,
   onLogout,
 } from '../store/auth/authSlice';
 import { generacionApi } from '../api';
-import { PrivateRoutes } from '../models/routes';
+import { PrivateRoutes, PublicRoutes } from '../models/routes';
 
 export const useAuthStore = () => {
-  const { status, errorMessage } = useSelector((state) => state.auth);
+  const { status, errorMessage, user } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -39,10 +40,11 @@ export const useAuthStore = () => {
       localStorage.setItem('city', data.city);
       localStorage.setItem('phone', data.phone);
       localStorage.setItem('token', data.token);
+      localStorage.setItem('image', data.image);
       localStorage.setItem('token-init-date', new Date().getTime());
 
       dispatch(onLogin(data, data.token));
-
+      console.log(data);
       navigate(PrivateRoutes.DASHBOARD, { replace: true });
     } catch (error) {
       dispatch(onLogout('Error en autenticación'));
@@ -60,6 +62,7 @@ export const useAuthStore = () => {
     country,
     city,
     phone,
+    image
   }) => {
     dispatch(onChecking());
 
@@ -74,6 +77,7 @@ export const useAuthStore = () => {
           city,
           lastname,
           phone,
+          image
         },
         {
           headers: {
@@ -128,6 +132,8 @@ export const useAuthStore = () => {
   };
 
   const forgotPassword = async ({ email }) => {
+    dispatch(onChecking());
+
     try {
       const { data } = await generacionApi.post(
         '/auth/forgot-password',
@@ -142,14 +148,15 @@ export const useAuthStore = () => {
         }
       );
       localStorage.setItem('token', data.token);
+      console.log(data.token);
       localStorage.setItem('token-init-date', new Date().getTime());
-      console.log(data.email);
-      navigate(PublicRoutes.MSGFORTGET);
+      console.log(data);
+      dispatch(onResetPassword(data.email));
+      navigate(PublicRoutes.MSGFORTGET, { replace: true });
+      console.log('aja');
+      console.log('1');
     } catch (error) {
-      dispatch(onLogout('Error en autenticación'));
-      setTimeout(() => {
-        dispatch(clearErrorMessage());
-      }, 10);
+      console.log('uff error');
     }
   };
 
@@ -175,7 +182,7 @@ export const useAuthStore = () => {
     //*Properties
     status,
     errorMessage,
-
+    user,
     //*methods
     startLogin,
     startRegister,

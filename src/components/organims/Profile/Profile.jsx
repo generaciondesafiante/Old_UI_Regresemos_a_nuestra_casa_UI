@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import './Profile.css';
 
 export const Profile = () => {
+  const [isEditing, setIsEditing] = useState(false);
   const capitalizeFirstLetter = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
   };
@@ -12,6 +13,7 @@ export const Profile = () => {
     country: '',
     city: '',
     phone: '',
+    image: '',
   });
 
   useEffect(() => {
@@ -22,6 +24,7 @@ export const Profile = () => {
       country: capitalizeFirstLetter(localStorage.getItem('country') || ''),
       city: capitalizeFirstLetter(localStorage.getItem('city') || ''),
       phone: localStorage.getItem('phone') || '',
+      image: localStorage.getItem('image') || '',
     });
   }, []);
   return (
@@ -30,7 +33,7 @@ export const Profile = () => {
       <div className="profile-content">
         <div className="profile-container_img">
           <img
-            src="https://i.ibb.co/Qnyx1kP/IMG-20230131-WA0037.jpg"
+            src={userData.image}
             alt="IMG-20230131-WA0037"
             border="0"
             className="profile-user_img"
