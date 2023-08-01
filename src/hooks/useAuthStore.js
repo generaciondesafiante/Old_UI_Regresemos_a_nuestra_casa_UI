@@ -164,10 +164,10 @@ export const useAuthStore = () => {
           },
         }
       )
-
+      dispatch(data)
 
     } catch (error) {
-      console.log('error daniel')
+      console.log('Hable con su administrador')
     }
   }
 

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useAuthStore, useForm } from '../../../hooks';
+import Swal from 'sweetalert2';
 import './Profile.css';
 
 export const Profile = () => {
@@ -30,7 +31,7 @@ export const Profile = () => {
     });
   }, []);
 
-  // Función para manejar el cambio en los campos de edición
+  // Function to handle the change in the editing fields
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setUserData((prevUserData) => ({
@@ -48,9 +49,29 @@ export const Profile = () => {
     city,
     onInputChange: onRegisterInputChange,
   } = useForm(userData);
-  // Función para guardar los cambios al hacer clic en el botón "Guardar cambios"
+  const showConfirmationModal = () => {
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: '¿Deseas guardar los cambios en tu perfil?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: 'var(--turquoise)',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, guardar cambios',
+      cancelButtonText: 'Cancelar',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // If the user clicks "Yes, save changes", then save the changes
+        handleSaveChanges();
+      } else {
+        // If the user clicks "Cancel", exits edit mode without saving changes
+        setIsEditing(false);
+      }
+    });
+  };
+  // Function to save changes when clicking the "Save Changes" button
   const handleSaveChanges = () => {
-    // Aquí puedes realizar acciones para guardar los cambios en el backend o en el almacenamiento local (como localStorage)
+    // Here you can perform actions to save the changes to the backend or to local storage (as localStorage)
     onRegisterInputChange;
     editInformationUser({
       name: name,
@@ -62,7 +83,7 @@ export const Profile = () => {
       city: city,
     })
       .then(() => {
-        // Actualizar la información en localStorage después de guardar los cambios
+        // Update information in localStorage after saving changes
         localStorage.setItem('name', name);
         localStorage.setItem('lastname', lastname);
         localStorage.setItem('email', email);
@@ -71,10 +92,19 @@ export const Profile = () => {
         localStorage.setItem('phone', phone);
 
         setIsEditing(false);
+        Swal.fire(
+          'Cambios guardados',
+          'Los cambios en tu perfil han sido guardados exitosamente.',
+          'success'
+        );
       })
       .catch((error) => {
         console.log('Error al guardar los cambios:', error);
-        // Manejo de errores si es necesario
+        Swal.fire(
+          'Error',
+          'Ocurrió un error al guardar los cambios. Por favor, intenta nuevamente.',
+          'error'
+        );
       });
   };
 
@@ -92,7 +122,7 @@ export const Profile = () => {
         </div>
         <div className="profile-container_info">
           {isEditing ? (
-            <>
+            <div className="edit-input-profile">
               <h3 className="profile-info_title">Nombres</h3>
               <input
                 type="text"
@@ -141,26 +171,44 @@ export const Profile = () => {
                 onChange={handleInputChange}
                 className="form-edit-profile"
               />
-              {/* Resto de campos también como inputs */}
+
               <button
-                onClick={handleSaveChanges}
+                onClick={
+                  isEditing ? showConfirmationModal : () => setIsEditing(true)
+                }
                 className="profile-user_changeInfo_btn"
               >
                 Guardar cambios
               </button>
-            </>
+              <button
+                onClick={() => setIsEditing(false)}
+                className="profile-user_changeInfo_btn goOut-profile"
+              >
+                salir
+              </button>
+            </div>
           ) : (
             <>
-              <h3 className="profile-info_title">Nombres</h3>
-              <p className="profile-user_personalInfo">{userData.name}</p>
-              <h3 className="profile-info_title">Apellidos</h3>
-              <p className="profile-user_personalInfo">{userData.lastname}</p>
-              <h3 className="profile-info_title">Correo electrónico</h3>
-              <p className="profile-user_personalInfo">{userData.email}</p>
-              <h3 className="profile-info_title">País</h3>
-              <p className="profile-user_personalInfo">{userData.country}</p>
-              <h3 className="profile-info_title">Ciudad</h3>
-              <p className="profile-user_personalInfo">{userData.city}</p>
+              <div className="viewDesktop_profile">
+                <h3 className="profile-info_title">Nombres</h3>
+                <p className="profile-user_personalInfo">{userData.name}</p>
+              </div>
+              <div className="viewDesktop_profile">
+                <h3 className="profile-info_title">Apellidos</h3>
+                <p className="profile-user_personalInfo">{userData.lastname}</p>
+              </div>
+              <div className="viewDesktop_profile">
+                <h3 className="profile-info_title">Correo electrónico</h3>
+                <p className="profile-user_personalInfo">{userData.email}</p>
+              </div>
+              <div className="viewDesktop_profile">
+                <h3 className="profile-info_title">País</h3>
+                <p className="profile-user_personalInfo">{userData.country}</p>
+              </div>
+              <div className="viewDesktop_profile">
+                <h3 className="profile-info_title">Ciudad</h3>
+                <p className="profile-user_personalInfo">{userData.city}</p>
+              </div>
               <div
                 className="phone-information"
                 style={{ display: userData.phone !== null ? 'block' : 'none' }}
@@ -175,7 +223,7 @@ export const Profile = () => {
                   {userData.phone}
                 </p>
               </div>
-              {/* Resto de campos también como párrafos */}
+
               <button
                 onClick={() => setIsEditing(true)}
                 className="profile-user_changeInfo_btn"
