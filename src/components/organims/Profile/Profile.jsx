@@ -1,7 +1,10 @@
 import { useState, useEffect } from 'react';
+import { useAuthStore, useForm } from '../../../hooks';
 import './Profile.css';
 
 export const Profile = () => {
+  const { editInformationUser } = useAuthStore();
+
   const capitalizeFirstLetter = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
   };
@@ -35,11 +38,44 @@ export const Profile = () => {
       [name]: value,
     }));
   };
-
+  const {
+    name,
+    email,
+    password,
+    lastname,
+    phone,
+    country,
+    city,
+    onInputChange: onRegisterInputChange,
+  } = useForm(userData);
   // Función para guardar los cambios al hacer clic en el botón "Guardar cambios"
   const handleSaveChanges = () => {
     // Aquí puedes realizar acciones para guardar los cambios en el backend o en el almacenamiento local (como localStorage)
-    setIsEditing(false);
+    onRegisterInputChange;
+    editInformationUser({
+      name: name,
+      email: email,
+      password: password,
+      lastname: lastname,
+      phone: phone,
+      country: country,
+      city: city,
+    })
+      .then(() => {
+        // Actualizar la información en localStorage después de guardar los cambios
+        localStorage.setItem('name', name);
+        localStorage.setItem('lastname', lastname);
+        localStorage.setItem('email', email);
+        localStorage.setItem('country', country);
+        localStorage.setItem('city', city);
+        localStorage.setItem('phone', phone);
+
+        setIsEditing(false);
+      })
+      .catch((error) => {
+        console.log('Error al guardar los cambios:', error);
+        // Manejo de errores si es necesario
+      });
   };
 
   return (
