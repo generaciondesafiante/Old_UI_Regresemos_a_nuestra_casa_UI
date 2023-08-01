@@ -184,7 +184,7 @@ export const Profile = () => {
                 onClick={() => setIsEditing(false)}
                 className="profile-user_changeInfo_btn goOut-profile"
               >
-                salir
+                Cancelar
               </button>
             </div>
           ) : (
