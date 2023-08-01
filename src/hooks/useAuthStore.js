@@ -137,14 +137,9 @@ export const useAuthStore = () => {
     country,
     city,
     phone,
-
   }) => {
     try {
-
-
       const { data } = await generacionApi.put(
-
-
         `/auth/forgot-password/${userId}`,
         {
           email,
@@ -155,7 +150,6 @@ export const useAuthStore = () => {
           lastname,
           phone,
           email,
-
         },
         {
           headers: {
@@ -163,13 +157,12 @@ export const useAuthStore = () => {
             'Access-Control-Allow-Origin': '*',
           },
         }
-      )
-      dispatch(data)
-
+      );
+      dispatch(data);
     } catch (error) {
-      console.log('Hable con su administrador')
+      console.log('Hable con su administrador');
     }
-  }
+  };
 
   const videosLearningPath = async ({ id, tema, title, url }) => {
     await generacionApi.post(
@@ -200,6 +193,6 @@ export const useAuthStore = () => {
     checkAuthToken,
     startLogout,
     videosLearningPath,
-    editInformationUser
+    editInformationUser,
   };
 };
