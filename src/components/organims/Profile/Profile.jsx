@@ -5,6 +5,8 @@ export const Profile = () => {
   const capitalizeFirstLetter = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
   };
+  const [isEditing, setIsEditing] = useState(false);
+
   const [userData, setUserData] = useState({
     name: '',
     email: '',
@@ -24,6 +26,22 @@ export const Profile = () => {
       phone: localStorage.getItem('phone') || '',
     });
   }, []);
+
+  // Función para manejar el cambio en los campos de edición
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setUserData((prevUserData) => ({
+      ...prevUserData,
+      [name]: value,
+    }));
+  };
+
+  // Función para guardar los cambios al hacer clic en el botón "Guardar cambios"
+  const handleSaveChanges = () => {
+    // Aquí puedes realizar acciones para guardar los cambios en el backend o en el almacenamiento local (como localStorage)
+    setIsEditing(false);
+  };
+
   return (
     <div className="profile-container">
       <h2 className="profile-title">Información personal</h2>
@@ -37,23 +55,99 @@ export const Profile = () => {
           />
         </div>
         <div className="profile-container_info">
-          <h3 className="profile-info_title">Nombres</h3>
-          <p className="profile-user_personalInfo">{userData.name}</p>
-          <h3 className="profile-info_title">Apellidos</h3>
-          <p className="profile-user_personalInfo">{userData.lastname}</p>
-          <h3 className="profile-info_title">Correo electrónico</h3>
-          <p className="profile-user_personalInfo">{userData.email}</p>
-          <h3 className="profile-info_title">País</h3>
-          <p className="profile-user_personalInfo">{userData.country}</p>
-          <h3 className="profile-info_title">Ciudad</h3>
-          <p className="profile-user_personalInfo">{userData.city}</p>
-          <h3 className="profile-info_title">Teléfono</h3>
-          <p className="profile-user_personalInfo">
-            {!userData.phone
-              ? userData.phone
-              : 'No cuenta con número de teléfono'}
-          </p>
-          <button className="profile-user_changeInfo_btn">Editar perfil</button>
+          {isEditing ? (
+            <>
+              <h3 className="profile-info_title">Nombres</h3>
+              <input
+                type="text"
+                name="name"
+                value={userData.name}
+                onChange={handleInputChange}
+                className="form-edit-profile"
+              />
+              <h3 className="profile-info_title">Apellidos</h3>
+              <input
+                type="text"
+                name="lastname"
+                value={userData.lastname}
+                onChange={handleInputChange}
+                className="form-edit-profile"
+              />
+              <h3 className="profile-info_title">Correo electrónico</h3>
+              <input
+                type="email"
+                name="email"
+                value={userData.email}
+                onChange={handleInputChange}
+                className="form-edit-profile"
+              />
+              <h3 className="profile-info_title">País</h3>
+              <input
+                type="country"
+                name="country"
+                value={userData.country}
+                onChange={handleInputChange}
+                className="form-edit-profile"
+              />
+              <h3 className="profile-info_title">Ciudad</h3>
+              <input
+                type="city"
+                name="city"
+                value={userData.city}
+                onChange={handleInputChange}
+                className="form-edit-profile"
+              />
+              <h3 className="profile-info_title">Teléfono</h3>
+              <input
+                type="phone"
+                name="phone"
+                value={userData.phone}
+                onChange={handleInputChange}
+                className="form-edit-profile"
+              />
+              {/* Resto de campos también como inputs */}
+              <button
+                onClick={handleSaveChanges}
+                className="profile-user_changeInfo_btn"
+              >
+                Guardar cambios
+              </button>
+            </>
+          ) : (
+            <>
+              <h3 className="profile-info_title">Nombres</h3>
+              <p className="profile-user_personalInfo">{userData.name}</p>
+              <h3 className="profile-info_title">Apellidos</h3>
+              <p className="profile-user_personalInfo">{userData.lastname}</p>
+              <h3 className="profile-info_title">Correo electrónico</h3>
+              <p className="profile-user_personalInfo">{userData.email}</p>
+              <h3 className="profile-info_title">País</h3>
+              <p className="profile-user_personalInfo">{userData.country}</p>
+              <h3 className="profile-info_title">Ciudad</h3>
+              <p className="profile-user_personalInfo">{userData.city}</p>
+              <div
+                className="phone-information"
+                style={{ display: userData.phone !== null ? 'block' : 'none' }}
+              >
+                <h3 className="profile-info_title">Teléfono</h3>
+                <p
+                  className="profile-user_personalInfo"
+                  style={{
+                    display: userData.phone !== null ? 'block' : 'none',
+                  }}
+                >
+                  {userData.phone}
+                </p>
+              </div>
+              {/* Resto de campos también como párrafos */}
+              <button
+                onClick={() => setIsEditing(true)}
+                className="profile-user_changeInfo_btn"
+              >
+                Editar perfil
+              </button>
+            </>
+          )}
         </div>
       </div>
     </div>

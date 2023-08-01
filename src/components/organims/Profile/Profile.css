@@ -31,6 +31,17 @@
   margin-top: 2.5rem;
   align-self: center;
 }
+.form-edit-profile {
+  padding: 0.6rem;
+  border-radius: 0.8rem;
+  width: 15rem;
+  border: none;
+  outline: 0.05rem solid var(--turquoise);
+  background-color: transparent;
+  color: black;
+  font-size: 0.8rem;
+  margin-bottom: 10px;
+}
 
 .profile-user_personalInfo {
   color: var(--darkGray);
@@ -85,6 +96,11 @@
   .profile-user_personalInfo {
     font-size: 1.125rem;
   }
+  .form-edit-profile {
+    padding: 0.7rem;
+    width: 20rem;
+    font-size: 0.9rem;
+  }
 }
 
 @media (min-width: 64rem) {
@@ -132,7 +148,10 @@
   .profile_change-information {
     margin: 0 auto;
   }
-
+  .form-edit-profile {
+    width: 30rem;
+    font-size: 1.1rem;
+  }
   .profile-user_changeInfo_btn {
     padding: 0.8rem;
     border: none;
