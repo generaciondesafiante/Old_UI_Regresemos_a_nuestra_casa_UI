@@ -17,7 +17,6 @@ const registerFormFields = {
   registerEmail: '',
   registerPassword: '',
   registerPassword2: '',
-  registerImage: ' ',
 };
 
 export const RegisterPageNavbar = () => {
@@ -32,7 +31,6 @@ export const RegisterPageNavbar = () => {
     registerCountry,
     registerPhone,
     registerCity,
-    registerImage,
     onInputChange: onRegisterInputChange,
   } = useForm(registerFormFields);
 
@@ -50,7 +48,6 @@ export const RegisterPageNavbar = () => {
       phone: registerPhone,
       country: registerCountry,
       city: registerCity,
-      image: registerImage,
     });
   };
 

@@ -1,6 +1,6 @@
 .profile-container {
   width: 100%;
-  height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -9,15 +9,26 @@
 
 .profile-content {
   width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   align-content: center;
 }
-
+.edit-input-profile > .goOut-profile {
+  background-color: #d33;
+  margin-left: 1.5rem;
+}
+.edit-input-profile > .goOut-profile:hover {
+  background-color: var(--white);
+  border: 1px solid #d33;
+  color: #d33;
+  margin-left: 1.5rem;
+}
 .profile-title {
-  margin-bottom: 3.125rem;
+  margin-bottom: 1.125rem;
+  margin-top: 2.125rem;
 }
 
 .profile-user_img {
@@ -28,8 +39,23 @@
 }
 
 .profile-container_info {
-  margin-top: 2.5rem;
+  margin-top: 1.5rem;
   align-self: center;
+}
+.form-edit-profile {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.form-edit-profile {
+  padding: 0.6rem;
+  border-radius: 0.8rem;
+  width: 15rem;
+  border: none;
+  outline: 0.05rem solid var(--turquoise);
+  color: black;
+  font-size: 0.8rem;
 }
 
 .profile-user_personalInfo {
@@ -55,14 +81,17 @@
 @media (min-width: 48rem) {
   .profile-container {
     width: calc(100% - 5.625rem);
+    height: 100vh;
     margin-left: 5.625rem;
+    display: flex;
+    justify-content: center;
   }
 
   .profile-content {
     display: grid;
     grid-template-columns: 35% 40%;
     justify-content: center;
-    margin-bottom: 3.125rem;
+    margin-bottom: 1.125rem;
   }
 
   .profile-title {
@@ -85,19 +114,25 @@
   .profile-user_personalInfo {
     font-size: 1.125rem;
   }
+  .form-edit-profile {
+    padding: 0.7rem;
+    width: 20rem;
+    font-size: 0.9rem;
+  }
 }
 
 @media (min-width: 64rem) {
-  .profile-content {
+  /* .edit-input-profile {
     display: grid;
-    grid-template-columns: 35% 90%;
-    gap: 1.875rem;
+    grid-template-columns: repeat(2, 1fr);
     justify-content: center;
-    margin-bottom: 3.125rem;
-  }
 
+    column-gap: 1.25rem;
+    row-gap: 0.9rem;
+  } */
   .profile-title {
     font-size: 2.5;
+    margin-top: 50px;
   }
 
   .profile-user_img {
@@ -107,9 +142,10 @@
 
   .profile-content {
     display: grid;
+    gap: 1.875rem;
     grid-template-columns: 20% 40%;
     justify-content: center;
-    margin-bottom: 3.125rem;
+    margin-bottom: 2.125rem;
   }
 
   .profile-container_img {
@@ -132,7 +168,10 @@
   .profile_change-information {
     margin: 0 auto;
   }
-
+  .form-edit-profile {
+    width: 30rem;
+    font-size: 1.1rem;
+  }
   .profile-user_changeInfo_btn {
     padding: 0.8rem;
     border: none;

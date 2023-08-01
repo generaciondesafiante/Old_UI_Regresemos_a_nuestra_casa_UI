@@ -17,7 +17,7 @@ import { ResourcesPage } from '../components/organims/ResourcesPage/ResourcesPag
 import { Sidebar } from '../components/molecules/Sidebar/Sidebar';
 import { ForgetPasswordPage } from '../pages/ForgetPasswordPage/ForgetPasswordPage';
 import { MsgForgetPassword } from '../components/organims/MsgForgetPassword/MsgForgetPassword';
-import { ResetPasswrodPage } from '../pages/ResetPasswordPage/ResetPasswrodPage';
+import { ResetPasswrodPage } from '../pages/ResetPasswordPage/ResetPasswordPage';
 
 export const AppRoutes = () => {
   const [isLogged, setIsLogged] = useState(false);

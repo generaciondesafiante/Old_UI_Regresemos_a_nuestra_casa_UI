@@ -2,19 +2,20 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   clearErrorMessage,
+  onCheckUserExistenceFailure,
+  onCheckUserExistenceSuccess,
   onChecking,
   onLogin,
-  onResetPassword,
   onLogout,
 } from '../store/auth/authSlice';
 import { generacionApi } from '../api';
-import { PrivateRoutes, PublicRoutes } from '../models/routes';
+import { PrivateRoutes } from '../models/routes';
 
 export const useAuthStore = () => {
   const { status, errorMessage, user } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
+  const userId = localStorage.getItem('uid');
   const startLogin = async ({ email, password }) => {
     dispatch(onChecking());
 
@@ -39,8 +40,8 @@ export const useAuthStore = () => {
       localStorage.setItem('country', data.country);
       localStorage.setItem('city', data.city);
       localStorage.setItem('phone', data.phone);
+      localStorage.setItem('uid', data.uid);
       localStorage.setItem('token', data.token);
-      localStorage.setItem('image', data.image);
       localStorage.setItem('token-init-date', new Date().getTime());
 
       dispatch(onLogin(data, data.token));
@@ -62,7 +63,6 @@ export const useAuthStore = () => {
     country,
     city,
     phone,
-    image
   }) => {
     dispatch(onChecking());
 
@@ -77,7 +77,6 @@ export const useAuthStore = () => {
           city,
           lastname,
           phone,
-          image
         },
         {
           headers: {
@@ -93,6 +92,7 @@ export const useAuthStore = () => {
       localStorage.setItem('city', data.city);
       localStorage.setItem('phone', data.phone);
       window.localStorage.setItem('token', data.token);
+
       window.localStorage.setItem('token-init-date', new Date().getTime());
       dispatch(
         onLogin({
@@ -131,12 +131,45 @@ export const useAuthStore = () => {
     dispatch(onLogout());
   };
 
-  const forgotPassword = async ({ email }) => {
+  const editInformationUser = async ({
+    email,
+    password,
+    name,
+    lastname,
+    country,
+    city,
+    phone,
+  }) => {
+    try {
+      const { data } = await generacionApi.put(
+        `/auth/forgot-password/${userId}`,
+        {
+          email,
+          password,
+          name,
+          country,
+          city,
+          lastname,
+          phone,
+        },
+        {
+          headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+            'Access-Control-Allow-Origin': '*',
+          },
+        }
+      );
+      dispatch({ data: data });
+    } catch (error) {
+      console.log('Hable con su administrador');
+    }
+  };
+  const checkEmail = async ({ email }) => {
     dispatch(onChecking());
 
     try {
       const { data } = await generacionApi.post(
-        '/auth/forgot-password',
+        '/auth/check-email',
         {
           email,
         },
@@ -147,16 +180,17 @@ export const useAuthStore = () => {
           },
         }
       );
+
+      localStorage.setItem('uid', data.uid);
       localStorage.setItem('token', data.token);
-      console.log(data.token);
       localStorage.setItem('token-init-date', new Date().getTime());
       console.log(data);
-      dispatch(onResetPassword(data.email));
-      navigate(PublicRoutes.MSGFORTGET, { replace: true });
-      console.log('aja');
-      console.log('1');
+
+      dispatch(onCheckUserExistenceSuccess({ data: data }));
+      return { success: true, data }; // Returns an object indicating success and the data received
     } catch (error) {
-      console.log('uff error');
+      dispatch(onCheckUserExistenceFailure('Error en redirección'));
+      return { success: false, error }; // Returns an object indicating error
     }
   };
 
@@ -188,7 +222,8 @@ export const useAuthStore = () => {
     startRegister,
     checkAuthToken,
     startLogout,
-    forgotPassword,
     videosLearningPath,
+    editInformationUser,
+    checkEmail,
   };
 };

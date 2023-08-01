@@ -1,55 +1,40 @@
-// import { useEffect } from 'react';
-
-// import { useNavigate } from 'react-router-dom';
-// import Swal from 'sweetalert2';
-
 import { Header } from '../../components/organims/Header/Header';
 import { useAuthStore, useForm } from '../../hooks';
-// import { PublicRoutes } from '../../models/routes';
+import Swal from 'sweetalert2';
 import './ForgetPasswordPage.css';
 
-// import { useEffect } from 'react';
-// import { onResetPassword } from '../../store/auth/authSlice';
-
-const emailResetPassword = {
-  forgetPasswordEmail: '',
+const checkEmailUser = {
+  emailUser: '',
 };
-
 export const ForgetPasswordPage = () => {
-  const { forgotPassword, user } = useAuthStore();
+  const { checkEmail } = useAuthStore();
 
-  // const navigate = useNavigate();
-  console.log(user);
+  const { emailUser, onInputChange: onCheckEmailInputChange } =
+    useForm(checkEmailUser);
 
-  const { forgetPasswordEmail, onInputChange: onResetPasswordChange } =
-    useForm(emailResetPassword);
-  const resetPasswordSubmit = (event) => {
+  const checkEmailSubmit = async (event) => {
     event.preventDefault();
-    forgotPassword({
-      email: forgetPasswordEmail,
-    });
-  };
-  if (!user) {
-    console.log('pailas mani');
-  } else {
-    console.log('arre rico');
-  }
+    const response = await checkEmail({ email: emailUser });
 
-  // useEffect(() => {
-  //   if (user) {
-  //     console.log('olleee');
-  //   } else {
-  //     Swal.fire('El usuario no esta registrado', errorMessage, 'warning');
-  //     console.log('eroror');
-  //   }
-  // }, [user]);
+    if (response.success) {
+      // If the request was successful, redirect to the desired page
+      window.location.href = '/resetPassword';
+    } else {
+      // If there was an error in the request, show the alert with SweetAlert2
+      Swal.fire(
+        'Error',
+        'Hubo un error al verificar el correo electrónico.',
+        'error'
+      );
+    }
+  };
   return (
     <>
       <Header />
       <form
         action=""
         className="form-forget_container"
-        onSubmit={resetPasswordSubmit}
+        onSubmit={checkEmailSubmit}
       >
         <h2 className="form-forget_title center-content">
           He olvidado mi contraseña
@@ -62,10 +47,10 @@ export const ForgetPasswordPage = () => {
           className="form-forget_input"
           type="email"
           required
-          name="forgetPasswordEmail"
-          value={forgetPasswordEmail}
+          name="emailUser"
+          value={emailUser}
           placeholder="generaciondesafiante@gmail.com"
-          onChange={onResetPasswordChange}
+          onChange={onCheckEmailInputChange}
         />
         <button className="form-forget_button" type="submit">
           Recuperar contraseña
