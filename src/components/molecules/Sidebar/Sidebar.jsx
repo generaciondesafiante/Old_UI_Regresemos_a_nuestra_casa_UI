@@ -37,7 +37,6 @@ export const Sidebar = () => {
       favorites: false,
     };
     setIsSelected({ ...state, ...optionSelected });
-    console.log(isSelected);
   };
 
   const updateClass = (condition) => {

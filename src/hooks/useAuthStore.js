@@ -45,7 +45,7 @@ export const useAuthStore = () => {
       localStorage.setItem('token-init-date', new Date().getTime());
 
       dispatch(onLogin(data, data.token));
-      console.log(data);
+
       navigate(PrivateRoutes.DASHBOARD, { replace: true });
     } catch (error) {
       dispatch(onLogout('Error en autenticación'));
@@ -184,7 +184,7 @@ export const useAuthStore = () => {
       localStorage.setItem('uid', data.uid);
       localStorage.setItem('token', data.token);
       localStorage.setItem('token-init-date', new Date().getTime());
-      console.log(data);
+
 
       dispatch(onCheckUserExistenceSuccess({ data: data }));
       return { success: true, data }; // Returns an object indicating success and the data received
