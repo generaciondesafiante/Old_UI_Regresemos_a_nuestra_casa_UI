@@ -185,7 +185,6 @@ export const useAuthStore = () => {
       localStorage.setItem('token', data.token);
       localStorage.setItem('token-init-date', new Date().getTime());
 
-
       dispatch(onCheckUserExistenceSuccess({ data: data }));
       return { success: true, data }; // Returns an object indicating success and the data received
     } catch (error) {
