@@ -114,7 +114,7 @@ export const Profile = () => {
       <div className="profile-content">
         <div className="profile-container_img">
           <img
-            src="https://i.ibb.co/Qnyx1kP/IMG-20230131-WA0037.jpg"
+            src="http://somebooks.es/wp-content/uploads/2018/12/Poner-una-imagen-a-la-cuenta-de-usuario-en-Windows-10-000.png "
             alt="IMG-20230131-WA0037"
             border="0"
             className="profile-user_img"
@@ -184,7 +184,7 @@ export const Profile = () => {
                 onClick={() => setIsEditing(false)}
                 className="profile-user_changeInfo_btn goOut-profile"
               >
-                salir
+                Cancelar
               </button>
             </div>
           ) : (

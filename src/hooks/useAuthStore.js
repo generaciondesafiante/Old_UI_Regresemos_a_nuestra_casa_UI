@@ -2,6 +2,8 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   clearErrorMessage,
+  onCheckUserExistenceFailure,
+  onCheckUserExistenceSuccess,
   onChecking,
   onLogin,
   onLogout,
@@ -10,7 +12,7 @@ import { generacionApi } from '../api';
 import { PrivateRoutes } from '../models/routes';
 
 export const useAuthStore = () => {
-  const { status, errorMessage } = useSelector((state) => state.auth);
+  const { status, errorMessage, user } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const userId = localStorage.getItem('uid');
@@ -149,6 +151,26 @@ export const useAuthStore = () => {
           city,
           lastname,
           phone,
+        },
+        {
+          headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+            'Access-Control-Allow-Origin': '*',
+          },
+        }
+      );
+      dispatch({ data: data });
+    } catch (error) {
+      console.log('Hable con su administrador');
+    }
+  };
+  const checkEmail = async ({ email }) => {
+    dispatch(onChecking());
+
+    try {
+      const { data } = await generacionApi.post(
+        '/auth/check-email',
+        {
           email,
         },
         {
@@ -158,9 +180,16 @@ export const useAuthStore = () => {
           },
         }
       );
-      dispatch(data);
+
+      localStorage.setItem('uid', data.uid);
+      localStorage.setItem('token', data.token);
+      localStorage.setItem('token-init-date', new Date().getTime());
+
+      dispatch(onCheckUserExistenceSuccess({ data: data }));
+      return { success: true, data }; // Returns an object indicating success and the data received
     } catch (error) {
-      console.log('Hable con su administrador');
+      dispatch(onCheckUserExistenceFailure('Error en redirección'));
+      return { success: false, error }; // Returns an object indicating error
     }
   };
 
@@ -186,7 +215,7 @@ export const useAuthStore = () => {
     //*Properties
     status,
     errorMessage,
-
+    user,
     //*methods
     startLogin,
     startRegister,
@@ -194,5 +223,6 @@ export const useAuthStore = () => {
     startLogout,
     videosLearningPath,
     editInformationUser,
+    checkEmail,
   };
 };
