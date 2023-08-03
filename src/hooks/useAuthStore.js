@@ -13,7 +13,7 @@ export const useAuthStore = () => {
   const { status, errorMessage } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
+  const userId = localStorage.getItem('uid');
   const startLogin = async ({ email, password }) => {
     dispatch(onChecking());
 
@@ -38,6 +38,7 @@ export const useAuthStore = () => {
       localStorage.setItem('country', data.country);
       localStorage.setItem('city', data.city);
       localStorage.setItem('phone', data.phone);
+      localStorage.setItem('uid', data.uid);
       localStorage.setItem('token', data.token);
       localStorage.setItem('token-init-date', new Date().getTime());
 
@@ -128,6 +129,41 @@ export const useAuthStore = () => {
     dispatch(onLogout());
   };
 
+  const editInformationUser = async ({
+    email,
+    password,
+    name,
+    lastname,
+    country,
+    city,
+    phone,
+  }) => {
+    try {
+      const { data } = await generacionApi.put(
+        `/auth/forgot-password/${userId}`,
+        {
+          email,
+          password,
+          name,
+          country,
+          city,
+          lastname,
+          phone,
+          email,
+        },
+        {
+          headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+            'Access-Control-Allow-Origin': '*',
+          },
+        }
+      );
+      dispatch(data);
+    } catch (error) {
+      console.log('Hable con su administrador');
+    }
+  };
+
   const videosLearningPath = async ({ id, tema, title, url }) => {
     await generacionApi.post(
       '/auth/videos',
@@ -157,5 +193,6 @@ export const useAuthStore = () => {
     checkAuthToken,
     startLogout,
     videosLearningPath,
+    editInformationUser,
   };
 };
