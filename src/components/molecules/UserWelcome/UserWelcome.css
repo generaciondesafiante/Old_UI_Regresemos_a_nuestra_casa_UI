@@ -94,17 +94,17 @@
   .continue-course_subtitle {
     font-size: 1.3rem;
   }
-  
+
   .continue-course_video {
     width: 15rem;
   }
-  
+
   .dashboard-studyMaterial {
     width: 8rem;
   }
 }
 
-@media (min-width: 89.3rem){
+@media (min-width: 89.3rem) {
   .userWelcome-container {
     width: 70%;
   }
@@ -126,11 +126,11 @@
   .continue-course_subtitle {
     font-size: 1.5rem;
   }
-  
+
   .continue-course_video {
     width: 20rem;
   }
-  
+
   .dashboard-studyMaterial {
     width: 13rem;
   }
