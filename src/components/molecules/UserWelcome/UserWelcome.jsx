@@ -1,28 +1,25 @@
-import { useAuthStore } from '../../../hooks/useAuthStore';
+import { useEffect } from 'react';
 import './UserWelcome.css';
+import { useState } from 'react';
 
 export const UserWelcome = () => {
-  const { user } = useAuthStore();
+  const [name, setName] = useState('');
 
-  const getFirstName = () => {
-    if (user && user.name) {
-      const names = user.name.split(' ');
-      return names[0];
+  useEffect(() => {
+    const savedName = localStorage.getItem('name');
+    if (savedName) {
+      const namecapitalized = capitalizeFirstLetter(savedName);
+      setName(namecapitalized);
     }
-    return '';
-  };
-  const capitalized = () => {
-    const firstName = getFirstName();
-    const truncatedName = firstName.slice(0, 14);
-    return truncatedName.charAt(0).toUpperCase() + truncatedName.slice(1);
-  };
+  }, []);
 
+  const capitalizeFirstLetter = (str) => {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  };
   return (
     <div className="userWelcome-container">
       <div className="userWelcome-content">
-        <h2 className="userWelcome-title">
-          Bienvenido/a, Sthefaniaxxxxx {capitalized()}
-        </h2>
+        <h2 className="userWelcome-title">Bienvenido/a,{name} </h2>
         <p className="userWelcome-paragraph">
           ¡Esperamos que tengas un bendecido día!
         </p>
