@@ -2,6 +2,8 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   clearErrorMessage,
+  onCheckUserExistenceFailure,
+  onCheckUserExistenceSuccess,
   onChecking,
   onLogin,
   onLogout,
@@ -10,10 +12,10 @@ import { generacionApi } from '../api';
 import { PrivateRoutes } from '../models/routes';
 
 export const useAuthStore = () => {
-  const { status, errorMessage } = useSelector((state) => state.auth);
+  const { status, errorMessage, user } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
+  const userId = localStorage.getItem('uid');
   const startLogin = async ({ email, password }) => {
     dispatch(onChecking());
 
@@ -38,6 +40,7 @@ export const useAuthStore = () => {
       localStorage.setItem('country', data.country);
       localStorage.setItem('city', data.city);
       localStorage.setItem('phone', data.phone);
+      localStorage.setItem('uid', data.uid);
       localStorage.setItem('token', data.token);
       localStorage.setItem('token-init-date', new Date().getTime());
 
@@ -128,6 +131,68 @@ export const useAuthStore = () => {
     dispatch(onLogout());
   };
 
+  const editInformationUser = async ({
+    email,
+    password,
+    name,
+    lastname,
+    country,
+    city,
+    phone,
+  }) => {
+    try {
+      const { data } = await generacionApi.put(
+        `/auth/forgot-password/${userId}`,
+        {
+          email,
+          password,
+          name,
+          country,
+          city,
+          lastname,
+          phone,
+        },
+        {
+          headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+            'Access-Control-Allow-Origin': '*',
+          },
+        }
+      );
+      dispatch({ data: data });
+    } catch (error) {
+      console.log('Hable con su administrador');
+    }
+  };
+  const checkEmail = async ({ email }) => {
+    dispatch(onChecking());
+
+    try {
+      const { data } = await generacionApi.post(
+        '/auth/check-email',
+        {
+          email,
+        },
+        {
+          headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+            'Access-Control-Allow-Origin': '*',
+          },
+        }
+      );
+
+      localStorage.setItem('uid', data.uid);
+      localStorage.setItem('token', data.token);
+      localStorage.setItem('token-init-date', new Date().getTime());
+
+      dispatch(onCheckUserExistenceSuccess({ data: data }));
+      return { success: true, data }; // Returns an object indicating success and the data received
+    } catch (error) {
+      dispatch(onCheckUserExistenceFailure('Error en redirección'));
+      return { success: false, error }; // Returns an object indicating error
+    }
+  };
+
   const videosLearningPath = async ({ id, tema, title, url }) => {
     await generacionApi.post(
       '/auth/videos',
@@ -150,12 +215,14 @@ export const useAuthStore = () => {
     //*Properties
     status,
     errorMessage,
-
+    user,
     //*methods
     startLogin,
     startRegister,
     checkAuthToken,
     startLogout,
     videosLearningPath,
+    editInformationUser,
+    checkEmail,
   };
 };
