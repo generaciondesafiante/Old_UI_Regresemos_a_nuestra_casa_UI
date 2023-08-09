@@ -17,6 +17,7 @@ const registerFormFields = {
   registerEmail: '',
   registerPassword: '',
   registerPassword2: '',
+  registerImage:'http://somebooks.es/wp-content/uploads/2018/12/Poner-una-imagen-a-la-cuenta-de-usuario-en-Windows-10-000.png',
 };
 
 export const RegisterPageNavbar = () => {
@@ -31,6 +32,7 @@ export const RegisterPageNavbar = () => {
     registerCountry,
     registerPhone,
     registerCity,
+    registerImage,
     onInputChange: onRegisterInputChange,
   } = useForm(registerFormFields);
 
@@ -48,6 +50,7 @@ export const RegisterPageNavbar = () => {
       phone: registerPhone,
       country: registerCountry,
       city: registerCity,
+      image: registerImage,
     });
   };
 
@@ -123,7 +126,7 @@ export const RegisterPageNavbar = () => {
               className="form-register-input"
             />
             <label htmlFor="city" className="form-register-label">
-              Cuidad
+              Ciudad
             </label>
           </div>
           <div className="form-register-container_inLa">
