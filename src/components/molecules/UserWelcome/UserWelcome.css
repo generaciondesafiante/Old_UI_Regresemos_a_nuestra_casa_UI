@@ -4,7 +4,6 @@
 }
 
 .userWelcome-content {
-  width: 100%;
   padding: 0.8rem;
   border: 0.06rem solid rgb(255, 255, 255);
   border-radius: 1rem;
@@ -13,14 +12,14 @@
 
 .userWelcome-title {
   font-size: 1.5rem;
-  color: var(--blueTitle);
+  color: var(--darkBlue);
 }
 
 .userWelcome-paragraph {
+  width: 12rem;
   margin-top: 0.5rem;
   font-size: 1rem;
   color: var(--darkGray);
-  text-align: center;
 }
 
 .userWelcome-decorationImg {
@@ -37,7 +36,7 @@
 .continue-course_subtitle {
   margin-top: 1rem;
   font-size: 1.2rem;
-  color: var(--blueTitle);
+  color: var(--darkBlue);
 }
 
 .continue-course_video {
@@ -58,79 +57,61 @@
 
 @media (min-width: 48rem) {
   .userWelcome-container {
-    width: 35rem;
-    padding-left: 7rem;
-  }
-
-  .userWelcome-container {
     width: 85%;
+    padding-left: 6.5rem;
   }
 }
 
-@media (min-width: 68.125rem) {
-  .dashboard-container_welcome {
-    width: 100%;
+@media (min-width: 64rem) {
+  .userWelcome-container {
     padding-left: 7rem;
-    padding-top: 4rem;
-    height: 100vh;
     overflow: auto;
-    padding-bottom: 0rem;
+    height: 100vh;
   }
 
   .userWelcome-content {
+    width: 90%;
+    max-width: 40.6rem;
     position: relative;
-    width: 40rem;
     padding: 1rem;
-    display: flex;
+    margin-top: 1rem;
   }
 
   .userWelcome-title {
-    font-size: 1.6rem;
-  }
-
-  .userWelcome-paragraph {
-    width: 15rem;
-    font-size: 1.1rem;
-    text-align: left;
+    width: 80%;
+    font-size: 1.7rem;
   }
 
   .userWelcome-decorationImg {
     display: block;
-    width: 19rem;
     position: absolute;
-    top: -3.5rem;
-    right: -3rem;
+    width: 19rem;
+    height: 12.63rem;
+    top: calc(50% - 6.5rem);
+    right: -9.5rem;
   }
 
   .continue-course_subtitle {
-    margin-top: 2rem;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
 
   .continue-course_video {
     width: 15rem;
   }
-}
 
-@media (max-width: 75rem) {
-  .dashboard-welcome_img {
-    display: none;
-  }
-
-  .userWelcome-container {
-    width: 85%;
+  .dashboard-studyMaterial {
+    width: 8rem;
   }
 }
 
-@media (min-width: 105rem) {
+@media (min-width: 89.3rem) {
   .userWelcome-container {
-    width: 90rem;
+    width: 70%;
   }
 
-  .userWelcome-container {
-    width: 85%;
-    padding: 2rem;
-    min-width: 53rem;
+  .userWelcome-content {
+    width: 80%;
+    margin-bottom: 3rem;
   }
 
   .userWelcome-title {
@@ -138,17 +119,8 @@
   }
 
   .userWelcome-paragraph {
+    width: 100%;
     font-size: 1.2rem;
-  }
-
-  .userWelcome-decorationImg {
-    width: 25rem;
-    top: -4rem;
-    right: -3rem;
-  }
-
-  .dashboard-continue_course {
-    margin-top: 2rem;
   }
 
   .continue-course_subtitle {
@@ -160,6 +132,6 @@
   }
 
   .dashboard-studyMaterial {
-    width: 12rem;
+    width: 13rem;
   }
 }

@@ -2,6 +2,9 @@ export const PublicRoutes = {
   LOGIN: '/auth/login',
   REGISTER: '/auth/register',
   HOME: '/home',
+  FORGETPASSWORD: '/forgetPassword',
+  MSGFORTGET: '/msgForgetPassword',
+  RESETPASSWORD: '/resetPassword',
 };
 
 export const PrivateRoutes = {

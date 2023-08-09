@@ -6,7 +6,7 @@ import Swal from 'sweetalert2';
 import { Header } from '../../components/organims/Header/Header';
 import { useAuthStore } from '../../hooks';
 import { useForm } from '../../hooks/useForm';
-import { PrivateRoutes } from '../../models/routes';
+import { PrivateRoutes, PublicRoutes } from '../../models/routes';
 import '../AuthStyle/authStyleLogin.css';
 
 const loginFormFields = {
@@ -75,7 +75,12 @@ export const LoginPageNavbar = () => {
             Contraseña
           </label>
         </div>
-        <Link className="form-login-forgot_login">Olvidé mi contraseña</Link>
+        <Link
+          className="form-login-forgot_login"
+          to={PublicRoutes.FORGETPASSWORD}
+        >
+          Olvidé mi contraseña
+        </Link>
 
         <button className="form-login-btn" type="submit">
           Ingresar
