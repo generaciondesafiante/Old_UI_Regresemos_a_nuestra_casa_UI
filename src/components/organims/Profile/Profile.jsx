@@ -185,11 +185,7 @@ export const Profile = () => {
         <div className="profile-container_img">
           
           <img
-<<<<<<< HEAD
             src={userData.image}
-=======
-            src="http://somebooks.es/wp-content/uploads/2018/12/Poner-una-imagen-a-la-cuenta-de-usuario-en-Windows-10-000.png "
->>>>>>> 6ac605cbcd180300de16b6e865958e57aff54ce4
             alt="IMG-20230131-WA0037"
             border="0"
             className="profile-user_img"
