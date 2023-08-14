@@ -6,8 +6,6 @@ import './Path.css';
 export const Path = ({ coursesData, setCoursesData, setCurrentCourseURL }) => {
   const navigate = useNavigate();
 
-  // console.log(coursesData.course);
-
   const handleUrlId = (course) => {
     const idVideo = course.currentVideo ? course.currentVideo : 1;
     const endpoint = `${course.endpoint}/${idVideo}`;
