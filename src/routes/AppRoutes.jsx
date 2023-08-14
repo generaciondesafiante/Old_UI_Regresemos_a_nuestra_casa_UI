@@ -45,7 +45,7 @@ export const AppRoutes = () => {
         .catch((error) => console.error(error));
     }
   }, []);
-  console.log(coursesData.course);
+
   return (
     <>
       <Routes>

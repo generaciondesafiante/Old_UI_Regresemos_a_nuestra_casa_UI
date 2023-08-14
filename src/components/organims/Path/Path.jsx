@@ -6,11 +6,11 @@ import './Path.css';
 export const Path = ({ coursesData, setCoursesData, setCurrentCourseURL }) => {
   const navigate = useNavigate();
 
-  console.log(coursesData.course);
+  // console.log(coursesData.course);
 
   const handleUrlId = (course) => {
     const idVideo = course.currentVideo ? course.currentVideo : 1;
-    const endpoint = `${course.course.endpoint}/${idVideo}`;
+    const endpoint = `${course.endpoint}/${idVideo}`;
     setCurrentCourseURL(endpoint);
     const courseUpdated = coursesData.course.map((courseData) => {
       if (courseData === course) {
