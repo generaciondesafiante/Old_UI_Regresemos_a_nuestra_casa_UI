@@ -41,6 +41,15 @@
     height: 100vh;
   }
 
+  .resources-container::-webkit-scrollbar {
+    width: 0.3rem;
+  }
+  
+  .resources-container::-webkit-scrollbar-thumb {
+    background-color: var(--darkBlue);
+    border-radius: 1rem;
+  }
+
   .resources-title {
     margin-bottom: 2rem;
   }
