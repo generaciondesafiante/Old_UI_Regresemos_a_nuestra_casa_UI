@@ -44,7 +44,7 @@
   .resources-container::-webkit-scrollbar {
     width: 0.3rem;
   }
-  
+
   .resources-container::-webkit-scrollbar-thumb {
     background-color: var(--darkBlue);
     border-radius: 1rem;
