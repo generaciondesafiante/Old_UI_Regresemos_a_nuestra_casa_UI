@@ -19,7 +19,7 @@ export const UserWelcome = () => {
   return (
     <div className="userWelcome-container">
       <div className="userWelcome-content">
-        <h2 className="userWelcome-title">Bienvenido/a,{name} </h2>
+        <h2 className="userWelcome-title">Bienvenido/a, {name}</h2>
         <p className="userWelcome-paragraph">
           ¡Esperamos que tengas un bendecido día!
         </p>
@@ -41,6 +41,81 @@ export const UserWelcome = () => {
       <div className="dashboard-continue_course">
         <h2 className="continue-course_subtitle">¡Recursos para ti!</h2>
         <div className="dashboard-subcontent_studyMaterial">
+          <img
+            className="dashboard-studyMaterial"
+            src="https://static.wixstatic.com/media/d166cc_4cc837baf9254000a0f3963193c6b07a~mv2.jpg/v1/fill/w_368,h_195,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/Romanos%2011111.jpg"
+            alt=""
+          />
+          <img
+            className="dashboard-studyMaterial"
+            src="https://static.wixstatic.com/media/d166cc_4cc837baf9254000a0f3963193c6b07a~mv2.jpg/v1/fill/w_368,h_195,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/Romanos%2011111.jpg"
+            alt=""
+          />
+          <img
+            className="dashboard-studyMaterial"
+            src="https://static.wixstatic.com/media/d166cc_4cc837baf9254000a0f3963193c6b07a~mv2.jpg/v1/fill/w_368,h_195,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/Romanos%2011111.jpg"
+            alt=""
+          />
+          <img
+            className="dashboard-studyMaterial"
+            src="https://static.wixstatic.com/media/d166cc_4cc837baf9254000a0f3963193c6b07a~mv2.jpg/v1/fill/w_368,h_195,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/Romanos%2011111.jpg"
+            alt=""
+          />
+          <img
+            className="dashboard-studyMaterial"
+            src="https://static.wixstatic.com/media/d166cc_4cc837baf9254000a0f3963193c6b07a~mv2.jpg/v1/fill/w_368,h_195,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/Romanos%2011111.jpg"
+            alt=""
+          />
+          <img
+            className="dashboard-studyMaterial"
+            src="https://static.wixstatic.com/media/d166cc_4cc837baf9254000a0f3963193c6b07a~mv2.jpg/v1/fill/w_368,h_195,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/Romanos%2011111.jpg"
+            alt=""
+          />
+          <img
+            className="dashboard-studyMaterial"
+            src="https://static.wixstatic.com/media/d166cc_4cc837baf9254000a0f3963193c6b07a~mv2.jpg/v1/fill/w_368,h_195,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/Romanos%2011111.jpg"
+            alt=""
+          />
+          <img
+            className="dashboard-studyMaterial"
+            src="https://static.wixstatic.com/media/d166cc_4cc837baf9254000a0f3963193c6b07a~mv2.jpg/v1/fill/w_368,h_195,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/Romanos%2011111.jpg"
+            alt=""
+          />
+          <img
+            className="dashboard-studyMaterial"
+            src="https://static.wixstatic.com/media/d166cc_4cc837baf9254000a0f3963193c6b07a~mv2.jpg/v1/fill/w_368,h_195,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/Romanos%2011111.jpg"
+            alt=""
+          />
+          <img
+            className="dashboard-studyMaterial"
+            src="https://static.wixstatic.com/media/d166cc_4cc837baf9254000a0f3963193c6b07a~mv2.jpg/v1/fill/w_368,h_195,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/Romanos%2011111.jpg"
+            alt=""
+          />
+          <img
+            className="dashboard-studyMaterial"
+            src="https://static.wixstatic.com/media/d166cc_4cc837baf9254000a0f3963193c6b07a~mv2.jpg/v1/fill/w_368,h_195,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/Romanos%2011111.jpg"
+            alt=""
+          />
+          <img
+            className="dashboard-studyMaterial"
+            src="https://static.wixstatic.com/media/d166cc_4cc837baf9254000a0f3963193c6b07a~mv2.jpg/v1/fill/w_368,h_195,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/Romanos%2011111.jpg"
+            alt=""
+          />
+          <img
+            className="dashboard-studyMaterial"
+            src="https://static.wixstatic.com/media/d166cc_4cc837baf9254000a0f3963193c6b07a~mv2.jpg/v1/fill/w_368,h_195,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/Romanos%2011111.jpg"
+            alt=""
+          />
+          <img
+            className="dashboard-studyMaterial"
+            src="https://static.wixstatic.com/media/d166cc_4cc837baf9254000a0f3963193c6b07a~mv2.jpg/v1/fill/w_368,h_195,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/Romanos%2011111.jpg"
+            alt=""
+          />
+          <img
+            className="dashboard-studyMaterial"
+            src="https://static.wixstatic.com/media/d166cc_4cc837baf9254000a0f3963193c6b07a~mv2.jpg/v1/fill/w_368,h_195,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/Romanos%2011111.jpg"
+            alt=""
+          />
           <img
             className="dashboard-studyMaterial"
             src="https://static.wixstatic.com/media/d166cc_4cc837baf9254000a0f3963193c6b07a~mv2.jpg/v1/fill/w_368,h_195,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/Romanos%2011111.jpg"
