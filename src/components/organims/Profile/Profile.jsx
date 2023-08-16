@@ -2,6 +2,9 @@ import { useState, useEffect } from 'react';
 import { useAuthStore, useForm } from '../../../hooks';
 import Swal from 'sweetalert2';
 import './Profile.css';
+import AddAPhotoIcon from '@mui/icons-material/AddAPhoto';
+import { ModalEditPhotoProfile } from '../../molecules/Modals/ModalEditPhotoProfile/ModalEditPhotoProfile';
+
 // import { useNavigate, useParams } from 'react-router-dom';
 // import { generacionApi } from '../../../api';
 
@@ -178,19 +181,73 @@ export const Profile = () => {
       });
   };
 
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  const handleImageChange = (file) => {
+    if (file) {
+      setSelectedImage(file);
+    }
+  };
+
+  const handleModalClose = () => {
+    setIsModalOpen(false);
+    setSelectedImage(null); // Limpiar la imagen seleccionada al cerrar el modal
+  };
+
   return (
     <div className="profile-container">
       <h2 className="profile-title">Información personal</h2>
       <div className="profile-content">
-        <div className="profile-container_img">
-          
+        <div className="profile-container_img" onClick={() => setIsModalOpen(!isModalOpen)}>
           <img
             src={userData.image}
             alt="IMG-20230131-WA0037"
             border="0"
             className="profile-user_img"
           />
+          <div className='profile-container_addPhoto' onClick={() => setIsModalOpen(!isModalOpen)}>
+            <AddAPhotoIcon className='profile-add-photo_icon' />
+          </div>
+          {/* -------------MODAL EDIT PHOTO PROFILE -------------*/}
+          <div>
+            <ModalEditPhotoProfile
+              openModalProfile={isModalOpen}
+              closeModalProfile={handleModalClose}
+              title="Agrega foto de perfil"
+            >
+              <div className='modalEditProfile-content'>
+                <h1>Subir Imagen</h1>
+                <div className="modalEditProfile-circleWrapper">
+                  {selectedImage ? (
+                    <img
+                      src={URL.createObjectURL(selectedImage)}
+                      alt="Profile"
+                      className="modalEditProfile-circleImage"
+                    />
+                  ) : (
+                    <span className="modalEditProfile-circleImage">Imagen previa aquí</span>
+                  )}
+                </div>
+                <input
+                  type="file"
+                  accept="image/*"
+                  className='modalEditProfile-inputUploadImage'
+                  onChange={(e) => handleImageChange(e.target.files[0])}
+                />
+                <button
+                  className='modalEditProfile-buttonAccept'
+                  onClick={() => setIsModalOpen(false)}
+                >
+                  Aceptar
+                </button>
+              </div>
+            </ModalEditPhotoProfile>
+          </div>
         </div>
+
+        {/* --------------------------------------------------------*/}
+
         <div className="profile-container_info">
           {isEditing ? (
             <div className="edit-input-profile">
