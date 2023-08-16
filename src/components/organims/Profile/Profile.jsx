@@ -182,18 +182,6 @@ export const Profile = () => {
   };
 
   const [isModalOpen, setIsModalOpen] = useState(false)
-  const [selectedImage, setSelectedImage] = useState(null);
-
-  const handleImageChange = (file) => {
-    if (file) {
-      setSelectedImage(file);
-    }
-  };
-
-  const handleModalClose = () => {
-    setIsModalOpen(false);
-    setSelectedImage(null); // Limpiar la imagen seleccionada al cerrar el modal
-  };
 
   return (
     <div className="profile-container">
@@ -213,41 +201,29 @@ export const Profile = () => {
           <div>
             <ModalEditPhotoProfile
               openModalProfile={isModalOpen}
-              closeModalProfile={handleModalClose}
+              closeModalProfile={setIsModalOpen}
               title="Agrega foto de perfil"
             >
               <div className='modalEditProfile-content'>
-                <h1>Subir Imagen</h1>
-                <div className="modalEditProfile-circleWrapper">
-                  {selectedImage ? (
-                    <img
-                      src={URL.createObjectURL(selectedImage)}
-                      alt="Profile"
-                      className="modalEditProfile-circleImage"
-                    />
-                  ) : (
-                    <span className="modalEditProfile-circleImage">Imagen previa aquí</span>
-                  )}
-                </div>
-                <input
-                  type="file"
-                  accept="image/*"
-                  className='modalEditProfile-inputUploadImage'
-                  onChange={(e) => handleImageChange(e.target.files[0])}
-                />
-                <button
-                  className='modalEditProfile-buttonAccept'
-                  onClick={() => setIsModalOpen(false)}
-                >
-                  Aceptar
-                </button>
+                <form>
+                  <label>
+                    <h1>Subir Imagen</h1>
+                    <div className="custom-file-input">
+                      <span className="file-input-label">Seleccionar archivo</span>
+                      <input 
+                        type="file"
+                        accept="image/*" 
+                        className='modalEditProfile-inputUploadImage'
+                        onClick={(e) => e.stopPropagation()}
+                      />
+                    </div>
+                  </label>
+                  <button className='modalEditProfile-buttonAccept'>Aceptar</button>
+                </form>
               </div>
             </ModalEditPhotoProfile>
           </div>
         </div>
-
-        {/* --------------------------------------------------------*/}
-
         <div className="profile-container_info">
           {isEditing ? (
             <div className="edit-input-profile">
