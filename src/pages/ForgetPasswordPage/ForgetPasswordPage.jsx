@@ -1,9 +1,9 @@
+import { useDispatch } from 'react-redux';
 import { Header } from '../../components/organims/Header/Header';
+import { clearErrorMessage } from '../../store/auth/authSlice';
 import { useAuthStore, useForm } from '../../hooks';
 import Swal from 'sweetalert2';
 import './ForgetPasswordPage.css';
-import { useDispatch } from 'react-redux';
-import { clearErrorMessage } from '../../store/auth/authSlice';
 
 const checkEmailUser = {
   emailUser: '',
@@ -23,8 +23,8 @@ export const ForgetPasswordPage = () => {
       // If the request was successful, redirect to the desired page
       Swal.fire({
         icon: 'success',
-        title: 'Correo enviado',
-        text: 'Verifica tu correo electronico.',
+        title: 'Correo enviado exitosamente',
+        text: 'Verifica tu correo electrónico para restablecer la contraseña.',
         didClose: () => {
           window.location.href = '/auth/login';
           localStorage.clear();

@@ -16,9 +16,9 @@ export const useAuthStore = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const userId = localStorage.getItem('uid');
-  let idParamas = useParams()
-  let idPassword = idParamas.id
-  console.log(idPassword)
+  let idParamas = useParams();
+  let idPassword = idParamas.id;
+  console.log(idPassword);
   const startLogin = async ({ email, password }) => {
     dispatch(onChecking());
 
@@ -167,9 +167,7 @@ export const useAuthStore = () => {
       console.log('Hable con su administrador');
     }
   };
-  const changePassword = async ({
-    password
-  }) => {
+  const changePassword = async ({ password }) => {
     try {
       const { data } = await generacionApi.put(
         `/auth/change-password/${idPassword}`,
@@ -247,6 +245,7 @@ export const useAuthStore = () => {
     startLogout,
     videosLearningPath,
     editInformationUser,
-    checkEmail,changePassword
+    checkEmail,
+    changePassword,
   };
 };
