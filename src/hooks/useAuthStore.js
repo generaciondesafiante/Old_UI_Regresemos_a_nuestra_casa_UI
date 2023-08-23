@@ -18,7 +18,7 @@ export const useAuthStore = () => {
   const userId = localStorage.getItem('uid');
   let idParamas = useParams();
   let idPassword = idParamas.id;
-  console.log(idPassword);
+
   const startLogin = async ({ email, password }) => {
     dispatch(onChecking());
 
