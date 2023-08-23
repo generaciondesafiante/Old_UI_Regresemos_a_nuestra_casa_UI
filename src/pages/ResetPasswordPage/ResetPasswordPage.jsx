@@ -12,7 +12,7 @@ const resetFormFields = {
 };
 
 export const ResetPasswrodPage = () => {
-  const { editInformationUser } = useAuthStore();
+  const { changePassword } = useAuthStore();
   const dispatch = useDispatch;
   const {
     resetPassword,
@@ -26,7 +26,7 @@ export const ResetPasswrodPage = () => {
       Swal.fire('Error en registro', 'Contraseñas no son iguales', 'error');
       return;
     }
-    editInformationUser({
+    changePassword({
       password: resetPassword,
     })
       .then(() => {

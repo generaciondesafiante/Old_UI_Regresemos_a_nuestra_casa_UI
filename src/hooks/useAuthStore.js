@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   clearErrorMessage,
@@ -16,6 +16,9 @@ export const useAuthStore = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const userId = localStorage.getItem('uid');
+  let idParamas = useParams()
+  let idPassword = idParamas.id
+  console.log(idPassword)
   const startLogin = async ({ email, password }) => {
     dispatch(onChecking());
 
@@ -142,7 +145,7 @@ export const useAuthStore = () => {
   }) => {
     try {
       const { data } = await generacionApi.put(
-        `/auth/forgot-password/${userId}`,
+        `/auth/edit-profile/${userId}`,
         {
           email,
           password,
@@ -151,6 +154,27 @@ export const useAuthStore = () => {
           city,
           lastname,
           phone,
+        },
+        {
+          headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+            'Access-Control-Allow-Origin': '*',
+          },
+        }
+      );
+      dispatch({ data: data });
+    } catch (error) {
+      console.log('Hable con su administrador');
+    }
+  };
+  const changePassword = async ({
+    password
+  }) => {
+    try {
+      const { data } = await generacionApi.put(
+        `/auth/change-password/${idPassword}`,
+        {
+          password,
         },
         {
           headers: {
@@ -223,6 +247,6 @@ export const useAuthStore = () => {
     startLogout,
     videosLearningPath,
     editInformationUser,
-    checkEmail,
+    checkEmail,changePassword
   };
 };
