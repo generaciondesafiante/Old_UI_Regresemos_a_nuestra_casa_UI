@@ -13,6 +13,7 @@ export const LearningPaht = ({
   const courseSelected = coursesData.find((e) =>
     e.endpoint.includes(currentCourseEndPoint[1])
   );
+
   const lessonSelected = courseSelected.content.find(
     (e) => e.id == currentCourseEndPoint[2]
   );

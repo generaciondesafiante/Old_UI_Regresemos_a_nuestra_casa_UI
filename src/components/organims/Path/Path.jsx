@@ -5,11 +5,12 @@ import './Path.css';
 
 export const Path = ({ coursesData, setCoursesData, setCurrentCourseURL }) => {
   const navigate = useNavigate();
+
   const handleUrlId = (course) => {
     const idVideo = course.currentVideo ? course.currentVideo : 1;
     const endpoint = `${course.endpoint}/${idVideo}`;
     setCurrentCourseURL(endpoint);
-    const courseUpdated = coursesData.map((courseData) => {
+    const courseUpdated = coursesData.course.map((courseData) => {
       if (courseData === course) {
         return { ...courseData, currentVideo: idVideo };
       } else {
@@ -23,7 +24,7 @@ export const Path = ({ coursesData, setCoursesData, setCurrentCourseURL }) => {
   return (
     <div className="path-container">
       <div className="path-content">
-        {coursesData.map((course, index) => {
+        {coursesData.course.map((course, index) => {
           return (
             <div key={index} className="path-border">
               {index === 0 ? (
@@ -35,7 +36,7 @@ export const Path = ({ coursesData, setCoursesData, setCurrentCourseURL }) => {
               ) : (
                 ''
               )}
-              {index === coursesData.length - 1 ? (
+              {index === coursesData.course.length - 1 ? (
                 <img
                   className="path-img_flag flag-end"
                   src="https://i.imgur.com/8cfdvwv.png"

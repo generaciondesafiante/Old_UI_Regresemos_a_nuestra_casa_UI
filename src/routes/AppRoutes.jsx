@@ -37,7 +37,7 @@ export const AppRoutes = () => {
 
   useEffect(() => {
     if (coursesData[0].content.length === 0) {
-      fetch('https://regresemos-cms.herokuapp.com/api/auth/course')
+      fetch('https://regresemos-cms.herokuapp.com/api/course/coursedata')
         .then((response) => response.json())
         .then((data) => {
           setCoursesData(data);
