@@ -4,7 +4,7 @@ export const PublicRoutes = {
   HOME: '/home',
   FORGETPASSWORD: '/forgetPassword',
   MSGFORTGET: '/msgForgetPassword',
-  RESETPASSWORD: '/resetPassword',
+  RESETPASSWORD: '/resetPassword/:id/:token',
 };
 
 export const PrivateRoutes = {
