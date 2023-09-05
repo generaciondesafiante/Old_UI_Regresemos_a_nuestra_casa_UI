@@ -187,13 +187,35 @@ export const useAuthStore = () => {
       console.log('Hable con su administrador');
     }
   };
+  // const validatePasswordDB = async ({ password }) => {
+  //   try {
+  //     const {data} = await generacionApi.post(
+  //       `/auth/validate-password/${id}`,
+  //       {
+  //         password: password,
+   
+  //       },
+  //       {
+  //         headers: {
+  //           'Content-type': 'application/json; charset=UTF-8',
+  //           'Access-Control-Allow-Origin': '*',
+  //         },
+  //       }
+  //     );
+  //     console.log(data)
+  //     dispatch({data: data});
+  //   } catch (error) {
+  //     console.error('Error al validar la contraseña:', error);
+  //     // Muestra una alerta de error en caso de problemas de conexión o del servidor
+  //     Swal.fire('Error', 'Contraseña actual incorrecta.', 'error');
+  //   }
+  // };
   const validatePasswordDB = async ({ password }) => {
     try {
-      const {data} = await generacionApi.post(
+      const { data } = await generacionApi.post(
         `/auth/validate-password/${id}`,
         {
           password: password,
-   
         },
         {
           headers: {
@@ -202,15 +224,15 @@ export const useAuthStore = () => {
           },
         }
       );
-      console.log(data)
-      dispatch(onLogin(data));
+      return data; // Devuelve la respuesta del servidor
     } catch (error) {
       console.error('Error al validar la contraseña:', error);
       // Muestra una alerta de error en caso de problemas de conexión o del servidor
       Swal.fire('Error', 'Contraseña actual incorrecta.', 'error');
+      // Puedes lanzar un error aquí si lo deseas para indicar que la validación falló
+      throw error;
     }
   };
-  
   
   const checkEmail = async ({ email }) => {
     dispatch(onChecking());

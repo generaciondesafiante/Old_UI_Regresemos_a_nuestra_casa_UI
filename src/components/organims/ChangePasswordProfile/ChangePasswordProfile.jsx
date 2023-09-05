@@ -19,12 +19,14 @@ export const ChangePasswordProfile = () => {
     try {
       const data = await validatePasswordDB({ password });
 
-      if (data.ok) {
-         Swal.fire('Contraseña válida', 'La contraseña es correcta.', 'success');
-     } 
+      if (data.ok === true) { // Cambiar a data.ok === true
+        Swal.fire('Contraseña válida', 'La contraseña es correcta.', 'success');
+      } else {
+        Swal.fire('Contraseña incorrecta', data.msg, 'error');
+      }
     } catch (error) {
-     Swal.fire('Error', 'Hubo un problema al validar la contraseña.', 'error');
- }
+      Swal.fire('Error', 'Contraseña actual incorrecta.', 'error');
+    }
   };
 
   useEffect(() => {
