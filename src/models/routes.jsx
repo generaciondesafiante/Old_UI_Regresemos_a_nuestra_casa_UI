@@ -17,4 +17,5 @@ export const PrivateRoutes = {
   FAVORITE: '/favorite',
   LEARNINGPATH: '/learningPaht',
   LEARNINGPATHPROGRESS: '/learningPaht',
+  CHANGEPASSWORDPROFILE: '/changepasswordprofile',
 };

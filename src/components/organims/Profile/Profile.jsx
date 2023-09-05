@@ -2,9 +2,13 @@ import { useState, useEffect } from 'react';
 import { useAuthStore, useForm } from '../../../hooks';
 import Swal from 'sweetalert2';
 import './Profile.css';
+import { useNavigate } from 'react-router-dom';
+
+import { PrivateRoutes } from '../../../models/routes';
 
 export const Profile = () => {
   const { editInformationUser } = useAuthStore();
+  const navigate = useNavigate();
 
   const capitalizeFirstLetter = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
@@ -107,6 +111,10 @@ export const Profile = () => {
         );
       });
   };
+
+  const navigateChangePassword = () => {
+    navigate(`${PrivateRoutes.CHANGEPASSWORDPROFILE}`);
+  }
 
   return (
     <div className="profile-container">
@@ -230,6 +238,17 @@ export const Profile = () => {
               >
                 Editar perfil
               </button>
+              <buttom
+                className="profile-user_changeInfo_btn"
+                onClick={()=>navigateChangePassword()}
+              >
+                  Cambiar contraseña
+              </buttom>
+              {/* <ChangePasswordProfile
+                  className="profile-user_changeInfo_btn"
+                  isOpen={isPasswordModalOpen}
+                  onRequestClose={closePasswordModal}
+                /> */}
             </>
           )}
         </div>

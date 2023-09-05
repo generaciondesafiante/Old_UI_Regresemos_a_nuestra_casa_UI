@@ -18,6 +18,7 @@ import { Sidebar } from '../components/molecules/Sidebar/Sidebar';
 import { ForgetPasswordPage } from '../pages/ForgetPasswordPage/ForgetPasswordPage';
 import { MsgForgetPassword } from '../components/organims/MsgForgetPassword/MsgForgetPassword';
 import { ResetPasswrodPage } from '../pages/ResetPasswordPage/ResetPasswordPage';
+import { ChangePasswordProfile } from '../components/organims/ChangePasswordProfile/ChangePasswordProfile';
 
 export const AppRoutes = () => {
   const [isLogged, setIsLogged] = useState(false);
@@ -70,6 +71,8 @@ export const AppRoutes = () => {
           <Route path="*" element={<Navigate to={PrivateRoutes.DASHBOARD} />} />
           <Route path={PrivateRoutes.PROFILE} element={<Profile />} />
           <Route path={PrivateRoutes.DASHBOARD} element={<Dashboard />} />
+          <Route path={PrivateRoutes.CHANGEPASSWORDPROFILE} element={<ChangePasswordProfile />} />
+        
 
           <Route
             path={PrivateRoutes.PATH}
