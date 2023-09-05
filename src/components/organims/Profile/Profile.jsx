@@ -114,7 +114,7 @@ export const Profile = () => {
 
   const navigateChangePassword = () => {
     navigate(`${PrivateRoutes.CHANGEPASSWORDPROFILE}`);
-  }
+  };
 
   return (
     <div className="profile-container">
@@ -240,9 +240,9 @@ export const Profile = () => {
               </button>
               <buttom
                 className="profile-user_changeInfo_btn"
-                onClick={()=>navigateChangePassword()}
+                onClick={() => navigateChangePassword()}
               >
-                  Cambiar contraseña
+                Cambiar contraseña
               </buttom>
               {/* <ChangePasswordProfile
                   className="profile-user_changeInfo_btn"

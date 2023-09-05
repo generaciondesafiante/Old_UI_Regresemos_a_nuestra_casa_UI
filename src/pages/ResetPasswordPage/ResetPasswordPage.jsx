@@ -23,7 +23,11 @@ export const ResetPasswrodPage = () => {
   const resetSumbitPassword = (event) => {
     event.preventDefault();
     if (resetPassword !== resetPassword2) {
-      Swal.fire('Error de autenticación', 'Las contraseñas no son iguales', 'error');
+      Swal.fire(
+        'Error de autenticación',
+        'Las contraseñas no son iguales',
+        'error'
+      );
       return;
     }
     changePassword({

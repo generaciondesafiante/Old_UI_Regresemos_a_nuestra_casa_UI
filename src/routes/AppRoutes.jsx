@@ -71,8 +71,10 @@ export const AppRoutes = () => {
           <Route path="*" element={<Navigate to={PrivateRoutes.DASHBOARD} />} />
           <Route path={PrivateRoutes.PROFILE} element={<Profile />} />
           <Route path={PrivateRoutes.DASHBOARD} element={<Dashboard />} />
-          <Route path={PrivateRoutes.CHANGEPASSWORDPROFILE} element={<ChangePasswordProfile />} />
-        
+          <Route
+            path={PrivateRoutes.CHANGEPASSWORDPROFILE}
+            element={<ChangePasswordProfile />}
+          />
 
           <Route
             path={PrivateRoutes.PATH}
