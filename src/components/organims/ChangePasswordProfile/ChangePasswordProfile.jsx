@@ -1,7 +1,7 @@
-import './ChangePasswordProfile.css';
 import { useAuthStore, useForm } from '../../../hooks';
 import { useEffect } from 'react';
 import Swal from 'sweetalert2';
+import './ChangePasswordProfile.css';
 
 const loginFormFields = {
   password: '',
