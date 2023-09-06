@@ -244,11 +244,6 @@ export const Profile = () => {
               >
                 Cambiar contraseña
               </buttom>
-              {/* <ChangePasswordProfile
-                  className="profile-user_changeInfo_btn"
-                  isOpen={isPasswordModalOpen}
-                  onRequestClose={closePasswordModal}
-                /> */}
             </>
           )}
         </div>
