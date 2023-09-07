@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useAuthStore, useForm } from '../../../hooks';
 import { clearErrorMessage } from '../../../store/auth/authSlice';
 import Swal from 'sweetalert2';
+import { Input } from '../../atoms/Input/Input';
 import './ChangePasswordProfile.css';
 
 const validatePasswordForm = {
@@ -105,32 +106,44 @@ export const ChangePasswordProfile = () => {
         className="content-modal"
       >
         <h2 className="title-modal">Cambiar Contraseña</h2>
-        <input
-          className="input-modal"
-          type="password"
-          placeholder="Contraseña Actual"
-          name="password"
-          value={password}
-          onChange={onValidatePassword}
-          required
-        />
-        <input
-          className="input-modal"
-          type="password"
-          placeholder="Nueva contraseña"
-          name="newPassword"
-          value={newPassword}
-          onChange={onChangePassword}
-          required
-        />
-        <input
-          className="input-modal"
-          type="password"
-          placeholder="Repetir contraseña"
-          name="confirmNewPassword"
-          value={confirmNewPassword}
-          onChange={onChangePassword}
-          required
+        
+          <Input
+            id='password-change-profile'
+            htmlForm={'password-change-profile'}
+            type="password"
+            placeholder=" "
+            name="password"
+            value={password}
+            onChange={onValidatePassword}
+            label={'Contraseña Actual'}
+            labelColor={'#b5b5b5'}
+             isRequire={true}
+          />
+
+          <Input
+            id='passwordNew-change-profile'
+            htmlForm={'passwordNew-change-profile'}
+            type="password"
+            placeholder=" "
+            name="newPassword"
+            value={newPassword}
+            onChange={onChangePassword}
+            label={'Nueva Contraseña'}
+            labelColor={'#b5b5b5'}
+             isRequire={true}
+          />
+        
+        <Input
+         id='passwordConfirm-change-profile'
+          htmlForm={'passwordConfirm-change-profile'}
+         type="password"
+         placeholder=" "
+         name="confirmNewPassword"
+         value={confirmNewPassword}
+         onChange={onChangePassword}
+         label={'Confirmar contraseña'}
+         labelColor={'#b5b5b5'}
+          isRequire={true}
         />
         <button type="submit" className="form-login-btn">
           Cambiar Contraseña

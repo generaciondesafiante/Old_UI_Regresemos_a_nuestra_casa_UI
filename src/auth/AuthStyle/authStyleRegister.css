@@ -6,7 +6,6 @@
     ),
     url('https://i.imgur.com/giBenIE.png');
   background-size: cover;
-  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -24,44 +23,6 @@
 
 .form-register-title_register {
   width: 15rem;
-}
-
-.form-register-container_inLa {
-  position: relative;
-  padding: 0.6rem;
-  margin-top: 0.8rem;
-}
-
-.form-register-label {
-  position: absolute;
-  padding: 0.6rem;
-  left: 0.5rem;
-  color: var(--white);
-  font-size: 0.8rem;
-  transition: 0.5s;
-}
-
-.form-register-input {
-  padding: 0.6rem;
-  border-radius: 0.8rem;
-  width: 15rem;
-  border: none;
-  outline: 0.05rem solid var(--turquoise);
-  background-color: transparent;
-  color: var(--white);
-  font-size: 0.8rem;
-}
-
-.form-register-input:focus + .form-register-label {
-  transform: translateY(-2.1rem);
-  color: var(--turquoise);
-  padding-left: 0rem;
-  font-size: 0.9rem;
-}
-
-.form-register-input:not(:placeholder-shown) + .form-register-label {
-  transform: translateY(-1.9rem);
-  transition: 0.5s;
 }
 
 .form-register-forgot_login {
@@ -107,19 +68,6 @@
     font-size: 1.8rem;
   }
 
-  .form-register-label {
-    font-size: 0.9rem;
-  }
-
-  .form-register-input {
-    padding: 0.7rem;
-    width: 20rem;
-    font-size: 0.9rem;
-  }
-
-  .form-register-input:focus + .form-register-label {
-    font-size: 1rem;
-  }
 
   .form-register-forgot_login {
     font-size: 0.9rem;
@@ -146,22 +94,6 @@
     margin-top: 4rem;
   }
 
-  .form-register-label {
-    font-size: 1.1rem;
-  }
-
-  .form-register-input {
-    width: 30rem;
-    font-size: 1.1rem;
-  }
-
-  .form-register-input:focus + .form-register-label {
-    font-size: 1.2rem;
-  }
-
-  .form-register-input:not(:placeholder-shown) + .form-register-label {
-    transform: translateY(-2.1rem);
-  }
 
   .form-register-forgot_login {
     font-size: 1rem;

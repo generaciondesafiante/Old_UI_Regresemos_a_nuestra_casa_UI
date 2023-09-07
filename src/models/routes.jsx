@@ -3,7 +3,6 @@ export const PublicRoutes = {
   REGISTER: '/auth/register',
   HOME: '/home',
   FORGETPASSWORD: '/forgetPassword',
-  MSGFORTGET: '/msgForgetPassword',
   RESETPASSWORD: '/resetPassword/:id/:token',
 };
 
