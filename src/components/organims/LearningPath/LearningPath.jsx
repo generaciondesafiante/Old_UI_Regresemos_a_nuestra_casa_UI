@@ -13,7 +13,7 @@ export const LearningPaht = ({
   const courseSelected = coursesData.find((e) =>
     e.endpoint.includes(currentCourseEndPoint[1])
   );
-  console.log(courseSelected)
+
   const lessonSelected = courseSelected.content.find(
     (e) => e.idvideo == currentCourseEndPoint[2]
   );
