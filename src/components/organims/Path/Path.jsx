@@ -25,9 +25,10 @@ export const Path = ({ coursesData, setCoursesData, setCurrentCourseURL }) => {
     <div className="path-container">
       <div className="path-content">
         {coursesData && coursesData.course && coursesData.course.map((course, index) => {
+           const isSingleCourse = coursesData.course.length === 1;
           return (
             <div key={index} className="path-border">
-              {index === 0 ? (
+              {index=== 0 ? (
                 <img
                   className="path-img_flag flag-start"
                   src="https://i.imgur.com/pIOGRDs.png"
@@ -36,7 +37,7 @@ export const Path = ({ coursesData, setCoursesData, setCurrentCourseURL }) => {
               ) : (
                 ''
               )}
-              {index === coursesData.course.length - 1 ? (
+              {index === coursesData.course.length - 1 && !isSingleCourse ? (
                 <img
                   className="path-img_flag flag-end"
                   src="https://i.imgur.com/8cfdvwv.png"
