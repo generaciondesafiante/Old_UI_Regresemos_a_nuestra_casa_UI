@@ -24,7 +24,7 @@ export const Path = ({ coursesData, setCoursesData, setCurrentCourseURL }) => {
   return (
     <div className="path-container">
       <div className="path-content">
-        {coursesData.course.map((course, index) => {
+        {coursesData && coursesData.course && coursesData.course.map((course, index) => {
           return (
             <div key={index} className="path-border">
               {index === 0 ? (
