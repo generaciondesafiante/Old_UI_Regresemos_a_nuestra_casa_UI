@@ -11,7 +11,7 @@ export const LearningPahtProgress = ({
 }) => {
   const navigate = useNavigate();
   const handleUrlId = () => {
-    const idVideo = lessonData.idvideo;
+    const idVideo = lessonData.idVideo;
     const endpoint = `${courseSelected.endpoint}/${idVideo}`;
     setCurrentCourseURL(endpoint);
     const courseUpdated = coursesData.map((courseData) => {
@@ -29,11 +29,11 @@ export const LearningPahtProgress = ({
     <>
       <div className="classRoomRoute-subcontent">
         <div className="classRoomRoute-title" onClick={handleUrlId}>
-          {lessonData.idvideo}
+          {lessonData.idVideo}
         </div>
 
         <div className="classRoomRoute-iconCircle" onClick={handleUrlId}>
-          {lessonData.idvideo}
+          {lessonData.idVideo}
         </div>
 
         <div
