@@ -13,7 +13,7 @@ export const LearningPathVideoClass = ({
   const navigate = useNavigate();
 
   const handleUrlId = () => {
-    const idVideo = lessonSelected.id + 1;
+    const idVideo = lessonSelected.idVideo + 1;
     const endpoint = `${courseSelected.endpoint}/${idVideo}`;
     setCurrentCourseURL(endpoint);
     const courseUpdated = coursesData.map((courseData) => {
