@@ -55,6 +55,7 @@ export const Profile = () => {
     phone,
     country,
     city,
+
     onInputChange: onRegisterInputChange,
   } = useForm(userData);
   const showConfirmationModal = () => {
@@ -123,7 +124,7 @@ export const Profile = () => {
     const file = e.target.files[0];
     setSelectedFile(file);
   }
-  
+
   const navigateChangePassword = () => {
     navigate(`${PrivateRoutes.CHANGEPASSWORDPROFILE}`);
   };
