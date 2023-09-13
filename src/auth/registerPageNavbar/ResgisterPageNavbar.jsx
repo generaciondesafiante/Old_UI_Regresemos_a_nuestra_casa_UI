@@ -6,6 +6,7 @@ import Swal from 'sweetalert2';
 import { Header } from '../../components/organims/Header/Header';
 import { useAuthStore } from '../../hooks';
 import { useForm } from '../../hooks/useForm';
+import { Input } from '../../components/atoms/Input/Input';
 import '../AuthStyle/authStyleRegister.css';
 
 const registerFormFields = {
@@ -69,6 +70,7 @@ export const RegisterPageNavbar = () => {
           <span>Crea tu cuenta!</span>{' '}
         </h2>
         <section className="continer-label_grid">
+<<<<<<< HEAD
           <div className="form-register-container_inLa">
             <input
               id="name"
@@ -158,37 +160,107 @@ export const RegisterPageNavbar = () => {
               Correo electrónico
             </label>
           </div>
+=======
+          <Input
+            id={'name-form-register'}
+            htmlForm={'name-form-register'}
+            name="registerName"
+            value={registerName}
+            onChange={onRegisterInputChange}
+            type="text"
+            required
+            placeholder=" "
+            label={'Nombres'}
+            isRequire={true}
+          />
+          <Input
+            id={'last-name-form-register'}
+            htmlForm={'last-name-form-register'}
+            name="registerLastName"
+            value={registerLastName}
+            onChange={onRegisterInputChange}
+            type="text"
+            required
+            placeholder=" "
+            label={'Apellidos'}
+            isRequire={true}
+          />
+          <Input
+            id={'country-form-register'}
+            htmlForm={'country-form-register'}
+            name="registerCountry"
+            value={registerCountry}
+            onChange={onRegisterInputChange}
+            type="text"
+            required
+            placeholder=" "
+            label={'País'}
+             isRequire={true}
+          />
+>>>>>>> 5a48781ddcf7bdaf5f57c51bf25dc5b7a62a1e09
 
-          <div className="form-register-container_inLa">
-            <input
-              id="password"
-              name="registerPassword"
-              value={registerPassword}
-              onChange={onRegisterInputChange}
-              type="password"
-              required
-              placeholder=" "
-              className="form-register-input"
-            />
-            <label htmlFor="password" className="form-register-label">
-              Contraseña
-            </label>
-          </div>
-          <div className="form-register-container_inLa">
-            <input
-              id="password2"
-              name="registerPassword2"
-              value={registerPassword2}
-              onChange={onRegisterInputChange}
-              type="password"
-              required
-              placeholder=" "
-              className="form-register-input"
-            />
-            <label htmlFor="password2" className="form-register-label">
-              Repite la contraseña
-            </label>
-          </div>
+          <Input
+            id={'city-form-register'}
+            htmlForm={'city-form-register'}
+            name="registerCity"
+            value={registerCity}
+            onChange={onRegisterInputChange}
+            type="text"
+            required
+            placeholder=" "
+            label={'Ciudad'}
+             isRequire={true}
+          />
+          <Input
+            id={'phone-form-register'}
+            htmlForm={'phone-form-register'}
+            name="registerPhone"
+            value={registerPhone}
+            onChange={onRegisterInputChange}
+            type="text"
+            placeholder=" "
+            label={'Teléfono (optional)'}
+            isRequire={false}
+          />
+
+          <Input
+            id={'email-form-register'}
+            htmlForm={'email-form-register'}
+            name="registerEmail"
+            value={registerEmail}
+            onChange={onRegisterInputChange}
+            type="email"
+            required
+            placeholder=" "
+            label={'Correo electrónico'}
+             isRequire={true}
+          />
+          <Input
+            id={'password-form-register'}
+            htmlForm={'password-form-register'}
+            name="registerPassword"
+            value={registerPassword}
+            onChange={onRegisterInputChange}
+            type="password"
+            required
+            placeholder=" "
+            label={'Contraseña'}
+             isRequire={true}
+          />
+
+          <Input
+
+            id={'password2-form-register'}
+            htmlForm={'password2-form-register'}
+            name="registerPassword2"
+            value={registerPassword2}
+            onChange={onRegisterInputChange}
+            type="password"
+            required
+            placeholder=" "
+            label={'Repite la contraseña'}
+             isRequire={true}
+          />
         </section>
 
         <Link className="form-register-forgot_login" to="/auth/login">

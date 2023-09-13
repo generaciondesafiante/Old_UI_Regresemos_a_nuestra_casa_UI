@@ -10,12 +10,13 @@ import {
 } from '../store/auth/authSlice';
 import { generacionApi } from '../api';
 import { PrivateRoutes } from '../models/routes';
+import Swal from 'sweetalert2';
 
 export const useAuthStore = () => {
   const { status, errorMessage, user } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const userId = localStorage.getItem('uid');
+  const id = localStorage.getItem('id');
   let idParamas = useParams();
   let idPassword = idParamas.id;
 
@@ -43,7 +44,7 @@ export const useAuthStore = () => {
       localStorage.setItem('country', data.country);
       localStorage.setItem('city', data.city);
       localStorage.setItem('phone', data.phone);
-      localStorage.setItem('uid', data.uid);
+      localStorage.setItem('id', data.uid);
       localStorage.setItem('token', data.token);
       localStorage.setItem('image', data.image);
       localStorage.setItem('token-init-date', new Date().getTime());
@@ -149,7 +150,7 @@ export const useAuthStore = () => {
   }) => {
     try {
       const { data } = await generacionApi.put(
-        `/auth/edit-profile/${userId}`,
+        `/auth/edit-profile/${id}`,
         {
           email,
           password,
@@ -190,6 +191,50 @@ export const useAuthStore = () => {
       console.log('Hable con su administrador');
     }
   };
+  const changePasswordProfile = async ({ password }) => {
+    try {
+      const { data } = await generacionApi.put(
+        `/auth/change-password/${id}`,
+        {
+          password,
+        },
+        {
+          headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+            'Access-Control-Allow-Origin': '*',
+          },
+        }
+      );
+      return data;
+    } catch (error) {
+      console.log('Error al cambiar la contraseña:', error);
+    }
+  };
+
+  const validatePasswordDB = async ({ password }) => {
+    try {
+      const { data } = await generacionApi.post(
+        `/auth/validate-password/${id}`,
+        {
+          password: password,
+        },
+        {
+          headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+            'Access-Control-Allow-Origin': '*',
+          },
+        }
+      );
+      return data;
+    } catch (error) {
+      console.error('Error al validar la contraseña:', error);
+
+      Swal.fire('Error', 'Contraseña actual incorrecta.', 'error');
+
+      throw error;
+    }
+  };
+
   const checkEmail = async ({ email }) => {
     dispatch(onChecking());
 
@@ -207,7 +252,7 @@ export const useAuthStore = () => {
         }
       );
 
-      localStorage.setItem('uid', data.uid);
+      localStorage.setItem('id', data.uid);
       localStorage.setItem('token', data.token);
       localStorage.setItem('token-init-date', new Date().getTime());
 
@@ -251,5 +296,7 @@ export const useAuthStore = () => {
     editInformationUser,
     checkEmail,
     changePassword,
+    validatePasswordDB,
+    changePasswordProfile,
   };
 };

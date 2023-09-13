@@ -3,7 +3,6 @@ export const PublicRoutes = {
   REGISTER: '/auth/register',
   HOME: '/home',
   FORGETPASSWORD: '/forgetPassword',
-  MSGFORTGET: '/msgForgetPassword',
   RESETPASSWORD: '/resetPassword/:id/:token',
 };
 
@@ -17,4 +16,5 @@ export const PrivateRoutes = {
   FAVORITE: '/favorite',
   LEARNINGPATH: '/learningPaht',
   LEARNINGPATHPROGRESS: '/learningPaht',
+  CHANGEPASSWORDPROFILE: '/changepasswordprofile',
 };
