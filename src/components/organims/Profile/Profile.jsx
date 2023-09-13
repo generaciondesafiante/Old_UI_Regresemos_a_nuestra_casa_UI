@@ -2,14 +2,11 @@ import { useState, useEffect } from 'react';
 import { useAuthStore, useForm } from '../../../hooks';
 import Swal from 'sweetalert2';
 import './Profile.css';
-<<<<<<< HEAD
 import AddAPhotoIcon from '@mui/icons-material/AddAPhoto';
 import { ModalEditPhotoProfile } from '../../molecules/Modals/ModalEditPhotoProfile/ModalEditPhotoProfile';
-=======
 import { useNavigate } from 'react-router-dom';
 
 import { PrivateRoutes } from '../../../models/routes';
->>>>>>> 5a48781ddcf7bdaf5f57c51bf25dc5b7a62a1e09
 
 export const Profile = () => {
   const { editInformationUser } = useAuthStore();
@@ -119,17 +116,16 @@ export const Profile = () => {
       });
   };
 
-<<<<<<< HEAD
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [selectedFile, setSelectedFile] = useState(null);
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     setSelectedFile(file);
-=======
+  }
+  
   const navigateChangePassword = () => {
     navigate(`${PrivateRoutes.CHANGEPASSWORDPROFILE}`);
->>>>>>> 5a48781ddcf7bdaf5f57c51bf25dc5b7a62a1e09
   };
 
   return (

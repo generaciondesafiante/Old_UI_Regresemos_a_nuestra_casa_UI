@@ -18,7 +18,7 @@ const registerFormFields = {
   registerEmail: '',
   registerPassword: '',
   registerPassword2: '',
-  registerImage:'http://somebooks.es/wp-content/uploads/2018/12/Poner-una-imagen-a-la-cuenta-de-usuario-en-Windows-10-000.png',
+  registerImage: 'http://somebooks.es/wp-content/uploads/2018/12/Poner-una-imagen-a-la-cuenta-de-usuario-en-Windows-10-000.png',
 };
 
 export const RegisterPageNavbar = () => {
@@ -70,97 +70,6 @@ export const RegisterPageNavbar = () => {
           <span>Crea tu cuenta!</span>{' '}
         </h2>
         <section className="continer-label_grid">
-<<<<<<< HEAD
-          <div className="form-register-container_inLa">
-            <input
-              id="name"
-              name="registerName"
-              value={registerName}
-              onChange={onRegisterInputChange}
-              type="text"
-              required
-              placeholder=" "
-              className="form-register-input"
-            />
-            <label htmlFor="name" className="form-register-label">
-              Nombres
-            </label>
-          </div>
-          <div className="form-register-container_inLa">
-            <input
-              id="lastname"
-              name="registerLastName"
-              value={registerLastName}
-              onChange={onRegisterInputChange}
-              type="text"
-              required
-              placeholder=" "
-              className="form-register-input"
-            />
-            <label htmlFor="lastname" className="form-register-label">
-              Apellidos
-            </label>
-          </div>
-          <div className="form-register-container_inLa">
-            <input
-              id="country"
-              name="registerCountry"
-              value={registerCountry}
-              onChange={onRegisterInputChange}
-              type="text"
-              required
-              placeholder=" "
-              className="form-register-input"
-            />
-            <label htmlFor="country" className="form-register-label">
-              País
-            </label>
-          </div>
-          <div className="form-register-container_inLa">
-            <input
-              id="city"
-              name="registerCity"
-              value={registerCity}
-              onChange={onRegisterInputChange}
-              type="text"
-              required
-              placeholder=" "
-              className="form-register-input"
-            />
-            <label htmlFor="city" className="form-register-label">
-              Ciudad
-            </label>
-          </div>
-          <div className="form-register-container_inLa">
-            <input
-              id="phone"
-              name="registerPhone"
-              value={registerPhone}
-              onChange={onRegisterInputChange}
-              type="text"
-              placeholder=" "
-              className="form-register-input"
-            />
-            <label htmlFor="phone" className="form-register-label">
-              Teléfono (opcional)
-            </label>
-          </div>
-          <div className="form-register-container_inLa">
-            <input
-              id="email"
-              name="registerEmail"
-              value={registerEmail}
-              onChange={onRegisterInputChange}
-              type="text"
-              required
-              placeholder=" "
-              className="form-register-input"
-            />
-            <label htmlFor="email" className="form-register-label">
-              Correo electrónico
-            </label>
-          </div>
-=======
           <Input
             id={'name-form-register'}
             htmlForm={'name-form-register'}
@@ -195,9 +104,8 @@ export const RegisterPageNavbar = () => {
             required
             placeholder=" "
             label={'País'}
-             isRequire={true}
+            isRequire={true}
           />
->>>>>>> 5a48781ddcf7bdaf5f57c51bf25dc5b7a62a1e09
 
           <Input
             id={'city-form-register'}
@@ -209,7 +117,7 @@ export const RegisterPageNavbar = () => {
             required
             placeholder=" "
             label={'Ciudad'}
-             isRequire={true}
+            isRequire={true}
           />
           <Input
             id={'phone-form-register'}
@@ -233,7 +141,7 @@ export const RegisterPageNavbar = () => {
             required
             placeholder=" "
             label={'Correo electrónico'}
-             isRequire={true}
+            isRequire={true}
           />
           <Input
             id={'password-form-register'}
@@ -245,7 +153,7 @@ export const RegisterPageNavbar = () => {
             required
             placeholder=" "
             label={'Contraseña'}
-             isRequire={true}
+            isRequire={true}
           />
 
           <Input
@@ -259,7 +167,7 @@ export const RegisterPageNavbar = () => {
             required
             placeholder=" "
             label={'Repite la contraseña'}
-             isRequire={true}
+            isRequire={true}
           />
         </section>
 
