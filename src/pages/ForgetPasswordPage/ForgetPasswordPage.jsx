@@ -55,17 +55,17 @@ export const ForgetPasswordPage = () => {
         <p className="form-forget_paragraph center-content">
           Escribe el correo electrónico con el cual te registraste
         </p>
-          <Input
-            id={'form-foget-input'}
-            htmlForm={'form-foget-input'}
-            type="email"
-            name="emailUser"
-            value={emailUser}
-            placeholder=" "
-            onChange={onCheckEmailInputChange}
-            label={'Correo electrónico'}
-            isRequire={true}
-          />
+        <Input
+          id={'form-foget-input'}
+          htmlForm={'form-foget-input'}
+          type="email"
+          name="emailUser"
+          value={emailUser}
+          placeholder=" "
+          onChange={onCheckEmailInputChange}
+          label={'Correo electrónico'}
+          isRequire={true}
+        />
         <button className="form-forget_button" type="submit">
           Recuperar contraseña
         </button>

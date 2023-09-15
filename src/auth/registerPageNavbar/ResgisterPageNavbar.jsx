@@ -101,7 +101,7 @@ export const RegisterPageNavbar = () => {
             required
             placeholder=" "
             label={'País'}
-             isRequire={true}
+            isRequire={true}
           />
 
           <Input
@@ -114,7 +114,7 @@ export const RegisterPageNavbar = () => {
             required
             placeholder=" "
             label={'Ciudad'}
-             isRequire={true}
+            isRequire={true}
           />
           <Input
             id={'phone-form-register'}
@@ -138,7 +138,7 @@ export const RegisterPageNavbar = () => {
             required
             placeholder=" "
             label={'Correo electrónico'}
-             isRequire={true}
+            isRequire={true}
           />
           <Input
             id={'password-form-register'}
@@ -150,11 +150,10 @@ export const RegisterPageNavbar = () => {
             required
             placeholder=" "
             label={'Contraseña'}
-             isRequire={true}
+            isRequire={true}
           />
 
           <Input
-
             id={'password2-form-register'}
             htmlForm={'password2-form-register'}
             name="registerPassword2"
@@ -164,7 +163,7 @@ export const RegisterPageNavbar = () => {
             required
             placeholder=" "
             label={'Repite la contraseña'}
-             isRequire={true}
+            isRequire={true}
           />
         </section>
 
