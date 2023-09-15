@@ -147,6 +147,7 @@ export const useAuthStore = () => {
     country,
     city,
     phone,
+    image,
   }) => {
     try {
       const { data } = await generacionApi.put(
@@ -159,6 +160,7 @@ export const useAuthStore = () => {
           city,
           lastname,
           phone,
+          image,
         },
         {
           headers: {

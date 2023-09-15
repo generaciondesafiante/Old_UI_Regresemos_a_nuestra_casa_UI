@@ -55,6 +55,7 @@ export const Profile = () => {
     phone,
     country,
     city,
+    image,
 
     onInputChange: onRegisterInputChange,
   } = useForm(userData);
@@ -81,8 +82,11 @@ export const Profile = () => {
   // Function to save changes when clicking the "Save Changes" button
   const handleSaveChanges = () => {
     // Here you can perform actions to save the changes to the backend or to local storage (as localStorage)
+    const imageToSend = selectedFile ? selectedFile.name : null;
+    console.log(selectedFile);
+
     onRegisterInputChange;
-    editInformationUser({
+    const userDataToUpdate = {
       name: name,
       email: email,
       password: password,
@@ -90,7 +94,10 @@ export const Profile = () => {
       phone: phone,
       country: country,
       city: city,
-    })
+      image: imageToSend,
+    };
+
+    editInformationUser(userDataToUpdate)
       .then(() => {
         // Update information in localStorage after saving changes
         localStorage.setItem('name', name);
@@ -99,6 +106,7 @@ export const Profile = () => {
         localStorage.setItem('country', country);
         localStorage.setItem('city', city);
         localStorage.setItem('phone', phone);
+        localStorage.setItem('image', image);
 
         setIsEditing(false);
         Swal.fire(
@@ -124,6 +132,7 @@ export const Profile = () => {
     const file = e.target.files[0];
     setSelectedFile(file);
   }
+
 
   const navigateChangePassword = () => {
     navigate(`${PrivateRoutes.CHANGEPASSWORDPROFILE}`);
@@ -159,26 +168,38 @@ export const Profile = () => {
                     <h1>Subir Imagen</h1>
                     <div className="custom-file-input">
                       <span className="file-input-label">
-                        {selectedFile 
-                        ? `Has seleccionado el archivo: ${selectedFile.name}` 
-                        : 'Seleccionar archivo'}
+                        {selectedFile
+                          ? `Has seleccionado el archivo: ${selectedFile.name}`
+                          : 'Seleccionar archivo'}
                       </span>
                       <input
                         type="file"
                         accept="image/*"
-                        className='modalEditProfile-inputUploadImage'
-                        onChange={handleFileChange}
+                        className="modalEditProfile-inputUploadImage"
+                        onChange={(e) => {
+                          handleInputChange(e); // Llama a la función handleInputChange
+                          setSelectedFile(e.target.files[0]); // Llama a la función setSelectedFile
+                        }}
                         onClick={(e) => e.stopPropagation()}
                       />
                     </div>
                   </label>
-                  <button className='modalEditProfile-buttonAccept'>Aceptar</button>
+
+                  <button
+                    onClick={(e) => {
+                      handleSaveChanges(e);
+                      handleFileChange(e)
+                    }}
+                    className="modalEditProfile-buttonAccept"
+                  >
+                    Guardar cambios
+                  </button>
                 </form>
               </div>
             </ModalEditPhotoProfile>
           </div>
         </div>
-        {/* --------------------------------------------- */}
+        {/* -------------------- CLOSE MODAL EDIT PHOTO PROFILE------------------------- */}
         <div className="profile-container_info">
           {isEditing ? (
             <div className="edit-input-profile">
