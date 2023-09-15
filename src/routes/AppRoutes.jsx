@@ -63,7 +63,7 @@ export const AppRoutes = () => {
           path={PublicRoutes.RESETPASSWORD}
           element={<ResetPasswrodPage />}
         />
-        
+
         {/* // ----- TODO routes Private */}
         <Route element={<AuthGuards handleIsLogged={handleIsLogged} />}>
           <Route path="/" element={<Navigate to={PrivateRoutes.DASHBOARD} />} />

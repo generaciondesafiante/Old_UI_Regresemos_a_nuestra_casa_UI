@@ -79,7 +79,7 @@ export const ResetPasswrodPage = () => {
             type="password"
             placeholder=" "
             label={'Contraseña'}
-             isRequire={true}
+            isRequire={true}
           />
           <Input
             id="confirm-password-change"
@@ -90,7 +90,7 @@ export const ResetPasswrodPage = () => {
             type="password"
             placeholder=" "
             label={'Confirmar contraseña'}
-             isRequire={true}
+            isRequire={true}
           />
         </div>
         <button className="form-forget_button btn-forgetPage" type="submit">

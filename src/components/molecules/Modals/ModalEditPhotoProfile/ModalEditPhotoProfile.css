@@ -1,53 +1,53 @@
-.modalEditProfile-overlay{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    top:0;
-    left: 0;
-    background-color: rgba(0,0,0,0.5);
-    padding: 40px;
+.modalEditProfile-overlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 40px;
 }
 
-.modalEditProfile-container{
-    width: 375px;
-    min-height: 475px;
-    background: white;
-    position: relative;
-    border-radius: 5px;
-    box-shadow: rgba(100,100,111,0.2) 0px 7px 29px 0px;
-    padding: 20px;
+.modalEditProfile-container {
+  width: 375px;
+  min-height: 475px;
+  background: white;
+  position: relative;
+  border-radius: 5px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  padding: 20px;
 }
 
-.modalEditProfile-title{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 20px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #E8E8E8;
+.modalEditProfile-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e8e8e8;
 }
 
-.modalEditProfile-title h3{
-    font-weight: 800;
-    font-size: 16px;
+.modalEditProfile-title h3 {
+  font-weight: 800;
+  font-size: 16px;
 }
 
-.modalEditProfile-iconClose{
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    width: 30px;
-    height: 30px;
-    border: none;
-    background: none;
-    cursor: pointer;
-    transition: .3s ease all;
-    border-radius: #1766DC;
+.modalEditProfile-iconClose {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  width: 30px;
+  height: 30px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  transition: 0.3s ease all;
+  border-radius: #1766dc;
 }
 
-.modalEditProfile-iconClose:hover{
-    background-color: #F2F2F2;
+.modalEditProfile-iconClose:hover {
+  background-color: #f2f2f2;
 }

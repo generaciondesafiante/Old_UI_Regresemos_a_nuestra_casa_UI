@@ -125,14 +125,13 @@ export const Profile = () => {
       });
   };
 
-  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedFile, setSelectedFile] = useState(null);
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     setSelectedFile(file);
-  }
-
+  };
 
   const navigateChangePassword = () => {
     navigate(`${PrivateRoutes.CHANGEPASSWORDPROFILE}`);
@@ -142,9 +141,11 @@ export const Profile = () => {
     <div className="profile-container">
       <h2 className="profile-title">Información personal</h2>
       <div className="profile-content">
-
         {/* -------------MODAL EDIT PHOTO PROFILE -------------*/}
-        <div className="profile-container_img" onClick={() => setIsModalOpen(!isModalOpen)}>
+        <div
+          className="profile-container_img"
+          onClick={() => setIsModalOpen(!isModalOpen)}
+        >
           <img
             src={userData.image}
             alt="IMG-20230131-WA0037"
@@ -152,8 +153,11 @@ export const Profile = () => {
             className="profile-user_img"
           />
 
-          <div className='profile-container_addPhoto' onClick={() => setIsModalOpen(!isModalOpen)}>
-            <AddAPhotoIcon className='profile-add-photo_icon' />
+          <div
+            className="profile-container_addPhoto"
+            onClick={() => setIsModalOpen(!isModalOpen)}
+          >
+            <AddAPhotoIcon className="profile-add-photo_icon" />
           </div>
 
           <div>
@@ -162,7 +166,7 @@ export const Profile = () => {
               closeModalProfile={setIsModalOpen}
               title="Agrega foto de perfil"
             >
-              <div className='modalEditProfile-content'>
+              <div className="modalEditProfile-content">
                 <form>
                   <label>
                     <h1>Subir Imagen</h1>
@@ -188,7 +192,7 @@ export const Profile = () => {
                   <button
                     onClick={(e) => {
                       handleSaveChanges(e);
-                      handleFileChange(e)
+                      handleFileChange(e);
                     }}
                     className="modalEditProfile-buttonAccept"
                   >

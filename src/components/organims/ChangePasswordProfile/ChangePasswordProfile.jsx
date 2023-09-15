@@ -106,43 +106,43 @@ export const ChangePasswordProfile = () => {
         className="content-modal"
       >
         <h2 className="title-modal">Cambiar Contraseña</h2>
-        
-          <Input
-            id='password-change-profile'
-            htmlForm={'password-change-profile'}
-            type="password"
-            placeholder=" "
-            name="password"
-            value={password}
-            onChange={onValidatePassword}
-            label={'Contraseña Actual'}
-            labelColor={'#b5b5b5'}
-             isRequire={true}
-          />
 
-          <Input
-            id='passwordNew-change-profile'
-            htmlForm={'passwordNew-change-profile'}
-            type="password"
-            placeholder=" "
-            name="newPassword"
-            value={newPassword}
-            onChange={onChangePassword}
-            label={'Nueva Contraseña'}
-            labelColor={'#b5b5b5'}
-             isRequire={true}
-          />
-        
         <Input
-         id='passwordConfirm-change-profile'
+          id="password-change-profile"
+          htmlForm={'password-change-profile'}
+          type="password"
+          placeholder=" "
+          name="password"
+          value={password}
+          onChange={onValidatePassword}
+          label={'Contraseña Actual'}
+          labelColor={'#b5b5b5'}
+          isRequire={true}
+        />
+
+        <Input
+          id="passwordNew-change-profile"
+          htmlForm={'passwordNew-change-profile'}
+          type="password"
+          placeholder=" "
+          name="newPassword"
+          value={newPassword}
+          onChange={onChangePassword}
+          label={'Nueva Contraseña'}
+          labelColor={'#b5b5b5'}
+          isRequire={true}
+        />
+
+        <Input
+          id="passwordConfirm-change-profile"
           htmlForm={'passwordConfirm-change-profile'}
-         type="password"
-         placeholder=" "
-         name="confirmNewPassword"
-         value={confirmNewPassword}
-         onChange={onChangePassword}
-         label={'Confirmar contraseña'}
-         labelColor={'#b5b5b5'}
+          type="password"
+          placeholder=" "
+          name="confirmNewPassword"
+          value={confirmNewPassword}
+          onChange={onChangePassword}
+          label={'Confirmar contraseña'}
+          labelColor={'#b5b5b5'}
           isRequire={true}
         />
         <button type="submit" className="form-login-btn">

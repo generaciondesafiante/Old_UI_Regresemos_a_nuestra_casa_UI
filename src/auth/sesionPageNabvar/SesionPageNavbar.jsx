@@ -43,29 +43,28 @@ export const LoginPageNavbar = () => {
         <h2 className="form-login-title">
           ¡Bienvenido/a al Recorrido de la fé!
         </h2>
-          <Input 
-            id={'emailLogin'}
-            htmlForm={'emailLogin'}
-          name='loginEmail' 
+        <Input
+          id={'emailLogin'}
+          htmlForm={'emailLogin'}
+          name="loginEmail"
           value={loginEmail}
           onChange={onLoginInputChange}
           type="email"
           placeholder=" "
-          label='Correo Electrónico'
-           isRequire={true}
-        
-          />
-          <Input 
+          label="Correo Electrónico"
+          isRequire={true}
+        />
+        <Input
           id={'passwordLogin'}
           htmlForm={'passwordLogin'}
-          name='loginPassword' 
+          name="loginPassword"
           value={loginPassword}
           onChange={onLoginInputChange}
           type="password"
           placeholder=" "
-          label='Contraseña'
-           isRequire={true}
-          />
+          label="Contraseña"
+          isRequire={true}
+        />
         <Link
           className="form-login-forgot_login"
           to={PublicRoutes.FORGETPASSWORD}

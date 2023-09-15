@@ -18,7 +18,8 @@ const registerFormFields = {
   registerEmail: '',
   registerPassword: '',
   registerPassword2: '',
-  registerImage: 'http://somebooks.es/wp-content/uploads/2018/12/Poner-una-imagen-a-la-cuenta-de-usuario-en-Windows-10-000.png',
+  registerImage:
+    'http://somebooks.es/wp-content/uploads/2018/12/Poner-una-imagen-a-la-cuenta-de-usuario-en-Windows-10-000.png',
 };
 
 export const RegisterPageNavbar = () => {
@@ -157,7 +158,6 @@ export const RegisterPageNavbar = () => {
           />
 
           <Input
-
             id={'password2-form-register'}
             htmlForm={'password2-form-register'}
             name="registerPassword2"
