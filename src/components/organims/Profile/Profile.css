@@ -99,21 +99,6 @@
   line-height: 1.5;
 }
 
-/* .modalEditProfile-circleWrapper {
-  width: 150px; 
-  height: 150px; 
-  border-radius: 50%; 
-  overflow: hidden;
-  margin: 0 auto;
-  border: 1px black solid;
-}
-
-.modalEditProfile-circleImage {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-} */
-
 .modalEditProfile-inputUploadImage {
   position: absolute;
   top: 0;
