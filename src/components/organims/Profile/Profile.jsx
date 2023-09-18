@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { useAuthStore, useForm } from '../../../hooks';
 import Swal from 'sweetalert2';
 import './Profile.css';
+import AddAPhotoIcon from '@mui/icons-material/AddAPhoto';
+import { ModalEditPhotoProfile } from '../../molecules/Modals/ModalEditPhotoProfile/ModalEditPhotoProfile';
 import { useNavigate } from 'react-router-dom';
 
 import { PrivateRoutes } from '../../../models/routes';
@@ -22,6 +24,7 @@ export const Profile = () => {
     country: '',
     city: '',
     phone: '',
+    image: '',
   });
 
   useEffect(() => {
@@ -32,6 +35,7 @@ export const Profile = () => {
       country: capitalizeFirstLetter(localStorage.getItem('country') || ''),
       city: capitalizeFirstLetter(localStorage.getItem('city') || ''),
       phone: localStorage.getItem('phone') || '',
+      image: localStorage.getItem('image') || '',
     });
   }, []);
 
@@ -51,6 +55,8 @@ export const Profile = () => {
     phone,
     country,
     city,
+    image,
+
     onInputChange: onRegisterInputChange,
   } = useForm(userData);
   const showConfirmationModal = () => {
@@ -76,8 +82,11 @@ export const Profile = () => {
   // Function to save changes when clicking the "Save Changes" button
   const handleSaveChanges = () => {
     // Here you can perform actions to save the changes to the backend or to local storage (as localStorage)
+    const imageToSend = selectedFile ? selectedFile.name : null;
+    console.log(selectedFile);
+
     onRegisterInputChange;
-    editInformationUser({
+    const userDataToUpdate = {
       name: name,
       email: email,
       password: password,
@@ -85,7 +94,10 @@ export const Profile = () => {
       phone: phone,
       country: country,
       city: city,
-    })
+      image: imageToSend,
+    };
+
+    editInformationUser(userDataToUpdate)
       .then(() => {
         // Update information in localStorage after saving changes
         localStorage.setItem('name', name);
@@ -94,6 +106,7 @@ export const Profile = () => {
         localStorage.setItem('country', country);
         localStorage.setItem('city', city);
         localStorage.setItem('phone', phone);
+        localStorage.setItem('image', image);
 
         setIsEditing(false);
         Swal.fire(
@@ -112,6 +125,14 @@ export const Profile = () => {
       });
   };
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedFile, setSelectedFile] = useState(null);
+
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    setSelectedFile(file);
+  };
+
   const navigateChangePassword = () => {
     navigate(`${PrivateRoutes.CHANGEPASSWORDPROFILE}`);
   };
@@ -120,14 +141,69 @@ export const Profile = () => {
     <div className="profile-container">
       <h2 className="profile-title">Información personal</h2>
       <div className="profile-content">
-        <div className="profile-container_img">
+        {/* -------------MODAL EDIT PHOTO PROFILE -------------*/}
+        <div
+          className="profile-container_img"
+          onClick={() => setIsModalOpen(!isModalOpen)}
+        >
           <img
-            src="http://somebooks.es/wp-content/uploads/2018/12/Poner-una-imagen-a-la-cuenta-de-usuario-en-Windows-10-000.png "
+            src={userData.image}
             alt="IMG-20230131-WA0037"
             border="0"
             className="profile-user_img"
           />
+
+          <div
+            className="profile-container_addPhoto"
+            onClick={() => setIsModalOpen(!isModalOpen)}
+          >
+            <AddAPhotoIcon className="profile-add-photo_icon" />
+          </div>
+
+          <div>
+            <ModalEditPhotoProfile
+              openModalProfile={isModalOpen}
+              closeModalProfile={setIsModalOpen}
+              title="Agrega foto de perfil"
+            >
+              <div className="modalEditProfile-content">
+                <form>
+                  <label>
+                    <h1>Subir Imagen</h1>
+                    <div className="custom-file-input">
+                      <span className="file-input-label">
+                        {selectedFile
+                          ? `Has seleccionado el archivo: ${selectedFile.name}`
+                          : 'Seleccionar archivo'}
+                      </span>
+                      <input
+                        type="file"
+                        accept="image/*"
+                        className="modalEditProfile-inputUploadImage"
+                        onChange={(e) => {
+                          handleInputChange(e); // Llama a la función handleInputChange
+                          setSelectedFile(e.target.files[0]); // Llama a la función setSelectedFile
+                        }}
+                        onClick={(e) => e.stopPropagation()}
+                      />
+                    </div>
+                  </label>
+
+                  <button
+                    onClick={(e) => {
+                      handleSaveChanges(e);
+                      handleFileChange(e);
+                    }}
+                    className="modalEditProfile-buttonAccept"
+                  >
+                    Guardar cambios
+                  </button>
+                </form>
+              </div>
+            </ModalEditPhotoProfile>
+          </div>
         </div>
+        {/* -------------------- CLOSE MODAL EDIT PHOTO PROFILE------------------------- */}
         <div className="profile-container_info">
           {isEditing ? (
             <div className="edit-input-profile">
