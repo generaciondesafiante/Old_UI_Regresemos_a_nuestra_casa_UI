@@ -15,7 +15,7 @@ export const LearningPaht = ({
   );
 
   const lessonSelected = courseSelected.content.find(
-    (e) => e.id == currentCourseEndPoint[2]
+    (e) => e.idVideo == currentCourseEndPoint[2]
   );
 
   return (
@@ -39,7 +39,7 @@ export const LearningPaht = ({
         {courseSelected.content.map((lesson, index) => {
           return (
             <LearningPahtProgress
-              key={lesson.id}
+              key={lesson.idVideo}
               coursesData={coursesData}
               setCoursesData={setCoursesData}
               courseSelected={courseSelected}

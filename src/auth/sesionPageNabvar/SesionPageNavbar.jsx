@@ -4,6 +4,7 @@ import { Link, Navigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 import { Header } from '../../components/organims/Header/Header';
+import { Input } from '../../components/atoms/Input/Input';
 import { useAuthStore } from '../../hooks';
 import { useForm } from '../../hooks/useForm';
 import { PrivateRoutes, PublicRoutes } from '../../models/routes';
@@ -42,39 +43,28 @@ export const LoginPageNavbar = () => {
         <h2 className="form-login-title">
           ¡Bienvenido/a al Recorrido de la fé!
         </h2>
-
-        <div className="form-login-container_inLa">
-          <input
-            id="email"
-            name="loginEmail"
-            value={loginEmail}
-            onChange={onLoginInputChange}
-            type="text"
-            required
-            placeholder=" "
-            className="form-login-input"
-          />
-          <label htmlFor="email" className="form-login-label">
-            Correo Electrónico
-          </label>
-        </div>
-
-        <div className="form-login-container_inLa">
-          <input
-            id="password"
-            name="loginPassword"
-            value={loginPassword}
-            onChange={onLoginInputChange}
-            type="password"
-            required
-            placeholder=" "
-            className="form-login-input"
-          />
-
-          <label htmlFor="password" className="form-login-label">
-            Contraseña
-          </label>
-        </div>
+        <Input
+          id={'emailLogin'}
+          htmlForm={'emailLogin'}
+          name="loginEmail"
+          value={loginEmail}
+          onChange={onLoginInputChange}
+          type="email"
+          placeholder=" "
+          label="Correo Electrónico"
+          isRequire={true}
+        />
+        <Input
+          id={'passwordLogin'}
+          htmlForm={'passwordLogin'}
+          name="loginPassword"
+          value={loginPassword}
+          onChange={onLoginInputChange}
+          type="password"
+          placeholder=" "
+          label="Contraseña"
+          isRequire={true}
+        />
         <Link
           className="form-login-forgot_login"
           to={PublicRoutes.FORGETPASSWORD}

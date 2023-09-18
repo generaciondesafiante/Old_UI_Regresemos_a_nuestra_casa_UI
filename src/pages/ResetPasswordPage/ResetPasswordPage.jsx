@@ -1,10 +1,10 @@
-import Swal from 'sweetalert2';
-import { Header } from '../../components/organims/Header/Header';
-import { useAuthStore, useForm } from '../../hooks';
-
-import './ResetPasswordPage.css';
-import { clearErrorMessage } from '../../store/auth/authSlice';
 import { useDispatch } from 'react-redux';
+import { Header } from '../../components/organims/Header/Header';
+import { clearErrorMessage } from '../../store/auth/authSlice';
+import { useAuthStore, useForm } from '../../hooks';
+import Swal from 'sweetalert2';
+import { Input } from '../../components/atoms/Input/Input';
+import './ResetPasswordPage.css';
 
 const resetFormFields = {
   resetPassword: '',
@@ -23,7 +23,11 @@ export const ResetPasswrodPage = () => {
   const resetSumbitPassword = (event) => {
     event.preventDefault();
     if (resetPassword !== resetPassword2) {
-      Swal.fire('Error de autenticación', 'Las contraseñas no son iguales', 'error');
+      Swal.fire(
+        'Error de autenticación',
+        'Las contraseñas no son iguales',
+        'error'
+      );
       return;
     }
     changePassword({
@@ -66,36 +70,30 @@ export const ResetPasswrodPage = () => {
           contraseña
         </p>
         <div className="form-login-container_inLa">
-          <input
-            id="password"
+          <Input
+            id="password-change"
+            htmlForm={'password-change'}
             name="resetPassword"
             value={resetPassword}
             onChange={onRegisterInputChange}
             type="password"
-            required
             placeholder=" "
-            className="form-login-input"
+            label={'Contraseña'}
+            isRequire={true}
           />
-          <label htmlFor="password" className="form-login-label">
-            Contraseña
-          </label>
-        </div>{' '}
-        <div className="form-login-container_inLa">
-          <input
-            id="password2"
+          <Input
+            id="confirm-password-change"
+            htmlForm={'confirm-password-change'}
             name="resetPassword2"
             value={resetPassword2}
             onChange={onRegisterInputChange}
             type="password"
-            required
             placeholder=" "
-            className="form-login-input"
+            label={'Confirmar contraseña'}
+            isRequire={true}
           />
-          <label htmlFor="password2" className="form-login-label">
-            Repetir contraseña
-          </label>
         </div>
-        <button className="form-forget_button" type="submit">
+        <button className="form-forget_button btn-forgetPage" type="submit">
           Hacer el cambio de contraseña
         </button>
       </form>

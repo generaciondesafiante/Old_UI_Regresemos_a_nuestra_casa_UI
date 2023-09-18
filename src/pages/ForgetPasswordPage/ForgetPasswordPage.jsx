@@ -3,6 +3,7 @@ import { Header } from '../../components/organims/Header/Header';
 import { clearErrorMessage } from '../../store/auth/authSlice';
 import { useAuthStore, useForm } from '../../hooks';
 import Swal from 'sweetalert2';
+import { Input } from '../../components/atoms/Input/Input';
 import './ForgetPasswordPage.css';
 
 const checkEmailUser = {
@@ -54,15 +55,16 @@ export const ForgetPasswordPage = () => {
         <p className="form-forget_paragraph center-content">
           Escribe el correo electrónico con el cual te registraste
         </p>
-
-        <input
-          className="form-forget_input"
+        <Input
+          id={'form-foget-input'}
+          htmlForm={'form-foget-input'}
           type="email"
-          required
           name="emailUser"
           value={emailUser}
-          placeholder="generaciondesafiante@gmail.com"
+          placeholder=" "
           onChange={onCheckEmailInputChange}
+          label={'Correo electrónico'}
+          isRequire={true}
         />
         <button className="form-forget_button" type="submit">
           Recuperar contraseña

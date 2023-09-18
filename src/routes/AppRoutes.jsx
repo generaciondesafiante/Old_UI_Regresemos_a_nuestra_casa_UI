@@ -16,8 +16,8 @@ import { RegisterPageNavbar } from '../auth/registerPageNavbar/ResgisterPageNavb
 import { ResourcesPage } from '../components/organims/ResourcesPage/ResourcesPage';
 import { Sidebar } from '../components/molecules/Sidebar/Sidebar';
 import { ForgetPasswordPage } from '../pages/ForgetPasswordPage/ForgetPasswordPage';
-import { MsgForgetPassword } from '../components/organims/MsgForgetPassword/MsgForgetPassword';
 import { ResetPasswrodPage } from '../pages/ResetPasswordPage/ResetPasswordPage';
+import { ChangePasswordProfile } from '../components/organims/ChangePasswordProfile/ChangePasswordProfile';
 
 export const AppRoutes = () => {
   const [isLogged, setIsLogged] = useState(false);
@@ -63,13 +63,17 @@ export const AppRoutes = () => {
           path={PublicRoutes.RESETPASSWORD}
           element={<ResetPasswrodPage />}
         />
-        <Route path={PublicRoutes.MSGFORTGET} element={<MsgForgetPassword />} />
+
         {/* // ----- TODO routes Private */}
         <Route element={<AuthGuards handleIsLogged={handleIsLogged} />}>
           <Route path="/" element={<Navigate to={PrivateRoutes.DASHBOARD} />} />
           <Route path="*" element={<Navigate to={PrivateRoutes.DASHBOARD} />} />
           <Route path={PrivateRoutes.PROFILE} element={<Profile />} />
           <Route path={PrivateRoutes.DASHBOARD} element={<Dashboard />} />
+          <Route
+            path={PrivateRoutes.CHANGEPASSWORDPROFILE}
+            element={<ChangePasswordProfile />}
+          />
 
           <Route
             path={PrivateRoutes.PATH}
