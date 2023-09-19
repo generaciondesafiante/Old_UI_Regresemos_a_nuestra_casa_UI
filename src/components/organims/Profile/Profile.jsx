@@ -7,14 +7,14 @@ import { ModalEditPhotoProfile } from '../../molecules/Modals/ModalEditPhotoProf
 import { useNavigate } from 'react-router-dom';
 
 import { PrivateRoutes } from '../../../models/routes';
+import { uploadFile } from '../../../hooks/useFirebase';
 
 export const Profile = () => {
   const { editInformationUser } = useAuthStore();
   const navigate = useNavigate();
 
-  const capitalizeFirstLetter = (string) => {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-  };
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedFile, setSelectedFile] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
 
   const [userData, setUserData] = useState({
@@ -39,6 +39,9 @@ export const Profile = () => {
     });
   }, []);
 
+  const capitalizeFirstLetter = (string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  };
   // Function to handle the change in the editing fields
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -107,7 +110,10 @@ export const Profile = () => {
         localStorage.setItem('city', city);
         localStorage.setItem('phone', phone);
         localStorage.setItem('image', image);
-
+        // Update the image in localStorage
+        if (imageToSend) {
+          localStorage.setItem('image', imageToSend);
+        }
         setIsEditing(false);
         Swal.fire(
           'Cambios guardados',
@@ -125,12 +131,13 @@ export const Profile = () => {
       });
   };
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedFile, setSelectedFile] = useState(null);
-
   const handleFileChange = (e) => {
     const file = e.target.files[0];
-    setSelectedFile(file);
+    if (file) {
+      // Solo llama a uploadFile si se seleccionó un archivo
+      uploadFile(file);
+      setSelectedFile(file);
+    }
   };
 
   const navigateChangePassword = () => {
@@ -147,9 +154,13 @@ export const Profile = () => {
           onClick={() => setIsModalOpen(!isModalOpen)}
         >
           <img
-            src={userData.image}
-            alt="IMG-20230131-WA0037"
-            border="0"
+            src={
+              selectedFile
+                ? URL.createObjectURL(selectedFile)
+                : userData.image ||
+                  'http://somebooks.es/wp-content/uploads/2018/12/Poner-una-imagen-a-la-cuenta-de-usuario-en-Windows-10-000.png'
+            }
+            alt={selectedFile ? 'FOTO DE PERFIL' : ''}
             className="profile-user_img"
           />
 
