@@ -1,13 +1,12 @@
 import { useState, useEffect } from 'react';
-import { useAuthStore, useForm } from '../../../hooks';
-import Swal from 'sweetalert2';
-import './Profile.css';
-import AddAPhotoIcon from '@mui/icons-material/AddAPhoto';
-import { ModalEditPhotoProfile } from '../../molecules/Modals/ModalEditPhotoProfile/ModalEditPhotoProfile';
 import { useNavigate } from 'react-router-dom';
-
-import { PrivateRoutes } from '../../../models/routes';
+import Swal from 'sweetalert2';
+import AddAPhotoIcon from '@mui/icons-material/AddAPhoto';
+import { useAuthStore, useForm } from '../../../hooks';
 import { uploadFile } from '../../../hooks/useFirebase';
+import { ModalEditPhotoProfile } from '../../molecules/Modals/ModalEditPhotoProfile/ModalEditPhotoProfile';
+import { PrivateRoutes } from '../../../models/routes';
+import './Profile.css';
 
 export const Profile = () => {
   const { editInformationUser } = useAuthStore();
@@ -42,7 +41,7 @@ export const Profile = () => {
   const capitalizeFirstLetter = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
   };
-  // Function to handle the change in the editing fields
+
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setUserData((prevUserData) => ({
@@ -74,19 +73,15 @@ export const Profile = () => {
       cancelButtonText: 'Cancelar',
     }).then((result) => {
       if (result.isConfirmed) {
-        // If the user clicks "Yes, save changes", then save the changes
         handleSaveChanges();
       } else {
-        // If the user clicks "Cancel", exits edit mode without saving changes
         setIsEditing(false);
       }
     });
   };
-  // Function to save changes when clicking the "Save Changes" button
-  const handleSaveChanges = () => {
-    // Here you can perform actions to save the changes to the backend or to local storage (as localStorage)
-    const imageToSend = selectedFile ? selectedFile.name : null;
-    console.log(selectedFile);
+
+  const handleSaveChanges = async () => {
+    const imageToSend = selectedFile ? await uploadFile(selectedFile) : null;
 
     onRegisterInputChange;
     const userDataToUpdate = {
@@ -99,43 +94,42 @@ export const Profile = () => {
       city: city,
       image: imageToSend,
     };
+    try {
+      await editInformationUser(userDataToUpdate);
 
-    editInformationUser(userDataToUpdate)
-      .then(() => {
-        // Update information in localStorage after saving changes
-        localStorage.setItem('name', name);
-        localStorage.setItem('lastname', lastname);
-        localStorage.setItem('email', email);
-        localStorage.setItem('country', country);
-        localStorage.setItem('city', city);
-        localStorage.setItem('phone', phone);
-        localStorage.setItem('image', image);
-        // Update the image in localStorage
-        if (imageToSend) {
-          localStorage.setItem('image', imageToSend);
-        }
-        setIsEditing(false);
-        Swal.fire(
-          'Cambios guardados',
-          'Los cambios en tu perfil han sido guardados exitosamente.',
-          'success'
-        );
-      })
-      .catch((error) => {
-        console.log('Error al guardar los cambios:', error);
-        Swal.fire(
-          'Error',
-          'Ocurrió un error al guardar los cambios. Por favor, intenta nuevamente.',
-          'error'
-        );
-      });
+      localStorage.setItem('name', name);
+      localStorage.setItem('lastname', lastname);
+      localStorage.setItem('email', email);
+      localStorage.setItem('country', country);
+      localStorage.setItem('city', city);
+      localStorage.setItem('phone', phone);
+      localStorage.setItem('image', image);
+
+      if (imageToSend) {
+        localStorage.setItem('image', imageToSend);
+
+        await uploadFile(selectedFile);
+      }
+
+      setIsEditing(false);
+      Swal.fire(
+        'Cambios guardados',
+        'Los cambios en tu perfil han sido guardados exitosamente.',
+        'success'
+      );
+    } catch (error) {
+      console.log('Error al guardar los cambios:', error);
+      Swal.fire(
+        'Error',
+        'Ocurrió un error al guardar los cambios. Por favor, intenta nuevamente.',
+        'error'
+      );
+    }
   };
 
   const handleFileChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      // Solo llama a uploadFile si se seleccionó un archivo
-      uploadFile(file);
+    if (e.target.files && e.target.files.length > 0) {
+      const file = e.target.files[0];
       setSelectedFile(file);
     }
   };
@@ -192,8 +186,8 @@ export const Profile = () => {
                         accept="image/*"
                         className="modalEditProfile-inputUploadImage"
                         onChange={(e) => {
-                          handleInputChange(e); // Llama a la función handleInputChange
-                          setSelectedFile(e.target.files[0]); // Llama a la función setSelectedFile
+                          handleInputChange(e);
+                          setSelectedFile(e.target.files[0]);
                         }}
                         onClick={(e) => e.stopPropagation()}
                       />
