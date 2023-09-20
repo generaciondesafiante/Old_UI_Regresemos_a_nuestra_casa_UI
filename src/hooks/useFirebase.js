@@ -22,7 +22,6 @@ export async function uploadFile(file) {
     return;
   }
 
-  
   const storageRef = ref(storage, `users/${userUID}/profile-image`);
 
   await uploadBytes(storageRef, file);

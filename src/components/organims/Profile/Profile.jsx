@@ -130,7 +130,17 @@ export const Profile = () => {
   const handleFileChange = (e) => {
     if (e.target.files && e.target.files.length > 0) {
       const file = e.target.files[0];
-      setSelectedFile(file);
+      if (file.size > 1024 * 1024) {
+        // File size is greater than 1MB
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'El tamaño del archivo supera 1MB. Selecciona un archivo más pequeño.',
+        });
+        setSelectedFile(null);
+      } else {
+        setSelectedFile(file);
+      }
     }
   };
 
