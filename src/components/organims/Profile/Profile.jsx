@@ -1,20 +1,19 @@
 import { useState, useEffect } from 'react';
-import { useAuthStore, useForm } from '../../../hooks';
-import Swal from 'sweetalert2';
-import './Profile.css';
-import AddAPhotoIcon from '@mui/icons-material/AddAPhoto';
-import { ModalEditPhotoProfile } from '../../molecules/Modals/ModalEditPhotoProfile/ModalEditPhotoProfile';
 import { useNavigate } from 'react-router-dom';
-
+import Swal from 'sweetalert2';
+import AddAPhotoIcon from '@mui/icons-material/AddAPhoto';
+import { useAuthStore, useForm } from '../../../hooks';
+import { uploadFile } from '../../../hooks/useFirebase';
+import { ModalEditPhotoProfile } from '../../molecules/Modals/ModalEditPhotoProfile/ModalEditPhotoProfile';
 import { PrivateRoutes } from '../../../models/routes';
+import './Profile.css';
 
 export const Profile = () => {
   const { editInformationUser } = useAuthStore();
   const navigate = useNavigate();
 
-  const capitalizeFirstLetter = (string) => {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-  };
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedFile, setSelectedFile] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
 
   const [userData, setUserData] = useState({
@@ -39,7 +38,10 @@ export const Profile = () => {
     });
   }, []);
 
-  // Function to handle the change in the editing fields
+  const capitalizeFirstLetter = (string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  };
+
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setUserData((prevUserData) => ({
@@ -71,19 +73,15 @@ export const Profile = () => {
       cancelButtonText: 'Cancelar',
     }).then((result) => {
       if (result.isConfirmed) {
-        // If the user clicks "Yes, save changes", then save the changes
         handleSaveChanges();
       } else {
-        // If the user clicks "Cancel", exits edit mode without saving changes
         setIsEditing(false);
       }
     });
   };
-  // Function to save changes when clicking the "Save Changes" button
-  const handleSaveChanges = () => {
-    // Here you can perform actions to save the changes to the backend or to local storage (as localStorage)
-    const imageToSend = selectedFile ? selectedFile.name : null;
-    console.log(selectedFile);
+
+  const handleSaveChanges = async () => {
+    const imageToSend = selectedFile ? await uploadFile(selectedFile) : null;
 
     onRegisterInputChange;
     const userDataToUpdate = {
@@ -96,41 +94,54 @@ export const Profile = () => {
       city: city,
       image: imageToSend,
     };
+    try {
+      await editInformationUser(userDataToUpdate);
 
-    editInformationUser(userDataToUpdate)
-      .then(() => {
-        // Update information in localStorage after saving changes
-        localStorage.setItem('name', name);
-        localStorage.setItem('lastname', lastname);
-        localStorage.setItem('email', email);
-        localStorage.setItem('country', country);
-        localStorage.setItem('city', city);
-        localStorage.setItem('phone', phone);
-        localStorage.setItem('image', image);
+      localStorage.setItem('name', name);
+      localStorage.setItem('lastname', lastname);
+      localStorage.setItem('email', email);
+      localStorage.setItem('country', country);
+      localStorage.setItem('city', city);
+      localStorage.setItem('phone', phone);
+      localStorage.setItem('image', image);
 
-        setIsEditing(false);
-        Swal.fire(
-          'Cambios guardados',
-          'Los cambios en tu perfil han sido guardados exitosamente.',
-          'success'
-        );
-      })
-      .catch((error) => {
-        console.log('Error al guardar los cambios:', error);
-        Swal.fire(
-          'Error',
-          'Ocurrió un error al guardar los cambios. Por favor, intenta nuevamente.',
-          'error'
-        );
-      });
+      if (imageToSend) {
+        localStorage.setItem('image', imageToSend);
+
+        await uploadFile(selectedFile);
+      }
+
+      setIsEditing(false);
+      Swal.fire(
+        'Cambios guardados',
+        'Los cambios en tu perfil han sido guardados exitosamente.',
+        'success'
+      );
+    } catch (error) {
+      console.log('Error al guardar los cambios:', error);
+      Swal.fire(
+        'Error',
+        'Ocurrió un error al guardar los cambios. Por favor, intenta nuevamente.',
+        'error'
+      );
+    }
   };
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedFile, setSelectedFile] = useState(null);
-
   const handleFileChange = (e) => {
-    const file = e.target.files[0];
-    setSelectedFile(file);
+    if (e.target.files && e.target.files.length > 0) {
+      const file = e.target.files[0];
+      if (file.size > 1024 * 1024) {
+        // File size is greater than 1MB
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'El tamaño del archivo supera 1MB. Selecciona un archivo más pequeño.',
+        });
+        setSelectedFile(null);
+      } else {
+        setSelectedFile(file);
+      }
+    }
   };
 
   const navigateChangePassword = () => {
@@ -148,9 +159,13 @@ export const Profile = () => {
           onClick={() => setIsModalOpen(!isModalOpen)}
         >
           <img
-            src={"https://cdn2.hubspot.net/hubfs/53/Co%CC%81mo%20hacer%20una%20marca%20personal.jpg"}
-            alt="IMG-20230131-WA0037"
-            border="0"
+            src={
+              selectedFile
+                ? URL.createObjectURL(selectedFile)
+                : userData.image ||
+                  'http://somebooks.es/wp-content/uploads/2018/12/Poner-una-imagen-a-la-cuenta-de-usuario-en-Windows-10-000.png'
+            }
+            alt={selectedFile ? 'FOTO DE PERFIL' : ''}
             className="profile-user_img"
           />
 
@@ -182,8 +197,8 @@ export const Profile = () => {
                         accept="image/*"
                         className="modalEditProfile-inputUploadImage"
                         onChange={(e) => {
-                          handleInputChange(e); // Llama a la función handleInputChange
-                          setSelectedFile(e.target.files[0]); // Llama a la función setSelectedFile
+                          handleInputChange(e);
+                          setSelectedFile(e.target.files[0]);
                         }}
                         onClick={(e) => e.stopPropagation()}
                       />
