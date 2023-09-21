@@ -139,15 +139,16 @@ export const Profile = () => {
 
   return (
     <div className="profile-container">
-      <h2 className="profile-title">Información personal</h2>
-      <div className="profile-content">
+      <div className='container-img_title'>
+        <h2 className="profile-title">Información personal</h2>
+
         {/* -------------MODAL EDIT PHOTO PROFILE -------------*/}
         <div
           className="profile-container_img"
           onClick={() => setIsModalOpen(!isModalOpen)}
         >
           <img
-            src={userData.image}
+            src={"https://cdn2.hubspot.net/hubfs/53/Co%CC%81mo%20hacer%20una%20marca%20personal.jpg"}
             alt="IMG-20230131-WA0037"
             border="0"
             className="profile-user_img"
@@ -169,7 +170,7 @@ export const Profile = () => {
               <div className="modalEditProfile-content">
                 <form>
                   <label>
-                    <h1>Subir Imagen</h1>
+                    <h3 className='modalEditProfile-title'>Subir Imagen</h3>
                     <div className="custom-file-input">
                       <span className="file-input-label">
                         {selectedFile
@@ -203,6 +204,7 @@ export const Profile = () => {
             </ModalEditPhotoProfile>
           </div>
         </div>
+
         {/* -------------------- CLOSE MODAL EDIT PHOTO PROFILE------------------------- */}
         <div className="profile-container_info">
           {isEditing ? (
@@ -255,8 +257,8 @@ export const Profile = () => {
                 onChange={handleInputChange}
                 className="form-edit-profile"
               />
-
-              <button
+<div className='container-buttons'>
+<button
                 onClick={
                   isEditing ? showConfirmationModal : () => setIsEditing(true)
                 }
@@ -270,6 +272,8 @@ export const Profile = () => {
               >
                 Cancelar
               </button>
+</div>
+              
             </div>
           ) : (
             <>
