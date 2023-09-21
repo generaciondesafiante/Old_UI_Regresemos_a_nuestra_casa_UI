@@ -13,7 +13,7 @@ export const Carousel = () => {
 
   const following = () => {
     //Comprobamos que slideshow tenga elementos
-    if (slideshow.current.children.length > 0) {
+    if (slideshow.current && slideshow.current.children.length > 0) {
       //* we get the first element of slideshow
       const firstElement = slideshow.current.children[0];
 
