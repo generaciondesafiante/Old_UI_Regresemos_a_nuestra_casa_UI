@@ -7,9 +7,6 @@ import { uploadFile } from '../../../hooks/useFirebase';
 import { ModalEditPhotoProfile } from '../../molecules/Modals/ModalEditPhotoProfile/ModalEditPhotoProfile';
 import { PrivateRoutes } from '../../../models/routes';
 import './Profile.css';
-import { useNavigate } from 'react-router-dom';
-
-import { PrivateRoutes } from '../../../models/routes';
 
 export const Profile = () => {
   const { editInformationUser } = useAuthStore();
@@ -112,6 +109,7 @@ export const Profile = () => {
         localStorage.setItem('image', imageToSend);
 
         await uploadFile(selectedFile);
+        setSelectedFile(null);
       }
 
       setIsEditing(false);
@@ -145,10 +143,6 @@ export const Profile = () => {
         setSelectedFile(file);
       }
     }
-  };
-
-  const navigateChangePassword = () => {
-    navigate(`${PrivateRoutes.CHANGEPASSWORDPROFILE}`);
   };
 
   const navigateChangePassword = () => {
