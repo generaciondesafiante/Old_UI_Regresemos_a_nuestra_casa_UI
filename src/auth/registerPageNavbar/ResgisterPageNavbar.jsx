@@ -38,6 +38,11 @@ export const RegisterPageNavbar = () => {
     onInputChange: onRegisterInputChange,
   } = useForm(registerFormFields);
 
+  useEffect(() => {
+    if (errorMessage !== undefined)
+      Swal.fire('Este usuario ya tiene una cuenta', errorMessage, 'error');
+  }, [errorMessage]);
+
   const registerSubmit = (event) => {
     event.preventDefault();
     if (registerPassword !== registerPassword2) {
@@ -55,11 +60,6 @@ export const RegisterPageNavbar = () => {
       image: registerImage,
     });
   };
-
-  useEffect(() => {
-    if (errorMessage !== undefined)
-      Swal.fire('Este usuario ya tiene una cuenta', errorMessage, 'error');
-  }, [errorMessage]);
 
   return (
     <>
