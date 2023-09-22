@@ -1,6 +1,11 @@
 import { useState, useEffect } from 'react';
-import { useAuthStore, useForm } from '../../../hooks';
+import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import AddAPhotoIcon from '@mui/icons-material/AddAPhoto';
+import { useAuthStore, useForm } from '../../../hooks';
+import { uploadFile } from '../../../hooks/useFirebase';
+import { ModalEditPhotoProfile } from '../../molecules/Modals/ModalEditPhotoProfile/ModalEditPhotoProfile';
+import { PrivateRoutes } from '../../../models/routes';
 import './Profile.css';
 import { useNavigate } from 'react-router-dom';
 
@@ -10,9 +15,8 @@ export const Profile = () => {
   const { editInformationUser } = useAuthStore();
   const navigate = useNavigate();
 
-  const capitalizeFirstLetter = (string) => {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-  };
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedFile, setSelectedFile] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
 
   const [userData, setUserData] = useState({
@@ -22,6 +26,7 @@ export const Profile = () => {
     country: '',
     city: '',
     phone: '',
+    image: '',
   });
 
   useEffect(() => {
@@ -32,10 +37,14 @@ export const Profile = () => {
       country: capitalizeFirstLetter(localStorage.getItem('country') || ''),
       city: capitalizeFirstLetter(localStorage.getItem('city') || ''),
       phone: localStorage.getItem('phone') || '',
+      image: localStorage.getItem('image') || '',
     });
   }, []);
 
-  // Function to handle the change in the editing fields
+  const capitalizeFirstLetter = (string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  };
+
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setUserData((prevUserData) => ({
@@ -51,6 +60,8 @@ export const Profile = () => {
     phone,
     country,
     city,
+    image,
+
     onInputChange: onRegisterInputChange,
   } = useForm(userData);
   const showConfirmationModal = () => {
@@ -65,19 +76,18 @@ export const Profile = () => {
       cancelButtonText: 'Cancelar',
     }).then((result) => {
       if (result.isConfirmed) {
-        // If the user clicks "Yes, save changes", then save the changes
         handleSaveChanges();
       } else {
-        // If the user clicks "Cancel", exits edit mode without saving changes
         setIsEditing(false);
       }
     });
   };
-  // Function to save changes when clicking the "Save Changes" button
-  const handleSaveChanges = () => {
-    // Here you can perform actions to save the changes to the backend or to local storage (as localStorage)
+
+  const handleSaveChanges = async () => {
+    const imageToSend = selectedFile ? await uploadFile(selectedFile) : null;
+
     onRegisterInputChange;
-    editInformationUser({
+    const userDataToUpdate = {
       name: name,
       email: email,
       password: password,
@@ -85,31 +95,60 @@ export const Profile = () => {
       phone: phone,
       country: country,
       city: city,
-    })
-      .then(() => {
-        // Update information in localStorage after saving changes
-        localStorage.setItem('name', name);
-        localStorage.setItem('lastname', lastname);
-        localStorage.setItem('email', email);
-        localStorage.setItem('country', country);
-        localStorage.setItem('city', city);
-        localStorage.setItem('phone', phone);
+      image: imageToSend,
+    };
+    try {
+      await editInformationUser(userDataToUpdate);
 
-        setIsEditing(false);
-        Swal.fire(
-          'Cambios guardados',
-          'Los cambios en tu perfil han sido guardados exitosamente.',
-          'success'
-        );
-      })
-      .catch((error) => {
-        console.log('Error al guardar los cambios:', error);
-        Swal.fire(
-          'Error',
-          'Ocurrió un error al guardar los cambios. Por favor, intenta nuevamente.',
-          'error'
-        );
-      });
+      localStorage.setItem('name', name);
+      localStorage.setItem('lastname', lastname);
+      localStorage.setItem('email', email);
+      localStorage.setItem('country', country);
+      localStorage.setItem('city', city);
+      localStorage.setItem('phone', phone);
+      localStorage.setItem('image', image);
+
+      if (imageToSend) {
+        localStorage.setItem('image', imageToSend);
+
+        await uploadFile(selectedFile);
+      }
+
+      setIsEditing(false);
+      Swal.fire(
+        'Cambios guardados',
+        'Los cambios en tu perfil han sido guardados exitosamente.',
+        'success'
+      );
+    } catch (error) {
+      console.log('Error al guardar los cambios:', error);
+      Swal.fire(
+        'Error',
+        'Ocurrió un error al guardar los cambios. Por favor, intenta nuevamente.',
+        'error'
+      );
+    }
+  };
+
+  const handleFileChange = (e) => {
+    if (e.target.files && e.target.files.length > 0) {
+      const file = e.target.files[0];
+      if (file.size > 1024 * 1024) {
+        // File size is greater than 1MB
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'El tamaño del archivo supera 1MB. Selecciona un archivo más pequeño.',
+        });
+        setSelectedFile(null);
+      } else {
+        setSelectedFile(file);
+      }
+    }
+  };
+
+  const navigateChangePassword = () => {
+    navigate(`${PrivateRoutes.CHANGEPASSWORDPROFILE}`);
   };
 
   const navigateChangePassword = () => {
@@ -120,14 +159,73 @@ export const Profile = () => {
     <div className="profile-container">
       <h2 className="profile-title">Información personal</h2>
       <div className="profile-content">
-        <div className="profile-container_img">
+        {/* -------------MODAL EDIT PHOTO PROFILE -------------*/}
+        <div
+          className="profile-container_img"
+          onClick={() => setIsModalOpen(!isModalOpen)}
+        >
           <img
-            src="http://somebooks.es/wp-content/uploads/2018/12/Poner-una-imagen-a-la-cuenta-de-usuario-en-Windows-10-000.png "
-            alt="IMG-20230131-WA0037"
-            border="0"
+            src={
+              selectedFile
+                ? URL.createObjectURL(selectedFile)
+                : userData.image ||
+                  'http://somebooks.es/wp-content/uploads/2018/12/Poner-una-imagen-a-la-cuenta-de-usuario-en-Windows-10-000.png'
+            }
+            alt={selectedFile ? 'FOTO DE PERFIL' : ''}
             className="profile-user_img"
           />
+
+          <div
+            className="profile-container_addPhoto"
+            onClick={() => setIsModalOpen(!isModalOpen)}
+          >
+            <AddAPhotoIcon className="profile-add-photo_icon" />
+          </div>
+
+          <div>
+            <ModalEditPhotoProfile
+              openModalProfile={isModalOpen}
+              closeModalProfile={setIsModalOpen}
+              title="Agrega foto de perfil"
+            >
+              <div className="modalEditProfile-content">
+                <form>
+                  <label>
+                    <h1>Subir Imagen</h1>
+                    <div className="custom-file-input">
+                      <span className="file-input-label">
+                        {selectedFile
+                          ? `Has seleccionado el archivo: ${selectedFile.name}`
+                          : 'Seleccionar archivo'}
+                      </span>
+                      <input
+                        type="file"
+                        accept="image/*"
+                        className="modalEditProfile-inputUploadImage"
+                        onChange={(e) => {
+                          handleInputChange(e);
+                          setSelectedFile(e.target.files[0]);
+                        }}
+                        onClick={(e) => e.stopPropagation()}
+                      />
+                    </div>
+                  </label>
+
+                  <button
+                    onClick={(e) => {
+                      handleSaveChanges(e);
+                      handleFileChange(e);
+                    }}
+                    className="modalEditProfile-buttonAccept"
+                  >
+                    Guardar cambios
+                  </button>
+                </form>
+              </div>
+            </ModalEditPhotoProfile>
+          </div>
         </div>
+        {/* -------------------- CLOSE MODAL EDIT PHOTO PROFILE------------------------- */}
         <div className="profile-container_info">
           {isEditing ? (
             <div className="edit-input-profile">

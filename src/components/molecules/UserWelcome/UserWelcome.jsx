@@ -1,6 +1,5 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import './UserWelcome.css';
-import { useState } from 'react';
 
 export const UserWelcome = () => {
   const [name, setName] = useState('');

@@ -46,6 +46,7 @@ export const useAuthStore = () => {
       localStorage.setItem('phone', data.phone);
       localStorage.setItem('id', data.uid);
       localStorage.setItem('token', data.token);
+      localStorage.setItem('image', data.image);
       localStorage.setItem('token-init-date', new Date().getTime());
 
       dispatch(onLogin(data, data.token));
@@ -67,6 +68,7 @@ export const useAuthStore = () => {
     country,
     city,
     phone,
+    image,
   }) => {
     dispatch(onChecking());
 
@@ -81,6 +83,7 @@ export const useAuthStore = () => {
           city,
           lastname,
           phone,
+          image,
         },
         {
           headers: {
@@ -95,6 +98,7 @@ export const useAuthStore = () => {
       localStorage.setItem('country', data.country);
       localStorage.setItem('city', data.city);
       localStorage.setItem('phone', data.phone);
+      localStorage.setItem('image', data.image);
       window.localStorage.setItem('token', data.token);
 
       window.localStorage.setItem('token-init-date', new Date().getTime());
@@ -143,6 +147,7 @@ export const useAuthStore = () => {
     country,
     city,
     phone,
+    image,
   }) => {
     try {
       const { data } = await generacionApi.put(
@@ -155,6 +160,7 @@ export const useAuthStore = () => {
           city,
           lastname,
           phone,
+          image,
         },
         {
           headers: {
