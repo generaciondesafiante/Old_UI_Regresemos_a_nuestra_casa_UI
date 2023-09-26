@@ -7,9 +7,6 @@ import { uploadFile } from '../../../hooks/useFirebase';
 import { ModalEditPhotoProfile } from '../../molecules/Modals/ModalEditPhotoProfile/ModalEditPhotoProfile';
 import { PrivateRoutes } from '../../../models/routes';
 import './Profile.css';
-import { useNavigate } from 'react-router-dom';
-
-import { PrivateRoutes } from '../../../models/routes';
 
 export const Profile = () => {
   const { editInformationUser } = useAuthStore();
@@ -28,7 +25,14 @@ export const Profile = () => {
     phone: '',
     image: '',
   });
-
+  const [selectedImageUrl, setSelectedImageUrl] = useState(() => {
+    const storedImage = localStorage.getItem('image');
+    return (
+      storedImage ||
+      userData.image ||
+      'http://somebooks.es/wp-content/uploads/2018/12/Poner-una-imagen-a-la-cuenta-de-usuario-en-Windows-10-000.png'
+    );
+  });
   useEffect(() => {
     setUserData({
       name: capitalizeFirstLetter(localStorage.getItem('name') || ''),
@@ -64,6 +68,7 @@ export const Profile = () => {
 
     onInputChange: onRegisterInputChange,
   } = useForm(userData);
+
   const showConfirmationModal = () => {
     Swal.fire({
       title: '¿Estás seguro?',
@@ -108,13 +113,21 @@ export const Profile = () => {
       localStorage.setItem('phone', phone);
       localStorage.setItem('image', image);
 
+      // if (imageToSend) {
+      //   localStorage.setItem('image', imageToSend);
+
+      //   await uploadFile(selectedFile);
+      //   setSelectedFile(null);
+      // }
       if (imageToSend) {
         localStorage.setItem('image', imageToSend);
 
         await uploadFile(selectedFile);
         setSelectedFile(null);
-      }
 
+        // Update the selectedImageUrl with the newly uploaded image URL
+        setSelectedImageUrl(URL.createObjectURL(selectedFile));
+      }
       setIsEditing(false);
       Swal.fire(
         'Cambios guardados',
@@ -152,10 +165,6 @@ export const Profile = () => {
     navigate(`${PrivateRoutes.CHANGEPASSWORDPROFILE}`);
   };
 
-  const navigateChangePassword = () => {
-    navigate(`${PrivateRoutes.CHANGEPASSWORDPROFILE}`);
-  };
-
   return (
     <div className="profile-container">
       <h2 className="profile-title">Información personal</h2>
@@ -165,7 +174,7 @@ export const Profile = () => {
           className="profile-container_img"
           onClick={() => setIsModalOpen(!isModalOpen)}
         >
-          <img
+          {/* <img
             src={
               selectedFile
                 ? URL.createObjectURL(selectedFile)
@@ -174,8 +183,12 @@ export const Profile = () => {
             }
             alt={selectedFile ? 'FOTO DE PERFIL' : ''}
             className="profile-user_img"
+          /> */}
+          <img
+            src={selectedImageUrl}
+            alt={selectedFile ? 'FOTO DE PERFIL' : ''}
+            className="profile-user_img"
           />
-
           <div
             className="profile-container_addPhoto"
             onClick={() => setIsModalOpen(!isModalOpen)}
