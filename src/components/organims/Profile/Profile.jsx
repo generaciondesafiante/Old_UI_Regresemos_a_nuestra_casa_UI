@@ -112,6 +112,7 @@ export const Profile = () => {
         localStorage.setItem('image', imageToSend);
 
         await uploadFile(selectedFile);
+        setSelectedFile(null);
       }
 
       setIsEditing(false);
