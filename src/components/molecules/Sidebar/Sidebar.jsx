@@ -1,5 +1,5 @@
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-
 import {
   Bookmark,
   Face,
@@ -8,111 +8,117 @@ import {
   Home,
   Logout,
 } from '@mui/icons-material';
-
 import { PrivateRoutes, PublicRoutes } from '../../../models/routes';
 import { useAuthStore } from '../../../hooks/useAuthStore';
 import './Sidebar.css';
-import { useState } from 'react';
 
 export const Sidebar = () => {
-  const [isSelected, setIsSelected] = useState({
-    profile: false,
-    dashboard: true,
-    path: false,
-    resources: false,
-    favorites: false,
-  });
-  const { startLogout, status } = useAuthStore();
+  const { status, startLogout } = useAuthStore();
+  const [selectedOption, setSelectedOption] = useState('dashboard');
 
+  useEffect(() => {
+    const savedSelection = localStorage.getItem('selectedOption');
+    if (savedSelection) {
+      setSelectedOption(savedSelection);
+    }
+  }, []);
+
+  // Verificar si el usuario está autenticado
   if (status !== 'authenticated') {
-    return null;
+    return null; // No mostrar Sidebar si no está autenticado
   }
 
-  const handleSelectedOption = (optionSelected) => {
-    const state = {
-      profile: false,
-      dashboard: false,
-      path: false,
-      resources: false,
-      favorites: false,
-    };
-    setIsSelected({ ...state, ...optionSelected });
-  };
-
-  const updateClass = (condition) => {
-    return `${condition ? 'sidebar-sectionSelected' : ''}`;
+  const handleSelectedOption = (option) => {
+    setSelectedOption(option);
+    localStorage.setItem('selectedOption', option);
   };
 
   return (
     <div className="sidebar-container">
       <Link
-        onClick={() => handleSelectedOption({ profile: true })}
+        onClick={() => handleSelectedOption('profile')}
         to={PrivateRoutes.PROFILE}
       >
         <div
-          className={`sidebar-iconContainer ${updateClass(isSelected.profile)}`}
+          className={`sidebar-iconContainer ${
+            selectedOption === 'profile' ? 'sidebar-sectionSelected' : ''
+          }`}
         >
-          <Face className={`sidebar-icon ${updateClass(isSelected.profile)}`} />
+          <Face
+            className={`sidebar-icon ${
+              selectedOption === 'profile' ? 'sidebar-sectionSelected' : ''
+            }`}
+          />
         </div>
       </Link>
       <div className="sidebar-content_center">
         <Link
-          onClick={() => handleSelectedOption({ dashboard: true })}
+          onClick={() => handleSelectedOption('dashboard')}
           to={PrivateRoutes.DASHBOARD}
         >
           <div
-            className={`sidebar-iconContainer ${updateClass(
-              isSelected.dashboard
-            )}`}
+            className={`sidebar-iconContainer ${
+              selectedOption === 'dashboard' ? 'sidebar-sectionSelected' : ''
+            }`}
           >
             <Home
-              className={`sidebar-icon ${updateClass(isSelected.dashboard)}`}
+              className={`sidebar-icon ${
+                selectedOption === 'dashboard' ? 'sidebar-sectionSelected' : ''
+              }`}
             />
           </div>
         </Link>
         <Link
-          onClick={() => handleSelectedOption({ path: true })}
+          onClick={() => handleSelectedOption('path')}
           to={PrivateRoutes.PATH}
         >
           <div
-            className={`sidebar-iconContainer ${updateClass(isSelected.path)}`}
+            className={`sidebar-iconContainer ${
+              selectedOption === 'path' ? 'sidebar-sectionSelected' : ''
+            }`}
           >
             <Bookmark
-              className={`sidebar-icon ${updateClass(isSelected.path)}`}
+              className={`sidebar-icon ${
+                selectedOption === 'path' ? 'sidebar-sectionSelected' : ''
+              }`}
             />
           </div>
         </Link>
         <Link
-          onClick={() => handleSelectedOption({ resources: true })}
+          onClick={() => handleSelectedOption('resources')}
           to={PrivateRoutes.RESOURCE}
         >
           <div
-            className={`sidebar-iconContainer ${updateClass(
-              isSelected.resources
-            )}`}
+            className={`sidebar-iconContainer ${
+              selectedOption === 'resources' ? 'sidebar-sectionSelected' : ''
+            }`}
           >
             <Folder
-              className={`sidebar-icon ${updateClass(isSelected.resources)}`}
+              className={`sidebar-icon ${
+                selectedOption === 'resources' ? 'sidebar-sectionSelected' : ''
+              }`}
             />
           </div>
         </Link>
         <Link
-          onClick={() => handleSelectedOption({ favorites: true })}
+          onClick={() => handleSelectedOption('favorites')}
           to={PrivateRoutes.FAVORITE}
         >
           <div
-            className={`sidebar-iconContainer ${updateClass(
-              isSelected.favorites
-            )}`}
+            className={`sidebar-iconContainer ${
+              selectedOption === 'favorites' ? 'sidebar-sectionSelected' : ''
+            }`}
           >
             <Favorite
-              className={`sidebar-icon ${updateClass(isSelected.favorites)}`}
+              className={`sidebar-icon ${
+                selectedOption === 'favorites' ? 'sidebar-sectionSelected' : ''
+              }`}
             />
           </div>
         </Link>
       </div>
       <Link
-        onClick={() => handleSelectedOption({ dashboard: true })}
+        onClick={() => handleSelectedOption('dashboard')}
         to={PublicRoutes.HOME}
       >
         <div onClick={startLogout} className="sidebar-iconContainer">
