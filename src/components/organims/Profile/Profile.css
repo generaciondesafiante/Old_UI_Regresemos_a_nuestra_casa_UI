@@ -70,6 +70,8 @@
 }
 
 .file-input-label {
+  cursor: pointer;
+  display: inline-block;
   line-height: 1.5;
 }
 
