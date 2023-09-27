@@ -15,7 +15,7 @@ export const Profile = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedFile, setSelectedFile] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
-
+  const [originalUserData, setOriginalUserData] = useState({});
   const [userData, setUserData] = useState({
     name: '',
     email: '',
@@ -33,6 +33,10 @@ export const Profile = () => {
       'http://somebooks.es/wp-content/uploads/2018/12/Poner-una-imagen-a-la-cuenta-de-usuario-en-Windows-10-000.png'
     );
   });
+  useEffect(() => {
+    // Step 1 (continued): Save the initial user data when the component mounts
+    setOriginalUserData({ ...userData });
+  }, []);
   useEffect(() => {
     setUserData({
       name: capitalizeFirstLetter(localStorage.getItem('name') || ''),
@@ -113,12 +117,6 @@ export const Profile = () => {
       localStorage.setItem('phone', phone);
       localStorage.setItem('image', image);
 
-      // if (imageToSend) {
-      //   localStorage.setItem('image', imageToSend);
-
-      //   await uploadFile(selectedFile);
-      //   setSelectedFile(null);
-      // }
       if (imageToSend) {
         localStorage.setItem('image', imageToSend);
 
@@ -164,7 +162,11 @@ export const Profile = () => {
   const navigateChangePassword = () => {
     navigate(`${PrivateRoutes.CHANGEPASSWORDPROFILE}`);
   };
-
+  const restoreOriginalUserData = () => {
+    setUserData({ ...originalUserData }); // Restore user data
+    setSelectedFile(null); // Clear selected file
+    setIsEditing(false); // Exit edit mode
+  };
   return (
     <div className="profile-container">
       <h2 className="profile-title">Información personal</h2>
@@ -174,16 +176,6 @@ export const Profile = () => {
           className="profile-container_img"
           onClick={() => setIsModalOpen(!isModalOpen)}
         >
-          {/* <img
-            src={
-              selectedFile
-                ? URL.createObjectURL(selectedFile)
-                : userData.image ||
-                  'http://somebooks.es/wp-content/uploads/2018/12/Poner-una-imagen-a-la-cuenta-de-usuario-en-Windows-10-000.png'
-            }
-            alt={selectedFile ? 'FOTO DE PERFIL' : ''}
-            className="profile-user_img"
-          /> */}
           <img
             src={selectedImageUrl}
             alt={selectedFile ? 'FOTO DE PERFIL' : ''}
@@ -199,7 +191,11 @@ export const Profile = () => {
           <div>
             <ModalEditPhotoProfile
               openModalProfile={isModalOpen}
-              closeModalProfile={setIsModalOpen}
+              closeModalProfile={() => {
+                // Step 3: Use the restoreOriginalUserData function when the modal is closed
+                restoreOriginalUserData();
+                setIsModalOpen(false);
+              }}
               title="Agrega foto de perfil"
             >
               <div className="modalEditProfile-content">
