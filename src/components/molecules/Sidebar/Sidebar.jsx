@@ -23,9 +23,8 @@ export const Sidebar = () => {
     }
   }, []);
 
-  // Verificar si el usuario está autenticado
   if (status !== 'authenticated') {
-    return null; // No mostrar Sidebar si no está autenticado
+    return null;
   }
 
   const handleSelectedOption = (option) => {
