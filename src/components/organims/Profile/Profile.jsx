@@ -122,7 +122,9 @@ export const Profile = () => {
         // Update the selectedImageUrl with the newly uploaded image URL
         setSelectedImageUrl(URL.createObjectURL(selectedFile));
       }
+
       setIsEditing(false);
+
       Swal.fire(
         'Cambios guardados',
         'Los cambios en tu perfil han sido guardados exitosamente.',
@@ -186,7 +188,6 @@ export const Profile = () => {
               closeModalProfile={() => {
                 setIsModalOpen(false);
                 setSelectedFile(null);
-                setFileSelectedButNotSaved(false);
               }}
               title="Agrega foto de perfil"
             >
