@@ -185,6 +185,8 @@ export const Profile = () => {
               openModalProfile={isModalOpen}
               closeModalProfile={() => {
                 setIsModalOpen(false);
+                setSelectedFile(null);
+                setFileSelectedButNotSaved(false);
               }}
               title="Agrega foto de perfil"
             >
