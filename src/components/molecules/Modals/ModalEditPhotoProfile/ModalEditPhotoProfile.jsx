@@ -10,7 +10,10 @@ export const ModalEditPhotoProfile = ({
   return (
     <>
       {openModalProfile && (
-        <div className="modalEditProfile-overlay">
+        <div
+          className="modalEditProfile-overlay"
+          onClick={() => closeModalProfile(false)}
+        >
           <div className="modalEditProfile-container">
             <div className="modalEditProfile-title">
               <h3>{title}</h3>

@@ -28,8 +28,7 @@ export const Path = ({ coursesData, setCoursesData, setCurrentCourseURL }) => {
           coursesData.courses &&
           coursesData.courses.map((course, index) => {
             const isSingleCourse = coursesData.courses.length === 1;
-            
-            
+
             return (
               <div key={index} className="path-border">
                 {index === 0 ? (
