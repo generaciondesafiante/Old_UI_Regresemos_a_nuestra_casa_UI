@@ -15,9 +15,7 @@ export const ModalEditPhotoProfile = ({
           onClick={() => closeModalProfile(false)}
         >
           <div className="modalEditProfile-container">
-            <div className="modalEditProfile-title">
-              <h3>{title}</h3>
-            </div>
+            <h3 className="modalEditProfile-title">{title}</h3>
             <button onClick={() => closeModalProfile(false)}>
               <CloseIcon className="modalEditProfile-iconClose" />
             </button>

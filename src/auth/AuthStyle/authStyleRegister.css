@@ -1,9 +1,5 @@
 .form-register {
-  background-image: linear-gradient(
-      0deg,
-      rgba(41, 56, 75, 0.9),
-      rgba(41, 56, 75, 0.9)
-    ),
+  background-image: linear-gradient(0deg, #29384be6, #29384be6),
     url('https://i.imgur.com/giBenIE.png');
   background-size: cover;
   display: flex;

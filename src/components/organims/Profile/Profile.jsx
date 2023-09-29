@@ -163,13 +163,10 @@ export const Profile = () => {
 
   return (
     <div className="profile-container">
-      <h2 className="profile-title">Información personal</h2>
-      <div className="profile-content">
+      <div className="profileContainer-title_img">
+        <h2 className="profile-title">Información personal</h2>
         {/* -------------MODAL EDIT PHOTO PROFILE -------------*/}
-        <div
-          className="profile-container_img"
-          onClick={() => setIsModalOpen(!isModalOpen)}
-        >
+        <div className="profile-container_img">
           <img
             src={selectedImageUrl}
             alt={selectedFile ? 'FOTO DE PERFIL' : ''}
@@ -191,163 +188,162 @@ export const Profile = () => {
               }}
               title="Agrega foto de perfil"
             >
-              <div className="modalEditProfile-content">
-                <form>
-                  <label>
-                    <h1>Subir Imagen</h1>
-                    <div className="custom-file-input">
-                      <span className="file-input-label">
-                        {selectedFile
-                          ? `Has seleccionado el archivo: ${selectedFile.name}`
-                          : 'Seleccionar archivo'}
-                      </span>
-                      <input
-                        type="file"
-                        accept="image/*"
-                        className="modalEditProfile-inputUploadImage"
-                        onChange={(e) => {
-                          handleInputChange(e);
-                          setSelectedFile(e.target.files[0]);
-                        }}
-                        onClick={(e) => e.stopPropagation()}
-                      />
-                    </div>
-                  </label>
+              <form className="modalEditImg-content">
+                <h3 className="modalEditImg-title">Subir Imagen</h3>
 
-                  <button
-                    onClick={(e) => {
-                      handleSaveChanges(e);
-                      handleFileChange(e);
+                <div className="custom-file-input">
+                  <span className="file-input-label">
+                    {selectedFile
+                      ? `Has seleccionado el archivo: ${selectedFile.name}`
+                      : 'Seleccionar archivo'}
+                  </span>
+                  <input
+                    type="file"
+                    accept="image/*"
+                    className="modalEditImg-inputUploadImage"
+                    onChange={(e) => {
+                      handleInputChange(e);
+                      setSelectedFile(e.target.files[0]);
                     }}
-                    className="modalEditProfile-buttonAccept"
-                  >
-                    Guardar cambios
-                  </button>
-                </form>
-              </div>
+                    onClick={(e) => e.stopPropagation()}
+                  />
+                </div>
+                <button
+                  onClick={(e) => {
+                    handleSaveChanges(e);
+                    handleFileChange(e);
+                  }}
+                  className="modalEditImg-buttonAccept"
+                >
+                  Guardar cambios
+                </button>
+              </form>
             </ModalEditPhotoProfile>
           </div>
         </div>
         {/* -------------------- CLOSE MODAL EDIT PHOTO PROFILE------------------------- */}
-        <div className="profile-container_info">
-          {isEditing ? (
-            <div className="edit-input-profile">
-              <h3 className="profile-info_title">Nombres</h3>
-              <input
-                type="text"
-                name="name"
-                value={userData.name}
-                onChange={handleInputChange}
-                className="form-edit-profile"
-              />
-              <h3 className="profile-info_title">Apellidos</h3>
-              <input
-                type="text"
-                name="lastname"
-                value={userData.lastname}
-                onChange={handleInputChange}
-                className="form-edit-profile"
-              />
-              <h3 className="profile-info_title">Correo electrónico</h3>
-              <input
-                type="email"
-                name="email"
-                value={userData.email}
-                onChange={handleInputChange}
-                className="form-edit-profile"
-              />
-              <h3 className="profile-info_title">País</h3>
-              <input
-                type="country"
-                name="country"
-                value={userData.country}
-                onChange={handleInputChange}
-                className="form-edit-profile"
-              />
-              <h3 className="profile-info_title">Ciudad</h3>
-              <input
-                type="city"
-                name="city"
-                value={userData.city}
-                onChange={handleInputChange}
-                className="form-edit-profile"
-              />
-              <h3 className="profile-info_title">Teléfono</h3>
-              <input
-                type="phone"
-                name="phone"
-                value={userData.phone}
-                onChange={handleInputChange}
-                className="form-edit-profile"
-              />
+      </div>
 
+      <div className="profile-container_info">
+        {isEditing ? (
+          <div className="profile-content_editInformation">
+            <h3 className="profile-info_title">Nombres</h3>
+            <input
+              type="text"
+              name="name"
+              value={userData.name}
+              onChange={handleInputChange}
+              className="profile-input_editInfromation"
+            />
+            <h3 className="profile-info_title">Apellidos</h3>
+            <input
+              type="text"
+              name="lastname"
+              value={userData.lastname}
+              onChange={handleInputChange}
+              className="profile-input_editInfromation"
+            />
+            <h3 className="profile-info_title">Correo electrónico</h3>
+            <input
+              type="email"
+              name="email"
+              value={userData.email}
+              onChange={handleInputChange}
+              className="profile-input_editInfromation"
+            />
+            <h3 className="profile-info_title">País</h3>
+            <input
+              type="country"
+              name="country"
+              value={userData.country}
+              onChange={handleInputChange}
+              className="profile-input_editInfromation"
+            />
+            <h3 className="profile-info_title">Ciudad</h3>
+            <input
+              type="city"
+              name="city"
+              value={userData.city}
+              onChange={handleInputChange}
+              className="profile-input_editInfromation"
+            />
+            <h3 className="profile-info_title">Teléfono</h3>
+            <input
+              type="phone"
+              name="phone"
+              value={userData.phone}
+              onChange={handleInputChange}
+              className="profile-input_editInfromation"
+            />
+            <div className="container-buttons">
               <button
                 onClick={
                   isEditing ? showConfirmationModal : () => setIsEditing(true)
                 }
-                className="profile-user_changeInfo_btn"
+                className="profile-saveChange_btn"
               >
-                Guardar cambios
+                Guardar
               </button>
               <button
                 onClick={() => setIsEditing(false)}
-                className="profile-user_changeInfo_btn goOut-profile"
+                className="profile-saveChange_btn profile-cancel_btn"
               >
                 Cancelar
               </button>
             </div>
-          ) : (
-            <>
-              <div className="viewDesktop_profile">
-                <h3 className="profile-info_title">Nombres</h3>
-                <p className="profile-user_personalInfo">{userData.name}</p>
-              </div>
-              <div className="viewDesktop_profile">
-                <h3 className="profile-info_title">Apellidos</h3>
-                <p className="profile-user_personalInfo">{userData.lastname}</p>
-              </div>
-              <div className="viewDesktop_profile">
-                <h3 className="profile-info_title">Correo electrónico</h3>
-                <p className="profile-user_personalInfo">{userData.email}</p>
-              </div>
-              <div className="viewDesktop_profile">
-                <h3 className="profile-info_title">País</h3>
-                <p className="profile-user_personalInfo">{userData.country}</p>
-              </div>
-              <div className="viewDesktop_profile">
-                <h3 className="profile-info_title">Ciudad</h3>
-                <p className="profile-user_personalInfo">{userData.city}</p>
-              </div>
-              <div
-                className="phone-information"
-                style={{ display: userData.phone !== null ? 'block' : 'none' }}
+          </div>
+        ) : (
+          <div>
+            <div className="viewDesktop_profile">
+              <h3 className="profile-info_title">Nombres</h3>
+              <p className="profile-user_personalInfo">{userData.name}</p>
+            </div>
+            <div className="viewDesktop_profile">
+              <h3 className="profile-info_title">Apellidos</h3>
+              <p className="profile-user_personalInfo">{userData.lastname}</p>
+            </div>
+            <div className="viewDesktop_profile">
+              <h3 className="profile-info_title">Correo electrónico</h3>
+              <p className="profile-user_personalInfo">{userData.email}</p>
+            </div>
+            <div className="viewDesktop_profile">
+              <h3 className="profile-info_title">País</h3>
+              <p className="profile-user_personalInfo">{userData.country}</p>
+            </div>
+            <div className="viewDesktop_profile">
+              <h3 className="profile-info_title">Ciudad</h3>
+              <p className="profile-user_personalInfo">{userData.city}</p>
+            </div>
+            <div
+              className="viewDesktop_profile"
+              style={{ display: userData.phone !== null ? 'block' : 'none' }}
+            >
+              <h3 className="profile-info_title">Teléfono</h3>
+              <p
+                className="profile-user_personalInfo"
+                style={{
+                  display: userData.phone !== null ? 'block' : 'none',
+                }}
               >
-                <h3 className="profile-info_title">Teléfono</h3>
-                <p
-                  className="profile-user_personalInfo"
-                  style={{
-                    display: userData.phone !== null ? 'block' : 'none',
-                  }}
-                >
-                  {userData.phone}
-                </p>
-              </div>
-
+                {userData.phone}
+              </p>
+            </div>
+            <div className="profile-container_buttons">
               <button
                 onClick={() => setIsEditing(true)}
-                className="profile-user_changeInfo_btn"
+                className="profile-btn"
               >
                 Editar perfil
               </button>
               <buttom
-                className="profile-user_changeInfo_btn"
+                className="profile-btn"
                 onClick={() => navigateChangePassword()}
               >
                 Cambiar contraseña
               </buttom>
-            </>
-          )}
-        </div>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
