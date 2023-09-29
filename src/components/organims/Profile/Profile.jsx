@@ -15,7 +15,6 @@ export const Profile = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedFile, setSelectedFile] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
-
   const [userData, setUserData] = useState({
     name: '',
     email: '',
@@ -24,6 +23,14 @@ export const Profile = () => {
     city: '',
     phone: '',
     image: '',
+  });
+  const [selectedImageUrl, setSelectedImageUrl] = useState(() => {
+    const storedImage = localStorage.getItem('image');
+    return (
+      storedImage ||
+      userData.image ||
+      'http://somebooks.es/wp-content/uploads/2018/12/Poner-una-imagen-a-la-cuenta-de-usuario-en-Windows-10-000.png'
+    );
   });
 
   useEffect(() => {
@@ -61,6 +68,7 @@ export const Profile = () => {
 
     onInputChange: onRegisterInputChange,
   } = useForm(userData);
+
   const showConfirmationModal = () => {
     Swal.fire({
       title: '¿Estás seguro?',
@@ -110,9 +118,13 @@ export const Profile = () => {
 
         await uploadFile(selectedFile);
         setSelectedFile(null);
+
+        // Update the selectedImageUrl with the newly uploaded image URL
+        setSelectedImageUrl(URL.createObjectURL(selectedFile));
       }
 
       setIsEditing(false);
+
       Swal.fire(
         'Cambios guardados',
         'Los cambios en tu perfil han sido guardados exitosamente.',
@@ -159,15 +171,10 @@ export const Profile = () => {
 
         >
           <img
-            src={
-              selectedFile
-                ? URL.createObjectURL(selectedFile)
-                : userData.image
-            }
+            src={selectedImageUrl}
             alt={selectedFile ? 'FOTO DE PERFIL' : ''}
             className="profile-user_img"
           />
-
           <div
             className="profile-container_addPhoto"
             onClick={() => setIsModalOpen(!isModalOpen)}
@@ -178,7 +185,10 @@ export const Profile = () => {
           <div>
             <ModalEditPhotoProfile
               openModalProfile={isModalOpen}
-              closeModalProfile={setIsModalOpen}
+              closeModalProfile={() => {
+                setIsModalOpen(false);
+                setSelectedFile(null);
+              }}
               title="Agrega foto de perfil"
             >
               <form className="modalEditImg-content">
