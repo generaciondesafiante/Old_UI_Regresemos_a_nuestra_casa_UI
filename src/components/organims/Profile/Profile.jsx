@@ -162,14 +162,11 @@ export const Profile = () => {
   };
 
   return (
-    <div className='profile-container'>
-      <div className='profileContainer-title_img'>
+    <div className="profile-container">
+      <div className="profileContainer-title_img">
         <h2 className="profile-title">Información personal</h2>
         {/* -------------MODAL EDIT PHOTO PROFILE -------------*/}
-        <div
-          className="profile-container_img"
-
-        >
+        <div className="profile-container_img">
           <img
             src={selectedImageUrl}
             alt={selectedFile ? 'FOTO DE PERFIL' : ''}
@@ -192,9 +189,7 @@ export const Profile = () => {
               title="Agrega foto de perfil"
             >
               <form className="modalEditImg-content">
-                <h3 className='modalEditImg-title'>Subir Imagen</h3>
-
-
+                <h3 className="modalEditImg-title">Subir Imagen</h3>
 
                 <div className="custom-file-input">
                   <span className="file-input-label">
@@ -222,7 +217,6 @@ export const Profile = () => {
                 >
                   Guardar cambios
                 </button>
-
               </form>
             </ModalEditPhotoProfile>
           </div>
@@ -281,7 +275,7 @@ export const Profile = () => {
               onChange={handleInputChange}
               className="profile-input_editInfromation"
             />
-            <div className='container-buttons'>
+            <div className="container-buttons">
               <button
                 onClick={
                   isEditing ? showConfirmationModal : () => setIsEditing(true)
@@ -297,7 +291,6 @@ export const Profile = () => {
                 Cancelar
               </button>
             </div>
-
           </div>
         ) : (
           <div>
@@ -335,7 +328,7 @@ export const Profile = () => {
                 {userData.phone}
               </p>
             </div>
-            <div className='profile-container_buttons'>
+            <div className="profile-container_buttons">
               <button
                 onClick={() => setIsEditing(true)}
                 className="profile-btn"
@@ -353,6 +346,5 @@ export const Profile = () => {
         )}
       </div>
     </div>
-
   );
 };

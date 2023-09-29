@@ -55,7 +55,6 @@
   top: 0.2rem;
 }
 
-
 .modalEditImg-title {
   font-size: 1.3rem;
   color: var(--darkBlue);
@@ -294,7 +293,6 @@
   .profile-input_editInfromation {
     font-size: 1rem;
   }
-
 
   .profile-user_personalInfo {
     color: var(--black);
