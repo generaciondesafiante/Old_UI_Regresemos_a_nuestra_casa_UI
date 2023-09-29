@@ -162,8 +162,7 @@ export const Profile = () => {
             src={
               selectedFile
                 ? URL.createObjectURL(selectedFile)
-                : userData.image ||
-                'http://somebooks.es/wp-content/uploads/2018/12/Poner-una-imagen-a-la-cuenta-de-usuario-en-Windows-10-000.png'
+                : userData.image
             }
             alt={selectedFile ? 'FOTO DE PERFIL' : ''}
             className="profile-user_img"
@@ -183,27 +182,27 @@ export const Profile = () => {
               title="Agrega foto de perfil"
             >
               <form className="modalEditImg-content">
-                  <h3 className='modalEditImg-title'>Subir Imagen</h3>
-            
+                <h3 className='modalEditImg-title'>Subir Imagen</h3>
 
-                  
-                  <div className="custom-file-input">
-                    <span className="file-input-label">
-                      {selectedFile
-                        ? `Has seleccionado el archivo: ${selectedFile.name}`
-                        : 'Seleccionar archivo'}
-                    </span>
-                    <input
-                      type="file"
-                      accept="image/*"
-                      className="modalEditImg-inputUploadImage"
-                      onChange={(e) => {
-                        handleInputChange(e);
-                        setSelectedFile(e.target.files[0]);
-                      }}
-                      onClick={(e) => e.stopPropagation()}
-                    />
-                  </div>
+
+
+                <div className="custom-file-input">
+                  <span className="file-input-label">
+                    {selectedFile
+                      ? `Has seleccionado el archivo: ${selectedFile.name}`
+                      : 'Seleccionar archivo'}
+                  </span>
+                  <input
+                    type="file"
+                    accept="image/*"
+                    className="modalEditImg-inputUploadImage"
+                    onChange={(e) => {
+                      handleInputChange(e);
+                      setSelectedFile(e.target.files[0]);
+                    }}
+                    onClick={(e) => e.stopPropagation()}
+                  />
+                </div>
                 <button
                   onClick={(e) => {
                     handleSaveChanges(e);
@@ -213,7 +212,7 @@ export const Profile = () => {
                 >
                   Guardar cambios
                 </button>
-              
+
               </form>
             </ModalEditPhotoProfile>
           </div>

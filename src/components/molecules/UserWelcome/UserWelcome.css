@@ -7,7 +7,7 @@
   padding: 0.8rem;
   border: 0.06rem solid rgb(255, 255, 255);
   border-radius: 1rem;
-  box-shadow: 0.2rem 0.06rem 0.2rem 0.3rem rgba(123, 123, 123, 0.2);
+  box-shadow: 0.2rem 0.06rem 0.2rem 0.3rem #7b7b7b33;
 }
 
 .userWelcome-title {

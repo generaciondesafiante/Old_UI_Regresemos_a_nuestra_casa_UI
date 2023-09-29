@@ -17,7 +17,7 @@
   padding: 1.2rem;
   background: var(--white);
   border-radius: 0.8rem;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  box-shadow: #64646f33 0px 7px 29px 0px;
 }
 
 .modalEditProfile-title {
