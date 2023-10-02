@@ -335,12 +335,12 @@ export const Profile = () => {
               >
                 Editar perfil
               </button>
-              <buttom
+              <button
                 className="profile-btn"
                 onClick={() => navigateChangePassword()}
               >
                 Cambiar contraseña
-              </buttom>
+              </button>
             </div>
           </div>
         )}
