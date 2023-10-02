@@ -1,9 +1,11 @@
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import Swal from 'sweetalert2';
 import { useAuthStore, useForm } from '../../../hooks';
 import { clearErrorMessage } from '../../../store/auth/authSlice';
-import Swal from 'sweetalert2';
 import { Input } from '../../atoms/Input/Input';
+import { PrivateRoutes } from '../../../models/routes';
 import './ChangePasswordProfile.css';
 
 const validatePasswordForm = {
@@ -145,9 +147,21 @@ export const ChangePasswordProfile = () => {
           labelColor={'#b5b5b5'}
           isRequire={true}
         />
-        <button type="submit" className="form-login-btn">
-          Cambiar Contraseña
-        </button>
+        <div className="container-button-change">
+          <button
+            type="submit"
+            className="form-changePassword-btns button-changePassword-submit"
+          >
+            Cambiar Contraseña
+          </button>
+
+          <Link
+            to={PrivateRoutes.PROFILE}
+            className="form-changePassword-btns button-changePassword-danger"
+          >
+            Cancelar
+          </Link>
+        </div>
       </form>
     </div>
   );

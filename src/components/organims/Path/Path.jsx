@@ -10,7 +10,7 @@ export const Path = ({ coursesData, setCoursesData, setCurrentCourseURL }) => {
     const idVideo = course.currentVideo ? course.currentVideo : 1;
     const endpoint = `${course.endpoint}/${idVideo}`;
     setCurrentCourseURL(endpoint);
-    const courseUpdated = coursesData.course.map((courseData) => {
+    const courseUpdated = coursesData.courses.map((courseData) => {
       if (courseData === course) {
         return { ...courseData, currentVideo: idVideo };
       } else {
@@ -25,9 +25,10 @@ export const Path = ({ coursesData, setCoursesData, setCurrentCourseURL }) => {
     <div className="path-container">
       <div className="path-content">
         {coursesData &&
-          coursesData.course &&
-          coursesData.course.map((course, index) => {
-            const isSingleCourse = coursesData.course.length === 1;
+          coursesData.courses &&
+          coursesData.courses.map((course, index) => {
+            const isSingleCourse = coursesData.courses.length === 1;
+
             return (
               <div key={index} className="path-border">
                 {index === 0 ? (
@@ -39,7 +40,7 @@ export const Path = ({ coursesData, setCoursesData, setCurrentCourseURL }) => {
                 ) : (
                   ''
                 )}
-                {index === coursesData.course.length - 1 && !isSingleCourse ? (
+                {index === coursesData.courses.length - 1 && !isSingleCourse ? (
                   <img
                     className="path-img_flag flag-end"
                     src="https://i.imgur.com/8cfdvwv.png"
